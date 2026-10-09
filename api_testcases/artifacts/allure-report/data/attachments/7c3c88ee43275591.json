@@ -1,0 +1,10 @@
+{
+ "url": "http://111.170.33.2:60085/admin/permissions/2107384190103781377",
+ "method": "DELETE",
+ "http": 200,
+ "body": {
+  "code": 0,
+  "msg": "success",
+  "traceId": "16172d59860e4b21a44f6f8ef3bcb4dd"
+ }
+}

@@ -1,0 +1,8 @@
+{
+  "case_id": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_API_ADDRESSES-001]",
+  "phase": "call",
+  "outcome": "failed",
+  "timestamp": "2026-10-06T03:56:20.016921+00:00",
+  "longrepr": "tests/contract/test_inventory_driven.py:214: in test_inventory_case\n    assert ok, f\"[{cid}] {detail}\"\nE   AssertionError: [GET_API_ADDRESSES-001] HTTP 期望 200 实际 500｜body={'code': 50000, 'msg': '系统异常', 'traceId': '30c72ab0b6e641c1a0617af270506ea2'}\nE   assert False",
+  "request_response": null
+}

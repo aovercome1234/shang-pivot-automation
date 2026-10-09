@@ -1,0 +1,10 @@
+{
+ "url": "http://127.0.0.1:8096/admin/dict-items",
+ "method": "POST",
+ "http": 200,
+ "body": {
+  "code": 0,
+  "msg": "success",
+  "traceId": "447b0a3d630845fe9e7a8c3c9ff6eb6b"
+ }
+}

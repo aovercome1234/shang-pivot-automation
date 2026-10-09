@@ -1,0 +1,292 @@
+{
+ "batch_size": 47,
+ "counts": {
+  "ok": 40,
+  "unverifiable": 6,
+  "blocked": 1
+ },
+ "results": [
+  {
+   "case_id": "POST_ADMIN_AFTER_SALES_ID_AUDIT-001",
+   "after_rerun": "failed",
+   "verdict": "ok",
+   "note": "用例预期已核对与源码/契约一致；失败归因被测系统缺陷或链路阻断（非测试资产问题）"
+  },
+  {
+   "case_id": "POST_ADMIN_AFTER_SALES_ID_AUDIT-004",
+   "after_rerun": "failed",
+   "verdict": "ok",
+   "note": "用例预期已核对与源码/契约一致；失败归因被测系统缺陷或链路阻断（非测试资产问题）"
+  },
+  {
+   "case_id": "POST_ADMIN_ATTRIBUTES-001",
+   "after_rerun": "failed",
+   "verdict": "ok",
+   "note": "用例预期已核对与源码/契约一致；失败归因被测系统缺陷或链路阻断（非测试资产问题）"
+  },
+  {
+   "case_id": "POST_ADMIN_ATTRIBUTES-003",
+   "after_rerun": "未收集",
+   "verdict": "ok",
+   "note": "用例预期正确，失败归因源码缺陷 → 禅道 Bug #14"
+  },
+  {
+   "case_id": "POST_ADMIN_ATTRIBUTES-004",
+   "after_rerun": "failed",
+   "verdict": "ok",
+   "note": "用例预期已核对与源码/契约一致；失败归因被测系统缺陷或链路阻断（非测试资产问题）"
+  },
+  {
+   "case_id": "POST_ADMIN_CATEGORIES-003",
+   "after_rerun": "未收集",
+   "verdict": "ok",
+   "note": "用例预期正确，失败归因源码缺陷 → 禅道 Bug #15"
+  },
+  {
+   "case_id": "POST_ADMIN_DEPTS-003",
+   "after_rerun": "未收集",
+   "verdict": "ok",
+   "note": "用例预期正确，失败归因源码缺陷 → 禅道 Bug #16"
+  },
+  {
+   "case_id": "GET_ADMIN_DICT_ITEMS-003",
+   "after_rerun": "failed",
+   "verdict": "ok",
+   "note": "用例预期已核对与源码/契约一致；失败归因被测系统缺陷或链路阻断（非测试资产问题）"
+  },
+  {
+   "case_id": "POST_ADMIN_DICT_ITEMS-003",
+   "after_rerun": "未收集",
+   "verdict": "ok",
+   "note": "用例预期正确，失败归因源码缺陷 → 禅道 Bug #17"
+  },
+  {
+   "case_id": "GET_ADMIN_DICT_ITEMS_BY_CODE-003",
+   "after_rerun": "failed",
+   "verdict": "ok",
+   "note": "用例预期已核对与源码/契约一致；失败归因被测系统缺陷或链路阻断（非测试资产问题）"
+  },
+  {
+   "case_id": "POST_ADMIN_DICTS-004",
+   "after_rerun": "failed",
+   "verdict": "ok",
+   "note": "用例预期正确，失败归因源码缺陷 → 禅道 Bug #20"
+  },
+  {
+   "case_id": "GET_ADMIN_FILES_VIEW-001",
+   "after_rerun": "skipped",
+   "verdict": "unverifiable",
+   "note": "环境缺口：对象存储未部署（本轮不部署，下轮重跑）"
+  },
+  {
+   "case_id": "GET_ADMIN_FILES_VIEW-003",
+   "after_rerun": "skipped",
+   "verdict": "unverifiable",
+   "note": "环境缺口：对象存储未部署（本轮不部署，下轮重跑）"
+  },
+  {
+   "case_id": "POST_ADMIN_IN_OUT-001",
+   "after_rerun": "failed",
+   "verdict": "ok",
+   "note": "用例预期已核对与源码/契约一致；失败归因被测系统缺陷或链路阻断（非测试资产问题）"
+  },
+  {
+   "case_id": "POST_ADMIN_IN_OUT-004",
+   "after_rerun": "failed",
+   "verdict": "ok",
+   "note": "用例预期已核对与源码/契约一致；失败归因被测系统缺陷或链路阻断（非测试资产问题）"
+  },
+  {
+   "case_id": "POST_ADMIN_ORDERS_ID_SHIP-001",
+   "after_rerun": "failed",
+   "verdict": "ok",
+   "note": "用例预期已核对与源码/契约一致；失败归因被测系统缺陷或链路阻断（非测试资产问题）"
+  },
+  {
+   "case_id": "POST_ADMIN_ORDERS_ID_SHIP-004",
+   "after_rerun": "failed",
+   "verdict": "ok",
+   "note": "用例预期已核对与源码/契约一致；失败归因被测系统缺陷或链路阻断（非测试资产问题）"
+  },
+  {
+   "case_id": "POST_ADMIN_PERMISSIONS-003",
+   "after_rerun": "未收集",
+   "verdict": "ok",
+   "note": "用例预期正确，失败归因源码缺陷 → 禅道 Bug #18"
+  },
+  {
+   "case_id": "POST_ADMIN_PRODUCTS-001",
+   "after_rerun": "failed",
+   "verdict": "ok",
+   "note": "用例预期已核对与源码/契约一致；失败归因被测系统缺陷或链路阻断（非测试资产问题）"
+  },
+  {
+   "case_id": "POST_ADMIN_PRODUCTS-004",
+   "after_rerun": "failed",
+   "verdict": "ok",
+   "note": "用例预期已核对与源码/契约一致；失败归因被测系统缺陷或链路阻断（非测试资产问题）"
+  },
+  {
+   "case_id": "POST_ADMIN_ROLES-001",
+   "after_rerun": "failed",
+   "verdict": "ok",
+   "note": "用例预期已核对与源码/契约一致；失败归因被测系统缺陷或链路阻断（非测试资产问题）"
+  },
+  {
+   "case_id": "POST_ADMIN_ROLES-004",
+   "after_rerun": "failed",
+   "verdict": "ok",
+   "note": "用例预期已核对与源码/契约一致；失败归因被测系统缺陷或链路阻断（非测试资产问题）"
+  },
+  {
+   "case_id": "POST_ADMIN_USERS-001",
+   "after_rerun": "failed",
+   "verdict": "ok",
+   "note": "用例预期已核对与源码/契约一致；失败归因被测系统缺陷或链路阻断（非测试资产问题）"
+  },
+  {
+   "case_id": "POST_ADMIN_USERS-004",
+   "after_rerun": "failed",
+   "verdict": "ok",
+   "note": "用例预期已核对与源码/契约一致；失败归因被测系统缺陷或链路阻断（非测试资产问题）"
+  },
+  {
+   "case_id": "POST_ADMIN_WAREHOUSES-003",
+   "after_rerun": "未收集",
+   "verdict": "ok",
+   "note": "用例预期正确，失败归因源码缺陷 → 禅道 Bug #19"
+  },
+  {
+   "case_id": "POST_API_FILES_PRESIGN-001",
+   "after_rerun": "skipped",
+   "verdict": "unverifiable",
+   "note": "环境缺口：对象存储未部署（本轮不部署，下轮重跑）"
+  },
+  {
+   "case_id": "POST_API_FILES_PRESIGN-004",
+   "after_rerun": "skipped",
+   "verdict": "unverifiable",
+   "note": "环境缺口：对象存储未部署（本轮不部署，下轮重跑）"
+  },
+  {
+   "case_id": "GET_API_FILES_VIEW-001",
+   "after_rerun": "skipped",
+   "verdict": "unverifiable",
+   "note": "环境缺口：对象存储未部署（本轮不部署，下轮重跑）"
+  },
+  {
+   "case_id": "GET_API_FILES_VIEW-003",
+   "after_rerun": "skipped",
+   "verdict": "unverifiable",
+   "note": "环境缺口：对象存储未部署（本轮不部署，下轮重跑）"
+  },
+  {
+   "case_id": "POST_API_ORDERS_ID_CANCEL-004",
+   "after_rerun": "passed",
+   "verdict": "ok",
+   "note": "用例预期正确，失败归因源码缺陷 → 禅道 Bug #21"
+  },
+  {
+   "case_id": "POST_API_ORDERS_ID_CONFIRM-001",
+   "after_rerun": "failed",
+   "verdict": "ok",
+   "note": "用例预期已核对与源码/契约一致；失败归因被测系统缺陷或链路阻断（非测试资产问题）"
+  },
+  {
+   "case_id": "POST_API_REVIEWS-001",
+   "after_rerun": "skipped",
+   "verdict": "blocked",
+   "note": "取值约定未解析：已完成订单的订单项均已评价，无可执行的未评价订单项"
+  },
+  {
+   "case_id": "BUS-AUTH-004",
+   "after_rerun": "failed",
+   "verdict": "ok",
+   "note": "用例预期已核对与源码/契约一致；失败归因被测系统缺陷或链路阻断（非测试资产问题）"
+  },
+  {
+   "case_id": "BUS-STK-004",
+   "after_rerun": "failed",
+   "verdict": "ok",
+   "note": "用例预期已核对与源码/契约一致；失败归因被测系统缺陷或链路阻断（非测试资产问题）"
+  },
+  {
+   "case_id": "BUS-CART-003",
+   "after_rerun": "failed",
+   "verdict": "ok",
+   "note": "用例预期已核对与源码/契约一致；失败归因被测系统缺陷或链路阻断（非测试资产问题）"
+  },
+  {
+   "case_id": "BUS-ORD-005",
+   "after_rerun": "failed",
+   "verdict": "ok",
+   "note": "用例预期正确，失败归因源码缺陷 → 禅道 Bug #21"
+  },
+  {
+   "case_id": "BUS-ORD-006",
+   "after_rerun": "failed",
+   "verdict": "ok",
+   "note": "用例预期已核对与源码/契约一致；失败归因被测系统缺陷或链路阻断（非测试资产问题）"
+  },
+  {
+   "case_id": "BUS-ORD-008",
+   "after_rerun": "failed",
+   "verdict": "ok",
+   "note": "用例预期已核对与源码/契约一致；失败归因被测系统缺陷或链路阻断（非测试资产问题）"
+  },
+  {
+   "case_id": "BUS-PAY-003",
+   "after_rerun": "failed",
+   "verdict": "ok",
+   "note": "用例预期已核对与源码/契约一致；失败归因被测系统缺陷或链路阻断（非测试资产问题）"
+  },
+  {
+   "case_id": "BUS-AS-001",
+   "after_rerun": "failed",
+   "verdict": "ok",
+   "note": "用例预期已核对与源码/契约一致；失败归因被测系统缺陷或链路阻断（非测试资产问题）"
+  },
+  {
+   "case_id": "BUS-AS-002",
+   "after_rerun": "failed",
+   "verdict": "ok",
+   "note": "用例预期已核对与源码/契约一致；失败归因被测系统缺陷或链路阻断（非测试资产问题）"
+  },
+  {
+   "case_id": "BUS-AS-003",
+   "after_rerun": "failed",
+   "verdict": "ok",
+   "note": "用例预期已核对与源码/契约一致；失败归因被测系统缺陷或链路阻断（非测试资产问题）"
+  },
+  {
+   "case_id": "BUS-AS-004",
+   "after_rerun": "failed",
+   "verdict": "ok",
+   "note": "用例预期已核对与源码/契约一致；失败归因被测系统缺陷或链路阻断（非测试资产问题）"
+  },
+  {
+   "case_id": "BUS-AS-006",
+   "after_rerun": "failed",
+   "verdict": "ok",
+   "note": "用例预期已核对与源码/契约一致；失败归因被测系统缺陷或链路阻断（非测试资产问题）"
+  },
+  {
+   "case_id": "BUS-ADM-001",
+   "after_rerun": "failed",
+   "verdict": "ok",
+   "note": "用例预期已核对与源码/契约一致；失败归因被测系统缺陷或链路阻断（非测试资产问题）"
+  },
+  {
+   "case_id": "BUS-ADM-004",
+   "after_rerun": "failed",
+   "verdict": "ok",
+   "note": "用例预期已核对与源码/契约一致；失败归因被测系统缺陷或链路阻断（非测试资产问题）"
+  },
+  {
+   "case_id": "BUS-ADM-005",
+   "after_rerun": "failed",
+   "verdict": "ok",
+   "note": "用例预期已核对与源码/契约一致；失败归因被测系统缺陷或链路阻断（非测试资产问题）"
+  }
+ ]
+}

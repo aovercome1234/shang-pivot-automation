@@ -1,0 +1,10 @@
+{
+ "url": "http://111.170.33.2:60084/api/cart/clear-invalid",
+ "method": "POST",
+ "http": 401,
+ "body": {
+  "code": 40100,
+  "msg": "未认证",
+  "traceId": "4b173e6d65ec4b798a96d38aeb6c062d"
+ }
+}

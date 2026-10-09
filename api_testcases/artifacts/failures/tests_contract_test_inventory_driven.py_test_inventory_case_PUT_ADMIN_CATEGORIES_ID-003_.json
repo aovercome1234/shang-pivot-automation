@@ -1,0 +1,8 @@
+{
+  "case_id": "tests/contract/test_inventory_driven.py::test_inventory_case[PUT_ADMIN_CATEGORIES_ID-003]",
+  "phase": "call",
+  "outcome": "failed",
+  "timestamp": "2026-10-06T03:20:23.771875+00:00",
+  "longrepr": "tests/contract/test_inventory_driven.py:178: in test_inventory_case\n    assert ok, f\"[{cid}] {detail}\"\nE   AssertionError: [PUT_ADMIN_CATEGORIES_ID-003] HTTP 期望 404 实际 401｜body={'code': 40103, 'msg': 'Token无效', 'traceId': 'fb8d2aa383684d25a1281d449cb04ebf'}\nE   assert False",
+  "request_response": null
+}

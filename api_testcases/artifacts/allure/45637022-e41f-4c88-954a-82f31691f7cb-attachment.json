@@ -1,0 +1,10 @@
+{
+ "url": "http://127.0.0.1:8086/admin/permissions",
+ "method": "POST",
+ "http": 200,
+ "body": {
+  "code": 40000,
+  "msg": "请填写权限编码",
+  "traceId": "3cce3ab7bb1e4642bfd55dd8a505ba22"
+ }
+}

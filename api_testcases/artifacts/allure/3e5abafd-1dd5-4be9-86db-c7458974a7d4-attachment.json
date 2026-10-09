@@ -1,0 +1,10 @@
+{
+ "url": "http://127.0.0.1:8086/admin/brands/",
+ "method": "DELETE",
+ "http": 404,
+ "body": {
+  "code": 40400,
+  "msg": "资源不存在",
+  "traceId": "e90af7fbfcee4446b94a77a58d6b1072"
+ }
+}

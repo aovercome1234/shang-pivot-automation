@@ -1,0 +1,10 @@
+{
+ "url": "http://111.170.33.2:60085/admin/dicts/2107397393110073346",
+ "method": "PUT",
+ "http": 200,
+ "body": {
+  "code": 0,
+  "msg": "success",
+  "traceId": "006b1be11c4247d59c69a5ed9a2f32b9"
+ }
+}

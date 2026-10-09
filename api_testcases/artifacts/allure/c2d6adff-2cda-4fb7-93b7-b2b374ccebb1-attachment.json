@@ -1,0 +1,10 @@
+{
+ "url": "http://111.170.33.2:60085/admin/dicts",
+ "method": "POST",
+ "http": 200,
+ "body": {
+  "code": 0,
+  "msg": "success",
+  "traceId": "ad11f8c3fdec41b1b8461fc10a3798da"
+ }
+}

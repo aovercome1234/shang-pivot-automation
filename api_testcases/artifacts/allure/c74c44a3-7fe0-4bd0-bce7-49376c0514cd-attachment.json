@@ -1,0 +1,10 @@
+{
+ "url": "http://111.170.33.2:60085/admin/orders/106/ship",
+ "method": "POST",
+ "http": 500,
+ "body": {
+  "code": 50000,
+  "msg": "系统异常",
+  "traceId": "7830b91086cf4f54a8160113b957c9ff"
+ }
+}

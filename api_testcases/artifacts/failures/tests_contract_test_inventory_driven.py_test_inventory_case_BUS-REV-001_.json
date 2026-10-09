@@ -1,0 +1,8 @@
+{
+  "case_id": "tests/contract/test_inventory_driven.py::test_inventory_case[BUS-REV-001]",
+  "phase": "call",
+  "outcome": "failed",
+  "timestamp": "2026-10-06T04:43:21.265515+00:00",
+  "longrepr": "tests/contract/test_inventory_driven.py:223: in test_inventory_case\n    assert ok, f\"[{cid}] {detail}\"\nE   AssertionError: [BUS-REV-001] HTTP 期望 200 实际 500｜body={'code': 50000, 'msg': '系统异常', 'traceId': 'be92a26e5f8740d6a7f8f893a1776bf1'}\nE   assert False",
+  "request_response": null
+}

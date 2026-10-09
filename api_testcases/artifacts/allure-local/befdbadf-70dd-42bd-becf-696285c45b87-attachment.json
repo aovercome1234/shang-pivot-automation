@@ -1,0 +1,10 @@
+{
+ "url": "http://127.0.0.1:8096/admin/orders/2107340298110570497",
+ "method": "GET",
+ "http": 401,
+ "body": {
+  "code": 40100,
+  "msg": "未认证",
+  "traceId": "8fd739ff6be54aa8a3d2b991a56c5bc7"
+ }
+}

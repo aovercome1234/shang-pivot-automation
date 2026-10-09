@@ -1,0 +1,10 @@
+{
+ "url": "http://111.170.33.2:60085/admin/roles",
+ "method": "GET",
+ "http": 401,
+ "body": {
+  "code": 40100,
+  "msg": "未认证",
+  "traceId": "32c2fbd2473b4692b913c5e6e40c0b1a"
+ }
+}

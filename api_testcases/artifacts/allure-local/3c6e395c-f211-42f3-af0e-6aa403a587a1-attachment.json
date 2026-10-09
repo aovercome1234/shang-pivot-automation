@@ -1,0 +1,14 @@
+{
+ "url": "http://127.0.0.1:8096/api/products/246/reviews",
+ "method": "GET",
+ "http": 200,
+ "body": {
+  "code": 0,
+  "data": {
+   "total": "0",
+   "records": []
+  },
+  "msg": "success",
+  "traceId": "ecab14b5ea294a0fbcfa5ea7312caa56"
+ }
+}

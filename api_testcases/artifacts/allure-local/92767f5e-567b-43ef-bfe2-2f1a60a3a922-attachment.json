@@ -1,0 +1,10 @@
+{
+ "url": "http://127.0.0.1:8096/api/after-sales",
+ "method": "POST",
+ "http": 200,
+ "body": {
+  "code": 0,
+  "msg": "success",
+  "traceId": "2fc5c2f577bd4ff99eea609f75d3ee04"
+ }
+}

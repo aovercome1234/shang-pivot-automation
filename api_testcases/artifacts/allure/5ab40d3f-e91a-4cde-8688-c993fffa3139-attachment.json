@@ -1,0 +1,10 @@
+{
+ "url": "http://127.0.0.1:8086/admin/dict-items",
+ "method": "POST",
+ "http": 401,
+ "body": {
+  "code": 40100,
+  "msg": "未认证",
+  "traceId": "89660b01245745ffb90193e57c0b554f"
+ }
+}

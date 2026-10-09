@@ -1,0 +1,27 @@
+{
+  "POST_ADMIN_BRANDS-001": {
+    "title": "管理员创建品牌_典型请求_创建成功",
+    "product_id": 2,
+    "created_at": 1791192097
+  },
+  "GET_ADMIN_ORDERS-001": {
+    "title": "管理员分页查询订单_典型请求_查询成功",
+    "product_id": 2,
+    "created_at": 1791192098
+  },
+  "GET_ADMIN_ORDERS-002": {
+    "title": "管理员分页查询订单_未带Token_拒绝访问",
+    "product_id": 2,
+    "created_at": 1791192098
+  },
+  "POST_API_CART_ITEMS-001": {
+    "title": "加入购物车_典型请求_创建成功",
+    "product_id": 2,
+    "created_at": 1791192099
+  },
+  "GET_API_HOME-001": {
+    "title": "首页信息_典型请求_查询成功",
+    "product_id": 2,
+    "created_at": 1791192099
+  }
+}

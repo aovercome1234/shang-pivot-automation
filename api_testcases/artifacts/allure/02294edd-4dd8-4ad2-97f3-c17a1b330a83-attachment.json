@@ -1,0 +1,14 @@
+{
+ "url": "http://111.170.33.2:60085/admin/users",
+ "method": "GET",
+ "http": 200,
+ "body": {
+  "code": 0,
+  "data": {
+   "total": "1",
+   "records": []
+  },
+  "msg": "success",
+  "traceId": "985552b2de1947e2a50903bb11e87755"
+ }
+}

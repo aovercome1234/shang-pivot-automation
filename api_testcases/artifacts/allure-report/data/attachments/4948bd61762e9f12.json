@@ -1,0 +1,10 @@
+{
+ "url": "http://111.170.33.2:60085/admin/orders/106/ship",
+ "method": "POST",
+ "http": 401,
+ "body": {
+  "code": 40100,
+  "msg": "未认证",
+  "traceId": "0875f78fb3534843a3bf6d346972ffdc"
+ }
+}

@@ -1,0 +1,14 @@
+{
+ "url": "http://127.0.0.1:8086/api/history",
+ "method": "GET",
+ "http": 200,
+ "body": {
+  "code": 0,
+  "data": {
+   "total": "4",
+   "records": []
+  },
+  "msg": "success",
+  "traceId": "252b804e430d4721bbcf7723c52052e7"
+ }
+}

@@ -1,0 +1,24 @@
+{
+ "url": "http://127.0.0.1:8086/admin/users/1",
+ "method": "GET",
+ "http": 200,
+ "body": {
+  "code": 0,
+  "data": {
+   "realName": "超级管理员",
+   "createdAt": "2026-09-30T00:27:19.183183+08:00",
+   "lastLoginAt": "2026-10-06T18:20:28.21533+08:00",
+   "roleIds": [
+    "1"
+   ],
+   "phone": "13800000000",
+   "deptId": "1",
+   "id": "1",
+   "email": "admin@shangpivot.com",
+   "username": "admin",
+   "status": "ENABLED"
+  },
+  "msg": "success",
+  "traceId": "c9b166e662a6473da16cd2625c4ed469"
+ }
+}

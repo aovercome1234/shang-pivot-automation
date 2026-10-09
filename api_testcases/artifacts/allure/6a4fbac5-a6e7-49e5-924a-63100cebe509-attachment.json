@@ -1,0 +1,14 @@
+{
+ "url": "http://127.0.0.1:8086/admin/site/brand",
+ "method": "GET",
+ "http": 200,
+ "body": {
+  "code": 0,
+  "data": {
+   "name": "尚品汇",
+   "slogan": "选好物，享生活"
+  },
+  "msg": "success",
+  "traceId": "2b04a8ec8af640b08c727b5892830781"
+ }
+}

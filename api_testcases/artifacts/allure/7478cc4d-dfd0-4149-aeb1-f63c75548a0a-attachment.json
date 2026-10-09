@@ -1,0 +1,14 @@
+{
+ "url": "http://111.170.33.2:60084/api/history",
+ "method": "GET",
+ "http": 200,
+ "body": {
+  "code": 0,
+  "data": {
+   "total": "4",
+   "records": []
+  },
+  "msg": "success",
+  "traceId": "c08664b0aaeb403f80a3c739ed89934f"
+ }
+}

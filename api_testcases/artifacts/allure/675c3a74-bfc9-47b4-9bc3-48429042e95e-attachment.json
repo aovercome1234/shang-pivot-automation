@@ -1,0 +1,10 @@
+{
+ "url": "http://111.170.33.2:60085/admin/dict-items",
+ "method": "GET",
+ "http": 500,
+ "body": {
+  "code": 50000,
+  "msg": "系统异常",
+  "traceId": "416cdaa5cdef483a969c4a91ce42ddc8"
+ }
+}

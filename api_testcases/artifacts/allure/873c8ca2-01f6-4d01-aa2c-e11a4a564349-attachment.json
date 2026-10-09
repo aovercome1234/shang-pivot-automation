@@ -1,0 +1,10 @@
+{
+ "url": "http://127.0.0.1:8086/admin/depts/2107416330026049538",
+ "method": "DELETE",
+ "http": 401,
+ "body": {
+  "code": 0,
+  "msg": "success",
+  "traceId": "94c1dcfbaa8e415fb7238f001de13a54"
+ }
+}

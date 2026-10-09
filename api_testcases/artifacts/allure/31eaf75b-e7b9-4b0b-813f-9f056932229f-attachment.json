@@ -1,0 +1,30 @@
+{
+ "url": "http://127.0.0.1:8086/api/cart",
+ "method": "GET",
+ "http": 200,
+ "body": {
+  "code": 0,
+  "data": {
+   "available": true,
+   "items": [
+    {
+     "valid": true,
+     "quantity": 23,
+     "price": 599.0,
+     "specsText": "{材质=防雨涤纶, 颜色=军绿}",
+     "available": true,
+     "spuId": "246",
+     "id": "2107347788109910017",
+     "pic": "/admin/files/view?objectKey=PRODUCT%2Fseed%2Fproduct_146.jpg",
+     "title": "双人帐篷 防雨款 军绿",
+     "skuId": "10036",
+     "selected": true,
+     "cartItemId": "2107347788109910017"
+    }
+   ],
+   "selectedAmount": 13777.0
+  },
+  "msg": "success",
+  "traceId": "9be419f72e07440d952357b6170eaabc"
+ }
+}

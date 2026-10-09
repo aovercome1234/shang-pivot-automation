@@ -1,0 +1,10 @@
+{
+ "url": "http://127.0.0.1:8086/api/auth/refresh",
+ "method": "POST",
+ "http": 400,
+ "body": {
+  "code": 40000,
+  "msg": "不能为空",
+  "traceId": "5c58642c62db4563ba32c87fd8025586"
+ }
+}

@@ -1,0 +1,14 @@
+{
+ "url": "http://127.0.0.1:8086/admin/orders",
+ "method": "GET",
+ "http": 200,
+ "body": {
+  "code": 0,
+  "data": {
+   "total": "10",
+   "records": []
+  },
+  "msg": "success",
+  "traceId": "0e89dcf9a9f84dd491fe1a785eab6b84"
+ }
+}

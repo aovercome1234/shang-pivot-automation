@@ -1,0 +1,58 @@
+{
+ "url": "http://127.0.0.1:8096/api/products",
+ "method": "GET",
+ "http": 200,
+ "body": {
+  "code": 0,
+  "data": {
+   "total": "30",
+   "records": [
+    {
+     "soldCount": "2",
+     "priceMax": 619.0,
+     "price": 599.0,
+     "subtitle": "三季适用，搭建方便",
+     "name": "双人帐篷 防雨款",
+     "spuId": "246",
+     "pic": "/admin/files/view?objectKey=PRODUCT%2Fseed%2Fproduct_146.jpg"
+    },
+    {
+     "soldCount": "0",
+     "price": 399.0,
+     "subtitle": "适合日常慢跑训练",
+     "name": "减震跑步鞋 男款",
+     "spuId": "241",
+     "pic": "/admin/files/view?objectKey=PRODUCT%2Fseed%2Fproduct_141.jpg"
+    },
+    {
+     "soldCount": "0",
+     "priceMax": 119.0,
+     "price": 69.0,
+     "subtitle": "阿拉比卡咖啡豆，中度烘焙",
+     "name": "挂耳咖啡 20袋",
+     "spuId": "226",
+     "pic": "/admin/files/view?objectKey=PRODUCT%2Fseed%2Fproduct_126.jpg"
+    },
+    {
+     "soldCount": "0",
+     "priceMax": 159.0,
+     "price": 89.0,
+     "subtitle": "混合坚果，独立小包装",
+     "name": "每日坚果 750g",
+     "spuId": "221",
+     "pic": "/admin/files/view?objectKey=PRODUCT%2Fseed%2Fproduct_121.jpg"
+    },
+    {
+     "soldCount": "0",
+     "price": 139.0,
+     "subtitle": "显白不拔干，多色可选",
+     "name": "丝绒雾面口红",
+     "spuId": "206",
+     "pic": "/admin/files/view?objectKey=PRODUCT%2Fseed%2Fproduct_106.jpg"
+    }
+   ]
+  },
+  "msg": "success",
+  "traceId": "5c4a1ff2af754fc29cfca6936395dfda"
+ }
+}

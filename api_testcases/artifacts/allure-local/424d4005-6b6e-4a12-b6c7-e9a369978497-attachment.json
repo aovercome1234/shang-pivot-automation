@@ -1,0 +1,156 @@
+{
+ "url": "http://127.0.0.1:8096/api/home",
+ "method": "GET",
+ "http": 200,
+ "body": {
+  "code": 0,
+  "data": {
+   "feed": [
+    {
+     "soldCount": "2100",
+     "price": 2299.0,
+     "subtitle": "性能强悍，价格亲民",
+     "name": "Redmi K70 12+256G",
+     "spuId": "104",
+     "pic": "/admin/files/view?objectKey=PRODUCT%2Fseed%2Fproduct_4.jpg"
+    },
+    {
+     "soldCount": "1560",
+     "price": 1999.0,
+     "subtitle": "主动降噪",
+     "name": "AirPods Pro 2",
+     "spuId": "162",
+     "pic": "/admin/files/view?objectKey=PRODUCT%2Fseed%2Fproduct_62.jpg"
+    },
+    {
+     "soldCount": "1280",
+     "priceMax": 10999.0,
+     "price": 7999.0,
+     "subtitle": "A17 Pro 芯片，旗舰性能",
+     "name": "iPhone 15 Pro 128G",
+     "spuId": "101",
+     "pic": "/admin/files/view?objectKey=PRODUCT%2Fseed%2Fproduct_1.jpg"
+    },
+    {
+     "soldCount": "980",
+     "price": 599.0,
+     "subtitle": "人体工学鼠标",
+     "name": "罗技 MX Master 3s",
+     "spuId": "127",
+     "pic": "/admin/files/view?objectKey=PRODUCT%2Fseed%2Fproduct_27.jpg"
+    },
+    {
+     "soldCount": "860",
+     "priceMax": 5599.0,
+     "price": 4999.0,
+     "subtitle": "徕卡光学，旗舰影像",
+     "name": "Xiaomi 14 Pro 12+256G",
+     "spuId": "103",
+     "pic": "/admin/files/view?objectKey=PRODUCT%2Fseed%2Fproduct_3.jpg"
+    },
+    {
+     "soldCount": "420",
+     "priceMax": 11999.0,
+     "price": 9999.0,
+     "subtitle": "轻薄便携，续航出众",
+     "name": "MacBook Air 13 M3 16G",
+     "spuId": "121",
+     "pic": "/admin/files/view?objectKey=PRODUCT%2Fseed%2Fproduct_21.jpg"
+    },
+    {
+     "soldCount": "350",
+     "price": 3999.0,
+     "subtitle": "强劲吸力",
+     "name": "戴森 V12 吸尘器",
+     "spuId": "143",
+     "pic": "/admin/files/view?objectKey=PRODUCT%2Fseed%2Fproduct_43.jpg"
+    },
+    {
+     "soldCount": "2",
+     "priceMax": 619.0,
+     "price": 599.0,
+     "subtitle": "三季适用，搭建方便",
+     "name": "双人帐篷 防雨款",
+     "spuId": "246",
+     "pic": "/admin/files/view?objectKey=PRODUCT%2Fseed%2Fproduct_146.jpg"
+    },
+    {
+     "soldCount": "0",
+     "price": 199.0,
+     "subtitle": "氮化镓快充",
+     "name": "Anker 65W 充电器",
+     "spuId": "164",
+     "pic": "/admin/files/view?objectKey=PRODUCT%2Fseed%2Fproduct_64.jpg"
+    },
+    {
+     "soldCount": "0",
+     "price": 2199.0,
+     "subtitle": "智能手表",
+     "name": "Apple Watch SE",
+     "spuId": "168",
+     "pic": "/admin/files/view?objectKey=PRODUCT%2Fseed%2Fproduct_68.jpg"
+    },
+    {
+     "soldCount": "0",
+     "price": 69.0,
+     "subtitle": "桌面收纳",
+     "name": "抽屉式收纳盒",
+     "spuId": "181",
+     "pic": "/admin/files/view?objectKey=PRODUCT%2Fseed%2Fproduct_81.jpg"
+    },
+    {
+     "soldCount": "0",
+     "price": 199.0,
+     "subtitle": "氛围灯",
+     "name": "落地台灯",
+     "spuId": "184",
+     "pic": "/admin/files/view?objectKey=PRODUCT%2Fseed%2Fproduct_84.jpg"
+    },
+    {
+     "soldCount": "0",
+     "price": 79.0,
+     "subtitle": "氨基酸配方，清洁同时不紧绷",
+     "name": "温和保湿洁面乳",
+     "spuId": "201",
+     "pic": "/admin/files/view?objectKey=PRODUCT%2Fseed%2Fproduct_101.jpg"
+    },
+    {
+     "soldCount": "0",
+     "price": 139.0,
+     "subtitle": "显白不拔干，多色可选",
+     "name": "丝绒雾面口红",
+     "spuId": "206",
+     "pic": "/admin/files/view?objectKey=PRODUCT%2Fseed%2Fproduct_106.jpg"
+    },
+    {
+     "soldCount": "0",
+     "priceMax": 159.0,
+     "price": 89.0,
+     "subtitle": "混合坚果，独立小包装",
+     "name": "每日坚果 750g",
+     "spuId": "221",
+     "pic": "/admin/files/view?objectKey=PRODUCT%2Fseed%2Fproduct_121.jpg"
+    },
+    {
+     "soldCount": "0",
+     "price": 12999.0,
+     "subtitle": "高可靠商务轻薄",
+     "name": "ThinkPad X1 Carbon",
+     "spuId": "122",
+     "pic": "/admin/files/view?objectKey=PRODUCT%2Fseed%2Fproduct_22.jpg"
+    },
+    {
+     "soldCount": "0",
+     "price": 399.0,
+     "subtitle": "适合日常慢跑训练",
+     "name": "减震跑步鞋 男款",
+     "spuId": "241",
+     "pic": "/admin/files/view?objectKey=PRODUCT%2Fseed%2Fproduct_141.jpg"
+    },
+    {
+     "soldCount": "0",
+     "priceMax": 6999.0,
+     "price": 5999.0,
+     "subtitle": "A16 芯片，性能均衡",
+     "name": "iPhone 15 128G",
+     "spuId": "102"

@@ -1,0 +1,10 @@
+{
+ "url": "http://111.170.33.2:60085/admin/brands/2107383709843390466",
+ "method": "DELETE",
+ "http": 200,
+ "body": {
+  "code": 0,
+  "msg": "success",
+  "traceId": "f79a78f2b49c43698831ad8ce53ea5f5"
+ }
+}

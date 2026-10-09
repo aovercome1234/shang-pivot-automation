@@ -1,0 +1,10 @@
+{
+ "url": "http://127.0.0.1:8096/admin/warehouses",
+ "method": "POST",
+ "http": 500,
+ "body": {
+  "code": 50000,
+  "msg": "系统异常",
+  "traceId": "e00468f101464ac0bdd3aeb063285336"
+ }
+}

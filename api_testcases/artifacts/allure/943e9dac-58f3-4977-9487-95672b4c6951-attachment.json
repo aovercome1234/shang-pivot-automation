@@ -1,0 +1,10 @@
+{
+ "url": "http://111.170.33.2:60085/admin/brands/",
+ "method": "PUT",
+ "http": 404,
+ "body": {
+  "code": 40400,
+  "msg": "资源不存在",
+  "traceId": "8835e12d2d0248d3986dd75b1ad23c90"
+ }
+}

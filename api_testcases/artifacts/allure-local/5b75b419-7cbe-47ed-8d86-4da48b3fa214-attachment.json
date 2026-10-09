@@ -1,0 +1,10 @@
+{
+ "url": "http://127.0.0.1:8096/admin/depts/",
+ "method": "DELETE",
+ "http": 404,
+ "body": {
+  "code": 40400,
+  "msg": "资源不存在",
+  "traceId": "09e641139f304c7c9f6f79fa905e9534"
+ }
+}

@@ -1,0 +1,8 @@
+{
+  "case_id": "tests/contract/test_inventory_driven.py::test_inventory_case[BUS-STK-002]",
+  "phase": "call",
+  "outcome": "failed",
+  "timestamp": "2026-10-06T09:46:48.116816+00:00",
+  "longrepr": "tests/contract/test_inventory_driven.py:293: in test_inventory_case\n    assert ok, f\"[{cid}] {detail}\"\nE   AssertionError: [BUS-STK-002] 回查 /api/orders/104 data.status 期望 CLOSED 实际 DELIVERED\nE   assert False",
+  "request_response": null
+}

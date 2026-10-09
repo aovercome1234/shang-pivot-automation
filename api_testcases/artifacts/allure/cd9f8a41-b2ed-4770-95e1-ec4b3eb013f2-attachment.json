@@ -1,0 +1,112 @@
+{
+ "url": "http://127.0.0.1:8086/admin/in-out",
+ "method": "GET",
+ "http": 200,
+ "body": {
+  "code": 0,
+  "data": {
+   "total": "9",
+   "records": [
+    {
+     "bill": {
+      "billNo": "SO202610060005",
+      "createdAt": "2026-10-06T13:26:21.291087+08:00",
+      "id": "2107341669962551298",
+      "operatorId": "1",
+      "relatedOrderNo": "SO202609140106",
+      "remark": "订单发货出库",
+      "type": "SALE_OUT",
+      "warehouseId": "1"
+     },
+     "items": [
+      {
+       "skuTitle": "戴森 V12 吸尘器",
+       "qty": -1,
+       "id": "2107341669970939906",
+       "skuId": "10022"
+      }
+     ]
+    },
+    {
+     "bill": {
+      "billNo": "PI202610060004",
+      "createdAt": "2026-10-06T13:21:16.718785+08:00",
+      "id": "2107340392494993410",
+      "operatorId": "1",
+      "remark": "自动化测试备注",
+      "type": "PURCHASE_IN",
+      "warehouseId": "1"
+     },
+     "items": [
+      {
+       "skuTitle": "248",
+       "qty": 2,
+       "id": "2107340392503382018",
+       "skuId": "248"
+      }
+     ]
+    },
+    {
+     "bill": {
+      "billNo": "PI202610060003",
+      "createdAt": "2026-10-06T13:21:16.702608+08:00",
+      "id": "2107340392427884545",
+      "operatorId": "1",
+      "remark": "自动化测试备注",
+      "type": "PURCHASE_IN",
+      "warehouseId": "1"
+     },
+     "items": [
+      {
+       "skuTitle": "248",
+       "qty": 2,
+       "id": "2107340392444661761",
+       "skuId": "248"
+      }
+     ]
+    },
+    {
+     "bill": {
+      "billNo": "PI202610060002",
+      "createdAt": "2026-10-06T13:21:16.679263+08:00",
+      "id": "2107340392327221249",
+      "operatorId": "1",
+      "remark": "自动化测试备注",
+      "type": "PURCHASE_IN",
+      "warehouseId": "1"
+     },
+     "items": [
+      {
+       "skuTitle": "248",
+       "qty": 2,
+       "id": "2107340392364969985",
+       "skuId": "248"
+      }
+     ]
+    },
+    {
+     "bill": {
+      "billNo": "SO202610060001",
+      "createdAt": "2026-10-06T13:20:54.28243+08:00",
+      "id": "2107340298391588865",
+      "operatorId": "1",
+      "relatedOrderNo": "O202610061320540002",
+      "remark": "订单发货出库",
+      "type": "SALE_OUT",
+      "warehouseId": "1"
+     },
+     "items": [
+      {
+       "skuTitle": "双人帐篷 防雨款 军绿",
+       "qty": -2,
+       "id": "2107340298412560385",
+       "skuId": "10036"
+      }
+     ]
+    }
+   ]
+  },
+  "msg": "success",
+  "traceId": "ac9d536ac31042f18b3f9dae6118a314"
+ }
+}

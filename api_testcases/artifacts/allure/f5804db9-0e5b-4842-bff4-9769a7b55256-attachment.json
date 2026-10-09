@@ -1,0 +1,28 @@
+{
+ "url": "http://111.170.33.2:60084/api/orders/104/logistics",
+ "method": "GET",
+ "http": 200,
+ "body": {
+  "code": 0,
+  "data": [
+   {
+    "carrier": "京东物流",
+    "createdAt": "2026-10-03T23:44:56.613177+08:00",
+    "deleted": false,
+    "id": "102",
+    "orderId": "104",
+    "status": "DELIVERED",
+    "traces": [
+     {
+      "desc": "客户已签收",
+      "time": "已签收"
+     }
+    ],
+    "trackingNo": "JD109140104",
+    "updatedAt": "2026-10-03T23:44:56.613177+08:00"
+   }
+  ],
+  "msg": "success",
+  "traceId": "127556cceed0489a8128e5a919b7fa70"
+ }
+}

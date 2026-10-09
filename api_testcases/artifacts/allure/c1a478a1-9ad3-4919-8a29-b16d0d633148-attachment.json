@@ -1,0 +1,10 @@
+{
+ "url": "http://127.0.0.1:8086/admin/permissions",
+ "method": "POST",
+ "http": 200,
+ "body": {
+  "code": 0,
+  "msg": "success",
+  "traceId": "65ac05daf5ec4b6188decf40b889ed4d"
+ }
+}

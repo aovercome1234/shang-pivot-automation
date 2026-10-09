@@ -1,0 +1,10 @@
+{
+ "url": "http://111.170.33.2:60085/admin/after-sales/101/audit",
+ "method": "POST",
+ "http": 500,
+ "body": {
+  "code": 50000,
+  "msg": "系统异常",
+  "traceId": "b638978c3fab45799fd52b5f5013b12e"
+ }
+}

@@ -1,0 +1,10 @@
+{
+ "url": "http://127.0.0.1:8086/admin/categories/",
+ "method": "PUT",
+ "http": 404,
+ "body": {
+  "code": 40400,
+  "msg": "资源不存在",
+  "traceId": "1746e199dd9142ed9d39dabf0af40460"
+ }
+}

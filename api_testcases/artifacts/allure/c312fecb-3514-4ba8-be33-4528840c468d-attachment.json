@@ -1,0 +1,10 @@
+{
+ "url": "http://111.170.33.2:60085/admin/products/248",
+ "method": "GET",
+ "http": 401,
+ "body": {
+  "code": 40100,
+  "msg": "未认证",
+  "traceId": "f0412567a27d4a7b8f0d1cb72595fc53"
+ }
+}

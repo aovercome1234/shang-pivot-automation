@@ -1,0 +1,10 @@
+{
+ "url": "http://127.0.0.1:8086/admin/categories/",
+ "method": "DELETE",
+ "http": 404,
+ "body": {
+  "code": 40400,
+  "msg": "资源不存在",
+  "traceId": "97c74f43a7084137bafe683c7c375b75"
+ }
+}

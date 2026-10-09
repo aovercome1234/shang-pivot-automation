@@ -1,0 +1,10 @@
+{
+ "url": "http://111.170.33.2:60084/api/auth/sms/send",
+ "method": "POST",
+ "http": 400,
+ "body": {
+  "code": 40000,
+  "msg": "must not be blank",
+  "traceId": "f1ac0ec1a39b494ab338ca446df6db0d"
+ }
+}

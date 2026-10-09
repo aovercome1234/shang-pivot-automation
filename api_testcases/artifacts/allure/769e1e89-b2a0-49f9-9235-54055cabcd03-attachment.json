@@ -1,0 +1,10 @@
+{
+ "url": "http://127.0.0.1:8086/admin/dict-items",
+ "method": "POST",
+ "http": 200,
+ "body": {
+  "code": 40000,
+  "msg": "请选择所属字典",
+  "traceId": "39b4ad7c05534a108cf483cc7bfcfe20"
+ }
+}

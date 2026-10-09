@@ -1,0 +1,10 @@
+{
+ "url": "http://127.0.0.1:8096/admin/permissions/2107341654049361922",
+ "method": "DELETE",
+ "http": 401,
+ "body": {
+  "code": 0,
+  "msg": "success",
+  "traceId": "b59e284f6b4c4080ace4669f2e342f55"
+ }
+}

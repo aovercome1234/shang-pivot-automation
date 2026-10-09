@@ -1,0 +1,14 @@
+{
+ "url": "http://127.0.0.1:8086/admin/after-sales",
+ "method": "GET",
+ "http": 200,
+ "body": {
+  "code": 0,
+  "data": {
+   "total": "11",
+   "records": []
+  },
+  "msg": "success",
+  "traceId": "35a753d819da442f9a49f01b35585230"
+ }
+}

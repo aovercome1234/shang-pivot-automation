@@ -1,0 +1,10 @@
+{
+ "url": "http://127.0.0.1:8086/admin/after-sales/2107347787950526465/audit",
+ "method": "POST",
+ "http": 200,
+ "body": {
+  "code": 40903,
+  "msg": "售后状态不允许",
+  "traceId": "b277c2a67c994d59af5ab89284a2ee66"
+ }
+}

@@ -1,0 +1,10 @@
+{
+ "url": "http://127.0.0.1:8096/admin/products/2107341660672167938",
+ "method": "PUT",
+ "http": 401,
+ "body": {
+  "code": 0,
+  "msg": "success",
+  "traceId": "c269e57e6190432f911baff7c9abf26a"
+ }
+}

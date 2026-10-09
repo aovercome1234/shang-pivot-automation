@@ -1,0 +1,10 @@
+{
+ "url": "http://127.0.0.1:8086/admin/permissions/",
+ "method": "PUT",
+ "http": 404,
+ "body": {
+  "code": 40400,
+  "msg": "资源不存在",
+  "traceId": "e0db16c8bdb744638dfe27b3f2079abe"
+ }
+}

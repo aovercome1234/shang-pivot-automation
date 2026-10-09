@@ -1,0 +1,1 @@
+HTTP=401；error.code=TOKEN_INVALID（源码登出即把令牌加入黑名单，第二次必然被拒）

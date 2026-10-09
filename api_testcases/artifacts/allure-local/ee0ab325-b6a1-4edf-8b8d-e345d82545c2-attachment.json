@@ -1,0 +1,10 @@
+{
+ "url": "http://127.0.0.1:8096/admin/dicts/",
+ "method": "PUT",
+ "http": 404,
+ "body": {
+  "code": 40400,
+  "msg": "资源不存在",
+  "traceId": "bb5aba34c0e542de9b675b37d3b81f69"
+ }
+}

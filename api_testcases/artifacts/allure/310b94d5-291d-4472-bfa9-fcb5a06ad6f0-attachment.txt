@@ -1,0 +1,1 @@
+HTTP=200；code=0；data.accessToken 非空且 data.user.username 等于登录账号

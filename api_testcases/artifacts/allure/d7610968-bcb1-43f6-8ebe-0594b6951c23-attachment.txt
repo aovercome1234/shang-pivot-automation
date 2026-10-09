@@ -1,0 +1,1 @@
+HTTP=200；code=0；回查 GET /admin/orders/{id} 校验 status 为 PENDING_RECEIVE；回查 GET /admin/in-out?page=1&size=5 校验生成类型为 SALE_OUT 的单据

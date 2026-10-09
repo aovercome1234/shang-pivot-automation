@@ -1,0 +1,10 @@
+{
+ "url": "http://127.0.0.1:8096/admin/permissions/tree",
+ "method": "GET",
+ "http": 401,
+ "body": {
+  "code": 40100,
+  "msg": "未认证",
+  "traceId": "8d88edac09744af4b44e8220249d0591"
+ }
+}

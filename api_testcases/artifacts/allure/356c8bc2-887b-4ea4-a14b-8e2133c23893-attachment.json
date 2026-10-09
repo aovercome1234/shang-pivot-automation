@@ -1,0 +1,10 @@
+{
+ "url": "http://127.0.0.1:8086/api/cart",
+ "method": "GET",
+ "http": 401,
+ "body": {
+  "code": 40100,
+  "msg": "未认证",
+  "traceId": "fb2a0cb9c4df44528de6fbcf569b2ae8"
+ }
+}

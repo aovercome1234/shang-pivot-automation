@@ -1,0 +1,15 @@
+{
+ "url": "http://111.170.33.2:60084/api/cart/items",
+ "method": "POST",
+ "http": 200,
+ "body": {
+  "code": 0,
+  "data": {
+   "quantity": 106,
+   "selected": true,
+   "cartItemId": "2107318310586089473"
+  },
+  "msg": "success",
+  "traceId": "fff82f6370f54c70918aa68faa685e2a"
+ }
+}

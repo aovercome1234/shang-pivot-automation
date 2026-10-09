@@ -1,0 +1,10 @@
+{
+ "url": "http://111.170.33.2:60085/admin/auth/logout",
+ "method": "POST",
+ "http": 401,
+ "body": {
+  "code": 40100,
+  "msg": "未认证",
+  "traceId": "bf6defe13d1646f09d51c109a4e3c699"
+ }
+}

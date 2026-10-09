@@ -1,0 +1,10 @@
+{
+ "url": "http://127.0.0.1:8096/api/auth/sms/send",
+ "method": "POST",
+ "http": 200,
+ "body": {
+  "code": 40000,
+  "msg": "发送过于频繁，请60秒后再试",
+  "traceId": "d97d3a63b89b44b9821657b10b976be2"
+ }
+}

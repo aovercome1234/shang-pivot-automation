@@ -1,0 +1,10 @@
+{
+ "url": "http://111.170.33.2:60084/api/auth/logout",
+ "method": "POST",
+ "http": 200,
+ "body": {
+  "code": 0,
+  "msg": "success",
+  "traceId": "3cdd8de9caa448499942a13116c5468f"
+ }
+}

@@ -1,0 +1,10 @@
+{
+ "url": "http://127.0.0.1:8086/admin/dict-items",
+ "method": "GET",
+ "http": 500,
+ "body": {
+  "code": 50000,
+  "msg": "系统异常",
+  "traceId": "57b07066fb8647efb2ffff3cf40b420f"
+ }
+}

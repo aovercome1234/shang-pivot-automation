@@ -1,0 +1,8 @@
+{
+  "case_id": "tests/contract/test_inventory_driven.py::test_inventory_case[DELETE_API_CART_ITEMS_ID-004]",
+  "phase": "call",
+  "outcome": "failed",
+  "timestamp": "2026-10-06T05:49:11.289639+00:00",
+  "longrepr": "E   NameError: name 'method' is not defined",
+  "request_response": null
+}

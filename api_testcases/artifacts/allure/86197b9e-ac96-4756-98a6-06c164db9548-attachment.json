@@ -1,0 +1,64 @@
+{
+ "url": "http://127.0.0.1:8086/admin/home/slots",
+ "method": "GET",
+ "http": 200,
+ "body": {
+  "code": 0,
+  "data": [
+   {
+    "code": "home_banner",
+    "id": "1",
+    "sort": 1,
+    "validFrom": "2026-09-23T00:27:19.62973+08:00",
+    "title": "首页 Banner",
+    "status": "ON",
+    "validTo": "2026-11-29T00:27:19.62973+08:00",
+    "itemCount": "3"
+   },
+   {
+    "code": "home_promo_subsidy",
+    "id": "2",
+    "sort": 2,
+    "title": "活动位 · 热门精选",
+    "status": "ON",
+    "itemCount": "4"
+   },
+   {
+    "code": "home_promo_flash",
+    "id": "3",
+    "sort": 3,
+    "validFrom": "2026-09-29T00:27:19.62973+08:00",
+    "title": "活动位 · 新品上架",
+    "status": "ON",
+    "validTo": "2026-10-03T00:27:19.62973+08:00",
+    "itemCount": "2"
+   },
+   {
+    "code": "home_promo_live",
+    "id": "4",
+    "sort": 4,
+    "title": "活动位 · 品牌专区",
+    "status": "ON",
+    "itemCount": "4"
+   },
+   {
+    "code": "home_hot_keywords",
+    "id": "5",
+    "sort": 5,
+    "title": "搜索热词",
+    "status": "ON",
+    "itemCount": "5"
+   },
+   {
+    "code": "home_hot_spus",
+    "id": "6",
+    "sort": 6,
+    "title": "热门精选 SPU",
+    "status": "ON",
+    "itemCount": "6"
+   }
+  ],
+  "msg": "success",
+  "traceId": "b797b417199e4207ad25bb2330f3f5c2"
+ }
+}

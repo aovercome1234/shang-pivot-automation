@@ -1,0 +1,10 @@
+{
+ "url": "http://111.170.33.2:60085/admin/depts",
+ "method": "POST",
+ "http": 200,
+ "body": {
+  "code": 0,
+  "msg": "success",
+  "traceId": "bac3a1d051fb4472a45b3b44b58784ec"
+ }
+}

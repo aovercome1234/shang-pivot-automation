@@ -1,0 +1,19 @@
+{
+ "url": "http://111.170.33.2:60085/admin/customers/2107328972494274561",
+ "method": "GET",
+ "http": 200,
+ "body": {
+  "code": 0,
+  "data": {
+   "createdAt": "2026-10-06T12:35:53.978628+08:00",
+   "lastLoginAt": "2026-10-06T16:15:37.932399+08:00",
+   "phone": "139****9999",
+   "nickname": "用户9999",
+   "orderCount": "0",
+   "id": "2107328972494274561",
+   "status": "NORMAL"
+  },
+  "msg": "success",
+  "traceId": "bc915ac692c946fd9c905774c1db113d"
+ }
+}

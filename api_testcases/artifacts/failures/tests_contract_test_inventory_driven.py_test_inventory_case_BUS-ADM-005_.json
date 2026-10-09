@@ -1,0 +1,8 @@
+{
+  "case_id": "tests/contract/test_inventory_driven.py::test_inventory_case[BUS-ADM-005]",
+  "phase": "call",
+  "outcome": "failed",
+  "timestamp": "2026-10-06T10:23:06.144422+00:00",
+  "longrepr": "tests/contract/test_inventory_driven.py:295: in test_inventory_case\n    assert ok, f\"[{cid}] {detail}\"\nE   AssertionError: [BUS-ADM-005] 业务码期望 CONFLICT(40900) 实际 0｜success\nE   assert False",
+  "request_response": null
+}

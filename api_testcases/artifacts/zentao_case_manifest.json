@@ -1,0 +1,2432 @@
+{
+  "POST_ADMIN_BRANDS-001": {
+    "title": "管理员创建品牌_典型请求_创建成功",
+    "product_id": 2,
+    "created_at": 1791192097
+  },
+  "GET_ADMIN_ORDERS-001": {
+    "title": "管理员分页查询订单_典型请求_查询成功",
+    "product_id": 2,
+    "created_at": 1791192098
+  },
+  "GET_ADMIN_ORDERS-002": {
+    "title": "管理员分页查询订单_未带Token_拒绝访问",
+    "product_id": 2,
+    "created_at": 1791192098
+  },
+  "POST_API_CART_ITEMS-001": {
+    "title": "加入购物车_典型请求_创建成功",
+    "product_id": 2,
+    "created_at": 1791192099
+  },
+  "GET_API_HOME-001": {
+    "title": "首页信息_典型请求_查询成功",
+    "product_id": 2,
+    "created_at": 1791192099
+  },
+  "GET_ADMIN_AFTER_SALES-001": {
+    "title": "管理员分页查询售后单_典型请求_查询成功",
+    "product_id": 2,
+    "created_at": 1791192181
+  },
+  "GET_ADMIN_AFTER_SALES-002": {
+    "title": "管理员分页查询售后单_未带Token_拒绝访问",
+    "product_id": 2,
+    "created_at": 1791192182
+  },
+  "GET_ADMIN_AFTER_SALES-005": {
+    "title": "管理员分页查询售后单_非法分页参数_正常返回",
+    "product_id": 2,
+    "created_at": 1791192182
+  },
+  "GET_ADMIN_AFTER_SALES_ID-001": {
+    "title": "管理员获取售后详情_典型请求_查询成功",
+    "product_id": 2,
+    "created_at": 1791192183
+  },
+  "GET_ADMIN_AFTER_SALES_ID-002": {
+    "title": "管理员获取售后详情_未带Token_拒绝访问",
+    "product_id": 2,
+    "created_at": 1791192183
+  },
+  "GET_ADMIN_AFTER_SALES_ID-003": {
+    "title": "管理员获取售后详情_缺少路径参数id_提示资源不存在",
+    "product_id": 2,
+    "created_at": 1791192183
+  },
+  "POST_ADMIN_AFTER_SALES_ID_AUDIT-001": {
+    "title": "管理员审核售后单_典型请求_操作成功",
+    "product_id": 2,
+    "created_at": 1791192184
+  },
+  "POST_ADMIN_AFTER_SALES_ID_AUDIT-002": {
+    "title": "管理员审核售后单_未带Token_拒绝访问",
+    "product_id": 2,
+    "created_at": 1791192184
+  },
+  "POST_ADMIN_AFTER_SALES_ID_AUDIT-003": {
+    "title": "管理员审核售后单_缺少路径参数id_提示资源不存在",
+    "product_id": 2,
+    "created_at": 1791192185
+  },
+  "POST_ADMIN_AFTER_SALES_ID_AUDIT-004": {
+    "title": "管理员审核售后单_重复提交_不再产生副作用",
+    "product_id": 2,
+    "created_at": 1791192185
+  },
+  "GET_ADMIN_ATTRIBUTES-001": {
+    "title": "管理员查询属性列表_典型请求_查询成功",
+    "product_id": 2,
+    "created_at": 1791192185
+  },
+  "GET_ADMIN_ATTRIBUTES-002": {
+    "title": "管理员查询属性列表_未带Token_拒绝访问",
+    "product_id": 2,
+    "created_at": 1791192186
+  },
+  "POST_ADMIN_ATTRIBUTES-001": {
+    "title": "管理员创建属性_典型请求_创建成功",
+    "product_id": 2,
+    "created_at": 1791192187
+  },
+  "POST_ADMIN_ATTRIBUTES-002": {
+    "title": "管理员创建属性_未带Token_拒绝访问",
+    "product_id": 2,
+    "created_at": 1791192187
+  },
+  "POST_ADMIN_ATTRIBUTES-004": {
+    "title": "管理员创建属性_重复提交_生成独立业务记录",
+    "product_id": 2,
+    "created_at": 1791192187
+  },
+  "DELETE_ADMIN_ATTRIBUTES_ID-001": {
+    "title": "管理员删除属性_典型请求_删除成功",
+    "product_id": 2,
+    "created_at": 1791192188
+  },
+  "DELETE_ADMIN_ATTRIBUTES_ID-002": {
+    "title": "管理员删除属性_未带Token_拒绝访问",
+    "product_id": 2,
+    "created_at": 1791192188
+  },
+  "DELETE_ADMIN_ATTRIBUTES_ID-003": {
+    "title": "管理员删除属性_缺少路径参数id_提示资源不存在",
+    "product_id": 2,
+    "created_at": 1791192189
+  },
+  "DELETE_ADMIN_ATTRIBUTES_ID-004": {
+    "title": "管理员删除属性_重复删除_提示资源不存在",
+    "product_id": 2,
+    "created_at": 1791192189
+  },
+  "PUT_ADMIN_ATTRIBUTES_ID-001": {
+    "title": "管理员更新属性_典型请求_修改成功",
+    "product_id": 2,
+    "created_at": 1791192189
+  },
+  "PUT_ADMIN_ATTRIBUTES_ID-002": {
+    "title": "管理员更新属性_未带Token_拒绝访问",
+    "product_id": 2,
+    "created_at": 1791192190
+  },
+  "PUT_ADMIN_ATTRIBUTES_ID-003": {
+    "title": "管理员更新属性_缺少路径参数id_提示资源不存在",
+    "product_id": 2,
+    "created_at": 1791192190
+  },
+  "PUT_ADMIN_ATTRIBUTES_ID-004": {
+    "title": "管理员更新属性_重复提交_结果一致",
+    "product_id": 2,
+    "created_at": 1791192191
+  },
+  "POST_ADMIN_AUTH_LOGIN-001": {
+    "title": "管理员用户登录_典型请求_登录成功",
+    "product_id": 2,
+    "created_at": 1791192191
+  },
+  "POST_ADMIN_AUTH_LOGIN-003": {
+    "title": "管理员用户登录_缺少必填参数_提示参数错误",
+    "product_id": 2,
+    "created_at": 1791192191
+  },
+  "POST_ADMIN_AUTH_LOGIN-004": {
+    "title": "管理员用户登录_重复提交_生成独立业务记录",
+    "product_id": 2,
+    "created_at": 1791192192
+  },
+  "POST_ADMIN_AUTH_LOGOUT-001": {
+    "title": "管理员退出登录（logout）_典型请求_操作成功",
+    "product_id": 2,
+    "created_at": 1791192192
+  },
+  "POST_ADMIN_AUTH_LOGOUT-002": {
+    "title": "管理员退出登录（logout）_未带Token_拒绝访问",
+    "product_id": 2,
+    "created_at": 1791192193
+  },
+  "POST_ADMIN_AUTH_LOGOUT-004": {
+    "title": "管理员退出登录（logout）_重复提交_生成独立业务记录",
+    "product_id": 2,
+    "created_at": 1791192193
+  },
+  "GET_ADMIN_AUTH_ME-001": {
+    "title": "管理员获取当前用户信息_典型请求_查询成功",
+    "product_id": 2,
+    "created_at": 1791192194
+  },
+  "GET_ADMIN_AUTH_ME-002": {
+    "title": "管理员获取当前用户信息_未带Token_拒绝访问",
+    "product_id": 2,
+    "created_at": 1791192194
+  },
+  "POST_ADMIN_AUTH_REFRESH-001": {
+    "title": "管理员刷新令牌（refresh）_典型请求_创建成功",
+    "product_id": 2,
+    "created_at": 1791192194
+  },
+  "POST_ADMIN_AUTH_REFRESH-003": {
+    "title": "管理员刷新令牌（refresh）_缺少必填参数_提示参数错误",
+    "product_id": 2,
+    "created_at": 1791192195
+  },
+  "POST_ADMIN_AUTH_REFRESH-004": {
+    "title": "管理员刷新令牌（refresh）_重复提交_生成独立业务记录",
+    "product_id": 2,
+    "created_at": 1791192195
+  },
+  "GET_ADMIN_BRANDS-001": {
+    "title": "管理员分页查询品牌_典型请求_查询成功",
+    "product_id": 2,
+    "created_at": 1791192195
+  },
+  "GET_ADMIN_BRANDS-002": {
+    "title": "管理员分页查询品牌_未带Token_拒绝访问",
+    "product_id": 2,
+    "created_at": 1791192196
+  },
+  "GET_ADMIN_BRANDS-005": {
+    "title": "管理员分页查询品牌_非法分页参数_正常返回",
+    "product_id": 2,
+    "created_at": 1791192196
+  },
+  "POST_ADMIN_BRANDS-002": {
+    "title": "管理员创建品牌_未带Token_拒绝访问",
+    "product_id": 2,
+    "created_at": 1791192197
+  },
+  "POST_ADMIN_BRANDS-003": {
+    "title": "管理员创建品牌_缺少必填参数_提示参数错误",
+    "product_id": 2,
+    "created_at": 1791192197
+  },
+  "POST_ADMIN_BRANDS-004": {
+    "title": "管理员创建品牌_重复提交_生成独立业务记录",
+    "product_id": 2,
+    "created_at": 1791192198
+  },
+  "DELETE_ADMIN_BRANDS_ID-001": {
+    "title": "管理员删除品牌_典型请求_删除成功",
+    "product_id": 2,
+    "created_at": 1791192198
+  },
+  "DELETE_ADMIN_BRANDS_ID-002": {
+    "title": "管理员删除品牌_未带Token_拒绝访问",
+    "product_id": 2,
+    "created_at": 1791192199
+  },
+  "DELETE_ADMIN_BRANDS_ID-003": {
+    "title": "管理员删除品牌_缺少路径参数id_提示资源不存在",
+    "product_id": 2,
+    "created_at": 1791192199
+  },
+  "DELETE_ADMIN_BRANDS_ID-004": {
+    "title": "管理员删除品牌_重复删除_提示资源不存在",
+    "product_id": 2,
+    "created_at": 1791192199
+  },
+  "PUT_ADMIN_BRANDS_ID-001": {
+    "title": "管理员更新品牌_典型请求_修改成功",
+    "product_id": 2,
+    "created_at": 1791192200
+  },
+  "PUT_ADMIN_BRANDS_ID-002": {
+    "title": "管理员更新品牌_未带Token_拒绝访问",
+    "product_id": 2,
+    "created_at": 1791192200
+  },
+  "PUT_ADMIN_BRANDS_ID-003": {
+    "title": "管理员更新品牌_缺少路径参数id_提示资源不存在",
+    "product_id": 2,
+    "created_at": 1791192201
+  },
+  "PUT_ADMIN_BRANDS_ID-004": {
+    "title": "管理员更新品牌_重复提交_结果一致",
+    "product_id": 2,
+    "created_at": 1791192201
+  },
+  "GET_ADMIN_CATEGORIES-001": {
+    "title": "管理员获取类目列表_典型请求_查询成功",
+    "product_id": 2,
+    "created_at": 1791192201
+  },
+  "GET_ADMIN_CATEGORIES-002": {
+    "title": "管理员获取类目列表_未带Token_拒绝访问",
+    "product_id": 2,
+    "created_at": 1791192202
+  },
+  "POST_ADMIN_CATEGORIES-001": {
+    "title": "管理员创建类目_典型请求_创建成功",
+    "product_id": 2,
+    "created_at": 1791192202
+  },
+  "POST_ADMIN_CATEGORIES-002": {
+    "title": "管理员创建类目_未带Token_拒绝访问",
+    "product_id": 2,
+    "created_at": 1791192203
+  },
+  "POST_ADMIN_CATEGORIES-004": {
+    "title": "管理员创建类目_重复提交_生成独立业务记录",
+    "product_id": 2,
+    "created_at": 1791192203
+  },
+  "GET_ADMIN_CATEGORIES_TREE-001": {
+    "title": "管理员获取类目树_典型请求_查询成功",
+    "product_id": 2,
+    "created_at": 1791192203
+  },
+  "GET_ADMIN_CATEGORIES_TREE-002": {
+    "title": "管理员获取类目树_未带Token_拒绝访问",
+    "product_id": 2,
+    "created_at": 1791192204
+  },
+  "DELETE_ADMIN_CATEGORIES_ID-001": {
+    "title": "管理员删除类目_典型请求_删除成功",
+    "product_id": 2,
+    "created_at": 1791192204
+  },
+  "DELETE_ADMIN_CATEGORIES_ID-002": {
+    "title": "管理员删除类目_未带Token_拒绝访问",
+    "product_id": 2,
+    "created_at": 1791192205
+  },
+  "DELETE_ADMIN_CATEGORIES_ID-003": {
+    "title": "管理员删除类目_缺少路径参数id_提示资源不存在",
+    "product_id": 2,
+    "created_at": 1791192205
+  },
+  "DELETE_ADMIN_CATEGORIES_ID-004": {
+    "title": "管理员删除类目_重复删除_提示资源不存在",
+    "product_id": 2,
+    "created_at": 1791192206
+  },
+  "PUT_ADMIN_CATEGORIES_ID-001": {
+    "title": "管理员更新类目_典型请求_修改成功",
+    "product_id": 2,
+    "created_at": 1791192206
+  },
+  "PUT_ADMIN_CATEGORIES_ID-002": {
+    "title": "管理员更新类目_未带Token_拒绝访问",
+    "product_id": 2,
+    "created_at": 1791192206
+  },
+  "PUT_ADMIN_CATEGORIES_ID-003": {
+    "title": "管理员更新类目_缺少路径参数id_提示资源不存在",
+    "product_id": 2,
+    "created_at": 1791192207
+  },
+  "PUT_ADMIN_CATEGORIES_ID-004": {
+    "title": "管理员更新类目_重复提交_结果一致",
+    "product_id": 2,
+    "created_at": 1791192207
+  },
+  "GET_ADMIN_CUSTOMERS-001": {
+    "title": "管理员分页查询会员_典型请求_查询成功",
+    "product_id": 2,
+    "created_at": 1791192208
+  },
+  "GET_ADMIN_CUSTOMERS-002": {
+    "title": "管理员分页查询会员_未带Token_拒绝访问",
+    "product_id": 2,
+    "created_at": 1791192208
+  },
+  "GET_ADMIN_CUSTOMERS-005": {
+    "title": "管理员分页查询会员_非法分页参数_正常返回",
+    "product_id": 2,
+    "created_at": 1791192208
+  },
+  "GET_ADMIN_CUSTOMERS_ID-001": {
+    "title": "管理员会员详情_典型请求_查询成功",
+    "product_id": 2,
+    "created_at": 1791192209
+  },
+  "GET_ADMIN_CUSTOMERS_ID-002": {
+    "title": "管理员会员详情_未带Token_拒绝访问",
+    "product_id": 2,
+    "created_at": 1791192209
+  },
+  "GET_ADMIN_CUSTOMERS_ID-003": {
+    "title": "管理员会员详情_缺少路径参数id_提示资源不存在",
+    "product_id": 2,
+    "created_at": 1791192210
+  },
+  "PUT_ADMIN_CUSTOMERS_ID_STATUS-001": {
+    "title": "管理员冻结/解冻会员_典型请求_修改成功",
+    "product_id": 2,
+    "created_at": 1791192210
+  },
+  "PUT_ADMIN_CUSTOMERS_ID_STATUS-002": {
+    "title": "管理员冻结/解冻会员_未带Token_拒绝访问",
+    "product_id": 2,
+    "created_at": 1791192211
+  },
+  "PUT_ADMIN_CUSTOMERS_ID_STATUS-003": {
+    "title": "管理员冻结/解冻会员_缺少路径参数id_提示资源不存在",
+    "product_id": 2,
+    "created_at": 1791192211
+  },
+  "PUT_ADMIN_CUSTOMERS_ID_STATUS-004": {
+    "title": "管理员冻结/解冻会员_重复提交_结果一致",
+    "product_id": 2,
+    "created_at": 1791192211
+  },
+  "GET_ADMIN_DASHBOARD_STATS-001": {
+    "title": "管理员获取工作台统计_典型请求_查询成功",
+    "product_id": 2,
+    "created_at": 1791192212
+  },
+  "GET_ADMIN_DASHBOARD_STATS-002": {
+    "title": "管理员获取工作台统计_未带Token_拒绝访问",
+    "product_id": 2,
+    "created_at": 1791192212
+  },
+  "GET_ADMIN_DEPTS-001": {
+    "title": "管理员部门列表_典型请求_查询成功",
+    "product_id": 2,
+    "created_at": 1791192213
+  },
+  "GET_ADMIN_DEPTS-002": {
+    "title": "管理员部门列表_未带Token_拒绝访问",
+    "product_id": 2,
+    "created_at": 1791192213
+  },
+  "POST_ADMIN_DEPTS-001": {
+    "title": "管理员创建部门_典型请求_创建成功",
+    "product_id": 2,
+    "created_at": 1791192214
+  },
+  "POST_ADMIN_DEPTS-002": {
+    "title": "管理员创建部门_未带Token_拒绝访问",
+    "product_id": 2,
+    "created_at": 1791192214
+  },
+  "POST_ADMIN_DEPTS-004": {
+    "title": "管理员创建部门_重复提交_生成独立业务记录",
+    "product_id": 2,
+    "created_at": 1791192214
+  },
+  "GET_ADMIN_DEPTS_TREE-001": {
+    "title": "管理员部门树_典型请求_查询成功",
+    "product_id": 2,
+    "created_at": 1791192215
+  },
+  "GET_ADMIN_DEPTS_TREE-002": {
+    "title": "管理员部门树_未带Token_拒绝访问",
+    "product_id": 2,
+    "created_at": 1791192215
+  },
+  "DELETE_ADMIN_DEPTS_ID-001": {
+    "title": "管理员删除部门_典型请求_删除成功",
+    "product_id": 2,
+    "created_at": 1791192216
+  },
+  "DELETE_ADMIN_DEPTS_ID-002": {
+    "title": "管理员删除部门_未带Token_拒绝访问",
+    "product_id": 2,
+    "created_at": 1791192216
+  },
+  "DELETE_ADMIN_DEPTS_ID-003": {
+    "title": "管理员删除部门_缺少路径参数id_提示资源不存在",
+    "product_id": 2,
+    "created_at": 1791192216
+  },
+  "DELETE_ADMIN_DEPTS_ID-004": {
+    "title": "管理员删除部门_重复删除_提示资源不存在",
+    "product_id": 2,
+    "created_at": 1791192217
+  },
+  "PUT_ADMIN_DEPTS_ID-001": {
+    "title": "管理员更新部门_典型请求_修改成功",
+    "product_id": 2,
+    "created_at": 1791192217
+  },
+  "PUT_ADMIN_DEPTS_ID-002": {
+    "title": "管理员更新部门_未带Token_拒绝访问",
+    "product_id": 2,
+    "created_at": 1791192218
+  },
+  "PUT_ADMIN_DEPTS_ID-003": {
+    "title": "管理员更新部门_缺少路径参数id_提示资源不存在",
+    "product_id": 2,
+    "created_at": 1791192218
+  },
+  "PUT_ADMIN_DEPTS_ID-004": {
+    "title": "管理员更新部门_重复提交_结果一致",
+    "product_id": 2,
+    "created_at": 1791192219
+  },
+  "GET_ADMIN_DICT_ITEMS-001": {
+    "title": "管理员查询字典项_典型请求_查询成功",
+    "product_id": 2,
+    "created_at": 1791192219
+  },
+  "GET_ADMIN_DICT_ITEMS-002": {
+    "title": "管理员查询字典项_未带Token_拒绝访问",
+    "product_id": 2,
+    "created_at": 1791192219
+  },
+  "GET_ADMIN_DICT_ITEMS-003": {
+    "title": "管理员查询字典项_缺少必填参数dictId_提示参数错误",
+    "product_id": 2,
+    "created_at": 1791192220
+  },
+  "POST_ADMIN_DICT_ITEMS-001": {
+    "title": "管理员创建字典项_典型请求_创建成功",
+    "product_id": 2,
+    "created_at": 1791192220
+  },
+  "POST_ADMIN_DICT_ITEMS-002": {
+    "title": "管理员创建字典项_未带Token_拒绝访问",
+    "product_id": 2,
+    "created_at": 1791192221
+  },
+  "POST_ADMIN_DICT_ITEMS-004": {
+    "title": "管理员创建字典项_重复提交_生成独立业务记录",
+    "product_id": 2,
+    "created_at": 1791192221
+  },
+  "GET_ADMIN_DICT_ITEMS_BY_CODE-001": {
+    "title": "管理员按编码查询字典项_典型请求_查询成功",
+    "product_id": 2,
+    "created_at": 1791192221
+  },
+  "GET_ADMIN_DICT_ITEMS_BY_CODE-002": {
+    "title": "管理员按编码查询字典项_未带Token_拒绝访问",
+    "product_id": 2,
+    "created_at": 1791192222
+  },
+  "GET_ADMIN_DICT_ITEMS_BY_CODE-003": {
+    "title": "管理员按编码查询字典项_缺少必填参数code_提示参数错误",
+    "product_id": 2,
+    "created_at": 1791192222
+  },
+  "DELETE_ADMIN_DICT_ITEMS_ID-001": {
+    "title": "管理员删除字典项_典型请求_删除成功",
+    "product_id": 2,
+    "created_at": 1791192223
+  },
+  "DELETE_ADMIN_DICT_ITEMS_ID-002": {
+    "title": "管理员删除字典项_未带Token_拒绝访问",
+    "product_id": 2,
+    "created_at": 1791192223
+  },
+  "DELETE_ADMIN_DICT_ITEMS_ID-003": {
+    "title": "管理员删除字典项_缺少路径参数id_提示资源不存在",
+    "product_id": 2,
+    "created_at": 1791192223
+  },
+  "DELETE_ADMIN_DICT_ITEMS_ID-004": {
+    "title": "管理员删除字典项_重复删除_提示资源不存在",
+    "product_id": 2,
+    "created_at": 1791192224
+  },
+  "PUT_ADMIN_DICT_ITEMS_ID-001": {
+    "title": "管理员更新字典项_典型请求_修改成功",
+    "product_id": 2,
+    "created_at": 1791192224
+  },
+  "PUT_ADMIN_DICT_ITEMS_ID-002": {
+    "title": "管理员更新字典项_未带Token_拒绝访问",
+    "product_id": 2,
+    "created_at": 1791192225
+  },
+  "PUT_ADMIN_DICT_ITEMS_ID-003": {
+    "title": "管理员更新字典项_缺少路径参数id_提示资源不存在",
+    "product_id": 2,
+    "created_at": 1791192225
+  },
+  "PUT_ADMIN_DICT_ITEMS_ID-004": {
+    "title": "管理员更新字典项_重复提交_结果一致",
+    "product_id": 2,
+    "created_at": 1791192225
+  },
+  "GET_ADMIN_DICTS-001": {
+    "title": "管理员分页查询字典_典型请求_查询成功",
+    "product_id": 2,
+    "created_at": 1791192226
+  },
+  "GET_ADMIN_DICTS-002": {
+    "title": "管理员分页查询字典_未带Token_拒绝访问",
+    "product_id": 2,
+    "created_at": 1791192226
+  },
+  "GET_ADMIN_DICTS-005": {
+    "title": "管理员分页查询字典_非法分页参数_正常返回",
+    "product_id": 2,
+    "created_at": 1791192227
+  },
+  "POST_ADMIN_DICTS-001": {
+    "title": "管理员创建字典_典型请求_创建成功",
+    "product_id": 2,
+    "created_at": 1791192227
+  },
+  "POST_ADMIN_DICTS-002": {
+    "title": "管理员创建字典_未带Token_拒绝访问",
+    "product_id": 2,
+    "created_at": 1791192228
+  },
+  "POST_ADMIN_DICTS-004": {
+    "title": "管理员创建字典_重复提交_提示已存在",
+    "product_id": 2,
+    "created_at": 1791192228
+  },
+  "DELETE_ADMIN_DICTS_ID-001": {
+    "title": "管理员删除字典_典型请求_删除成功",
+    "product_id": 2,
+    "created_at": 1791192229
+  },
+  "DELETE_ADMIN_DICTS_ID-002": {
+    "title": "管理员删除字典_未带Token_拒绝访问",
+    "product_id": 2,
+    "created_at": 1791192229
+  },
+  "DELETE_ADMIN_DICTS_ID-003": {
+    "title": "管理员删除字典_缺少路径参数id_提示资源不存在",
+    "product_id": 2,
+    "created_at": 1791192230
+  },
+  "DELETE_ADMIN_DICTS_ID-004": {
+    "title": "管理员删除字典_重复删除_提示资源不存在",
+    "product_id": 2,
+    "created_at": 1791192230
+  },
+  "PUT_ADMIN_DICTS_ID-001": {
+    "title": "管理员更新字典_典型请求_修改成功",
+    "product_id": 2,
+    "created_at": 1791192231
+  },
+  "PUT_ADMIN_DICTS_ID-002": {
+    "title": "管理员更新字典_未带Token_拒绝访问",
+    "product_id": 2,
+    "created_at": 1791192231
+  },
+  "PUT_ADMIN_DICTS_ID-003": {
+    "title": "管理员更新字典_缺少路径参数id_提示资源不存在",
+    "product_id": 2,
+    "created_at": 1791192232
+  },
+  "PUT_ADMIN_DICTS_ID-004": {
+    "title": "管理员更新字典_重复提交_结果一致",
+    "product_id": 2,
+    "created_at": 1791192232
+  },
+  "POST_ADMIN_FILES_CONFIRM-001": {
+    "title": "管理员确认上传完成_典型请求_创建成功",
+    "product_id": 2,
+    "created_at": 1791192232
+  },
+  "POST_ADMIN_FILES_CONFIRM-002": {
+    "title": "管理员确认上传完成_未带Token_拒绝访问",
+    "product_id": 2,
+    "created_at": 1791192233
+  },
+  "POST_ADMIN_FILES_CONFIRM-003": {
+    "title": "管理员确认上传完成_缺少必填参数_提示参数错误",
+    "product_id": 2,
+    "created_at": 1791192233
+  },
+  "POST_ADMIN_FILES_CONFIRM-004": {
+    "title": "管理员确认上传完成_重复提交_生成独立业务记录",
+    "product_id": 2,
+    "created_at": 1791192234
+  },
+  "POST_ADMIN_FILES_PRESIGN-001": {
+    "title": "管理员获取预签名上传地址_典型请求_创建成功",
+    "product_id": 2,
+    "created_at": 1791192234
+  },
+  "POST_ADMIN_FILES_PRESIGN-002": {
+    "title": "管理员获取预签名上传地址_未带Token_拒绝访问",
+    "product_id": 2,
+    "created_at": 1791192234
+  },
+  "POST_ADMIN_FILES_PRESIGN-004": {
+    "title": "管理员获取预签名上传地址_重复提交_生成新对象键",
+    "product_id": 2,
+    "created_at": 1791192235
+  },
+  "POST_ADMIN_FILES_UPLOAD-001": {
+    "title": "管理员直传上传文件_典型请求_创建成功",
+    "product_id": 2,
+    "created_at": 1791192235
+  },
+  "POST_ADMIN_FILES_UPLOAD-002": {
+    "title": "管理员直传上传文件_未带Token_拒绝访问",
+    "product_id": 2,
+    "created_at": 1791192236
+  },
+  "POST_ADMIN_FILES_UPLOAD-003": {
+    "title": "管理员直传上传文件_缺少必填参数_提示参数错误",
+    "product_id": 2,
+    "created_at": 1791192236
+  },
+  "POST_ADMIN_FILES_UPLOAD-004": {
+    "title": "管理员直传上传文件_重复提交_生成新对象键",
+    "product_id": 2,
+    "created_at": 1791192236
+  },
+  "GET_ADMIN_FILES_VIEW-001": {
+    "title": "管理员查看/下载文件_典型请求_查询成功",
+    "product_id": 2,
+    "created_at": 1791192237
+  },
+  "GET_ADMIN_FILES_VIEW-003": {
+    "title": "管理员查看/下载文件_缺少必填参数objectKey_提示参数错误",
+    "product_id": 2,
+    "created_at": 1791192237
+  },
+  "GET_ADMIN_HOME_SLOTS-001": {
+    "title": "管理员运营位列表_典型请求_查询成功",
+    "product_id": 2,
+    "created_at": 1791192238
+  },
+  "GET_ADMIN_HOME_SLOTS-002": {
+    "title": "管理员运营位列表_未带Token_拒绝访问",
+    "product_id": 2,
+    "created_at": 1791192238
+  },
+  "GET_ADMIN_HOME_SLOTS_CODE-001": {
+    "title": "管理员运营位详情_典型请求_查询成功",
+    "product_id": 2,
+    "created_at": 1791192238
+  },
+  "GET_ADMIN_HOME_SLOTS_CODE-002": {
+    "title": "管理员运营位详情_未带Token_拒绝访问",
+    "product_id": 2,
+    "created_at": 1791192239
+  },
+  "GET_ADMIN_HOME_SLOTS_CODE-003": {
+    "title": "管理员运营位详情_缺少路径参数code_提示资源不存在",
+    "product_id": 2,
+    "created_at": 1791192239
+  },
+  "PUT_ADMIN_HOME_SLOTS_CODE-001": {
+    "title": "管理员保存运营位_典型请求_修改成功",
+    "product_id": 2,
+    "created_at": 1791192239
+  },
+  "PUT_ADMIN_HOME_SLOTS_CODE-002": {
+    "title": "管理员保存运营位_未带Token_拒绝访问",
+    "product_id": 2,
+    "created_at": 1791192240
+  },
+  "PUT_ADMIN_HOME_SLOTS_CODE-003": {
+    "title": "管理员保存运营位_缺少路径参数code_提示资源不存在",
+    "product_id": 2,
+    "created_at": 1791192240
+  },
+  "PUT_ADMIN_HOME_SLOTS_CODE-004": {
+    "title": "管理员保存运营位_重复提交_结果一致",
+    "product_id": 2,
+    "created_at": 1791192241
+  },
+  "GET_ADMIN_IN_OUT-001": {
+    "title": "管理员出入库分页_典型请求_查询成功",
+    "product_id": 2,
+    "created_at": 1791192241
+  },
+  "GET_ADMIN_IN_OUT-002": {
+    "title": "管理员出入库分页_未带Token_拒绝访问",
+    "product_id": 2,
+    "created_at": 1791192241
+  },
+  "GET_ADMIN_IN_OUT-005": {
+    "title": "管理员出入库分页_非法分页参数_正常返回",
+    "product_id": 2,
+    "created_at": 1791192242
+  },
+  "POST_ADMIN_IN_OUT-001": {
+    "title": "管理员创建出入库单_典型请求_创建成功",
+    "product_id": 2,
+    "created_at": 1791192242
+  },
+  "POST_ADMIN_IN_OUT-002": {
+    "title": "管理员创建出入库单_未带Token_拒绝访问",
+    "product_id": 2,
+    "created_at": 1791192243
+  },
+  "POST_ADMIN_IN_OUT-003": {
+    "title": "管理员创建出入库单_缺少必填参数_提示参数错误",
+    "product_id": 2,
+    "created_at": 1791192243
+  },
+  "POST_ADMIN_IN_OUT-004": {
+    "title": "管理员创建出入库单_重复提交_生成独立业务记录",
+    "product_id": 2,
+    "created_at": 1791192243
+  },
+  "GET_ADMIN_OPERATION_LOGS-001": {
+    "title": "管理员分页查询操作日志_典型请求_查询成功",
+    "product_id": 2,
+    "created_at": 1791192244
+  },
+  "GET_ADMIN_OPERATION_LOGS-002": {
+    "title": "管理员分页查询操作日志_未带Token_拒绝访问",
+    "product_id": 2,
+    "created_at": 1791192244
+  },
+  "GET_ADMIN_OPERATION_LOGS-005": {
+    "title": "管理员分页查询操作日志_非法分页参数_正常返回",
+    "product_id": 2,
+    "created_at": 1791192245
+  },
+  "GET_ADMIN_OPERATION_LOGS_EXPORT-001": {
+    "title": "管理员导出操作日志_典型请求_查询成功",
+    "product_id": 2,
+    "created_at": 1791192245
+  },
+  "GET_ADMIN_OPERATION_LOGS_EXPORT-002": {
+    "title": "管理员导出操作日志_未带Token_拒绝访问",
+    "product_id": 2,
+    "created_at": 1791192245
+  },
+  "GET_ADMIN_OPERATION_LOGS_ID-001": {
+    "title": "管理员操作日志详情_典型请求_查询成功",
+    "product_id": 2,
+    "created_at": 1791192246
+  },
+  "GET_ADMIN_OPERATION_LOGS_ID-002": {
+    "title": "管理员操作日志详情_未带Token_拒绝访问",
+    "product_id": 2,
+    "created_at": 1791192246
+  },
+  "GET_ADMIN_OPERATION_LOGS_ID-003": {
+    "title": "管理员操作日志详情_缺少路径参数id_提示资源不存在",
+    "product_id": 2,
+    "created_at": 1791192247
+  },
+  "GET_ADMIN_ORDERS-005": {
+    "title": "管理员分页查询订单_非法分页参数_正常返回",
+    "product_id": 2,
+    "created_at": 1791192247
+  },
+  "GET_ADMIN_ORDERS_EXPORT-001": {
+    "title": "管理员导出订单 CSV_典型请求_查询成功",
+    "product_id": 2,
+    "created_at": 1791192247
+  },
+  "GET_ADMIN_ORDERS_EXPORT-002": {
+    "title": "管理员导出订单 CSV_未带Token_拒绝访问",
+    "product_id": 2,
+    "created_at": 1791192248
+  },
+  "GET_ADMIN_ORDERS_ID-001": {
+    "title": "管理员获取订单详情_典型请求_查询成功",
+    "product_id": 2,
+    "created_at": 1791192248
+  },
+  "GET_ADMIN_ORDERS_ID-002": {
+    "title": "管理员获取订单详情_未带Token_拒绝访问",
+    "product_id": 2,
+    "created_at": 1791192249
+  },
+  "GET_ADMIN_ORDERS_ID-003": {
+    "title": "管理员获取订单详情_缺少路径参数id_提示资源不存在",
+    "product_id": 2,
+    "created_at": 1791192249
+  },
+  "POST_ADMIN_ORDERS_ID_SHIP-001": {
+    "title": "管理员订单发货_典型请求_操作成功",
+    "product_id": 2,
+    "created_at": 1791192250
+  },
+  "POST_ADMIN_ORDERS_ID_SHIP-002": {
+    "title": "管理员订单发货_未带Token_拒绝访问",
+    "product_id": 2,
+    "created_at": 1791192250
+  },
+  "POST_ADMIN_ORDERS_ID_SHIP-003": {
+    "title": "管理员订单发货_缺少路径参数id_提示资源不存在",
+    "product_id": 2,
+    "created_at": 1791192250
+  },
+  "POST_ADMIN_ORDERS_ID_SHIP-004": {
+    "title": "管理员订单发货_重复提交_不再产生副作用",
+    "product_id": 2,
+    "created_at": 1791192251
+  },
+  "GET_ADMIN_PERMISSIONS-001": {
+    "title": "管理员权限列表_典型请求_查询成功",
+    "product_id": 2,
+    "created_at": 1791192251
+  },
+  "GET_ADMIN_PERMISSIONS-002": {
+    "title": "管理员权限列表_未带Token_拒绝访问",
+    "product_id": 2,
+    "created_at": 1791192252
+  },
+  "POST_ADMIN_PERMISSIONS-001": {
+    "title": "管理员创建权限_典型请求_创建成功",
+    "product_id": 2,
+    "created_at": 1791192252
+  },
+  "POST_ADMIN_PERMISSIONS-002": {
+    "title": "管理员创建权限_未带Token_拒绝访问",
+    "product_id": 2,
+    "created_at": 1791192252
+  },
+  "POST_ADMIN_PERMISSIONS-004": {
+    "title": "管理员创建权限_重复提交_提示已存在",
+    "product_id": 2,
+    "created_at": 1791192253
+  },
+  "GET_ADMIN_PERMISSIONS_TREE-001": {
+    "title": "管理员权限树_典型请求_查询成功",
+    "product_id": 2,
+    "created_at": 1791192253
+  },
+  "GET_ADMIN_PERMISSIONS_TREE-002": {
+    "title": "管理员权限树_未带Token_拒绝访问",
+    "product_id": 2,
+    "created_at": 1791192254
+  },
+  "DELETE_ADMIN_PERMISSIONS_ID-001": {
+    "title": "管理员删除权限_典型请求_删除成功",
+    "product_id": 2,
+    "created_at": 1791192254
+  },
+  "DELETE_ADMIN_PERMISSIONS_ID-002": {
+    "title": "管理员删除权限_未带Token_拒绝访问",
+    "product_id": 2,
+    "created_at": 1791192254
+  },
+  "DELETE_ADMIN_PERMISSIONS_ID-003": {
+    "title": "管理员删除权限_缺少路径参数id_提示资源不存在",
+    "product_id": 2,
+    "created_at": 1791192255
+  },
+  "DELETE_ADMIN_PERMISSIONS_ID-004": {
+    "title": "管理员删除权限_重复删除_提示资源不存在",
+    "product_id": 2,
+    "created_at": 1791192255
+  },
+  "PUT_ADMIN_PERMISSIONS_ID-001": {
+    "title": "管理员更新权限_典型请求_修改成功",
+    "product_id": 2,
+    "created_at": 1791192256
+  },
+  "PUT_ADMIN_PERMISSIONS_ID-002": {
+    "title": "管理员更新权限_未带Token_拒绝访问",
+    "product_id": 2,
+    "created_at": 1791192256
+  },
+  "PUT_ADMIN_PERMISSIONS_ID-003": {
+    "title": "管理员更新权限_缺少路径参数id_提示资源不存在",
+    "product_id": 2,
+    "created_at": 1791192256
+  },
+  "PUT_ADMIN_PERMISSIONS_ID-004": {
+    "title": "管理员更新权限_重复提交_结果一致",
+    "product_id": 2,
+    "created_at": 1791192257
+  },
+  "GET_ADMIN_PRODUCTS-001": {
+    "title": "管理员分页查询商品_典型请求_查询成功",
+    "product_id": 2,
+    "created_at": 1791192257
+  },
+  "GET_ADMIN_PRODUCTS-002": {
+    "title": "管理员分页查询商品_未带Token_拒绝访问",
+    "product_id": 2,
+    "created_at": 1791192258
+  },
+  "GET_ADMIN_PRODUCTS-005": {
+    "title": "管理员分页查询商品_非法分页参数_正常返回",
+    "product_id": 2,
+    "created_at": 1791192258
+  },
+  "POST_ADMIN_PRODUCTS-001": {
+    "title": "管理员创建商品_典型请求_创建成功",
+    "product_id": 2,
+    "created_at": 1791192258
+  },
+  "POST_ADMIN_PRODUCTS-002": {
+    "title": "管理员创建商品_未带Token_拒绝访问",
+    "product_id": 2,
+    "created_at": 1791192259
+  },
+  "POST_ADMIN_PRODUCTS-003": {
+    "title": "管理员创建商品_缺少必填参数_提示参数错误",
+    "product_id": 2,
+    "created_at": 1791192259
+  },
+  "POST_ADMIN_PRODUCTS-004": {
+    "title": "管理员创建商品_重复提交_生成独立业务记录",
+    "product_id": 2,
+    "created_at": 1791192260
+  },
+  "PUT_ADMIN_PRODUCTS_BATCH_OFF-001": {
+    "title": "管理员批量下架_典型请求_修改成功",
+    "product_id": 2,
+    "created_at": 1791192260
+  },
+  "PUT_ADMIN_PRODUCTS_BATCH_OFF-002": {
+    "title": "管理员批量下架_未带Token_拒绝访问",
+    "product_id": 2,
+    "created_at": 1791192260
+  },
+  "PUT_ADMIN_PRODUCTS_BATCH_OFF-003": {
+    "title": "管理员批量下架_缺少必填参数_提示参数错误",
+    "product_id": 2,
+    "created_at": 1791192261
+  },
+  "PUT_ADMIN_PRODUCTS_BATCH_OFF-004": {
+    "title": "管理员批量下架_重复提交_结果一致",
+    "product_id": 2,
+    "created_at": 1791192261
+  },
+  "DELETE_ADMIN_PRODUCTS_ID-001": {
+    "title": "管理员删除商品_典型请求_删除成功",
+    "product_id": 2,
+    "created_at": 1791192262
+  },
+  "DELETE_ADMIN_PRODUCTS_ID-002": {
+    "title": "管理员删除商品_未带Token_拒绝访问",
+    "product_id": 2,
+    "created_at": 1791192262
+  },
+  "DELETE_ADMIN_PRODUCTS_ID-003": {
+    "title": "管理员删除商品_缺少路径参数id_提示资源不存在",
+    "product_id": 2,
+    "created_at": 1791192263
+  },
+  "DELETE_ADMIN_PRODUCTS_ID-004": {
+    "title": "管理员删除商品_重复删除_提示资源不存在",
+    "product_id": 2,
+    "created_at": 1791192263
+  },
+  "GET_ADMIN_PRODUCTS_ID-001": {
+    "title": "管理员获取商品详情_典型请求_查询成功",
+    "product_id": 2,
+    "created_at": 1791192264
+  },
+  "GET_ADMIN_PRODUCTS_ID-002": {
+    "title": "管理员获取商品详情_未带Token_拒绝访问",
+    "product_id": 2,
+    "created_at": 1791192264
+  },
+  "GET_ADMIN_PRODUCTS_ID-003": {
+    "title": "管理员获取商品详情_缺少路径参数id_提示资源不存在",
+    "product_id": 2,
+    "created_at": 1791192264
+  },
+  "PUT_ADMIN_PRODUCTS_ID-001": {
+    "title": "管理员更新商品_典型请求_修改成功",
+    "product_id": 2,
+    "created_at": 1791192265
+  },
+  "PUT_ADMIN_PRODUCTS_ID-002": {
+    "title": "管理员更新商品_未带Token_拒绝访问",
+    "product_id": 2,
+    "created_at": 1791192265
+  },
+  "PUT_ADMIN_PRODUCTS_ID-003": {
+    "title": "管理员更新商品_缺少路径参数id_提示资源不存在",
+    "product_id": 2,
+    "created_at": 1791192266
+  },
+  "PUT_ADMIN_PRODUCTS_ID-004": {
+    "title": "管理员更新商品_重复提交_结果一致",
+    "product_id": 2,
+    "created_at": 1791192266
+  },
+  "PUT_ADMIN_PRODUCTS_ID_OFF-001": {
+    "title": "管理员商品下架_典型请求_修改成功",
+    "product_id": 2,
+    "created_at": 1791192266
+  },
+  "PUT_ADMIN_PRODUCTS_ID_OFF-002": {
+    "title": "管理员商品下架_未带Token_拒绝访问",
+    "product_id": 2,
+    "created_at": 1791192267
+  },
+  "PUT_ADMIN_PRODUCTS_ID_OFF-003": {
+    "title": "管理员商品下架_缺少路径参数id_提示资源不存在",
+    "product_id": 2,
+    "created_at": 1791192267
+  },
+  "PUT_ADMIN_PRODUCTS_ID_OFF-004": {
+    "title": "管理员商品下架_重复提交_结果一致",
+    "product_id": 2,
+    "created_at": 1791192268
+  },
+  "PUT_ADMIN_PRODUCTS_ID_ON-001": {
+    "title": "管理员商品上架_典型请求_修改成功",
+    "product_id": 2,
+    "created_at": 1791192268
+  },
+  "PUT_ADMIN_PRODUCTS_ID_ON-002": {
+    "title": "管理员商品上架_未带Token_拒绝访问",
+    "product_id": 2,
+    "created_at": 1791192268
+  },
+  "PUT_ADMIN_PRODUCTS_ID_ON-003": {
+    "title": "管理员商品上架_缺少路径参数id_提示资源不存在",
+    "product_id": 2,
+    "created_at": 1791192269
+  },
+  "PUT_ADMIN_PRODUCTS_ID_ON-004": {
+    "title": "管理员商品上架_重复提交_结果一致",
+    "product_id": 2,
+    "created_at": 1791192269
+  },
+  "GET_ADMIN_REVIEWS-001": {
+    "title": "管理员评价分页_典型请求_查询成功",
+    "product_id": 2,
+    "created_at": 1791192270
+  },
+  "GET_ADMIN_REVIEWS-002": {
+    "title": "管理员评价分页_未带Token_拒绝访问",
+    "product_id": 2,
+    "created_at": 1791192270
+  },
+  "GET_ADMIN_REVIEWS-005": {
+    "title": "管理员评价分页_非法分页参数_正常返回",
+    "product_id": 2,
+    "created_at": 1791192270
+  },
+  "PUT_ADMIN_REVIEWS_ID_STATUS-001": {
+    "title": "管理员隐藏/恢复评价_典型请求_修改成功",
+    "product_id": 2,
+    "created_at": 1791192271
+  },
+  "PUT_ADMIN_REVIEWS_ID_STATUS-002": {
+    "title": "管理员隐藏/恢复评价_未带Token_拒绝访问",
+    "product_id": 2,
+    "created_at": 1791192271
+  },
+  "PUT_ADMIN_REVIEWS_ID_STATUS-003": {
+    "title": "管理员隐藏/恢复评价_缺少路径参数id_提示资源不存在",
+    "product_id": 2,
+    "created_at": 1791192272
+  },
+  "PUT_ADMIN_REVIEWS_ID_STATUS-004": {
+    "title": "管理员隐藏/恢复评价_重复提交_结果一致",
+    "product_id": 2,
+    "created_at": 1791192272
+  },
+  "GET_ADMIN_ROLES-001": {
+    "title": "管理员分页查询角色_典型请求_查询成功",
+    "product_id": 2,
+    "created_at": 1791192272
+  },
+  "GET_ADMIN_ROLES-002": {
+    "title": "管理员分页查询角色_未带Token_拒绝访问",
+    "product_id": 2,
+    "created_at": 1791192273
+  },
+  "GET_ADMIN_ROLES-005": {
+    "title": "管理员分页查询角色_非法分页参数_正常返回",
+    "product_id": 2,
+    "created_at": 1791192273
+  },
+  "POST_ADMIN_ROLES-001": {
+    "title": "管理员创建角色_典型请求_创建成功",
+    "product_id": 2,
+    "created_at": 1791192274
+  },
+  "POST_ADMIN_ROLES-002": {
+    "title": "管理员创建角色_未带Token_拒绝访问",
+    "product_id": 2,
+    "created_at": 1791192274
+  },
+  "POST_ADMIN_ROLES-004": {
+    "title": "管理员创建角色_重复提交_提示已存在",
+    "product_id": 2,
+    "created_at": 1791192274
+  },
+  "GET_ADMIN_ROLES_ALL-001": {
+    "title": "管理员查询全部角色_典型请求_查询成功",
+    "product_id": 2,
+    "created_at": 1791192275
+  },
+  "GET_ADMIN_ROLES_ALL-002": {
+    "title": "管理员查询全部角色_未带Token_拒绝访问",
+    "product_id": 2,
+    "created_at": 1791192275
+  },
+  "DELETE_ADMIN_ROLES_ID-001": {
+    "title": "管理员删除角色_典型请求_删除成功",
+    "product_id": 2,
+    "created_at": 1791192276
+  },
+  "DELETE_ADMIN_ROLES_ID-002": {
+    "title": "管理员删除角色_未带Token_拒绝访问",
+    "product_id": 2,
+    "created_at": 1791192276
+  },
+  "DELETE_ADMIN_ROLES_ID-003": {
+    "title": "管理员删除角色_缺少路径参数id_提示资源不存在",
+    "product_id": 2,
+    "created_at": 1791192277
+  },
+  "DELETE_ADMIN_ROLES_ID-004": {
+    "title": "管理员删除角色_重复删除_提示资源不存在",
+    "product_id": 2,
+    "created_at": 1791192277
+  },
+  "PUT_ADMIN_ROLES_ID-001": {
+    "title": "管理员更新角色_典型请求_修改成功",
+    "product_id": 2,
+    "created_at": 1791192278
+  },
+  "PUT_ADMIN_ROLES_ID-002": {
+    "title": "管理员更新角色_未带Token_拒绝访问",
+    "product_id": 2,
+    "created_at": 1791192278
+  },
+  "PUT_ADMIN_ROLES_ID-003": {
+    "title": "管理员更新角色_缺少路径参数id_提示资源不存在",
+    "product_id": 2,
+    "created_at": 1791192279
+  },
+  "PUT_ADMIN_ROLES_ID-004": {
+    "title": "管理员更新角色_重复提交_结果一致",
+    "product_id": 2,
+    "created_at": 1791192279
+  },
+  "GET_ADMIN_SITE_BRAND-001": {
+    "title": "管理员获取站点品牌_典型请求_查询成功",
+    "product_id": 2,
+    "created_at": 1791192279
+  },
+  "GET_ADMIN_SITE_BRAND-002": {
+    "title": "管理员获取站点品牌_未带Token_拒绝访问",
+    "product_id": 2,
+    "created_at": 1791192280
+  },
+  "PUT_ADMIN_SITE_BRAND-001": {
+    "title": "管理员更新站点品牌_典型请求_修改成功",
+    "product_id": 2,
+    "created_at": 1791192280
+  },
+  "PUT_ADMIN_SITE_BRAND-002": {
+    "title": "管理员更新站点品牌_未带Token_拒绝访问",
+    "product_id": 2,
+    "created_at": 1791192281
+  },
+  "PUT_ADMIN_SITE_BRAND-003": {
+    "title": "管理员更新站点品牌_缺少必填参数_提示参数错误",
+    "product_id": 2,
+    "created_at": 1791192281
+  },
+  "PUT_ADMIN_SITE_BRAND-004": {
+    "title": "管理员更新站点品牌_重复提交_结果一致",
+    "product_id": 2,
+    "created_at": 1791192281
+  },
+  "GET_ADMIN_STOCKS-001": {
+    "title": "管理员分页查询库存_典型请求_查询成功",
+    "product_id": 2,
+    "created_at": 1791192282
+  },
+  "GET_ADMIN_STOCKS-002": {
+    "title": "管理员分页查询库存_未带Token_拒绝访问",
+    "product_id": 2,
+    "created_at": 1791192282
+  },
+  "GET_ADMIN_STOCKS-005": {
+    "title": "管理员分页查询库存_非法分页参数_正常返回",
+    "product_id": 2,
+    "created_at": 1791192283
+  },
+  "PUT_ADMIN_STOCKS_ADJUST-001": {
+    "title": "管理员调整库存_典型请求_修改成功",
+    "product_id": 2,
+    "created_at": 1791192283
+  },
+  "PUT_ADMIN_STOCKS_ADJUST-002": {
+    "title": "管理员调整库存_未带Token_拒绝访问",
+    "product_id": 2,
+    "created_at": 1791192283
+  },
+  "PUT_ADMIN_STOCKS_ADJUST-003": {
+    "title": "管理员调整库存_缺少必填参数_提示参数错误",
+    "product_id": 2,
+    "created_at": 1791192284
+  },
+  "PUT_ADMIN_STOCKS_ADJUST-004": {
+    "title": "管理员调整库存_重复提交_结果一致",
+    "product_id": 2,
+    "created_at": 1791192284
+  },
+  "GET_ADMIN_SYSTEM_CONFIGS-001": {
+    "title": "管理员查询系统配置_典型请求_查询成功",
+    "product_id": 2,
+    "created_at": 1791192284
+  },
+  "GET_ADMIN_SYSTEM_CONFIGS-002": {
+    "title": "管理员查询系统配置_未带Token_拒绝访问",
+    "product_id": 2,
+    "created_at": 1791192285
+  },
+  "PUT_ADMIN_SYSTEM_CONFIGS_ID-001": {
+    "title": "管理员更新系统配置_典型请求_修改成功",
+    "product_id": 2,
+    "created_at": 1791192285
+  },
+  "PUT_ADMIN_SYSTEM_CONFIGS_ID-002": {
+    "title": "管理员更新系统配置_未带Token_拒绝访问",
+    "product_id": 2,
+    "created_at": 1791192286
+  },
+  "PUT_ADMIN_SYSTEM_CONFIGS_ID-003": {
+    "title": "管理员更新系统配置_缺少路径参数id_提示资源不存在",
+    "product_id": 2,
+    "created_at": 1791192286
+  },
+  "PUT_ADMIN_SYSTEM_CONFIGS_ID-004": {
+    "title": "管理员更新系统配置_重复提交_结果一致",
+    "product_id": 2,
+    "created_at": 1791192286
+  },
+  "GET_ADMIN_USERS-001": {
+    "title": "管理员分页查询用户_典型请求_查询成功",
+    "product_id": 2,
+    "created_at": 1791192287
+  },
+  "GET_ADMIN_USERS-002": {
+    "title": "管理员分页查询用户_未带Token_拒绝访问",
+    "product_id": 2,
+    "created_at": 1791192287
+  },
+  "GET_ADMIN_USERS-005": {
+    "title": "管理员分页查询用户_非法分页参数_正常返回",
+    "product_id": 2,
+    "created_at": 1791192288
+  },
+  "POST_ADMIN_USERS-001": {
+    "title": "管理员创建用户_典型请求_创建成功",
+    "product_id": 2,
+    "created_at": 1791192288
+  },
+  "POST_ADMIN_USERS-002": {
+    "title": "管理员创建用户_未带Token_拒绝访问",
+    "product_id": 2,
+    "created_at": 1791192288
+  },
+  "POST_ADMIN_USERS-004": {
+    "title": "管理员创建用户_重复提交_提示已存在",
+    "product_id": 2,
+    "created_at": 1791192289
+  },
+  "DELETE_ADMIN_USERS_ID-001": {
+    "title": "管理员删除用户_典型请求_删除成功",
+    "product_id": 2,
+    "created_at": 1791192289
+  },
+  "DELETE_ADMIN_USERS_ID-002": {
+    "title": "管理员删除用户_未带Token_拒绝访问",
+    "product_id": 2,
+    "created_at": 1791192290
+  },
+  "DELETE_ADMIN_USERS_ID-003": {
+    "title": "管理员删除用户_缺少路径参数id_提示资源不存在",
+    "product_id": 2,
+    "created_at": 1791192290
+  },
+  "DELETE_ADMIN_USERS_ID-004": {
+    "title": "管理员删除用户_重复删除_提示资源不存在",
+    "product_id": 2,
+    "created_at": 1791192290
+  },
+  "GET_ADMIN_USERS_ID-001": {
+    "title": "管理员获取用户详情_典型请求_查询成功",
+    "product_id": 2,
+    "created_at": 1791192291
+  },
+  "GET_ADMIN_USERS_ID-002": {
+    "title": "管理员获取用户详情_未带Token_拒绝访问",
+    "product_id": 2,
+    "created_at": 1791192291
+  },
+  "GET_ADMIN_USERS_ID-003": {
+    "title": "管理员获取用户详情_缺少路径参数id_提示资源不存在",
+    "product_id": 2,
+    "created_at": 1791192292
+  },
+  "PUT_ADMIN_USERS_ID-001": {
+    "title": "管理员更新用户_典型请求_修改成功",
+    "product_id": 2,
+    "created_at": 1791192292
+  },
+  "PUT_ADMIN_USERS_ID-002": {
+    "title": "管理员更新用户_未带Token_拒绝访问",
+    "product_id": 2,
+    "created_at": 1791192293
+  },
+  "PUT_ADMIN_USERS_ID-003": {
+    "title": "管理员更新用户_缺少路径参数id_提示资源不存在",
+    "product_id": 2,
+    "created_at": 1791192293
+  },
+  "PUT_ADMIN_USERS_ID-004": {
+    "title": "管理员更新用户_重复提交_结果一致",
+    "product_id": 2,
+    "created_at": 1791192293
+  },
+  "PUT_ADMIN_USERS_ID_PASSWORD-001": {
+    "title": "管理员重置密码_典型请求_修改成功",
+    "product_id": 2,
+    "created_at": 1791192294
+  },
+  "PUT_ADMIN_USERS_ID_PASSWORD-002": {
+    "title": "管理员重置密码_未带Token_拒绝访问",
+    "product_id": 2,
+    "created_at": 1791192294
+  },
+  "PUT_ADMIN_USERS_ID_PASSWORD-003": {
+    "title": "管理员重置密码_缺少路径参数id_提示资源不存在",
+    "product_id": 2,
+    "created_at": 1791192294
+  },
+  "PUT_ADMIN_USERS_ID_PASSWORD-004": {
+    "title": "管理员重置密码_重复提交_结果一致",
+    "product_id": 2,
+    "created_at": 1791192295
+  },
+  "PUT_ADMIN_USERS_ID_STATUS-001": {
+    "title": "管理员更新用户状态_典型请求_修改成功",
+    "product_id": 2,
+    "created_at": 1791192295
+  },
+  "PUT_ADMIN_USERS_ID_STATUS-002": {
+    "title": "管理员更新用户状态_未带Token_拒绝访问",
+    "product_id": 2,
+    "created_at": 1791192296
+  },
+  "PUT_ADMIN_USERS_ID_STATUS-003": {
+    "title": "管理员更新用户状态_缺少路径参数id_提示资源不存在",
+    "product_id": 2,
+    "created_at": 1791192296
+  },
+  "PUT_ADMIN_USERS_ID_STATUS-004": {
+    "title": "管理员更新用户状态_重复提交_结果一致",
+    "product_id": 2,
+    "created_at": 1791192297
+  },
+  "GET_ADMIN_WAREHOUSES-001": {
+    "title": "管理员获取仓库列表_典型请求_查询成功",
+    "product_id": 2,
+    "created_at": 1791192297
+  },
+  "GET_ADMIN_WAREHOUSES-002": {
+    "title": "管理员获取仓库列表_未带Token_拒绝访问",
+    "product_id": 2,
+    "created_at": 1791192297
+  },
+  "POST_ADMIN_WAREHOUSES-001": {
+    "title": "管理员创建仓库_典型请求_创建成功",
+    "product_id": 2,
+    "created_at": 1791192298
+  },
+  "POST_ADMIN_WAREHOUSES-002": {
+    "title": "管理员创建仓库_未带Token_拒绝访问",
+    "product_id": 2,
+    "created_at": 1791192298
+  },
+  "POST_ADMIN_WAREHOUSES-004": {
+    "title": "管理员创建仓库_重复提交_生成独立业务记录",
+    "product_id": 2,
+    "created_at": 1791192299
+  },
+  "PUT_ADMIN_WAREHOUSES_ID-001": {
+    "title": "管理员更新仓库_典型请求_修改成功",
+    "product_id": 2,
+    "created_at": 1791192299
+  },
+  "PUT_ADMIN_WAREHOUSES_ID-002": {
+    "title": "管理员更新仓库_未带Token_拒绝访问",
+    "product_id": 2,
+    "created_at": 1791192299
+  },
+  "PUT_ADMIN_WAREHOUSES_ID-003": {
+    "title": "管理员更新仓库_缺少路径参数id_提示资源不存在",
+    "product_id": 2,
+    "created_at": 1791192300
+  },
+  "PUT_ADMIN_WAREHOUSES_ID-004": {
+    "title": "管理员更新仓库_重复提交_结果一致",
+    "product_id": 2,
+    "created_at": 1791192300
+  },
+  "GET_API_ADDRESSES-001": {
+    "title": "收货地址列表_典型请求_查询成功",
+    "product_id": 2,
+    "created_at": 1791192301
+  },
+  "GET_API_ADDRESSES-002": {
+    "title": "收货地址列表_未带Token_拒绝访问",
+    "product_id": 2,
+    "created_at": 1791192301
+  },
+  "POST_API_ADDRESSES-001": {
+    "title": "新增收货地址_典型请求_创建成功",
+    "product_id": 2,
+    "created_at": 1791192301
+  },
+  "POST_API_ADDRESSES-002": {
+    "title": "新增收货地址_未带Token_拒绝访问",
+    "product_id": 2,
+    "created_at": 1791192302
+  },
+  "POST_API_ADDRESSES-003": {
+    "title": "新增收货地址_缺少必填参数_提示参数错误",
+    "product_id": 2,
+    "created_at": 1791192302
+  },
+  "POST_API_ADDRESSES-004": {
+    "title": "新增收货地址_重复提交_生成独立业务记录",
+    "product_id": 2,
+    "created_at": 1791192303
+  },
+  "DELETE_API_ADDRESSES_ID-001": {
+    "title": "删除收货地址_典型请求_删除成功",
+    "product_id": 2,
+    "created_at": 1791192303
+  },
+  "DELETE_API_ADDRESSES_ID-002": {
+    "title": "删除收货地址_未带Token_拒绝访问",
+    "product_id": 2,
+    "created_at": 1791192304
+  },
+  "DELETE_API_ADDRESSES_ID-003": {
+    "title": "删除收货地址_缺少路径参数id_提示资源不存在",
+    "product_id": 2,
+    "created_at": 1791192304
+  },
+  "DELETE_API_ADDRESSES_ID-004": {
+    "title": "删除收货地址_重复删除_提示资源不存在",
+    "product_id": 2,
+    "created_at": 1791192305
+  },
+  "PUT_API_ADDRESSES_ID-001": {
+    "title": "修改收货地址_典型请求_修改成功",
+    "product_id": 2,
+    "created_at": 1791192305
+  },
+  "PUT_API_ADDRESSES_ID-002": {
+    "title": "修改收货地址_未带Token_拒绝访问",
+    "product_id": 2,
+    "created_at": 1791192306
+  },
+  "PUT_API_ADDRESSES_ID-003": {
+    "title": "修改收货地址_缺少路径参数id_提示资源不存在",
+    "product_id": 2,
+    "created_at": 1791192306
+  },
+  "PUT_API_ADDRESSES_ID-004": {
+    "title": "修改收货地址_重复提交_结果一致",
+    "product_id": 2,
+    "created_at": 1791192306
+  },
+  "PUT_API_ADDRESSES_ID_DEFAULT-001": {
+    "title": "设置默认收货地址_典型请求_修改成功",
+    "product_id": 2,
+    "created_at": 1791192307
+  },
+  "PUT_API_ADDRESSES_ID_DEFAULT-002": {
+    "title": "设置默认收货地址_未带Token_拒绝访问",
+    "product_id": 2,
+    "created_at": 1791192307
+  },
+  "PUT_API_ADDRESSES_ID_DEFAULT-003": {
+    "title": "设置默认收货地址_缺少路径参数id_提示资源不存在",
+    "product_id": 2,
+    "created_at": 1791192308
+  },
+  "PUT_API_ADDRESSES_ID_DEFAULT-004": {
+    "title": "设置默认收货地址_重复提交_结果一致",
+    "product_id": 2,
+    "created_at": 1791192308
+  },
+  "GET_API_AFTER_SALES-001": {
+    "title": "我的售后列表_典型请求_查询成功",
+    "product_id": 2,
+    "created_at": 1791192308
+  },
+  "GET_API_AFTER_SALES-002": {
+    "title": "我的售后列表_未带Token_拒绝访问",
+    "product_id": 2,
+    "created_at": 1791192309
+  },
+  "GET_API_AFTER_SALES-005": {
+    "title": "我的售后列表_非法分页参数_正常返回",
+    "product_id": 2,
+    "created_at": 1791192309
+  },
+  "POST_API_AFTER_SALES-001": {
+    "title": "申请售后_典型请求_创建成功",
+    "product_id": 2,
+    "created_at": 1791192310
+  },
+  "POST_API_AFTER_SALES-002": {
+    "title": "申请售后_未带Token_拒绝访问",
+    "product_id": 2,
+    "created_at": 1791192310
+  },
+  "POST_API_AFTER_SALES-003": {
+    "title": "申请售后_缺少必填参数_提示参数错误",
+    "product_id": 2,
+    "created_at": 1791192311
+  },
+  "POST_API_AFTER_SALES-004": {
+    "title": "申请售后_重复提交_生成独立业务记录",
+    "product_id": 2,
+    "created_at": 1791192311
+  },
+  "GET_API_AFTER_SALES_ID-001": {
+    "title": "售后详情_典型请求_查询成功",
+    "product_id": 2,
+    "created_at": 1791192311
+  },
+  "GET_API_AFTER_SALES_ID-002": {
+    "title": "售后详情_未带Token_拒绝访问",
+    "product_id": 2,
+    "created_at": 1791192312
+  },
+  "GET_API_AFTER_SALES_ID-003": {
+    "title": "售后详情_缺少路径参数id_提示资源不存在",
+    "product_id": 2,
+    "created_at": 1791192312
+  },
+  "POST_API_AUTH_LOGIN-001": {
+    "title": "手机号验证码登录（login）_典型请求_登录成功",
+    "product_id": 2,
+    "created_at": 1791192313
+  },
+  "POST_API_AUTH_LOGIN-003": {
+    "title": "手机号验证码登录（login）_缺少必填参数_提示参数错误",
+    "product_id": 2,
+    "created_at": 1791192313
+  },
+  "POST_API_AUTH_LOGIN-004": {
+    "title": "手机号验证码登录（login）_重复提交_生成独立业务记录",
+    "product_id": 2,
+    "created_at": 1791192313
+  },
+  "POST_API_AUTH_LOGOUT-001": {
+    "title": "退出登录（logout）_典型请求_操作成功",
+    "product_id": 2,
+    "created_at": 1791192314
+  },
+  "POST_API_AUTH_LOGOUT-004": {
+    "title": "退出登录（logout）_重复提交_生成独立业务记录",
+    "product_id": 2,
+    "created_at": 1791192314
+  },
+  "POST_API_AUTH_PHONE-001": {
+    "title": "手机号验证码登录（phone）_典型请求_登录成功",
+    "product_id": 2,
+    "created_at": 1791192315
+  },
+  "POST_API_AUTH_PHONE-003": {
+    "title": "手机号验证码登录（phone）_缺少必填参数_提示参数错误",
+    "product_id": 2,
+    "created_at": 1791192315
+  },
+  "POST_API_AUTH_PHONE-004": {
+    "title": "手机号验证码登录（phone）_重复提交_生成独立业务记录",
+    "product_id": 2,
+    "created_at": 1791192316
+  },
+  "POST_API_AUTH_REFRESH-001": {
+    "title": "刷新令牌（refresh）_典型请求_创建成功",
+    "product_id": 2,
+    "created_at": 1791192316
+  },
+  "POST_API_AUTH_REFRESH-003": {
+    "title": "刷新令牌（refresh）_缺少必填参数_提示参数错误",
+    "product_id": 2,
+    "created_at": 1791192317
+  },
+  "POST_API_AUTH_REFRESH-004": {
+    "title": "刷新令牌（refresh）_重复提交_生成独立业务记录",
+    "product_id": 2,
+    "created_at": 1791192317
+  },
+  "POST_API_AUTH_SMS_SEND-001": {
+    "title": "发送验证码_典型请求_发送成功",
+    "product_id": 2,
+    "created_at": 1791192318
+  },
+  "POST_API_AUTH_SMS_SEND-003": {
+    "title": "发送验证码_缺少必填参数_提示参数错误",
+    "product_id": 2,
+    "created_at": 1791192318
+  },
+  "POST_API_AUTH_SMS_SEND-004": {
+    "title": "发送验证码_重复提交_提示发送过于频繁",
+    "product_id": 2,
+    "created_at": 1791192318
+  },
+  "GET_API_CART-001": {
+    "title": "购物车列表_典型请求_查询成功",
+    "product_id": 2,
+    "created_at": 1791192319
+  },
+  "GET_API_CART-002": {
+    "title": "购物车列表_未带Token_拒绝访问",
+    "product_id": 2,
+    "created_at": 1791192319
+  },
+  "POST_API_CART_CLEAR_INVALID-001": {
+    "title": "清理购物车失效项_典型请求_操作成功",
+    "product_id": 2,
+    "created_at": 1791192320
+  },
+  "POST_API_CART_CLEAR_INVALID-002": {
+    "title": "清理购物车失效项_未带Token_拒绝访问",
+    "product_id": 2,
+    "created_at": 1791192320
+  },
+  "POST_API_CART_CLEAR_INVALID-004": {
+    "title": "清理购物车失效项_重复提交_生成独立业务记录",
+    "product_id": 2,
+    "created_at": 1791192320
+  },
+  "POST_API_CART_ITEMS-002": {
+    "title": "加入购物车_未带Token_拒绝访问",
+    "product_id": 2,
+    "created_at": 1791192321
+  },
+  "POST_API_CART_ITEMS-003": {
+    "title": "加入购物车_缺少必填参数_提示参数错误",
+    "product_id": 2,
+    "created_at": 1791192321
+  },
+  "POST_API_CART_ITEMS-004": {
+    "title": "加入购物车_重复添加_数量累加",
+    "product_id": 2,
+    "created_at": 1791192322
+  },
+  "DELETE_API_CART_ITEMS_ID-001": {
+    "title": "移除购物车项_典型请求_删除成功",
+    "product_id": 2,
+    "created_at": 1791192322
+  },
+  "DELETE_API_CART_ITEMS_ID-002": {
+    "title": "移除购物车项_未带Token_拒绝访问",
+    "product_id": 2,
+    "created_at": 1791192323
+  },
+  "DELETE_API_CART_ITEMS_ID-003": {
+    "title": "移除购物车项_缺少路径参数id_提示资源不存在",
+    "product_id": 2,
+    "created_at": 1791192323
+  },
+  "DELETE_API_CART_ITEMS_ID-004": {
+    "title": "移除购物车项_重复删除_提示资源不存在",
+    "product_id": 2,
+    "created_at": 1791192323
+  },
+  "PUT_API_CART_ITEMS_ID-001": {
+    "title": "修改购物车数量_典型请求_修改成功",
+    "product_id": 2,
+    "created_at": 1791192324
+  },
+  "PUT_API_CART_ITEMS_ID-002": {
+    "title": "修改购物车数量_未带Token_拒绝访问",
+    "product_id": 2,
+    "created_at": 1791192324
+  },
+  "PUT_API_CART_ITEMS_ID-003": {
+    "title": "修改购物车数量_缺少路径参数id_提示资源不存在",
+    "product_id": 2,
+    "created_at": 1791192325
+  },
+  "PUT_API_CART_ITEMS_ID-004": {
+    "title": "修改购物车数量_重复提交_结果一致",
+    "product_id": 2,
+    "created_at": 1791192325
+  },
+  "GET_API_CATEGORIES-001": {
+    "title": "分类列表_典型请求_查询成功",
+    "product_id": 2,
+    "created_at": 1791192326
+  },
+  "GET_API_FAVORITES-001": {
+    "title": "收藏列表_典型请求_查询成功",
+    "product_id": 2,
+    "created_at": 1791192326
+  },
+  "GET_API_FAVORITES-002": {
+    "title": "收藏列表_未带Token_拒绝访问",
+    "product_id": 2,
+    "created_at": 1791192326
+  },
+  "GET_API_FAVORITES-005": {
+    "title": "收藏列表_非法分页参数_正常返回",
+    "product_id": 2,
+    "created_at": 1791192327
+  },
+  "DELETE_API_FAVORITES_SPUID-001": {
+    "title": "取消收藏_典型请求_删除成功",
+    "product_id": 2,
+    "created_at": 1791192327
+  },
+  "DELETE_API_FAVORITES_SPUID-002": {
+    "title": "取消收藏_未带Token_拒绝访问",
+    "product_id": 2,
+    "created_at": 1791192328
+  },
+  "DELETE_API_FAVORITES_SPUID-003": {
+    "title": "取消收藏_缺少路径参数spuId_提示资源不存在",
+    "product_id": 2,
+    "created_at": 1791192328
+  },
+  "DELETE_API_FAVORITES_SPUID-004": {
+    "title": "取消收藏_重复删除_提示资源不存在",
+    "product_id": 2,
+    "created_at": 1791192328
+  },
+  "POST_API_FAVORITES_SPUID-001": {
+    "title": "收藏商品_典型请求_操作成功",
+    "product_id": 2,
+    "created_at": 1791192329
+  },
+  "POST_API_FAVORITES_SPUID-002": {
+    "title": "收藏商品_未带Token_拒绝访问",
+    "product_id": 2,
+    "created_at": 1791192329
+  },
+  "POST_API_FAVORITES_SPUID-003": {
+    "title": "收藏商品_缺少路径参数spuId_提示资源不存在",
+    "product_id": 2,
+    "created_at": 1791192330
+  },
+  "POST_API_FAVORITES_SPUID-004": {
+    "title": "收藏商品_重复添加_不产生重复记录",
+    "product_id": 2,
+    "created_at": 1791192330
+  },
+  "POST_API_FILES_CONFIRM-001": {
+    "title": "文件上传确认_典型请求_创建成功",
+    "product_id": 2,
+    "created_at": 1791192330
+  },
+  "POST_API_FILES_CONFIRM-002": {
+    "title": "文件上传确认_未带Token_拒绝访问",
+    "product_id": 2,
+    "created_at": 1791192331
+  },
+  "POST_API_FILES_CONFIRM-003": {
+    "title": "文件上传确认_缺少必填参数_提示参数错误",
+    "product_id": 2,
+    "created_at": 1791192331
+  },
+  "POST_API_FILES_CONFIRM-004": {
+    "title": "文件上传确认_重复提交_生成独立业务记录",
+    "product_id": 2,
+    "created_at": 1791192332
+  },
+  "POST_API_FILES_PRESIGN-001": {
+    "title": "文件预签名上传_典型请求_创建成功",
+    "product_id": 2,
+    "created_at": 1791192332
+  },
+  "POST_API_FILES_PRESIGN-002": {
+    "title": "文件预签名上传_未带Token_拒绝访问",
+    "product_id": 2,
+    "created_at": 1791192333
+  },
+  "POST_API_FILES_PRESIGN-004": {
+    "title": "文件预签名上传_重复提交_生成新对象键",
+    "product_id": 2,
+    "created_at": 1791192333
+  },
+  "POST_API_FILES_UPLOAD-001": {
+    "title": "直传上传_典型请求_创建成功",
+    "product_id": 2,
+    "created_at": 1791192334
+  },
+  "POST_API_FILES_UPLOAD-002": {
+    "title": "直传上传_未带Token_拒绝访问",
+    "product_id": 2,
+    "created_at": 1791192334
+  },
+  "POST_API_FILES_UPLOAD-003": {
+    "title": "直传上传_缺少必填参数_提示参数错误",
+    "product_id": 2,
+    "created_at": 1791192334
+  },
+  "POST_API_FILES_UPLOAD-004": {
+    "title": "直传上传_重复提交_生成新对象键",
+    "product_id": 2,
+    "created_at": 1791192335
+  },
+  "GET_API_FILES_VIEW-001": {
+    "title": "查看文件_典型请求_查询成功",
+    "product_id": 2,
+    "created_at": 1791192335
+  },
+  "GET_API_FILES_VIEW-003": {
+    "title": "查看文件_缺少必填参数objectKey_提示参数错误",
+    "product_id": 2,
+    "created_at": 1791192336
+  },
+  "DELETE_API_HISTORY-001": {
+    "title": "清空浏览足迹_典型请求_删除成功",
+    "product_id": 2,
+    "created_at": 1791192336
+  },
+  "DELETE_API_HISTORY-002": {
+    "title": "清空浏览足迹_未带Token_拒绝访问",
+    "product_id": 2,
+    "created_at": 1791192336
+  },
+  "DELETE_API_HISTORY-004": {
+    "title": "清空浏览足迹_重复删除_提示资源不存在",
+    "product_id": 2,
+    "created_at": 1791192337
+  },
+  "GET_API_HISTORY-001": {
+    "title": "浏览足迹_典型请求_查询成功",
+    "product_id": 2,
+    "created_at": 1791192337
+  },
+  "GET_API_HISTORY-002": {
+    "title": "浏览足迹_未带Token_拒绝访问",
+    "product_id": 2,
+    "created_at": 1791192338
+  },
+  "GET_API_HISTORY-005": {
+    "title": "浏览足迹_非法分页参数_正常返回",
+    "product_id": 2,
+    "created_at": 1791192338
+  },
+  "GET_API_ME-001": {
+    "title": "当前顾客资料_典型请求_查询成功",
+    "product_id": 2,
+    "created_at": 1791192339
+  },
+  "GET_API_ME-002": {
+    "title": "当前顾客资料_未带Token_拒绝访问",
+    "product_id": 2,
+    "created_at": 1791192339
+  },
+  "PUT_API_ME-001": {
+    "title": "更新资料_典型请求_修改成功",
+    "product_id": 2,
+    "created_at": 1791192340
+  },
+  "PUT_API_ME-002": {
+    "title": "更新资料_未带Token_拒绝访问",
+    "product_id": 2,
+    "created_at": 1791192340
+  },
+  "PUT_API_ME-004": {
+    "title": "更新资料_重复提交_结果一致",
+    "product_id": 2,
+    "created_at": 1791192341
+  },
+  "GET_API_ORDERS-001": {
+    "title": "我的订单列表_典型请求_查询成功",
+    "product_id": 2,
+    "created_at": 1791192341
+  },
+  "GET_API_ORDERS-002": {
+    "title": "我的订单列表_未带Token_拒绝访问",
+    "product_id": 2,
+    "created_at": 1791192341
+  },
+  "GET_API_ORDERS-005": {
+    "title": "我的订单列表_非法分页参数_正常返回",
+    "product_id": 2,
+    "created_at": 1791192342
+  },
+  "POST_API_ORDERS-001": {
+    "title": "提交订单_典型请求_创建成功",
+    "product_id": 2,
+    "created_at": 1791192342
+  },
+  "POST_API_ORDERS-002": {
+    "title": "提交订单_未带Token_拒绝访问",
+    "product_id": 2,
+    "created_at": 1791192343
+  },
+  "POST_API_ORDERS-003": {
+    "title": "提交订单_缺少必填参数_提示参数错误",
+    "product_id": 2,
+    "created_at": 1791192343
+  },
+  "POST_API_ORDERS-004": {
+    "title": "提交订单_重复提交_生成独立业务记录",
+    "product_id": 2,
+    "created_at": 1791192343
+  },
+  "GET_API_ORDERS_ID-001": {
+    "title": "订单详情_典型请求_查询成功",
+    "product_id": 2,
+    "created_at": 1791192344
+  },
+  "GET_API_ORDERS_ID-002": {
+    "title": "订单详情_未带Token_拒绝访问",
+    "product_id": 2,
+    "created_at": 1791192344
+  },
+  "GET_API_ORDERS_ID-003": {
+    "title": "订单详情_缺少路径参数id_提示资源不存在",
+    "product_id": 2,
+    "created_at": 1791192345
+  },
+  "POST_API_ORDERS_ID_CANCEL-001": {
+    "title": "取消订单_典型请求_操作成功",
+    "product_id": 2,
+    "created_at": 1791192345
+  },
+  "POST_API_ORDERS_ID_CANCEL-002": {
+    "title": "取消订单_未带Token_拒绝访问",
+    "product_id": 2,
+    "created_at": 1791192346
+  },
+  "POST_API_ORDERS_ID_CANCEL-003": {
+    "title": "取消订单_缺少路径参数id_提示资源不存在",
+    "product_id": 2,
+    "created_at": 1791192346
+  },
+  "POST_API_ORDERS_ID_CANCEL-004": {
+    "title": "取消订单_重复提交_不再产生副作用",
+    "product_id": 2,
+    "created_at": 1791192347
+  },
+  "POST_API_ORDERS_ID_CONFIRM-001": {
+    "title": "确认收货_典型请求_操作成功",
+    "product_id": 2,
+    "created_at": 1791192347
+  },
+  "POST_API_ORDERS_ID_CONFIRM-002": {
+    "title": "确认收货_未带Token_拒绝访问",
+    "product_id": 2,
+    "created_at": 1791192348
+  },
+  "POST_API_ORDERS_ID_CONFIRM-003": {
+    "title": "确认收货_缺少路径参数id_提示资源不存在",
+    "product_id": 2,
+    "created_at": 1791192348
+  },
+  "POST_API_ORDERS_ID_CONFIRM-004": {
+    "title": "确认收货_重复提交_不再产生副作用",
+    "product_id": 2,
+    "created_at": 1791192348
+  },
+  "GET_API_ORDERS_ID_LOGISTICS-001": {
+    "title": "物流查询_典型请求_查询成功",
+    "product_id": 2,
+    "created_at": 1791192349
+  },
+  "GET_API_ORDERS_ID_LOGISTICS-002": {
+    "title": "物流查询_未带Token_拒绝访问",
+    "product_id": 2,
+    "created_at": 1791192349
+  },
+  "GET_API_ORDERS_ID_LOGISTICS-003": {
+    "title": "物流查询_缺少路径参数id_提示资源不存在",
+    "product_id": 2,
+    "created_at": 1791192350
+  },
+  "POST_API_PAYMENT_SANDBOX-001": {
+    "title": "沙箱支付_典型请求_操作成功",
+    "product_id": 2,
+    "created_at": 1791192350
+  },
+  "POST_API_PAYMENT_SANDBOX-002": {
+    "title": "沙箱支付_未带Token_拒绝访问",
+    "product_id": 2,
+    "created_at": 1791192350
+  },
+  "POST_API_PAYMENT_SANDBOX-004": {
+    "title": "沙箱支付_重复提交_不再产生副作用",
+    "product_id": 2,
+    "created_at": 1791192351
+  },
+  "GET_API_PAYMENT_ORDERID_STATUS-001": {
+    "title": "支付状态查询_典型请求_查询成功",
+    "product_id": 2,
+    "created_at": 1791192351
+  },
+  "GET_API_PAYMENT_ORDERID_STATUS-002": {
+    "title": "支付状态查询_未带Token_拒绝访问",
+    "product_id": 2,
+    "created_at": 1791192352
+  },
+  "GET_API_PAYMENT_ORDERID_STATUS-003": {
+    "title": "支付状态查询_缺少路径参数orderId_提示资源不存在",
+    "product_id": 2,
+    "created_at": 1791192352
+  },
+  "GET_API_PRODUCTS-001": {
+    "title": "商品列表_典型请求_查询成功",
+    "product_id": 2,
+    "created_at": 1791192352
+  },
+  "GET_API_PRODUCTS-005": {
+    "title": "商品列表_非法分页参数_正常返回",
+    "product_id": 2,
+    "created_at": 1791192353
+  },
+  "GET_API_PRODUCTS_SPUID-001": {
+    "title": "商品详情_典型请求_查询成功",
+    "product_id": 2,
+    "created_at": 1791192353
+  },
+  "GET_API_PRODUCTS_SPUID-003": {
+    "title": "商品详情_缺少路径参数spuId_提示资源不存在",
+    "product_id": 2,
+    "created_at": 1791192353
+  },
+  "GET_API_PRODUCTS_SPUID_REVIEWS-001": {
+    "title": "商品评价列表_典型请求_查询成功",
+    "product_id": 2,
+    "created_at": 1791192354
+  },
+  "GET_API_PRODUCTS_SPUID_REVIEWS-003": {
+    "title": "商品评价列表_缺少路径参数spuId_提示资源不存在",
+    "product_id": 2,
+    "created_at": 1791192354
+  },
+  "GET_API_PRODUCTS_SPUID_REVIEWS-005": {
+    "title": "商品评价列表_非法分页参数_正常返回",
+    "product_id": 2,
+    "created_at": 1791192355
+  },
+  "POST_API_REVIEWS-001": {
+    "title": "发表评价_典型请求_创建成功",
+    "product_id": 2,
+    "created_at": 1791192355
+  },
+  "POST_API_REVIEWS-002": {
+    "title": "发表评价_未带Token_拒绝访问",
+    "product_id": 2,
+    "created_at": 1791192355
+  },
+  "POST_API_REVIEWS-004": {
+    "title": "发表评价_重复提交_提示评价已存在",
+    "product_id": 2,
+    "created_at": 1791192356
+  },
+  "GET_API_SEARCH-001": {
+    "title": "关键词搜索_典型请求_查询成功",
+    "product_id": 2,
+    "created_at": 1791192356
+  },
+  "GET_API_SEARCH-005": {
+    "title": "关键词搜索_非法分页参数_正常返回",
+    "product_id": 2,
+    "created_at": 1791192357
+  },
+  "GET_API_SITE_BRAND-001": {
+    "title": "站点品牌_典型请求_查询成功",
+    "product_id": 2,
+    "created_at": 1791192357
+  },
+  "BUS-AUTH-001": {
+    "title": "会员短信登录_未注册手机号_自动注册并签发令牌",
+    "product_id": 2,
+    "created_at": 1791192358
+  },
+  "BUS-AUTH-002": {
+    "title": "会员短信登录_验证码错误_提示登录失败",
+    "product_id": 2,
+    "created_at": 1791192358
+  },
+  "BUS-AUTH-003": {
+    "title": "会员短信登录_冻结会员_提示账号不可用",
+    "product_id": 2,
+    "created_at": 1791192358
+  },
+  "BUS-AUTH-004": {
+    "title": "会员刷新令牌_无效刷新令牌_拒绝访问",
+    "product_id": 2,
+    "created_at": 1791192359
+  },
+  "BUS-ME-001": {
+    "title": "会员修改资料_修改昵称_资料更新成功",
+    "product_id": 2,
+    "created_at": 1791192359
+  },
+  "BUS-ME-002": {
+    "title": "会员上传头像_两步式上传_资料返回头像对象键",
+    "product_id": 2,
+    "created_at": 1791192360
+  },
+  "BUS-ME-003": {
+    "title": "会员收藏商品_重复收藏_不产生重复记录",
+    "product_id": 2,
+    "created_at": 1791192360
+  },
+  "BUS-ME-004": {
+    "title": "会员浏览足迹_重复浏览同一商品_仅保留最新一条",
+    "product_id": 2,
+    "created_at": 1791192360
+  },
+  "BUS-STK-001": {
+    "title": "提交订单_下单锁定库存_物理库存不变且锁定增加",
+    "product_id": 2,
+    "created_at": 1791192361
+  },
+  "BUS-STK-002": {
+    "title": "取消订单_待支付订单_关闭订单并解锁库存",
+    "product_id": 2,
+    "created_at": 1791192361
+  },
+  "BUS-STK-003": {
+    "title": "管理员调整库存_调整后物理库存低于锁定库存_提示参数错误",
+    "product_id": 2,
+    "created_at": 1791192362
+  },
+  "BUS-STK-004": {
+    "title": "管理员发货_待发货订单_扣减物理库存并写入出库单",
+    "product_id": 2,
+    "created_at": 1791192362
+  },
+  "BUS-CART-001": {
+    "title": "加入购物车_同规格重复加购_数量累加",
+    "product_id": 2,
+    "created_at": 1791192363
+  },
+  "BUS-CART-002": {
+    "title": "加入购物车_数量为零_提示参数错误",
+    "product_id": 2,
+    "created_at": 1791192363
+  },
+  "BUS-CART-003": {
+    "title": "加入购物车_商品已下架_提示商品不可用",
+    "product_id": 2,
+    "created_at": 1791192364
+  },
+  "BUS-CART-004": {
+    "title": "修改购物车数量_数量小于等于零_提示参数错误",
+    "product_id": 2,
+    "created_at": 1791192364
+  },
+  "BUS-CART-005": {
+    "title": "清理失效购物车项_存在失效行_移除失效并保留有效行",
+    "product_id": 2,
+    "created_at": 1791192364
+  },
+  "BUS-ORD-001": {
+    "title": "提交订单_同幂等键重复提交_不重复下单",
+    "product_id": 2,
+    "created_at": 1791192365
+  },
+  "BUS-ORD-002": {
+    "title": "提交订单_购物车无可结算商品_提示参数错误",
+    "product_id": 2,
+    "created_at": 1791192365
+  },
+  "BUS-ORD-003": {
+    "title": "提交订单_购物车金额达到免邮门槛_运费为零",
+    "product_id": 2,
+    "created_at": 1791192366
+  },
+  "BUS-ORD-004": {
+    "title": "提交订单_购物车金额低于免邮门槛_收取默认运费",
+    "product_id": 2,
+    "created_at": 1791192366
+  },
+  "BUS-ORD-005": {
+    "title": "取消订单_已支付订单_提示订单状态不允许",
+    "product_id": 2,
+    "created_at": 1791192367
+  },
+  "BUS-ORD-006": {
+    "title": "确认收货_待收货订单_订单完成",
+    "product_id": 2,
+    "created_at": 1791192367
+  },
+  "BUS-ORD-007": {
+    "title": "确认收货_待发货订单_提示订单状态不允许",
+    "product_id": 2,
+    "created_at": 1791192368
+  },
+  "BUS-ORD-008": {
+    "title": "查询订单详情_访问他人订单_提示资源不存在",
+    "product_id": 2,
+    "created_at": 1791192368
+  },
+  "BUS-PAY-001": {
+    "title": "沙箱支付_待支付订单_订单转为待发货并写入流水",
+    "product_id": 2,
+    "created_at": 1791192368
+  },
+  "BUS-PAY-002": {
+    "title": "沙箱支付_重复支付已支付订单_提示订单状态不允许",
+    "product_id": 2,
+    "created_at": 1791192369
+  },
+  "BUS-PAY-003": {
+    "title": "沙箱支付_访问他人订单_提示资源不存在",
+    "product_id": 2,
+    "created_at": 1791192369
+  },
+  "BUS-AS-001": {
+    "title": "申请售后_待收货订单_创建待审核售后单",
+    "product_id": 2,
+    "created_at": 1791192370
+  },
+  "BUS-AS-002": {
+    "title": "申请售后_待支付订单_提示订单状态不允许",
+    "product_id": 2,
+    "created_at": 1791192370
+  },
+  "BUS-AS-003": {
+    "title": "申请售后_同订单重复申请_提示已有进行中售后",
+    "product_id": 2,
+    "created_at": 1791192371
+  },
+  "BUS-AS-004": {
+    "title": "管理员审核售后_审核通过_售后完结",
+    "product_id": 2,
+    "created_at": 1791192371
+  },
+  "BUS-AS-005": {
+    "title": "管理员审核售后_驳回未填处理意见_提示参数错误",
+    "product_id": 2,
+    "created_at": 1791192372
+  },
+  "BUS-AS-006": {
+    "title": "管理员审核售后_重复审核已完结售后_提示售后状态不允许",
+    "product_id": 2,
+    "created_at": 1791192372
+  },
+  "BUS-REV-001": {
+    "title": "发表评价_已完成订单项_评价可见",
+    "product_id": 2,
+    "created_at": 1791192372
+  },
+  "BUS-REV-002": {
+    "title": "发表评价_同订单项重复评价_提示评价已存在",
+    "product_id": 2,
+    "created_at": 1791192373
+  },
+  "BUS-REV-003": {
+    "title": "发表评价_未完成订单_提示订单状态不允许",
+    "product_id": 2,
+    "created_at": 1791192373
+  },
+  "BUS-REV-004": {
+    "title": "管理员隐藏评价_已发表评价_商品详情不再展示该评价",
+    "product_id": 2,
+    "created_at": 1791192373
+  },
+  "BUS-ADM-001": {
+    "title": "管理员创建用户_重复用户名_提示已存在",
+    "product_id": 2,
+    "created_at": 1791192374
+  },
+  "BUS-ADM-002": {
+    "title": "管理员删除超管账号_超管账号_提示状态不允许",
+    "product_id": 2,
+    "created_at": 1791192374
+  },
+  "BUS-ADM-003": {
+    "title": "管理员重置密码_指定账号_新密码可登录且旧密码失效",
+    "product_id": 2,
+    "created_at": 1791192375
+  },
+  "BUS-ADM-004": {
+    "title": "管理员创建角色_重复角色编码_提示已存在",
+    "product_id": 2,
+    "created_at": 1791192375
+  },
+  "BUS-ADM-005": {
+    "title": "管理员删除类目_存在子类目_提示状态不允许",
+    "product_id": 2,
+    "created_at": 1791192375
+  },
+  "BUS-ADM-006": {
+    "title": "管理员删除商品_已上架商品_提示状态不允许",
+    "product_id": 2,
+    "created_at": 1791192376
+  },
+  "BUS-ADM-007": {
+    "title": "管理员上架商品_缺少可售规格_提示参数错误",
+    "product_id": 2,
+    "created_at": 1791192376
+  },
+  "BUS-ADM-008": {
+    "title": "管理员设置定时上架_未来时间_商品保持草稿等待定时任务",
+    "product_id": 2,
+    "created_at": 1791192377
+  },
+  "BUS-ADM-009": {
+    "title": "管理员批量下架商品_多商品_全部转为下架",
+    "product_id": 2,
+    "created_at": 1791192377
+  },
+  "BUS-ADM-010": {
+    "title": "管理员冻结会员_正常会员_该会员后续请求被拒绝",
+    "product_id": 2,
+    "created_at": 1791192377
+  },
+  "BUS-ADM-011": {
+    "title": "管理员修改站点品牌_提交新名称_前台读取同步更新",
+    "product_id": 2,
+    "created_at": 1791192378
+  },
+  "BUS-ADM-012": {
+    "title": "管理员更新系统配置_修改免邮门槛_C端下单按新门槛计算运费",
+    "product_id": 2,
+    "created_at": 1791192378
+  },
+  "POST_ADMIN_ATTRIBUTES-003": {
+    "title": "管理员创建属性_缺少必填参数_提示参数错误",
+    "product_id": 2,
+    "created_at": 1791259513
+  },
+  "POST_ADMIN_CATEGORIES-003": {
+    "title": "管理员创建类目_缺少必填参数_提示参数错误",
+    "product_id": 2,
+    "created_at": 1791259513
+  },
+  "POST_ADMIN_DEPTS-003": {
+    "title": "管理员创建部门_缺少必填参数_提示参数错误",
+    "product_id": 2,
+    "created_at": 1791259514
+  },
+  "POST_ADMIN_DICT_ITEMS-003": {
+    "title": "管理员创建字典项_缺少必填参数_提示参数错误",
+    "product_id": 2,
+    "created_at": 1791259514
+  },
+  "POST_ADMIN_FILES_PRESIGN-003": {
+    "title": "管理员获取预签名上传地址_缺少必填参数_提示参数错误",
+    "product_id": 2,
+    "created_at": 1791259515
+  },
+  "POST_ADMIN_PERMISSIONS-003": {
+    "title": "管理员创建权限_缺少必填参数_提示参数错误",
+    "product_id": 2,
+    "created_at": 1791259515
+  },
+  "POST_ADMIN_WAREHOUSES-003": {
+    "title": "管理员创建仓库_缺少必填参数_提示参数错误",
+    "product_id": 2,
+    "created_at": 1791259515
+  },
+  "POST_ADMIN_DICTS-003": {
+    "title": "管理员创建字典_缺少必填参数_提示参数错误",
+    "product_id": 2,
+    "created_at": 1791279969
+  }
+}

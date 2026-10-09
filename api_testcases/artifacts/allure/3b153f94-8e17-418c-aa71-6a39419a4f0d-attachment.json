@@ -1,0 +1,10 @@
+{
+ "url": "http://127.0.0.1:8086/admin/attributes",
+ "method": "POST",
+ "http": 200,
+ "body": {
+  "code": 40000,
+  "msg": "请选择类目",
+  "traceId": "ab3bf7e37e1a43ac988c8de3004cf070"
+ }
+}

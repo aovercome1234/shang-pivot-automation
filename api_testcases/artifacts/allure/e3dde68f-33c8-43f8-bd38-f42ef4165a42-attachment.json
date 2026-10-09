@@ -1,0 +1,10 @@
+{
+ "url": "http://111.170.33.2:60085/admin/dict-items/",
+ "method": "DELETE",
+ "http": 404,
+ "body": {
+  "code": 40400,
+  "msg": "资源不存在",
+  "traceId": "9f545c80fca84e6e9c1b4c74ca7c3506"
+ }
+}

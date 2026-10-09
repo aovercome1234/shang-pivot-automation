@@ -1,0 +1,10 @@
+{
+ "url": "http://127.0.0.1:8096/admin/permissions/2107341654527512578",
+ "method": "PUT",
+ "http": 200,
+ "body": {
+  "code": 0,
+  "msg": "success",
+  "traceId": "78e83574ec9843d2a4ff1079f221225a"
+ }
+}

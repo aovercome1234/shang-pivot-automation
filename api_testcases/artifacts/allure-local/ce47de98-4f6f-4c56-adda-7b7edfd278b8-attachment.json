@@ -1,0 +1,10 @@
+{
+ "url": "http://127.0.0.1:8096/admin/roles",
+ "method": "POST",
+ "http": 401,
+ "body": {
+  "code": 40100,
+  "msg": "未认证",
+  "traceId": "6ef94459e13148cd80611ee4c7dcf824"
+ }
+}

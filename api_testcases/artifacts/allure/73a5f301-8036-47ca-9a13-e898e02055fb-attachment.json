@@ -1,0 +1,10 @@
+{
+ "url": "http://111.170.33.2:60085/admin/auth/login",
+ "method": "POST",
+ "http": 400,
+ "body": {
+  "code": 40000,
+  "msg": "密码不能为空",
+  "traceId": "3ec604ca0564483eb4461ce294f79b81"
+ }
+}

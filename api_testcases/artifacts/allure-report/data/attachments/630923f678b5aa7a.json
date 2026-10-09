@@ -1,0 +1,10 @@
+{
+ "url": "http://111.170.33.2:60085/admin/depts/",
+ "method": "PUT",
+ "http": 404,
+ "body": {
+  "code": 40400,
+  "msg": "资源不存在",
+  "traceId": "f4ce2acf078347bb831cc5a51313016b"
+ }
+}

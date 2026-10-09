@@ -1,0 +1,21 @@
+{
+ "url": "http://111.170.33.2:60084/api/auth/login",
+ "method": "POST",
+ "http": 200,
+ "body": {
+  "code": 0,
+  "data": {
+   "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjIxMDczMjg5NzI0OTQyNzQ1NjEsImNsaWVudFR5cGUiOiJ3ZWIiLCJ1bmFtZSI6IjEzOTAwMDA5OTk5IiwidG9rZW5UeXBlIjoiYWNjZXNzIiwiZXhwIjoxNzkxMjc1NDM3LCJpYXQiOjE3OTEyNzQ1MzcsImp0aSI6IjJkMjkxMmY5OGM2OTQ5N2M4ZDgwM2YyOGJjNmE0ZDQwIn0.jD3Fel1ieapMgM44XSxUiUrkp6vS_KnC_RTBZu_2NNQ",
+   "customer": {
+    "id": "2107328972494274561",
+    "nickname": "用户9999",
+    "phone": "139****9999",
+    "status": "NORMAL"
+   },
+   "expiresIn": "900",
+   "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjIxMDczMjg5NzI0OTQyNzQ1NjEsImNsaWVudFR5cGUiOiJ3ZWIiLCJ1bmFtZSI6IjEzOTAwMDA5OTk5IiwidG9rZW5UeXBlIjoicmVmcmVzaCIsImV4cCI6MTc5MTg3OTMzNywiaWF0IjoxNzkxMjc0NTM3LCJqdGkiOiJkMzI4NzlkYWE4NGU0M2ZmOTBjZjY4ZjBiNzYzOGVlMiJ9.Wt2Bi3-mdWHAakDLdRYDSF5K0cPwYxDQp8d7uM-updg"
+  },
+  "msg": "success",
+  "traceId": "a46656289b4f4f1eaa5a454b7d8a9e1e"
+ }
+}

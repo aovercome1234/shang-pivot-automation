@@ -1,0 +1,10 @@
+{
+ "url": null,
+ "method": "DELETE",
+ "http": null,
+ "body": {
+  "code": 0,
+  "msg": "success",
+  "traceId": "3ff81c2ed229454a98fd743a1226413f"
+ }
+}

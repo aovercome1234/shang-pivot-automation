@@ -1,0 +1,1 @@
+HTTP=200；code=AFTER_SALE_STATUS_INVALID；回查 GET /admin/after-sales/{id} 校验 status 仍为 COMPLETED

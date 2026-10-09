@@ -1,0 +1,10 @@
+{
+ "url": "http://111.170.33.2:60085/admin/depts/2107396349412048898",
+ "method": "DELETE",
+ "http": 200,
+ "body": {
+  "code": 0,
+  "msg": "success",
+  "traceId": "e4ffd79e9e1c484ab356e86132246849"
+ }
+}

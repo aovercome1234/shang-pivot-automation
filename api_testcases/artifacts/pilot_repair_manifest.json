@@ -1,0 +1,37 @@
+{
+  "POST_ADMIN_BRANDS-001": {
+    "status": "repaired",
+    "index": 1,
+    "zentao_case_id": 237,
+    "fp": "128960ee5cc5477889a84d3e27cf93f8",
+    "updated_at": 1791192157
+  },
+  "GET_ADMIN_ORDERS-001": {
+    "status": "repaired",
+    "index": 2,
+    "zentao_case_id": 238,
+    "fp": "1bd6b776bec3528658524dab62ec2176",
+    "updated_at": 1791192158
+  },
+  "GET_ADMIN_ORDERS-002": {
+    "status": "repaired",
+    "index": 3,
+    "zentao_case_id": 239,
+    "fp": "5ea0b2abb092d7dd1b10f121665c8e3a",
+    "updated_at": 1791192158
+  },
+  "POST_API_CART_ITEMS-001": {
+    "status": "repaired",
+    "index": 4,
+    "zentao_case_id": 240,
+    "fp": "39b8a45f3062a3be4f3fcac3364d1810",
+    "updated_at": 1791192159
+  },
+  "GET_API_HOME-001": {
+    "status": "repaired",
+    "index": 5,
+    "zentao_case_id": 241,
+    "fp": "6d0be81c9e382b16a170beb02ed02776",
+    "updated_at": 1791192160
+  }
+}

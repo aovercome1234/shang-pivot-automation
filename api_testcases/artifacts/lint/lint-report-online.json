@@ -1,0 +1,14 @@
+{
+ "total": 474,
+ "fails": 0,
+ "warns": 1,
+ "violations": [
+  {
+   "rule": "R28",
+   "severity": "warn",
+   "case_id": "-",
+   "field": "需求追溯",
+   "message": "需求 INF-03 无任何用例引用"
+  }
+ ]
+}

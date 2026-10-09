@@ -1,0 +1,1 @@
+HTTP=200；code=CONFLICT；回查 GET /admin/users?page=1&size=20 校验该用户名仅一条记录

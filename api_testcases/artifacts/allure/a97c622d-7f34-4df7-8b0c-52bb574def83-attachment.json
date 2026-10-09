@@ -1,0 +1,23 @@
+{
+ "url": "http://127.0.0.1:8086/admin/roles/all",
+ "method": "GET",
+ "http": 200,
+ "body": {
+  "code": 0,
+  "data": [
+   {
+    "code": "SUPER_ADMIN",
+    "createdAt": "2026-09-30T00:27:19.183183+08:00",
+    "dataScope": "ALL",
+    "deleted": false,
+    "id": "1",
+    "name": "超级管理员",
+    "remark": "拥有全部权限",
+    "status": "ENABLED",
+    "updatedAt": "2026-09-30T00:27:19.183183+08:00"
+   }
+  ],
+  "msg": "success",
+  "traceId": "f66c5d1d82cc453fa510c9a8a35132ff"
+ }
+}

@@ -1,0 +1,14 @@
+{
+ "url": "http://111.170.33.2:60085/admin/reviews",
+ "method": "GET",
+ "http": 200,
+ "body": {
+  "code": 0,
+  "data": {
+   "total": "4",
+   "records": []
+  },
+  "msg": "success",
+  "traceId": "81d12fb7cb4a4105b6b0a2b77cf9dbc3"
+ }
+}

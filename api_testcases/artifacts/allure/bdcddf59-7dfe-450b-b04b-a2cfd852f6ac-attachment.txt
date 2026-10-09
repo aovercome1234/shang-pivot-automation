@@ -1,0 +1,1 @@
+HTTP=200；code=CONFLICT；回查 GET /admin/products/{id} 校验该商品仍存在

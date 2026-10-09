@@ -1,0 +1,56 @@
+{
+ "url": "http://127.0.0.1:8086/api/after-sales/2107347787950526465",
+ "method": "GET",
+ "http": 200,
+ "body": {
+  "code": 0,
+  "data": {
+   "afterSale": {
+    "afterSaleNo": "AS202610061350393117",
+    "auditRemark": "自动化测试清理",
+    "createdAt": "2026-10-06T13:50:39.933695+08:00",
+    "customerId": "9001",
+    "deleted": false,
+    "evidencePics": [
+     "自动化测试"
+    ],
+    "id": "2107347787950526465",
+    "orderId": "2107340298110570497",
+    "reason": "自动化测试原因",
+    "refundAmount": 9.9,
+    "status": "REJECTED",
+    "type": "REFUND",
+    "updatedAt": "2026-10-06T13:50:39.933695+08:00"
+   },
+   "order": {
+    "addressSnapshot": {
+     "city": "北京市",
+     "name": "张三",
+     "phone": "13800000001",
+     "detail": "建国路 88 号",
+     "district": "朝阳区",
+     "province": "北京市"
+    },
+    "clientType": "web",
+    "createdAt": "2026-10-06T13:20:54.216844+08:00",
+    "customerId": "9001",
+    "customerName": "张三",
+    "customerPhoneMask": "138****0001",
+    "deleted": false,
+    "freight": 0.0,
+    "id": "2107340298110570497",
+    "idempotentKey": "E2E-1791264054",
+    "orderNo": "O202610061320540002",
+    "paidAt": "2026-10-06T13:20:54.242354+08:00",
+    "payAmount": 1198.0,
+    "receivedAt": "2026-10-06T13:20:54.319798+08:00",
+    "shipAt": "2026-10-06T13:20:54.272865+08:00",
+    "status": "COMPLETED",
+    "totalAmount": 1198.0,
+    "updatedAt": "2026-10-06T13:20:54.216844+08:00"
+   }
+  },
+  "msg": "success",
+  "traceId": "b3b902b498a64fc0b1681ad1e9e632c2"
+ }
+}

@@ -1,0 +1,10 @@
+{
+ "url": "http://127.0.0.1:8096/admin/attributes/",
+ "method": "PUT",
+ "http": 404,
+ "body": {
+  "code": 40400,
+  "msg": "资源不存在",
+  "traceId": "fef141b70c9441c2b67b993094f96e34"
+ }
+}

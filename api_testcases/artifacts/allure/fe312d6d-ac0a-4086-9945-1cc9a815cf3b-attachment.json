@@ -1,0 +1,43 @@
+{
+ "url": "http://111.170.33.2:60085/admin/products/248",
+ "method": "GET",
+ "http": 200,
+ "body": {
+  "code": 0,
+  "data": {
+   "skus": [
+    {
+     "specs": {},
+     "price": 359.0,
+     "costPrice": 251.3,
+     "spuId": "248",
+     "id": "10047",
+     "pic": "/admin/files/view?objectKey=PRODUCT%2Fseed%2Fproduct_148.jpg",
+     "title": "折叠露营桌 铝合金",
+     "stock": 40,
+     "barCode": "PKU-10047",
+     "status": "ENABLED"
+    }
+   ],
+   "spu": {
+    "brandId": "17",
+    "categoryId": "17",
+    "createdAt": "2026-10-03T23:44:57.605683+08:00",
+    "deleted": false,
+    "detailHtml": "<p>轻量折叠，承重 30kg</p>",
+    "id": "248",
+    "name": "折叠露营桌 铝合金",
+    "pics": [
+     "/admin/files/view?objectKey=PRODUCT%2Fseed%2Fproduct_148.jpg"
+    ],
+    "soldCount": "0",
+    "status": "OFF",
+    "subtitle": "轻量折叠，承重 30kg",
+    "updatedAt": "2026-10-03T23:44:57.605683+08:00",
+    "videos": []
+   }
+  },
+  "msg": "success",
+  "traceId": "57652ba432e64440977188255159c54a"
+ }
+}

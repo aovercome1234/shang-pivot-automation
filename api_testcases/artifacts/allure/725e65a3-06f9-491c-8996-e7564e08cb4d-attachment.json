@@ -1,0 +1,10 @@
+{
+ "url": "http://111.170.33.2:60084/api/auth/login",
+ "method": "POST",
+ "http": 200,
+ "body": {
+  "code": 40310,
+  "msg": "账号不可用",
+  "traceId": "565bd1517f424beeb183d0c555d12177"
+ }
+}

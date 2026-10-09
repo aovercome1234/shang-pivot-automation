@@ -1,0 +1,10 @@
+{
+ "url": "http://111.170.33.2:60085/admin/roles",
+ "method": "POST",
+ "http": 500,
+ "body": {
+  "code": 50000,
+  "msg": "系统异常",
+  "traceId": "1166adceaf0d4e1088e2d41c18c58911"
+ }
+}

@@ -1,0 +1,14 @@
+{
+ "url": "http://111.170.33.2:60085/admin/orders",
+ "method": "GET",
+ "http": 200,
+ "body": {
+  "code": 0,
+  "data": {
+   "total": "7",
+   "records": []
+  },
+  "msg": "success",
+  "traceId": "2a209e95536d40d890ee0299076c6e32"
+ }
+}

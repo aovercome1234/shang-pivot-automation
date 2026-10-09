@@ -1,0 +1,10 @@
+{
+ "url": "http://111.170.33.2:60085/admin/warehouses",
+ "method": "POST",
+ "http": 401,
+ "body": {
+  "code": 40100,
+  "msg": "未认证",
+  "traceId": "b714a8e741284cf7acab18fa35023397"
+ }
+}

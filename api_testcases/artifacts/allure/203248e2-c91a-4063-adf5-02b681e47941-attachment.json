@@ -1,0 +1,14 @@
+{
+ "url": "http://127.0.0.1:8086/admin/brands",
+ "method": "GET",
+ "http": 200,
+ "body": {
+  "code": 0,
+  "data": {
+   "total": "8",
+   "records": []
+  },
+  "msg": "success",
+  "traceId": "e2841fb092e644cdbdac5d419a370830"
+ }
+}

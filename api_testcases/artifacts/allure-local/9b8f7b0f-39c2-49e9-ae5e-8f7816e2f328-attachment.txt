@@ -1,0 +1,1 @@
+HTTP=200；code=0；data.objectKey 非空；回查 GET /api/me 校验头像字段指向本次上传的对象键

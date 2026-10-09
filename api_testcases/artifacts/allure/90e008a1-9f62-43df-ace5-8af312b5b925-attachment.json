@@ -1,0 +1,14 @@
+{
+ "url": "http://127.0.0.1:8086/admin/roles",
+ "method": "GET",
+ "http": 200,
+ "body": {
+  "code": 0,
+  "data": {
+   "total": "1",
+   "records": []
+  },
+  "msg": "success",
+  "traceId": "03dae7e1ea4c40cb94133d409c09d474"
+ }
+}

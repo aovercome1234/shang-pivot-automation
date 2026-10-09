@@ -1,0 +1,10 @@
+{
+ "url": "http://127.0.0.1:8086/admin/depts",
+ "method": "POST",
+ "http": 401,
+ "body": {
+  "code": 40100,
+  "msg": "未认证",
+  "traceId": "4c3f4419d9e94dd8b8b54c2db15779ac"
+ }
+}

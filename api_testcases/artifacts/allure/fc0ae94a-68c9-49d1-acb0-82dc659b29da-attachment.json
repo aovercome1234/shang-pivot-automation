@@ -1,0 +1,10 @@
+{
+ "url": "http://111.170.33.2:60085/admin/users",
+ "method": "POST",
+ "http": 500,
+ "body": {
+  "code": 50000,
+  "msg": "系统异常",
+  "traceId": "940af4ee2ea64896bf904ac903e85d32"
+ }
+}

@@ -1,0 +1,10 @@
+{
+ "url": "http://127.0.0.1:8096/admin/orders/106/ship",
+ "method": "POST",
+ "http": 200,
+ "body": {
+  "code": 0,
+  "msg": "success",
+  "traceId": "98c1ff4b293e4e09816ba09648a92418"
+ }
+}

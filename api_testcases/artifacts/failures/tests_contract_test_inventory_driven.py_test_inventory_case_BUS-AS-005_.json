@@ -1,0 +1,8 @@
+{
+  "case_id": "tests/contract/test_inventory_driven.py::test_inventory_case[BUS-AS-005]",
+  "phase": "call",
+  "outcome": "failed",
+  "timestamp": "2026-10-06T10:23:05.904688+00:00",
+  "longrepr": "tests/contract/test_inventory_driven.py:295: in test_inventory_case\n    assert ok, f\"[{cid}] {detail}\"\nE   AssertionError: [BUS-AS-005] 业务码期望 BAD_REQUEST(40000) 实际 40903｜售后状态不允许\nE   assert False",
+  "request_response": null
+}

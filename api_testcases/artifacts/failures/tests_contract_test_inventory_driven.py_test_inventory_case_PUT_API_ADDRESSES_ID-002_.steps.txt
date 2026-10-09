@@ -1,0 +1,11 @@
+1. 执行 pytest 用例：tests/contract/test_inventory_driven.py::test_inventory_case[PUT_API_ADDRESSES_ID-002]
+2. 记录请求方法、脱敏请求头、URL、请求体和响应体
+3. 对照用例预期断言；失败原因为：tests/contract/test_inventory_driven.py:138: in test_inventory_case
+    pytest.skip(mk_err)
+E   Skipped: 造数失败：HTTP 200 code=40000 每个会员最多 20 条地址
+
+During handling of the above exception, another exception occurred:
+tests/contract/test_inventory_driven.py:179: in test_inventory_case
+    allure.attach(json.dumps({"url": url, "method": req["method"], "http": http, "body": body},
+E   KeyError: 'method'
+4. 将 JSON 证据和 PNG 证据上传至禅道 Bug 附件

@@ -1,0 +1,100 @@
+{
+ "url": "http://127.0.0.1:8086/admin/categories",
+ "method": "GET",
+ "http": 200,
+ "body": {
+  "code": 0,
+  "data": [
+   {
+    "createdAt": "2026-09-30T00:27:19.477805+08:00",
+    "deleted": false,
+    "id": "10",
+    "level": 1,
+    "name": "手机",
+    "parentId": "0",
+    "sort": 10,
+    "status": "ENABLED",
+    "updatedAt": "2026-09-30T00:27:19.477805+08:00"
+   },
+   {
+    "createdAt": "2026-09-30T00:27:19.477805+08:00",
+    "deleted": false,
+    "id": "11",
+    "level": 1,
+    "name": "电脑/办公",
+    "parentId": "0",
+    "sort": 11,
+    "status": "ENABLED",
+    "updatedAt": "2026-09-30T00:27:19.477805+08:00"
+   },
+   {
+    "createdAt": "2026-09-30T00:27:19.477805+08:00",
+    "deleted": false,
+    "id": "12",
+    "level": 1,
+    "name": "家电",
+    "parentId": "0",
+    "sort": 12,
+    "status": "ENABLED",
+    "updatedAt": "2026-09-30T00:27:19.477805+08:00"
+   },
+   {
+    "createdAt": "2026-09-30T00:27:19.477805+08:00",
+    "deleted": false,
+    "id": "13",
+    "level": 1,
+    "name": "数码配件",
+    "parentId": "0",
+    "sort": 13,
+    "status": "ENABLED",
+    "updatedAt": "2026-09-30T00:27:19.477805+08:00"
+   },
+   {
+    "createdAt": "2026-09-30T00:27:19.477805+08:00",
+    "deleted": false,
+    "id": "14",
+    "level": 1,
+    "name": "家居收纳",
+    "parentId": "0",
+    "sort": 14,
+    "status": "ENABLED",
+    "updatedAt": "2026-09-30T00:27:19.477805+08:00"
+   },
+   {
+    "createdAt": "2026-09-30T00:27:19.477805+08:00",
+    "deleted": false,
+    "id": "15",
+    "level": 1,
+    "name": "美妆个护",
+    "parentId": "0",
+    "sort": 15,
+    "status": "ENABLED",
+    "updatedAt": "2026-09-30T00:27:19.477805+08:00"
+   },
+   {
+    "createdAt": "2026-09-30T00:27:19.477805+08:00",
+    "deleted": false,
+    "id": "16",
+    "level": 1,
+    "name": "食品生鲜",
+    "parentId": "0",
+    "sort": 16,
+    "status": "ENABLED",
+    "updatedAt": "2026-09-30T00:27:19.477805+08:00"
+   },
+   {
+    "createdAt": "2026-09-30T00:27:19.477805+08:00",
+    "deleted": false,
+    "id": "17",
+    "level": 1,
+    "name": "运动户外",
+    "parentId": "0",
+    "sort": 17,
+    "status": "ENABLED",
+    "updatedAt": "2026-09-30T00:27:19.477805+08:00"
+   }
+  ],
+  "msg": "success",
+  "traceId": "2b8dfa39519444d8bbbd9b8f509b9b84"
+ }
+}

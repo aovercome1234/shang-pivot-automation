@@ -1,0 +1,10 @@
+{
+ "url": "http://111.170.33.2:60085/admin/categories",
+ "method": "POST",
+ "http": 200,
+ "body": {
+  "code": 0,
+  "msg": "success",
+  "traceId": "58275bba7c5c4d68804d8b750ee1b926"
+ }
+}

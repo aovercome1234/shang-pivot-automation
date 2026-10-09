@@ -1,0 +1,60 @@
+{
+ "url": "http://127.0.0.1:8086/admin/brands",
+ "method": "GET",
+ "http": 200,
+ "body": {
+  "code": 0,
+  "data": {
+   "total": "8",
+   "records": [
+    {
+     "categoryId": "10",
+     "id": "10",
+     "logo": "/admin/files/view?objectKey=PRODUCT%2Fseed%2Fproduct_1.jpg",
+     "name": "Apple",
+     "sort": 10,
+     "spuCount": 9,
+     "status": "ENABLED"
+    },
+    {
+     "categoryId": "11",
+     "id": "11",
+     "logo": "/admin/files/view?objectKey=PRODUCT%2Fseed%2Fproduct_22.jpg",
+     "name": "联想",
+     "sort": 11,
+     "spuCount": 6,
+     "status": "ENABLED"
+    },
+    {
+     "categoryId": "12",
+     "id": "12",
+     "logo": "/admin/files/view?objectKey=PRODUCT%2Fseed%2Fproduct_41.jpg",
+     "name": "家电精选",
+     "sort": 12,
+     "spuCount": 4,
+     "status": "ENABLED"
+    },
+    {
+     "categoryId": "13",
+     "id": "13",
+     "logo": "/admin/files/view?objectKey=PRODUCT%2Fseed%2Fproduct_61.jpg",
+     "name": "数码配件",
+     "sort": 13,
+     "spuCount": 4,
+     "status": "ENABLED"
+    },
+    {
+     "categoryId": "14",
+     "id": "14",
+     "logo": "/admin/files/view?objectKey=PRODUCT%2Fseed%2Fproduct_81.jpg",
+     "name": "生活家居",
+     "sort": 14,
+     "spuCount": 2,
+     "status": "ENABLED"
+    }
+   ]
+  },
+  "msg": "success",
+  "traceId": "91a2903474d24eaeb4ed5332feeec7fa"
+ }
+}

@@ -1,0 +1,10 @@
+{
+ "url": "http://111.170.33.2:60085/admin/home/slots/",
+ "method": "GET",
+ "http": 404,
+ "body": {
+  "code": 40400,
+  "msg": "资源不存在",
+  "traceId": "b140a35b7f2e4cbf84ae467d1d71ab86"
+ }
+}

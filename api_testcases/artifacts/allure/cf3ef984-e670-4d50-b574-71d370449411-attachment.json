@@ -1,0 +1,10 @@
+{
+ "url": "http://111.170.33.2:60084/api/cart/items/",
+ "method": "DELETE",
+ "http": 404,
+ "body": {
+  "code": 40400,
+  "msg": "资源不存在",
+  "traceId": "af134d486a154320ada5232eab6fdb4e"
+ }
+}

@@ -1,0 +1,10 @@
+{
+ "url": "http://111.170.33.2:60085/admin/products/",
+ "method": "DELETE",
+ "http": 404,
+ "body": {
+  "code": 40400,
+  "msg": "资源不存在",
+  "traceId": "fd9783434ee8408298a110eef4b14d37"
+ }
+}

@@ -1,0 +1,1 @@
+HTTP=200；code=0；data.status 为 PENDING_SHIP；回查 GET /api/payment/{orderId}/status 校验 data.status 为 PAID 且 tradeNo 非空

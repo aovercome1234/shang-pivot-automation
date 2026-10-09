@@ -1,0 +1,10 @@
+{
+ "url": "http://127.0.0.1:8096/api/files/view",
+ "method": "GET",
+ "http": 500,
+ "body": {
+  "code": 50000,
+  "msg": "系统异常",
+  "traceId": "c2f530a9bf9c40eb9b7e2f2cfa81aea8"
+ }
+}

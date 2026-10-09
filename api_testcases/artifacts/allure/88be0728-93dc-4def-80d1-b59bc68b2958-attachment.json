@@ -1,0 +1,10 @@
+{
+ "url": "http://111.170.33.2:60084/api/after-sales",
+ "method": "POST",
+ "http": 500,
+ "body": {
+  "code": 50000,
+  "msg": "系统异常",
+  "traceId": "24631a83e0814581b2da2812b33297cd"
+ }
+}

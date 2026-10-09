@@ -1,0 +1,10 @@
+{
+ "url": "http://111.170.33.2:60085/admin/depts/tree",
+ "method": "GET",
+ "http": 401,
+ "body": {
+  "code": 40100,
+  "msg": "未认证",
+  "traceId": "26b5683e09a24261b7f31d725b7735d9"
+ }
+}

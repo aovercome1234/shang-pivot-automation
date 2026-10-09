@@ -1,0 +1,10 @@
+{
+ "url": "http://127.0.0.1:8096/admin/files/presign",
+ "method": "POST",
+ "http": 200,
+ "body": {
+  "code": 40000,
+  "msg": "不支持的文件类型",
+  "traceId": "a0ddf18702a84ca8b0d552209fdd671b"
+ }
+}

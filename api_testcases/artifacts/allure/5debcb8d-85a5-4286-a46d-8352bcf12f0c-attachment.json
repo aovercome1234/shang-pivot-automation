@@ -1,0 +1,10 @@
+{
+ "url": "http://127.0.0.1:8086/admin/brands/2107416328058920962",
+ "method": "PUT",
+ "http": 200,
+ "body": {
+  "code": 0,
+  "msg": "success",
+  "traceId": "90d83312e608492ca31a593b18f24195"
+ }
+}

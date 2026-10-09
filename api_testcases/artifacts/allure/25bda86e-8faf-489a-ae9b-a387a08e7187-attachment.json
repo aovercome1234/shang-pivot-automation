@@ -1,0 +1,10 @@
+{
+ "url": "http://111.170.33.2:60084/api/cart",
+ "method": "GET",
+ "http": 401,
+ "body": {
+  "code": 40100,
+  "msg": "未认证",
+  "traceId": "aa0e4d1a93b343178f32db1fe4ef7210"
+ }
+}

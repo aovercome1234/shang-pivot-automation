@@ -1,0 +1,10 @@
+{
+ "url": "http://127.0.0.1:8096/api/favorites/",
+ "method": "POST",
+ "http": 404,
+ "body": {
+  "code": 40400,
+  "msg": "资源不存在",
+  "traceId": "bd47f8d0dc9d4380b01f243d7bc1f3a6"
+ }
+}

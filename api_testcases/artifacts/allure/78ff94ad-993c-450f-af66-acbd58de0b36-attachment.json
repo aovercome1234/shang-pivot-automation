@@ -1,0 +1,11 @@
+{
+ "url": "http://127.0.0.1:8086/api/products//reviews",
+ "method": "GET",
+ "http": 400,
+ "body": {
+  "timestamp": "2026-10-06T18:20:33.327+08:00",
+  "status": 400,
+  "error": "Bad Request",
+  "path": "/api/products//reviews"
+ }
+}

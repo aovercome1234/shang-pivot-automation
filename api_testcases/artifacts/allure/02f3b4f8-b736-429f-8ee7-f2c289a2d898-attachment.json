@@ -1,0 +1,10 @@
+{
+ "url": "http://111.170.33.2:60085/admin/categories",
+ "method": "POST",
+ "http": 401,
+ "body": {
+  "code": 40100,
+  "msg": "未认证",
+  "traceId": "8f881c2ac67049e89efefde1900fdffc"
+ }
+}

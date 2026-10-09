@@ -1,0 +1,8 @@
+{
+  "case_id": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_ADMIN_DICTS-004]",
+  "phase": "call",
+  "outcome": "failed",
+  "timestamp": "2026-10-06T09:46:27.661538+00:00",
+  "longrepr": "tests/contract/test_inventory_driven.py:293: in test_inventory_case\n    assert ok, f\"[{cid}] {detail}\"\nE   AssertionError: [POST_ADMIN_DICTS-004] HTTP 期望 200 实际 500｜body={'code': 50000, 'msg': '系统异常', 'traceId': '85d20fbd45704ceca181fcdd015508ac'}\nE   assert False",
+  "request_response": null
+}

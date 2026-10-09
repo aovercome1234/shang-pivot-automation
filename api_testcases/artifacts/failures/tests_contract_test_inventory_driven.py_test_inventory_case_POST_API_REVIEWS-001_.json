@@ -1,0 +1,8 @@
+{
+  "case_id": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_API_REVIEWS-001]",
+  "phase": "call",
+  "outcome": "failed",
+  "timestamp": "2026-10-06T08:17:16.645335+00:00",
+  "longrepr": "tests/contract/test_inventory_driven.py:228: in test_inventory_case\n    assert ok, f\"[{cid}] {detail}\"\nE   AssertionError: [POST_API_REVIEWS-001] 业务码期望 0 实际 40904｜评价已存在\nE   assert False",
+  "request_response": null
+}

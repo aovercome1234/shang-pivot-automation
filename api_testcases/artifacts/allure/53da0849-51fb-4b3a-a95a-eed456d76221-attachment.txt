@@ -1,0 +1,1 @@
+HTTP=200；code=0；data.records 中同一商品的足迹记录仅一条，且 lastAt 为最近一次浏览时间

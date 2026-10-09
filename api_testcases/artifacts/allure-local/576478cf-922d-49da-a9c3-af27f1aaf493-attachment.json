@@ -1,0 +1,10 @@
+{
+ "url": "http://127.0.0.1:8096/api/after-sales",
+ "method": "POST",
+ "http": 500,
+ "body": {
+  "code": 50000,
+  "msg": "系统异常",
+  "traceId": "890426f1bc234fdbaf8e7d4d1a0e386c"
+ }
+}

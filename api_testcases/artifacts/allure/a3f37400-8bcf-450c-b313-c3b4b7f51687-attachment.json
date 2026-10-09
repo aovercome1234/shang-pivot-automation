@@ -1,0 +1,10 @@
+{
+ "url": "http://127.0.0.1:8086/admin/warehouses",
+ "method": "POST",
+ "http": 200,
+ "body": {
+  "code": 40000,
+  "msg": "请填写仓库名称",
+  "traceId": "cb4552564d34442292e2860ad6a2c7a7"
+ }
+}

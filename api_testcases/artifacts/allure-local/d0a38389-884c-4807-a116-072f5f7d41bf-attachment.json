@@ -1,0 +1,14 @@
+{
+ "url": "http://127.0.0.1:8096/api/favorites",
+ "method": "GET",
+ "http": 200,
+ "body": {
+  "code": 0,
+  "data": {
+   "total": "2",
+   "records": []
+  },
+  "msg": "success",
+  "traceId": "dd5718246d4f411aabe0a3bd6cab9ffe"
+ }
+}

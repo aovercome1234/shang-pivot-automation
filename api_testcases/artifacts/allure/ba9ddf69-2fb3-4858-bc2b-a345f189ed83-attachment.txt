@@ -1,0 +1,1 @@
+HTTP=404；error.code=NOT_FOUND（实测：省略末段路径参数后路由未命中，由 NoResourceFoundException 映射）

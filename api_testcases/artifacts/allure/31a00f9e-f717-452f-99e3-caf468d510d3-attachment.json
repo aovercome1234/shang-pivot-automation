@@ -1,0 +1,10 @@
+{
+ "url": "http://127.0.0.1:8086/api/orders",
+ "method": "POST",
+ "http": 500,
+ "body": {
+  "code": 50000,
+  "msg": "系统异常",
+  "traceId": "2504a6a36e2a4932aeebbf7dc28beaa2"
+ }
+}

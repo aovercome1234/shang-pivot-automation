@@ -1,0 +1,10 @@
+{
+ "url": "http://111.170.33.2:60084/api/cart/items",
+ "method": "POST",
+ "http": 200,
+ "body": {
+  "code": 40000,
+  "msg": "数量须 ≥ 1",
+  "traceId": "6519460d540249edbf189b408a764879"
+ }
+}

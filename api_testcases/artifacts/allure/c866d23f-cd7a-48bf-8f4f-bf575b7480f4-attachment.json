@@ -1,0 +1,14 @@
+{
+ "url": "http://127.0.0.1:8086/admin/operation-logs",
+ "method": "GET",
+ "http": 200,
+ "body": {
+  "code": 0,
+  "data": {
+   "total": "755",
+   "records": []
+  },
+  "msg": "success",
+  "traceId": "6d16bff2e3c14a708dd8b495455ae4e2"
+ }
+}

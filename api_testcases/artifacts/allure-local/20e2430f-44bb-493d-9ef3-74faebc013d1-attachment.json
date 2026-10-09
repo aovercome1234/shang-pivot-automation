@@ -1,0 +1,10 @@
+{
+ "url": "http://127.0.0.1:8096/admin/after-sales/101/audit",
+ "method": "POST",
+ "http": 200,
+ "body": {
+  "code": 0,
+  "msg": "success",
+  "traceId": "8f0cf2fa98ea478894b4c3f4ea1d0db1"
+ }
+}

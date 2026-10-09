@@ -1,0 +1,10 @@
+{
+ "url": "http://127.0.0.1:8086/api/cart/clear-invalid",
+ "method": "POST",
+ "http": 200,
+ "body": {
+  "code": 0,
+  "msg": "success",
+  "traceId": "f0e3773ed19f4550b435298aac237f93"
+ }
+}

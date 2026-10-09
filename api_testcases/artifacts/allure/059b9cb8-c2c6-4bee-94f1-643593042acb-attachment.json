@@ -1,0 +1,10 @@
+{
+ "url": "http://111.170.33.2:60085/admin/products/",
+ "method": "GET",
+ "http": 404,
+ "body": {
+  "code": 40400,
+  "msg": "资源不存在",
+  "traceId": "ad65a521f6054948a833e266606d3c95"
+ }
+}

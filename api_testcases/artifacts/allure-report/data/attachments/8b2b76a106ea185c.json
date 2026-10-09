@@ -1,0 +1,10 @@
+{
+ "url": "http://111.170.33.2:60085/admin/site/brand",
+ "method": "GET",
+ "http": 401,
+ "body": {
+  "code": 40100,
+  "msg": "未认证",
+  "traceId": "96863278b3ff46d6b4aa5770e6137b3a"
+ }
+}

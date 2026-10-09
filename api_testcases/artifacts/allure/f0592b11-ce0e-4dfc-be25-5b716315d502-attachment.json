@@ -1,0 +1,159 @@
+{
+ "url": "http://111.170.33.2:60085/admin/auth/login",
+ "method": "POST",
+ "http": 200,
+ "body": {
+  "code": 0,
+  "data": {
+   "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjEsImNsaWVudFR5cGUiOiJhZG1pbiIsInVuYW1lIjoiYWRtaW4iLCJ0b2tlblR5cGUiOiJhY2Nlc3MiLCJleHAiOjE3OTEyODA3NzMsImlhdCI6MTc5MTI3OTg3MywianRpIjoiZTI5ODViM2QyOTE1NGM5MWFjYWU2YjI3NGQ2ZTVlNTcifQ.oTT83aJpbiC0GEW3gYhk1pLioVSgLjnnA6tXu2Lkj88",
+   "expiresIn": "900",
+   "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjEsImNsaWVudFR5cGUiOiJhZG1pbiIsInVuYW1lIjoiYWRtaW4iLCJ0b2tlblR5cGUiOiJyZWZyZXNoIiwiZXhwIjoxNzkxODg0NjczLCJpYXQiOjE3OTEyNzk4NzMsImp0aSI6IjQ5N2M4M2QyMzk3MTQwY2E5YzIxMTZmMzJhNDc2MTE5In0.eA5qNTFYbr33hLprAi9vdFmeI1RwNdGorGggyUhTTU4",
+   "user": {
+    "id": "1",
+    "menus": [
+     {
+      "children": [],
+      "code": "dashboard",
+      "component": "dashboard/index",
+      "icon": "Odometer",
+      "id": "100",
+      "name": "工作台",
+      "parentId": "0",
+      "path": "/dashboard",
+      "sort": 1,
+      "type": "MENU",
+      "visible": true
+     },
+     {
+      "children": [
+       {
+        "children": [],
+        "code": "products",
+        "component": "product/list",
+        "icon": "List",
+        "id": "210",
+        "name": "商品列表",
+        "parentId": "200",
+        "path": "/products",
+        "sort": 1,
+        "type": "MENU",
+        "visible": true
+       },
+       {
+        "children": [],
+        "code": "categories",
+        "component": "product/category",
+        "icon": "Menu",
+        "id": "230",
+        "name": "类目与品牌",
+        "parentId": "200",
+        "path": "/categories",
+        "sort": 3,
+        "type": "MENU",
+        "visible": true
+       },
+       {
+        "children": [],
+        "code": "inventory",
+        "component": "inventory/index",
+        "icon": "Box",
+        "id": "300",
+        "name": "库存管理",
+        "parentId": "200",
+        "path": "/inventory",
+        "sort": 5,
+        "type": "MENU",
+        "visible": true
+       },
+       {
+        "children": [],
+        "code": "in-out",
+        "component": "inventory/in-out",
+        "icon": "Sort",
+        "id": "310",
+        "name": "出入库单",
+        "parentId": "200",
+        "path": "/in-out",
+        "sort": 6,
+        "type": "MENU",
+        "visible": true
+       }
+      ],
+      "code": "product",
+      "icon": "Goods",
+      "id": "200",
+      "name": "商品中心",
+      "parentId": "0",
+      "sort": 2,
+      "type": "DIR",
+      "visible": true
+     },
+     {
+      "children": [
+       {
+        "children": [],
+        "code": "orders",
+        "component": "order/list",
+        "icon": "Tickets",
+        "id": "410",
+        "name": "订单列表",
+        "parentId": "400",
+        "path": "/orders",
+        "sort": 1,
+        "type": "MENU",
+        "visible": true
+       },
+       {
+        "children": [],
+        "code": "aftersales",
+        "component": "order/aftersale",
+        "icon": "RefreshLeft",
+        "id": "420",
+        "name": "售后管理",
+        "parentId": "400",
+        "path": "/aftersales",
+        "sort": 2,
+        "type": "MENU",
+        "visible": true
+       }
+      ],
+      "code": "order",
+      "icon": "Document",
+      "id": "400",
+      "name": "订单中心",
+      "parentId": "0",
+      "sort": 3,
+      "type": "DIR",
+      "visible": true
+     },
+     {
+      "children": [
+       {
+        "children": [],
+        "code": "customers",
+        "component": "member/customer",
+        "icon": "Avatar",
+        "id": "610",
+        "name": "会员管理",
+        "parentId": "600",
+        "path": "/customers",
+        "sort": 1,
+        "type": "MENU",
+        "visible": true
+       },
+       {
+        "children": [],
+        "code": "site-brand",
+        "component": "content/site-brand",
+        "icon": "Trophy",
+        "id": "710",
+        "name": "站点品牌",
+        "parentId": "600",
+        "path": "/site-brand",
+        "sort": 2,
+        "type": "MENU",
+        "visible": true
+       },
+       {
+        "children": [],
+       

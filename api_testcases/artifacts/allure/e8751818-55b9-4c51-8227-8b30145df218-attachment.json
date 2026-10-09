@@ -1,0 +1,10 @@
+{
+ "url": "http://111.170.33.2:60084/api/auth/refresh",
+ "method": "POST",
+ "http": 500,
+ "body": {
+  "code": 50000,
+  "msg": "系统异常",
+  "traceId": "0fadc892198d4aae97ce51a44472984a"
+ }
+}

@@ -1,0 +1,10 @@
+{
+ "url": "http://111.170.33.2:60085/admin/warehouses",
+ "method": "POST",
+ "http": 500,
+ "body": {
+  "code": 50000,
+  "msg": "系统异常",
+  "traceId": "9d76f555c4144ef19f9c2bb98c7808a6"
+ }
+}

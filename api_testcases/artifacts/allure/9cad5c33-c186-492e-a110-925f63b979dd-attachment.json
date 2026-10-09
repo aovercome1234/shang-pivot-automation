@@ -1,0 +1,14 @@
+{
+ "url": "http://127.0.0.1:8086/admin/in-out",
+ "method": "GET",
+ "http": 200,
+ "body": {
+  "code": 0,
+  "data": {
+   "total": "9",
+   "records": []
+  },
+  "msg": "success",
+  "traceId": "096408ef9ed04a1f8e9fb81ff553b391"
+ }
+}

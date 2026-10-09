@@ -1,0 +1,10 @@
+{
+ "url": "http://111.170.33.2:60084/api/orders/104/confirm",
+ "method": "POST",
+ "http": 200,
+ "body": {
+  "code": 40902,
+  "msg": "订单状态不允许",
+  "traceId": "ad6411723f41476d91f9f38bfabfa2a1"
+ }
+}

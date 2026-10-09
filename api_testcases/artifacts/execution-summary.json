@@ -1,0 +1,290 @@
+{
+ "total": 474,
+ "passed": 270,
+ "failed": 47,
+ "skipped": 157,
+ "failures": [
+  {
+   "case_id": "POST_ADMIN_AFTER_SALES_ID_AUDIT-001",
+   "reason": "AssertionError: [POST_ADMIN_AFTER_SALES_ID_AUDIT-001] HTTP 期望 200 实际 500｜body={'code': 50000, 'msg': '系统异常', 'traceId': '0b3414c40",
+   "class": "HTTP 200→500",
+   "group": "契约"
+  },
+  {
+   "case_id": "POST_ADMIN_AFTER_SALES_ID_AUDIT-004",
+   "reason": "AssertionError: [POST_ADMIN_AFTER_SALES_ID_AUDIT-004] HTTP 期望 200 实际 500｜body={'code': 50000, 'msg': '系统异常', 'traceId': '969d61e91",
+   "class": "HTTP 200→500",
+   "group": "契约"
+  },
+  {
+   "case_id": "POST_ADMIN_ATTRIBUTES-001",
+   "reason": "AssertionError: [POST_ADMIN_ATTRIBUTES-001] HTTP 期望 200 实际 500｜body={'code': 50000, 'msg': '系统异常', 'traceId': '13efe699e23d488685c",
+   "class": "HTTP 200→500",
+   "group": "契约"
+  },
+  {
+   "case_id": "POST_ADMIN_ATTRIBUTES-003",
+   "reason": "AssertionError: [POST_ADMIN_ATTRIBUTES-003] HTTP 期望 200 实际 500｜body={'code': 50000, 'msg': '系统异常', 'traceId': 'abbd39f24e004dc2803",
+   "class": "HTTP 200→500",
+   "group": "契约"
+  },
+  {
+   "case_id": "POST_ADMIN_ATTRIBUTES-004",
+   "reason": "AssertionError: [POST_ADMIN_ATTRIBUTES-004] HTTP 期望 200 实际 500｜body={'code': 50000, 'msg': '系统异常', 'traceId': '43e7fd500fe54a84bcc",
+   "class": "HTTP 200→500",
+   "group": "契约"
+  },
+  {
+   "case_id": "POST_ADMIN_CATEGORIES-003",
+   "reason": "AssertionError: [POST_ADMIN_CATEGORIES-003] HTTP 期望 200 实际 500｜body={'code': 50000, 'msg': '系统异常', 'traceId': 'd9edbdc2760741d6868",
+   "class": "HTTP 200→500",
+   "group": "契约"
+  },
+  {
+   "case_id": "POST_ADMIN_DEPTS-003",
+   "reason": "AssertionError: [POST_ADMIN_DEPTS-003] HTTP 期望 200 实际 500｜body={'code': 50000, 'msg': '系统异常', 'traceId': '823393d2ac0a4ea4beb5638c",
+   "class": "HTTP 200→500",
+   "group": "契约"
+  },
+  {
+   "case_id": "GET_ADMIN_DICT_ITEMS-003",
+   "reason": "AssertionError: [GET_ADMIN_DICT_ITEMS-003] HTTP 期望 400 实际 500｜body={'code': 50000, 'msg': '系统异常', 'traceId': '7bfb17b5a5344978932b",
+   "class": "HTTP 400→500",
+   "group": "契约"
+  },
+  {
+   "case_id": "POST_ADMIN_DICT_ITEMS-003",
+   "reason": "AssertionError: [POST_ADMIN_DICT_ITEMS-003] HTTP 期望 200 实际 500｜body={'code': 50000, 'msg': '系统异常', 'traceId': 'aecd8e4f46a446959c6",
+   "class": "HTTP 200→500",
+   "group": "契约"
+  },
+  {
+   "case_id": "GET_ADMIN_DICT_ITEMS_BY_CODE-003",
+   "reason": "AssertionError: [GET_ADMIN_DICT_ITEMS_BY_CODE-003] HTTP 期望 400 实际 500｜body={'code': 50000, 'msg': '系统异常', 'traceId': '20c3e272f6ed",
+   "class": "HTTP 400→500",
+   "group": "契约"
+  },
+  {
+   "case_id": "POST_ADMIN_DICTS-004",
+   "reason": "AssertionError: [POST_ADMIN_DICTS-004] HTTP 期望 200 实际 500｜body={'code': 50000, 'msg': '系统异常', 'traceId': 'bd10ffbf3ae8498eb39ed8f1",
+   "class": "HTTP 200→500",
+   "group": "契约"
+  },
+  {
+   "case_id": "GET_ADMIN_FILES_VIEW-001",
+   "reason": "AssertionError: [GET_ADMIN_FILES_VIEW-001] 业务码期望 0 实际 40400｜文件不存在或无法读取\nassert False",
+   "class": "其他",
+   "group": "契约"
+  },
+  {
+   "case_id": "GET_ADMIN_FILES_VIEW-003",
+   "reason": "AssertionError: [GET_ADMIN_FILES_VIEW-003] HTTP 期望 400 实际 500｜body={'code': 50000, 'msg': '系统异常', 'traceId': 'e3ef12db835d4c98bbd6",
+   "class": "HTTP 400→500",
+   "group": "契约"
+  },
+  {
+   "case_id": "POST_ADMIN_IN_OUT-001",
+   "reason": "AssertionError: [POST_ADMIN_IN_OUT-001] HTTP 期望 200 实际 500｜body={'code': 50000, 'msg': '系统异常', 'traceId': '0de399ec58aa4233b3fab21",
+   "class": "HTTP 200→500",
+   "group": "契约"
+  },
+  {
+   "case_id": "POST_ADMIN_IN_OUT-004",
+   "reason": "AssertionError: [POST_ADMIN_IN_OUT-004] HTTP 期望 200 实际 500｜body={'code': 50000, 'msg': '系统异常', 'traceId': 'e978793babf24f84a5c61dd",
+   "class": "HTTP 200→500",
+   "group": "契约"
+  },
+  {
+   "case_id": "POST_ADMIN_ORDERS_ID_SHIP-001",
+   "reason": "AssertionError: [POST_ADMIN_ORDERS_ID_SHIP-001] HTTP 期望 200 实际 500｜body={'code': 50000, 'msg': '系统异常', 'traceId': 'a55b3a2a25fc48b",
+   "class": "HTTP 200→500",
+   "group": "契约"
+  },
+  {
+   "case_id": "POST_ADMIN_ORDERS_ID_SHIP-004",
+   "reason": "AssertionError: [POST_ADMIN_ORDERS_ID_SHIP-004] HTTP 期望 200 实际 500｜body={'code': 50000, 'msg': '系统异常', 'traceId': '0a3a4c1f37d84a7",
+   "class": "HTTP 200→500",
+   "group": "契约"
+  },
+  {
+   "case_id": "POST_ADMIN_PERMISSIONS-003",
+   "reason": "AssertionError: [POST_ADMIN_PERMISSIONS-003] HTTP 期望 200 实际 500｜body={'code': 50000, 'msg': '系统异常', 'traceId': '4db2a745b5fb4970bb",
+   "class": "HTTP 200→500",
+   "group": "契约"
+  },
+  {
+   "case_id": "POST_ADMIN_PRODUCTS-001",
+   "reason": "AssertionError: [POST_ADMIN_PRODUCTS-001] HTTP 期望 200 实际 500｜body={'code': 50000, 'msg': '系统异常', 'traceId': 'bcb118fd497c4c559c72f",
+   "class": "HTTP 200→500",
+   "group": "契约"
+  },
+  {
+   "case_id": "POST_ADMIN_PRODUCTS-004",
+   "reason": "AssertionError: [POST_ADMIN_PRODUCTS-004] HTTP 期望 200 实际 500｜body={'code': 50000, 'msg': '系统异常', 'traceId': '6faeefde2d294f188bba2",
+   "class": "HTTP 200→500",
+   "group": "契约"
+  },
+  {
+   "case_id": "POST_ADMIN_ROLES-001",
+   "reason": "AssertionError: [POST_ADMIN_ROLES-001] HTTP 期望 200 实际 500｜body={'code': 50000, 'msg': '系统异常', 'traceId': 'f35fe672b138432da15683b5",
+   "class": "HTTP 200→500",
+   "group": "契约"
+  },
+  {
+   "case_id": "POST_ADMIN_ROLES-004",
+   "reason": "AssertionError: [POST_ADMIN_ROLES-004] HTTP 期望 200 实际 500｜body={'code': 50000, 'msg': '系统异常', 'traceId': 'c39f1949b0864823a20f2fcd",
+   "class": "HTTP 200→500",
+   "group": "契约"
+  },
+  {
+   "case_id": "POST_ADMIN_USERS-001",
+   "reason": "AssertionError: [POST_ADMIN_USERS-001] HTTP 期望 200 实际 500｜body={'code': 50000, 'msg': '系统异常', 'traceId': '214b014f909c4715874e68e7",
+   "class": "HTTP 200→500",
+   "group": "契约"
+  },
+  {
+   "case_id": "POST_ADMIN_USERS-004",
+   "reason": "AssertionError: [POST_ADMIN_USERS-004] HTTP 期望 200 实际 500｜body={'code': 50000, 'msg': '系统异常', 'traceId': '7c97b4cc470a48688c2e96c9",
+   "class": "HTTP 200→500",
+   "group": "契约"
+  },
+  {
+   "case_id": "POST_ADMIN_WAREHOUSES-003",
+   "reason": "AssertionError: [POST_ADMIN_WAREHOUSES-003] HTTP 期望 200 实际 500｜body={'code': 50000, 'msg': '系统异常', 'traceId': '33d7bd24893942e3981",
+   "class": "HTTP 200→500",
+   "group": "契约"
+  },
+  {
+   "case_id": "POST_API_FILES_PRESIGN-001",
+   "reason": "AssertionError: [POST_API_FILES_PRESIGN-001] 业务码期望 0 实际 40000｜bizType 仅支持 AVATAR / AFTER_SALE / REVIEW\nassert False",
+   "class": "其他",
+   "group": "契约"
+  },
+  {
+   "case_id": "POST_API_FILES_PRESIGN-004",
+   "reason": "AssertionError: [POST_API_FILES_PRESIGN-004] 业务码期望 0 实际 40000｜bizType 仅支持 AVATAR / AFTER_SALE / REVIEW\nassert False",
+   "class": "其他",
+   "group": "契约"
+  },
+  {
+   "case_id": "GET_API_FILES_VIEW-001",
+   "reason": "AssertionError: [GET_API_FILES_VIEW-001] 业务码期望 0 实际 40400｜文件不存在或无法读取\nassert False",
+   "class": "其他",
+   "group": "契约"
+  },
+  {
+   "case_id": "GET_API_FILES_VIEW-003",
+   "reason": "AssertionError: [GET_API_FILES_VIEW-003] HTTP 期望 400 实际 500｜body={'code': 50000, 'msg': '系统异常', 'traceId': '6b0b9ac6fc9b4e1786bd05",
+   "class": "HTTP 400→500",
+   "group": "契约"
+  },
+  {
+   "case_id": "POST_API_ORDERS_ID_CANCEL-004",
+   "reason": "AssertionError: [POST_API_ORDERS_ID_CANCEL-004] 业务码期望 ORDER_STATUS_INVALID(40902) 实际 0｜success\nassert False",
+   "class": "业务码 ORDER_STATUS_INVALID→0",
+   "group": "契约"
+  },
+  {
+   "case_id": "POST_API_ORDERS_ID_CONFIRM-001",
+   "reason": "AssertionError: [POST_API_ORDERS_ID_CONFIRM-001] 业务码期望 0 实际 40902｜订单状态不允许\nassert False",
+   "class": "其他",
+   "group": "契约"
+  },
+  {
+   "case_id": "POST_API_REVIEWS-001",
+   "reason": "AssertionError: [POST_API_REVIEWS-001] 业务码期望 0 实际 40904｜评价已存在\nassert False",
+   "class": "其他",
+   "group": "契约"
+  },
+  {
+   "case_id": "BUS-AUTH-004",
+   "reason": "AssertionError: [BUS-AUTH-004] HTTP 期望 200 实际 500｜body={'code': 50000, 'msg': '系统异常', 'traceId': '5650b78d4807493da48b7435716afafc",
+   "class": "HTTP 200→500",
+   "group": "BUS"
+  },
+  {
+   "case_id": "BUS-STK-004",
+   "reason": "AssertionError: [BUS-STK-004] HTTP 期望 200 实际 500｜body={'code': 50000, 'msg': '系统异常', 'traceId': '60723827655e4637b03d9959467d01e4'",
+   "class": "HTTP 200→500",
+   "group": "BUS"
+  },
+  {
+   "case_id": "BUS-CART-003",
+   "reason": "AssertionError: [BUS-CART-003] HTTP 期望 200 实际 500｜body={'code': 50000, 'msg': '系统异常', 'traceId': '14ef28de7a2a4fb69d948821a38d912a",
+   "class": "HTTP 200→500",
+   "group": "BUS"
+  },
+  {
+   "case_id": "BUS-ORD-005",
+   "reason": "AssertionError: [BUS-ORD-005] 业务码期望 ORDER_STATUS_INVALID(40902) 实际 0｜success\nassert False",
+   "class": "业务码 ORDER_STATUS_INVALID→0",
+   "group": "BUS"
+  },
+  {
+   "case_id": "BUS-ORD-006",
+   "reason": "AssertionError: [BUS-ORD-006] 业务码期望 0 实际 40902｜订单状态不允许\nassert False",
+   "class": "其他",
+   "group": "BUS"
+  },
+  {
+   "case_id": "BUS-ORD-008",
+   "reason": "AssertionError: [BUS-ORD-008] 业务码期望 NOT_FOUND(40400) 实际 0｜success\nassert False",
+   "class": "业务码 NOT_FOUND→0",
+   "group": "BUS"
+  },
+  {
+   "case_id": "BUS-PAY-003",
+   "reason": "AssertionError: [BUS-PAY-003] 业务码期望 NOT_FOUND(40400) 实际 40902｜订单状态不允许\nassert False",
+   "class": "业务码 NOT_FOUND→40902",
+   "group": "BUS"
+  },
+  {
+   "case_id": "BUS-AS-001",
+   "reason": "AssertionError: [BUS-AS-001] HTTP 期望 200 实际 500｜body={'code': 50000, 'msg': '系统异常', 'traceId': 'e2dbad27c58b4646a4f5b5148901a19b'}",
+   "class": "HTTP 200→500",
+   "group": "BUS"
+  },
+  {
+   "case_id": "BUS-AS-002",
+   "reason": "AssertionError: [BUS-AS-002] HTTP 期望 200 实际 500｜body={'code': 50000, 'msg': '系统异常', 'traceId': '2bdc1f2047d4423cafd303160dcbb645'}",
+   "class": "HTTP 200→500",
+   "group": "BUS"
+  },
+  {
+   "case_id": "BUS-AS-003",
+   "reason": "AssertionError: [BUS-AS-003] HTTP 期望 200 实际 500｜body={'code': 50000, 'msg': '系统异常', 'traceId': 'c53f85dd89044c47a8ee0b599c42e5dc'}",
+   "class": "HTTP 200→500",
+   "group": "BUS"
+  },
+  {
+   "case_id": "BUS-AS-004",
+   "reason": "AssertionError: [BUS-AS-004] HTTP 期望 200 实际 500｜body={'code': 50000, 'msg': '系统异常', 'traceId': '6e058edbb7614c0da4b4b7e51012e818'}",
+   "class": "HTTP 200→500",
+   "group": "BUS"
+  },
+  {
+   "case_id": "BUS-AS-006",
+   "reason": "AssertionError: [BUS-AS-006] HTTP 期望 200 实际 500｜body={'code': 50000, 'msg': '系统异常', 'traceId': 'b0f8f2777d284937a8956be97017c4f0'}",
+   "class": "HTTP 200→500",
+   "group": "BUS"
+  },
+  {
+   "case_id": "BUS-ADM-001",
+   "reason": "AssertionError: [BUS-ADM-001] HTTP 期望 200 实际 500｜body={'code': 50000, 'msg': '系统异常', 'traceId': 'bc054f7575104b7584cd6e933ff729eb'",
+   "class": "HTTP 200→500",
+   "group": "BUS"
+  },
+  {
+   "case_id": "BUS-ADM-004",
+   "reason": "AssertionError: [BUS-ADM-004] 业务码期望 CONFLICT(40900) 实际 0｜success\nassert False",
+   "class": "业务码 CONFLICT→0",
+   "group": "BUS"
+  },
+  {
+   "case_id": "BUS-ADM-005",
+   "reason": "AssertionError: [BUS-ADM-005] 业务码期望 CONFLICT(40900) 实际 0｜success\nassert False",
+   "class": "业务码 CONFLICT→0",
+   "group": "BUS"
+  }
+ ]
+}

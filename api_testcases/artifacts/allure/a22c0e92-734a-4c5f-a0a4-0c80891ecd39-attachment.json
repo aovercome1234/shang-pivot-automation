@@ -1,0 +1,14 @@
+{
+ "url": "http://127.0.0.1:8086/admin/users",
+ "method": "GET",
+ "http": 200,
+ "body": {
+  "code": 0,
+  "data": {
+   "total": "1",
+   "records": []
+  },
+  "msg": "success",
+  "traceId": "1b6f6a3caca544df99a7a0fae2100a5c"
+ }
+}

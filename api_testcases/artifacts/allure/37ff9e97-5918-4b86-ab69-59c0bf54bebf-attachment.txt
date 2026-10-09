@@ -1,0 +1,1 @@
+HTTP=200；code=0；回查 GET /admin/brands?page=1&size=20 校验目标记录 status 等于本次提交的状态值

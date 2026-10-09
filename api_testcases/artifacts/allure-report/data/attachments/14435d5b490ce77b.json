@@ -1,0 +1,10 @@
+{
+ "url": "http://111.170.33.2:60085/admin/in-out",
+ "method": "GET",
+ "http": 401,
+ "body": {
+  "code": 40100,
+  "msg": "未认证",
+  "traceId": "f2c6a7497a9d4d30af381fb1abb7e11c"
+ }
+}

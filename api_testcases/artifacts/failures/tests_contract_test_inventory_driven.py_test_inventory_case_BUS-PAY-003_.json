@@ -1,0 +1,8 @@
+{
+  "case_id": "tests/contract/test_inventory_driven.py::test_inventory_case[BUS-PAY-003]",
+  "phase": "call",
+  "outcome": "failed",
+  "timestamp": "2026-10-06T08:49:20.040516+00:00",
+  "longrepr": "E   AssertionError: [BUS-PAY-003] 业务码期望 NOT_FOUND(40400) 实际 40902｜订单状态不允许\n    assert False",
+  "request_response": null
+}

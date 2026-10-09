@@ -1,0 +1,10 @@
+{
+ "url": "http://111.170.33.2:60085/admin/attributes",
+ "method": "POST",
+ "http": 500,
+ "body": {
+  "code": 50000,
+  "msg": "系统异常",
+  "traceId": "fc8734d5dccd4b0195d5c95d4f3e38b8"
+ }
+}

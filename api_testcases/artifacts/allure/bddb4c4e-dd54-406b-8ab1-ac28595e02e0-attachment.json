@@ -1,0 +1,58 @@
+{
+ "url": "http://111.170.33.2:60084/api/cart",
+ "method": "GET",
+ "http": 200,
+ "body": {
+  "code": 0,
+  "data": {
+   "available": true,
+   "items": [
+    {
+     "valid": true,
+     "quantity": 68,
+     "price": 599.0,
+     "specsText": "{材质=防雨涤纶, 颜色=军绿}",
+     "available": true,
+     "spuId": "246",
+     "id": "2107318310586089473",
+     "pic": "/admin/files/view?objectKey=PRODUCT%2Fseed%2Fproduct_146.jpg",
+     "title": "双人帐篷 防雨款 军绿",
+     "skuId": "10036",
+     "selected": true,
+     "cartItemId": "2107318310586089473"
+    },
+    {
+     "valid": true,
+     "quantity": 2,
+     "price": 1999.0,
+     "specsText": "{}",
+     "available": true,
+     "spuId": "162",
+     "id": "9212",
+     "pic": "/admin/files/view?objectKey=PRODUCT%2Fseed%2Fproduct_62.jpg",
+     "title": "AirPods Pro 2",
+     "skuId": "10025",
+     "selected": true,
+     "cartItemId": "9212"
+    },
+    {
+     "valid": true,
+     "quantity": 1,
+     "price": 7999.0,
+     "specsText": "{容量=128GB, 颜色=原色钛金属}",
+     "available": true,
+     "spuId": "101",
+     "id": "9211",
+     "pic": "/admin/files/view?objectKey=PRODUCT%2Fseed%2Fproduct_1.jpg",
+     "title": "iPhone 15 Pro 128G",
+     "skuId": "10001",
+     "selected": true,
+     "cartItemId": "9211"
+    }
+   ],
+   "selectedAmount": 52729.0
+  },
+  "msg": "success",
+  "traceId": "aa73ae3c7fca412097345ceb347fd344"
+ }
+}

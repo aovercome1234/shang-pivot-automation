@@ -1,0 +1,58 @@
+{
+ "url": "http://127.0.0.1:8086/api/orders/2107347521234735106",
+ "method": "GET",
+ "http": 200,
+ "body": {
+  "code": 0,
+  "data": {
+   "items": [
+    {
+     "createdAt": "2026-10-06T13:49:36.34428+08:00",
+     "deleted": false,
+     "id": "2107347521238929409",
+     "orderId": "2107347521234735106",
+     "pic": "/admin/files/view?objectKey=PRODUCT%2Fseed%2Fproduct_146.jpg",
+     "price": 599.0,
+     "quantity": 11,
+     "skuId": "10036",
+     "specs": {
+      "材质": "防雨涤纶",
+      "颜色": "军绿"
+     },
+     "spuId": "246",
+     "subtotal": 6589.0,
+     "title": "双人帐篷 防雨款 军绿",
+     "updatedAt": "2026-10-06T13:49:36.34428+08:00"
+    }
+   ],
+   "shipments": [],
+   "order": {
+    "addressSnapshot": {
+     "city": "北京市",
+     "name": "张三",
+     "phone": "13800000001",
+     "detail": "建国路 88 号",
+     "district": "朝阳区",
+     "province": "北京市"
+    },
+    "clientType": "web",
+    "closeReason": "支付超时自动关闭",
+    "createdAt": "2026-10-06T13:49:36.342795+08:00",
+    "customerId": "9001",
+    "customerName": "张三",
+    "customerPhoneMask": "138****0001",
+    "deleted": false,
+    "freight": 0.0,
+    "id": "2107347521234735106",
+    "idempotentKey": "自动化测试",
+    "orderNo": "O202610061349360003",
+    "payAmount": 6589.0,
+    "status": "CLOSED",
+    "totalAmount": 6589.0,
+    "updatedAt": "2026-10-06T13:49:36.342795+08:00"
+   }
+  },
+  "msg": "success",
+  "traceId": "4c58b432a6164527aceef4b780a53a04"
+ }
+}

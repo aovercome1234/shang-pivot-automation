@@ -1,0 +1,10 @@
+{
+ "url": "http://111.170.33.2:60084/api/auth/phone",
+ "method": "POST",
+ "http": 400,
+ "body": {
+  "code": 40000,
+  "msg": "must not be blank",
+  "traceId": "12c1af93eff4403e9f8aa844515907b5"
+ }
+}

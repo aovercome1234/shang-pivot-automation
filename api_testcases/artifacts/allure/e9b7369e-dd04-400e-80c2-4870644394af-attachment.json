@@ -1,0 +1,10 @@
+{
+ "url": "http://111.170.33.2:60085/admin/attributes/",
+ "method": "PUT",
+ "http": 404,
+ "body": {
+  "code": 40400,
+  "msg": "资源不存在",
+  "traceId": "b9a4af02b00c4dd891c5dce39bdc5709"
+ }
+}

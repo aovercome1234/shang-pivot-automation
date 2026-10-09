@@ -1,0 +1,100 @@
+{
+ "url": "http://127.0.0.1:8086/admin/after-sales",
+ "method": "GET",
+ "http": 200,
+ "body": {
+  "code": 0,
+  "data": {
+   "total": "11",
+   "records": [
+    {
+     "afterSaleNo": "AS202610061350393117",
+     "auditRemark": "自动化测试清理",
+     "createdAt": "2026-10-06T13:50:39.933695+08:00",
+     "customerId": "9001",
+     "deleted": false,
+     "evidencePics": [
+      "自动化测试"
+     ],
+     "id": "2107347787950526465",
+     "orderId": "2107340298110570497",
+     "reason": "自动化测试原因",
+     "refundAmount": 9.9,
+     "status": "REJECTED",
+     "type": "REFUND",
+     "updatedAt": "2026-10-06T13:50:39.933695+08:00"
+    },
+    {
+     "afterSaleNo": "AS202610061350392605",
+     "auditRemark": "自动化测试清理",
+     "createdAt": "2026-10-06T13:50:39.917794+08:00",
+     "customerId": "9001",
+     "deleted": false,
+     "evidencePics": [
+      "自动化测试"
+     ],
+     "id": "2107347787883417601",
+     "orderId": "2107340298110570497",
+     "reason": "自动化测试原因",
+     "refundAmount": 9.9,
+     "status": "REJECTED",
+     "type": "REFUND",
+     "updatedAt": "2026-10-06T13:50:39.917794+08:00"
+    },
+    {
+     "afterSaleNo": "AS202610061350108239",
+     "auditRemark": "自动化测试清理",
+     "createdAt": "2026-10-06T13:50:10.022077+08:00",
+     "customerId": "9001",
+     "deleted": false,
+     "evidencePics": [
+      "自动化测试"
+     ],
+     "id": "2107347662494699522",
+     "orderId": "2107340298110570497",
+     "reason": "自动化测试原因",
+     "refundAmount": 9.9,
+     "status": "REJECTED",
+     "type": "REFUND",
+     "updatedAt": "2026-10-06T13:50:10.022077+08:00"
+    },
+    {
+     "afterSaleNo": "AS202610061350102754",
+     "auditRemark": "自动化测试清理",
+     "createdAt": "2026-10-06T13:50:10.005198+08:00",
+     "customerId": "9001",
+     "deleted": false,
+     "evidencePics": [
+      "自动化测试"
+     ],
+     "id": "2107347662423396354",
+     "orderId": "2107340298110570497",
+     "reason": "自动化测试原因",
+     "refundAmount": 9.9,
+     "status": "REJECTED",
+     "type": "REFUND",
+     "updatedAt": "2026-10-06T13:50:10.005198+08:00"
+    },
+    {
+     "afterSaleNo": "AS202610061349367893",
+     "auditRemark": "自动化测试清理",
+     "createdAt": "2026-10-06T13:49:36.27863+08:00",
+     "customerId": "9001",
+     "deleted": false,
+     "evidencePics": [
+      "自动化测试"
+     ],
+     "id": "2107347520962105346",
+     "orderId": "2107340298110570497",
+     "reason": "自动化测试原因",
+     "refundAmount": 9.9,
+     "status": "REJECTED",
+     "type": "REFUND",
+     "updatedAt": "2026-10-06T13:49:36.27863+08:00"
+    }
+   ]
+  },
+  "msg": "success",
+  "traceId": "df02948a09c84a81854218f2467d77ee"
+ }
+}

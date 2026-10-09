@@ -1,0 +1,10 @@
+{
+ "url": "http://127.0.0.1:8086/api/favorites/246",
+ "method": "POST",
+ "http": 401,
+ "body": {
+  "code": 40100,
+  "msg": "未认证",
+  "traceId": "d26d60759b174a408e2800479e96ac5b"
+ }
+}

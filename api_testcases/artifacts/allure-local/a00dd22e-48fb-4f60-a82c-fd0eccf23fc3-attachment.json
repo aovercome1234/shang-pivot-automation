@@ -1,0 +1,10 @@
+{
+ "url": "http://127.0.0.1:8096/admin/roles/",
+ "method": "PUT",
+ "http": 404,
+ "body": {
+  "code": 40400,
+  "msg": "资源不存在",
+  "traceId": "53b2a85d51304364aae7156f96608c75"
+ }
+}

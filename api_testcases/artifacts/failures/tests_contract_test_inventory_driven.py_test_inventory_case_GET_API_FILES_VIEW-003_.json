@@ -1,0 +1,8 @@
+{
+  "case_id": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_API_FILES_VIEW-003]",
+  "phase": "call",
+  "outcome": "failed",
+  "timestamp": "2026-10-06T05:49:11.445543+00:00",
+  "longrepr": "E   AssertionError: [GET_API_FILES_VIEW-003] HTTP 期望 400 实际 500｜body={'code': 50000, 'msg': '系统异常', 'traceId': '880e96170f6e465ab2d3551192c2732c'}\n    assert False",
+  "request_response": null
+}

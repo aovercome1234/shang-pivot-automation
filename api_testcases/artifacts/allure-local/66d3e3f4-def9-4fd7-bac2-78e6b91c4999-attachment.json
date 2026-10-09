@@ -1,0 +1,10 @@
+{
+ "url": "http://127.0.0.1:8096/admin/depts",
+ "method": "POST",
+ "http": 200,
+ "body": {
+  "code": 0,
+  "msg": "success",
+  "traceId": "d7b4d42a87dc44b482dbd9fa4d5ff3fb"
+ }
+}

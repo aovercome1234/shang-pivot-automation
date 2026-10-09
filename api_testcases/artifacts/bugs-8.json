@@ -1,0 +1,50 @@
+[
+ {
+  "case": "POST_ADMIN_ATTRIBUTES-003",
+  "title": "【接口缺陷】POST /admin/attributes 空请求体未校验参数，返回 500",
+  "zentao_bug_id": "14",
+  "http": 201
+ },
+ {
+  "case": "POST_ADMIN_CATEGORIES-003",
+  "title": "【接口缺陷】POST /admin/categories 空请求体未校验参数，返回 500",
+  "zentao_bug_id": "15",
+  "http": 201
+ },
+ {
+  "case": "POST_ADMIN_DEPTS-003",
+  "title": "【接口缺陷】POST /admin/depts 空请求体未校验参数，返回 500",
+  "zentao_bug_id": "16",
+  "http": 201
+ },
+ {
+  "case": "POST_ADMIN_DICT_ITEMS-003",
+  "title": "【接口缺陷】POST /admin/dict-items 空请求体未校验参数，返回 500",
+  "zentao_bug_id": "17",
+  "http": 201
+ },
+ {
+  "case": "POST_ADMIN_PERMISSIONS-003",
+  "title": "【接口缺陷】POST /admin/permissions 空请求体未校验参数，返回 500",
+  "zentao_bug_id": "18",
+  "http": 201
+ },
+ {
+  "case": "POST_ADMIN_WAREHOUSES-003",
+  "title": "【接口缺陷】POST /admin/warehouses 空请求体未校验参数，返回 500",
+  "zentao_bug_id": "19",
+  "http": 201
+ },
+ {
+  "case": "POST_ADMIN_DICTS-004",
+  "title": "【接口缺陷】POST /admin/dicts 重复 code 无唯一性校验，重复创建成功",
+  "zentao_bug_id": "20",
+  "http": 201
+ },
+ {
+  "case": "POST_API_ORDERS_ID_CANCEL-004 / BUS-ORD-005",
+  "title": "【接口缺陷】取消非待支付订单静默返回成功（应拒绝或明确幂等语义）",
+  "zentao_bug_id": "21",
+  "http": 201
+ }
+]

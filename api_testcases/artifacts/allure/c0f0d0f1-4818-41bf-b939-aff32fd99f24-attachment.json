@@ -1,0 +1,128 @@
+{
+ "url": "http://111.170.33.2:60085/admin/in-out",
+ "method": "GET",
+ "http": 200,
+ "body": {
+  "code": 0,
+  "data": {
+   "total": "6",
+   "records": [
+    {
+     "bill": {
+      "billNo": "PI202610060002",
+      "createdAt": "2026-10-06T11:45:08.011262+08:00",
+      "id": "2107316196778508289",
+      "operatorId": "1",
+      "remark": "自动化测试备注",
+      "type": "PURCHASE_IN",
+      "warehouseId": "1"
+     },
+     "items": [
+      {
+       "skuTitle": "248",
+       "qty": 2,
+       "id": "2107316196807868418",
+       "skuId": "248"
+      }
+     ]
+    },
+    {
+     "bill": {
+      "billNo": "PI202610060001",
+      "createdAt": "2026-10-06T11:41:41.823777+08:00",
+      "id": "2107315331967549442",
+      "operatorId": "1",
+      "remark": "自动化测试备注",
+      "type": "PURCHASE_IN",
+      "warehouseId": "1"
+     },
+     "items": [
+      {
+       "skuTitle": "2107314367004999681",
+       "qty": 2,
+       "id": "2107315332047241217",
+       "skuId": "2107314367004999681"
+      }
+     ]
+    },
+    {
+     "bill": {
+      "billNo": "PI202609200002",
+      "createdAt": "2026-10-03T15:44:57.511687+08:00",
+      "id": "8604",
+      "operatorId": "1",
+      "remark": "耳机配件补货",
+      "type": "PURCHASE_IN",
+      "warehouseId": "1"
+     },
+     "items": [
+      {
+       "skuTitle": "AirPods Pro 2",
+       "qty": 40,
+       "remark": "耳机再补",
+       "id": "8618",
+       "skuId": "10025"
+      }
+     ]
+    },
+    {
+     "bill": {
+      "billNo": "SO202609200001",
+      "createdAt": "2026-10-02T23:44:57.511687+08:00",
+      "id": "8603",
+      "operatorId": "1",
+      "relatedOrderNo": "SO202609140103",
+      "remark": "订单发货出库",
+      "type": "SALE_OUT",
+      "warehouseId": "1"
+     },
+     "items": [
+      {
+       "skuTitle": "MacBook Air 13 M3 16G",
+       "qty": -1,
+       "remark": "MacBook 出库",
+       "id": "8616",
+       "skuId": "10013"
+      },
+      {
+       "skuTitle": "罗技 MX Master 3s",
+       "qty": -1,
+       "remark": "鼠标出库",
+       "id": "8617",
+       "skuId": "10019"
+      }
+     ]
+    },
+    {
+     "bill": {
+      "billNo": "ST202609200001",
+      "createdAt": "2026-09-30T23:44:57.511687+08:00",
+      "id": "8602",
+      "operatorId": "1",
+      "remark": "月度盘点微调",
+      "type": "STOCKTAKE",
+      "warehouseId": "1"
+     },
+     "items": [
+      {
+       "skuTitle": "罗技 MX Master 3s",
+       "qty": -2,
+       "remark": "盘亏",
+       "id": "8614",
+       "skuId": "10019"
+      },
+      {
+       "skuTitle": "戴森 V12 吸尘器",
+       "qty": 3,
+       "remark": "盘盈",
+       "id": "8615",
+       "skuId": "10022"
+      }
+     ]
+    }
+   ]
+  },
+  "msg": "success",
+  "traceId": "3d2c4ffe9d794a5c9b9e6e253879bd1f"
+ }
+}

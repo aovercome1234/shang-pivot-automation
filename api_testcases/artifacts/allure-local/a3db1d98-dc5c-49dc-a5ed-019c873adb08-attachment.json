@@ -1,0 +1,32 @@
+{
+ "url": "http://127.0.0.1:8096/api/orders/2107340298110570497/logistics",
+ "method": "GET",
+ "http": 200,
+ "body": {
+  "code": 0,
+  "data": [
+   {
+    "carrier": "模拟快递",
+    "createdAt": "2026-10-06T13:20:54.274351+08:00",
+    "deleted": false,
+    "id": "2107340298358034434",
+    "orderId": "2107340298110570497",
+    "status": "SHIPPED",
+    "traces": [
+     {
+      "desc": "商家已发货",
+      "time": "2026-10-06T13:20:54.273827+08:00"
+     },
+     {
+      "desc": "运输中（模拟）",
+      "time": "2026-10-06T15:20:54.273854+08:00"
+     }
+    ],
+    "trackingNo": "SF-E2E-0003",
+    "updatedAt": "2026-10-06T13:20:54.274351+08:00"
+   }
+  ],
+  "msg": "success",
+  "traceId": "57bddc15d4e44ba0af83eb7c9fc81943"
+ }
+}

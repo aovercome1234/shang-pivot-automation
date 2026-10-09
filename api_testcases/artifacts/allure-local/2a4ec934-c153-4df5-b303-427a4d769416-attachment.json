@@ -1,0 +1,10 @@
+{
+ "url": "http://127.0.0.1:8096/admin/categories/2107340384974606337",
+ "method": "PUT",
+ "http": 200,
+ "body": {
+  "code": 0,
+  "msg": "success",
+  "traceId": "24430162ff6c4ee3b3f6f0c298e21a91"
+ }
+}

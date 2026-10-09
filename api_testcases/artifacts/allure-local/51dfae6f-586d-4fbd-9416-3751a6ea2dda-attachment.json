@@ -1,0 +1,10 @@
+{
+ "url": "http://127.0.0.1:8096/admin/categories/2107340384387403777",
+ "method": "DELETE",
+ "http": 200,
+ "body": {
+  "code": 0,
+  "msg": "success",
+  "traceId": "6c7f93c49702401fb01e4ba1f50e427b"
+ }
+}

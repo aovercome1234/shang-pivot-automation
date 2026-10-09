@@ -1,0 +1,10 @@
+{
+ "url": "http://127.0.0.1:8096/admin/brands",
+ "method": "POST",
+ "http": 401,
+ "body": {
+  "code": 40100,
+  "msg": "未认证",
+  "traceId": "23bd7d0c13bb4bbeb37382022280f164"
+ }
+}

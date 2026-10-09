@@ -1,0 +1,10 @@
+{
+ "url": "http://127.0.0.1:8086/api/orders/2107347521234735106/cancel",
+ "method": "POST",
+ "http": 401,
+ "body": {
+  "code": 40100,
+  "msg": "未认证",
+  "traceId": "9789550e8216477f8d3f924f8ed0083d"
+ }
+}

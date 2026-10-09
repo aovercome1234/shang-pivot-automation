@@ -1,0 +1,11 @@
+{
+ "url": "http://127.0.0.1:8086/admin/dict-items/by-code",
+ "method": "GET",
+ "http": 200,
+ "body": {
+  "code": 0,
+  "data": [],
+  "msg": "success",
+  "traceId": "0766c18be4334c56acdf0d64a7868ebe"
+ }
+}

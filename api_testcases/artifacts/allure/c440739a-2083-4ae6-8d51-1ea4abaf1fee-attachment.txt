@@ -1,0 +1,1 @@
+HTTP=200；code=0；data.accessToken 非空且 data.customer.phone 与登录手机号一致

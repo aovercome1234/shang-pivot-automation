@@ -1,0 +1,18 @@
+{
+ "url": "http://127.0.0.1:8096/admin/dashboard/stats",
+ "method": "GET",
+ "http": 200,
+ "body": {
+  "code": 0,
+  "data": {
+   "onShelfProducts": "30",
+   "pendingAfterSales": "2",
+   "lowStockCount": "3",
+   "skuTotal": "47",
+   "pendingShipOrders": "3",
+   "orderTotal": "9"
+  },
+  "msg": "success",
+  "traceId": "536426880fc743c8aff3c992fa181f87"
+ }
+}

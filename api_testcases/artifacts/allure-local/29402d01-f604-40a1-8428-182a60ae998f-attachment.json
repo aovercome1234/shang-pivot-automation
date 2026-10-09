@@ -1,0 +1,10 @@
+{
+ "url": "http://127.0.0.1:8096/admin/attributes/2107340358869258241",
+ "method": "PUT",
+ "http": 401,
+ "body": {
+  "code": 0,
+  "msg": "success",
+  "traceId": "6f4bd68258064c548d0d31b0ead9c668"
+ }
+}

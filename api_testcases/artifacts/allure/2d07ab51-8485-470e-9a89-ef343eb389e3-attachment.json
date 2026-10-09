@@ -1,0 +1,10 @@
+{
+ "url": "http://127.0.0.1:8086/admin/dicts/2107416332177727490",
+ "method": "DELETE",
+ "http": 200,
+ "body": {
+  "code": 0,
+  "msg": "success",
+  "traceId": "9e1b726c0cbd4d0fbc48ec4f9e3a0177"
+ }
+}

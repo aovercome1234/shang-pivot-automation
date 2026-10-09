@@ -1,0 +1,17 @@
+{
+ "url": "http://111.170.33.2:60084/api/me",
+ "method": "GET",
+ "http": 200,
+ "body": {
+  "code": 0,
+  "data": {
+   "avatar": "PRODUCT/seed/product_1.jpg",
+   "id": "9001",
+   "nickname": "张三",
+   "phone": "138****0001",
+   "status": "NORMAL"
+  },
+  "msg": "success",
+  "traceId": "b9023e6fec1749e28422780fa872b6e6"
+ }
+}

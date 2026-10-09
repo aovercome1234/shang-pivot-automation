@@ -1,0 +1,25 @@
+{
+ "url": "http://111.170.33.2:60085/admin/operation-logs/2107406716120924162",
+ "method": "GET",
+ "http": 200,
+ "body": {
+  "code": 0,
+  "data": {
+   "action": "delete",
+   "createdAt": "2026-10-06T17:44:49.504078+08:00",
+   "deleted": false,
+   "id": "2107406716120924162",
+   "ip": "120.244.61.127",
+   "module": "dict",
+   "params": "{\"id\":2107406715269480449}",
+   "result": "SUCCESS",
+   "traceId": "a7ac972f564d4c3ab7b6130edfeea5ce",
+   "ua": "python-requests/2.32.5",
+   "updatedAt": "2026-10-06T17:44:49.504078+08:00",
+   "userId": "1",
+   "username": "admin"
+  },
+  "msg": "success",
+  "traceId": "2e45d5be480a4538bc28740828ecafe6"
+ }
+}

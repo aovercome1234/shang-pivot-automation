@@ -1,0 +1,8 @@
+{
+  "case_id": "tests/contract/test_inventory_driven.py::test_inventory_case[DELETE_ADMIN_PERMISSIONS_ID-003]",
+  "phase": "call",
+  "outcome": "failed",
+  "timestamp": "2026-10-06T03:20:33.222131+00:00",
+  "longrepr": "tests/contract/test_inventory_driven.py:178: in test_inventory_case\n    assert ok, f\"[{cid}] {detail}\"\nE   AssertionError: [DELETE_ADMIN_PERMISSIONS_ID-003] HTTP 期望 404 实际 401｜body={'code': 40103, 'msg': 'Token无效', 'traceId': '784545f5b5f5455aab6328c9b73713ce'}\nE   assert False",
+  "request_response": null
+}

@@ -1,0 +1,10 @@
+{
+ "url": "http://127.0.0.1:8086/api/auth/sms/send",
+ "method": "POST",
+ "http": 400,
+ "body": {
+  "code": 40000,
+  "msg": "不能为空",
+  "traceId": "9b89acf42f1f4a098e7c4d55f7e55557"
+ }
+}

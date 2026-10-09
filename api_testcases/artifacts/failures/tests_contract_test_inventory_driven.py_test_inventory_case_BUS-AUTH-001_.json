@@ -1,0 +1,8 @@
+{
+  "case_id": "tests/contract/test_inventory_driven.py::test_inventory_case[BUS-AUTH-001]",
+  "phase": "call",
+  "outcome": "failed",
+  "timestamp": "2026-10-06T09:12:05.246743+00:00",
+  "longrepr": "E   AssertionError: [BUS-AUTH-001] 回查 GET /api/me HTTP 401\n    assert False",
+  "request_response": null
+}

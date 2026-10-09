@@ -1,0 +1,10 @@
+{
+ "url": "http://127.0.0.1:8096/admin/dicts/2107340389789667330",
+ "method": "PUT",
+ "http": 401,
+ "body": {
+  "code": 0,
+  "msg": "success",
+  "traceId": "c6ea96828077461b9d6b088258a9e19f"
+ }
+}

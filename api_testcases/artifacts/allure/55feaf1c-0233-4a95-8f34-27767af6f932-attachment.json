@@ -1,0 +1,66 @@
+{
+ "url": "http://111.170.33.2:60085/admin/reviews",
+ "method": "GET",
+ "http": 200,
+ "body": {
+  "code": 0,
+  "data": {
+   "total": "4",
+   "records": [
+    {
+     "createdAt": "2026-10-02T23:44:57.511687+08:00",
+     "spuName": "iPhone 15 Pro 128G",
+     "customerPhone": "138****0001",
+     "orderItemId": "101",
+     "customerId": "9001",
+     "rating": 3,
+     "spuId": "101",
+     "id": "8504",
+     "content": "外观不错，但发货有点慢（演示隐藏）。",
+     "status": "HIDDEN"
+    },
+    {
+     "createdAt": "2026-10-03T05:44:57.511687+08:00",
+     "spuName": "罗技 MX Master 3s",
+     "customerPhone": "137****0003",
+     "orderItemId": "104",
+     "customerId": "9003",
+     "rating": 5,
+     "spuId": "127",
+     "id": "8503",
+     "content": "打工人神器，跨设备切换很顺。",
+     "status": "VISIBLE"
+    },
+    {
+     "createdAt": "2026-10-03T03:44:57.511687+08:00",
+     "spuName": "MacBook Air 13 M3 16G",
+     "customerPhone": "137****0003",
+     "orderItemId": "103",
+     "customerId": "9003",
+     "rating": 4,
+     "spuId": "121",
+     "id": "8502",
+     "content": "轻薄好用，续航满意；键盘手感一般。",
+     "status": "VISIBLE"
+    },
+    {
+     "createdAt": "2026-09-29T23:44:57.511687+08:00",
+     "spuName": "AirPods Pro 2",
+     "customerPhone": "138****0001",
+     "orderItemId": "105",
+     "customerId": "9001",
+     "rating": 5,
+     "spuId": "162",
+     "id": "8501",
+     "pics": [
+      "PRODUCT/seed/product_62.jpg"
+     ],
+     "content": "音质很棒，降噪出色，续航也够用，强烈推荐！",
+     "status": "VISIBLE"
+    }
+   ]
+  },
+  "msg": "success",
+  "traceId": "253600b626d44a7599d34f79894e3ecb"
+ }
+}

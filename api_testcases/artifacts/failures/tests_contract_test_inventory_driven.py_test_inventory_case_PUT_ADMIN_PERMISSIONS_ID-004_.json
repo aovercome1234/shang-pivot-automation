@@ -1,0 +1,8 @@
+{
+  "case_id": "tests/contract/test_inventory_driven.py::test_inventory_case[PUT_ADMIN_PERMISSIONS_ID-004]",
+  "phase": "call",
+  "outcome": "failed",
+  "timestamp": "2026-10-06T09:05:32.571220+00:00",
+  "longrepr": "tests/contract/test_inventory_driven.py:247: in test_inventory_case\n    vars_.add = None\nE   AttributeError: 'dict' object has no attribute 'add'",
+  "request_response": null
+}

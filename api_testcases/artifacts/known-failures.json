@@ -1,0 +1,213 @@
+{
+ "note": "失败登记表：每条须带 defect + reason；本轮执行通过者移入 retired（双向核对，防登记脱管）",
+ "registered": {
+  "POST_ADMIN_AFTER_SALES_ID_AUDIT-001": {
+   "defect": "D-13",
+   "reason": "售后审核 500（根因 jsonb/stringtype，源码已修待部署）"
+  },
+  "POST_ADMIN_ATTRIBUTES-001": {
+   "defect": "D-16/D-17",
+   "reason": "创建类接口缺参/空数组导致 500（源码已定位）"
+  },
+  "POST_ADMIN_ATTRIBUTES-004": {
+   "defect": "D-16/D-17",
+   "reason": "创建类接口缺参/空数组导致 500（源码已定位）"
+  },
+  "GET_ADMIN_DICT_ITEMS-003": {
+   "defect": "D-4/D-5",
+   "reason": "D-4/D-5：缺必填 query 未走 400 分支（GlobalExceptionHandler 待补），未在本轮 8 条内"
+  },
+  "POST_ADMIN_DICT_ITEMS-001": {
+   "defect": "D-4/D-5",
+   "reason": "创建成功但回查 GET /admin/dict-items 因缺必填 dictId 返回 500（同 D-4/D-5 框架分支缺口）"
+  },
+  "GET_ADMIN_DICT_ITEMS_BY_CODE-003": {
+   "defect": "D-4/D-5",
+   "reason": "D-4/D-5：缺必填 query 未走 400 分支（GlobalExceptionHandler 待补），未在本轮 8 条内"
+  },
+  "POST_ADMIN_ORDERS_ID_SHIP-001": {
+   "defect": "D-13/D-18",
+   "reason": "D-13/D-18 等下单链路缺陷：源码已修待部署，链路用例随之为红"
+  },
+  "POST_ADMIN_PRODUCTS-001": {
+   "defect": "D-16/D-17",
+   "reason": "创建类接口缺参/空数组导致 500（源码已定位）"
+  },
+  "POST_ADMIN_PRODUCTS-004": {
+   "defect": "D-16/D-17",
+   "reason": "创建类接口缺参/空数组导致 500（源码已定位）"
+  },
+  "POST_ADMIN_ROLES-001": {
+   "defect": "D-16/D-17",
+   "reason": "创建类接口缺参/空数组导致 500（源码已定位）"
+  },
+  "POST_ADMIN_ROLES-004": {
+   "defect": "D-16/D-17",
+   "reason": "创建类接口缺参/空数组导致 500（源码已定位）"
+  },
+  "POST_ADMIN_USERS-001": {
+   "defect": "D-16/D-17",
+   "reason": "创建类接口缺参/空数组导致 500（源码已定位）"
+  },
+  "POST_ADMIN_USERS-004": {
+   "defect": "D-16/D-17",
+   "reason": "创建类接口缺参/空数组导致 500（源码已定位）"
+  },
+  "POST_API_AUTH_LOGOUT-001": {
+   "defect": "D-4~D-12",
+   "reason": "业务码/状态不符（依赖前述缺陷修复）"
+  },
+  "POST_API_ORDERS_ID_CONFIRM-001": {
+   "defect": "D-13/D-18",
+   "reason": "D-13/D-18 等下单链路缺陷：源码已修待部署，链路用例随之为红"
+  },
+  "BUS-AUTH-004": {
+   "defect": "D-4~D-12",
+   "reason": "缺参/异常路径 500 族"
+  },
+  "BUS-STK-004": {
+   "defect": "D-13/D-18",
+   "reason": "D-13/D-18 等下单链路缺陷：源码已修待部署，链路用例随之为红"
+  },
+  "BUS-CART-002": {
+   "defect": "D-13/D-18",
+   "reason": "D-13/D-18 等下单链路缺陷：源码已修待部署，链路用例随之为红"
+  },
+  "BUS-CART-003": {
+   "defect": "D-13/D-18",
+   "reason": "D-13/D-18 等下单链路缺陷：源码已修待部署，链路用例随之为红"
+  },
+  "BUS-ORD-005": {
+   "defect": "BUG#21",
+   "reason": "已修复待部署（本地 8/8 验证通过；线上旧 JAR）"
+  },
+  "BUS-ORD-006": {
+   "defect": "D-13/D-18",
+   "reason": "D-13/D-18 等下单链路缺陷：源码已修待部署，链路用例随之为红"
+  },
+  "BUS-ORD-008": {
+   "defect": "D-13/D-18",
+   "reason": "D-13/D-18 等下单链路缺陷：源码已修待部署，链路用例随之为红"
+  },
+  "BUS-AS-004": {
+   "defect": "D-13/D-18",
+   "reason": "D-13/D-18 等下单链路缺陷：源码已修待部署，链路用例随之为红"
+  },
+  "BUS-ADM-001": {
+   "defect": "D-4~D-12",
+   "reason": "缺参/异常路径 500 族"
+  },
+  "BUS-ADM-004": {
+   "defect": "D-4~D-12",
+   "reason": "业务码/状态不符（依赖前述缺陷修复）"
+  },
+  "BUS-ADM-005": {
+   "defect": "D-4~D-12",
+   "reason": "业务码/状态不符（依赖前述缺陷修复）"
+  },
+  "BUS-ORD-001": {
+   "defect": "D-19",
+   "reason": "订单提交 500：address_snapshot 为 jsonb 但传 varchar（OrderSubmitService.submit:102）；master 已加 DB_URL stringtype=unspecified，待部署到当前实例"
+  },
+  "BUS-ORD-002": {
+   "defect": "D-19",
+   "reason": "订单提交 500：address_snapshot 为 jsonb 但传 varchar（OrderSubmitService.submit:102）；master 已加 DB_URL stringtype=unspecified，待部署到当前实例"
+  },
+  "BUS-ORD-003": {
+   "defect": "D-19",
+   "reason": "订单提交 500：address_snapshot 为 jsonb 但传 varchar（OrderSubmitService.submit:102）；master 已加 DB_URL stringtype=unspecified，待部署到当前实例"
+  },
+  "BUS-ORD-004": {
+   "defect": "D-19",
+   "reason": "订单提交 500：address_snapshot 为 jsonb 但传 varchar（OrderSubmitService.submit:102）；master 已加 DB_URL stringtype=unspecified，待部署到当前实例"
+  },
+  "BUS-STK-001": {
+   "defect": "D-19",
+   "reason": "订单提交 500：address_snapshot 为 jsonb 但传 varchar（OrderSubmitService.submit:102）；master 已加 DB_URL stringtype=unspecified，待部署到当前实例"
+  },
+  "POST_API_ORDERS-001": {
+   "defect": "D-19",
+   "reason": "订单提交 500：address_snapshot 为 jsonb 但传 varchar（OrderSubmitService.submit:102）；master 已加 DB_URL stringtype=unspecified，待部署到当前实例"
+  },
+  "POST_API_ORDERS-004": {
+   "defect": "D-19",
+   "reason": "订单提交 500：address_snapshot 为 jsonb 但传 varchar（OrderSubmitService.submit:102）；master 已加 DB_URL stringtype=unspecified，待部署到当前实例"
+  },
+  "BUS-AS-005": {
+   "defect": "CASE-BUS-AS-005",
+   "reason": "预期 BAD_REQUEST(40000) 实际 AFTER_SALE_STATUS_INVALID(40903)——源码语义更正确，待改用例预期"
+  }
+ },
+ "retired": {
+  "BUS-AS-006": {
+   "retired_at": "2026-10-06",
+   "reason": "本轮执行通过，不再计入失败登记（前轮失败疑为环境/数据污染）",
+   "prev_defect": "D-13/D-18"
+  },
+  "BUS-STK-002": {
+   "retired_at": "2026-10-06",
+   "reason": "本轮执行通过，不再计入失败登记（前轮失败疑为环境/数据污染）",
+   "prev_defect": "D-13/D-18"
+  },
+  "POST_ADMIN_AFTER_SALES_ID_AUDIT-004": {
+   "retired_at": "2026-10-06",
+   "reason": "本轮执行通过，不再计入失败登记（前轮失败疑为环境/数据污染）",
+   "prev_defect": "D-13"
+  },
+  "POST_ADMIN_ATTRIBUTES-003": {
+   "retired_at": "2026-10-06",
+   "reason": "本轮执行通过，不再计入失败登记（前轮失败疑为环境/数据污染）",
+   "prev_defect": "BUG#14"
+  },
+  "POST_ADMIN_CATEGORIES-003": {
+   "retired_at": "2026-10-06",
+   "reason": "本轮执行通过，不再计入失败登记（前轮失败疑为环境/数据污染）",
+   "prev_defect": "BUG#15"
+  },
+  "POST_ADMIN_DEPTS-003": {
+   "retired_at": "2026-10-06",
+   "reason": "本轮执行通过，不再计入失败登记（前轮失败疑为环境/数据污染）",
+   "prev_defect": "BUG#16"
+  },
+  "POST_ADMIN_DICTS-003": {
+   "retired_at": "2026-10-06",
+   "reason": "本轮执行通过，不再计入失败登记（前轮失败疑为环境/数据污染）",
+   "prev_defect": "D-16/D-17"
+  },
+  "POST_ADMIN_DICTS-004": {
+   "retired_at": "2026-10-06",
+   "reason": "本轮执行通过，不再计入失败登记（前轮失败疑为环境/数据污染）",
+   "prev_defect": "BUG#20"
+  },
+  "POST_ADMIN_DICT_ITEMS-003": {
+   "retired_at": "2026-10-06",
+   "reason": "本轮执行通过，不再计入失败登记（前轮失败疑为环境/数据污染）",
+   "prev_defect": "BUG#17"
+  },
+  "POST_ADMIN_ORDERS_ID_SHIP-004": {
+   "retired_at": "2026-10-06",
+   "reason": "本轮执行通过，不再计入失败登记（前轮失败疑为环境/数据污染）",
+   "prev_defect": "D-13/D-18"
+  },
+  "POST_ADMIN_PERMISSIONS-003": {
+   "retired_at": "2026-10-06",
+   "reason": "本轮执行通过，不再计入失败登记（前轮失败疑为环境/数据污染）",
+   "prev_defect": "BUG#18"
+  },
+  "POST_ADMIN_WAREHOUSES-003": {
+   "retired_at": "2026-10-06",
+   "reason": "本轮执行通过，不再计入失败登记（前轮失败疑为环境/数据污染）",
+   "prev_defect": "BUG#19"
+  },
+  "POST_API_ORDERS_ID_CANCEL-001": {
+   "retired_at": "2026-10-06",
+   "reason": "本轮执行通过，不再计入失败登记（前轮失败疑为环境/数据污染）",
+   "prev_defect": "D-13/D-18"
+  },
+  "POST_API_ORDERS_ID_CANCEL-004": {
+   "retired_at": "2026-10-06",
+   "reason": "本轮执行通过，不再计入失败登记（前轮失败疑为环境/数据污染）",
+   "prev_defect": "BUG#21"
+  }
+ }
+}

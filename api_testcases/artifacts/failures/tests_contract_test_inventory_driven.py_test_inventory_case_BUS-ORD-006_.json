@@ -1,0 +1,8 @@
+{
+  "case_id": "tests/contract/test_inventory_driven.py::test_inventory_case[BUS-ORD-006]",
+  "phase": "call",
+  "outcome": "failed",
+  "timestamp": "2026-10-06T10:23:05.646765+00:00",
+  "longrepr": "tests/contract/test_inventory_driven.py:295: in test_inventory_case\n    assert ok, f\"[{cid}] {detail}\"\nE   AssertionError: [BUS-ORD-006] 业务码期望 0 实际 40902｜订单状态不允许\nE   assert False",
+  "request_response": null
+}

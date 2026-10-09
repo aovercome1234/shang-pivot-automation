@@ -1,0 +1,8 @@
+{
+  "case_id": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_ADMIN_AUTH_LOGOUT-001]",
+  "phase": "call",
+  "outcome": "failed",
+  "timestamp": "2026-10-06T09:08:45.935044+00:00",
+  "longrepr": "E   AssertionError: [POST_ADMIN_AUTH_LOGOUT-001] 回查 GET /admin/auth/me HTTP 401\n    assert False",
+  "request_response": null
+}

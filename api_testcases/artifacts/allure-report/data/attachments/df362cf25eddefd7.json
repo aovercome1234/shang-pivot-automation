@@ -1,0 +1,60 @@
+{
+ "url": "http://111.170.33.2:60085/admin/customers",
+ "method": "GET",
+ "http": 200,
+ "body": {
+  "code": 0,
+  "data": {
+   "total": "9",
+   "records": [
+    {
+     "createdAt": "2026-10-06T12:35:53.978628+08:00",
+     "lastLoginAt": "2026-10-06T12:45:09.99602+08:00",
+     "phone": "139****9999",
+     "nickname": "用户9999",
+     "orderCount": "0",
+     "id": "2107328972494274561",
+     "status": "NORMAL"
+    },
+    {
+     "createdAt": "2026-10-06T11:15:41.623068+08:00",
+     "lastLoginAt": "2026-10-06T11:38:03.04523+08:00",
+     "phone": "138****8000",
+     "nickname": "用户8000",
+     "orderCount": "0",
+     "id": "2107308788010254338",
+     "status": "NORMAL"
+    },
+    {
+     "createdAt": "2026-09-28T23:44:57.511687+08:00",
+     "phone": "133****0007",
+     "nickname": "周八",
+     "orderCount": "0",
+     "id": "9007",
+     "status": "NORMAL"
+    },
+    {
+     "createdAt": "2026-09-21T23:44:57.511687+08:00",
+     "lastLoginAt": "2026-10-03T17:44:57.511687+08:00",
+     "phone": "134****0006",
+     "nickname": "陈七",
+     "orderCount": "0",
+     "id": "9006",
+     "avatar": "PRODUCT/seed/product_62.jpg",
+     "status": "NORMAL"
+    },
+    {
+     "createdAt": "2026-09-08T23:44:57.511687+08:00",
+     "lastLoginAt": "2026-09-18T23:44:57.511687+08:00",
+     "phone": "135****0005",
+     "nickname": "赵六",
+     "orderCount": "0",
+     "id": "9005",
+     "status": "FROZEN"
+    }
+   ]
+  },
+  "msg": "success",
+  "traceId": "a614d09a188046688f8c55b55d1ecc13"
+ }
+}

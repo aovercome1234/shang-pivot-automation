@@ -1,0 +1,1423 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"DELETE /admin/users/{id}
+
+HTTP=401；error.code=UNAUTHORIZED；响应不含业务数据且不泄露内部堆栈","50","管理员删除用户_未带Token_拒绝访问","tests.contract","Tue Oct 06 16:17:07 CST 2026","skipped","Tue Oct 06 16:17:07 CST 2026","","test_inventory_driven","",""
+"PUT /admin/categories/{id}
+
+HTTP=200；code=0；回查 GET /admin/categories 校验目标记录 status 等于本次提交的状态值","740","管理员更新类目_典型请求_修改成功","tests.contract","Tue Oct 06 16:15:19 CST 2026","passed","Tue Oct 06 16:15:20 CST 2026","","test_inventory_driven","",""
+"GET /admin/users/{id}
+
+HTTP=401；error.code=UNAUTHORIZED；响应不含业务数据且不泄露内部堆栈","43","管理员获取用户详情_未带Token_拒绝访问","tests.contract","Tue Oct 06 16:17:07 CST 2026","passed","Tue Oct 06 16:17:07 CST 2026","","test_inventory_driven","",""
+"POST /admin/files/presign
+
+HTTP=401；error.code=UNAUTHORIZED；响应不含业务数据且不泄露内部堆栈","0","管理员获取预签名上传地址_未带Token_拒绝访问","tests.contract","Tue Oct 06 16:16:43 CST 2026","skipped","Tue Oct 06 16:16:43 CST 2026","","test_inventory_driven","",""
+"DELETE /admin/attributes/{id}
+
+HTTP=401；error.code=UNAUTHORIZED；响应不含业务数据且不泄露内部堆栈","236","管理员删除属性_未带Token_拒绝访问","tests.contract","Tue Oct 06 16:14:51 CST 2026","skipped","Tue Oct 06 16:14:51 CST 2026","","test_inventory_driven","",""
+"DELETE /admin/users/{id}
+
+HTTP=200；code=NOT_FOUND；回查列表确认该记录已不存在","53","管理员删除用户_重复提交_提示资源不存在","tests.contract","Tue Oct 06 16:17:07 CST 2026","skipped","Tue Oct 06 16:17:07 CST 2026","","test_inventory_driven","",""
+"PUT /admin/customers/{id}/status
+
+HTTP=401；error.code=UNAUTHORIZED；响应不含业务数据且不泄露内部堆栈","0","管理员冻结/解冻会员_未带Token_拒绝访问","tests.contract","Tue Oct 06 16:15:26 CST 2026","skipped","Tue Oct 06 16:15:26 CST 2026","","test_inventory_driven","",""
+"DELETE /admin/permissions/{id}
+
+HTTP=404；error.code=NOT_FOUND（实测：省略末段路径参数后路由未命中，由 NoResourceFoundException 映射）","384","管理员删除权限_缺少路径参数id_提示资源不存在","tests.contract","Tue Oct 06 16:16:57 CST 2026","passed","Tue Oct 06 16:16:57 CST 2026","","test_inventory_driven","",""
+"POST /admin/after-sales/{id}/audit
+
+HTTP=400；error.code=无（框架级）；响应为框架错误体，不含业务数据（实测：中段路径参数被省略时请求在路由前即被拒绝，不进入业务逻辑）","533","管理员审核售后单_缺少路径参数id_提示资源不存在","tests.contract","Tue Oct 06 16:14:47 CST 2026","passed","Tue Oct 06 16:14:47 CST 2026","","test_inventory_driven","",""
+"PUT /admin/customers/{id}/status
+
+HTTP=200；code=0；回查 GET /api/me 校验被冻结会员的请求返回 code=CUSTOMER_FROZEN","0","管理员冻结会员_正常会员_该会员后续请求被拒绝","tests.contract","Tue Oct 06 16:17:20 CST 2026","skipped","Tue Oct 06 16:17:20 CST 2026","","test_inventory_driven","",""
+"POST /admin/dict-items
+
+HTTP=200；code=0；回查 GET /admin/dict-items 校验目标记录 status 等于本次提交的状态值","577","管理员创建字典项_典型请求_创建成功","tests.contract","Tue Oct 06 16:15:40 CST 2026","passed","Tue Oct 06 16:15:41 CST 2026","","test_inventory_driven","",""
+"DELETE /admin/brands/{id}
+
+HTTP=401；error.code=UNAUTHORIZED；响应不含业务数据且不泄露内部堆栈","266","管理员删除品牌_未带Token_拒绝访问","tests.contract","Tue Oct 06 16:15:02 CST 2026","passed","Tue Oct 06 16:15:03 CST 2026","","test_inventory_driven","",""
+"POST /api/after-sales
+
+HTTP=200；code=0；data 为新建售后单 id；回查 GET /api/after-sales 校验该单 status 为 PENDING_AUDIT","40","申请售后_待收货订单_创建待审核售后单","tests.contract","Tue Oct 06 16:17:18 CST 2026","failed","Tue Oct 06 16:17:18 CST 2026","","test_inventory_driven","",""
+"GET /api/favorites
+
+HTTP=200；code=0；data.total 非空且 data.records 为数组","68","收藏列表_典型请求_查询成功","tests.contract","Tue Oct 06 16:17:12 CST 2026","passed","Tue Oct 06 16:17:13 CST 2026","","test_inventory_driven","",""
+"POST /api/orders/{id}/confirm
+
+HTTP=200；code=0；回查 GET /api/orders/{id} 校验 data.status 为 COMPLETED","49","确认收货_待收货订单_订单完成","tests.contract","Tue Oct 06 16:17:18 CST 2026","failed","Tue Oct 06 16:17:18 CST 2026","","test_inventory_driven","",""
+"POST /admin/orders/{id}/ship
+
+HTTP=200；code=ORDER_STATUS_INVALID；回查 GET /admin/orders/{id} 校验 data.status 未再次变更","319","管理员订单发货_重复提交_不再产生副作用","tests.contract","Tue Oct 06 16:16:53 CST 2026","failed","Tue Oct 06 16:16:54 CST 2026","","test_inventory_driven","",""
+"POST /admin/auth/logout
+
+HTTP=401；error.code=TOKEN_INVALID（源码登出即把令牌加入黑名单，第二次必然被拒）","1259","管理员退出登录（logout）_重复提交_令牌已失效被拒绝","tests.contract","Tue Oct 06 16:14:56 CST 2026","passed","Tue Oct 06 16:14:57 CST 2026","","test_inventory_driven","",""
+"GET /admin/roles/all
+
+HTTP=200；code=0；data 为对象或数组且非空","56","管理员查询全部角色_典型请求_查询成功","tests.contract","Tue Oct 06 16:17:05 CST 2026","passed","Tue Oct 06 16:17:05 CST 2026","","test_inventory_driven","",""
+"POST /admin/permissions
+
+HTTP=200；code=BAD_REQUEST；响应 message 指明缺失字段且不含内部堆栈","72","管理员创建权限_缺少必填参数_提示参数错误","tests.contract","Tue Oct 06 16:16:55 CST 2026","failed","Tue Oct 06 16:16:55 CST 2026","","test_inventory_driven","",""
+"DELETE /admin/products/{id}
+
+HTTP=404；error.code=NOT_FOUND（实测：省略末段路径参数后路由未命中，由 NoResourceFoundException 映射）","51","管理员删除商品_缺少路径参数id_提示资源不存在","tests.contract","Tue Oct 06 16:17:04 CST 2026","passed","Tue Oct 06 16:17:04 CST 2026","","test_inventory_driven","",""
+"POST /api/orders
+
+HTTP=200；code=0；回查 GET /api/orders?page=1&size=20 校验 data.total 比提交前增加 1","72","提交订单_典型请求_创建成功","tests.contract","Tue Oct 06 16:17:14 CST 2026","skipped","Tue Oct 06 16:17:14 CST 2026","","test_inventory_driven","",""
+"PUT /admin/system-configs/{id}
+
+HTTP=200；code=0；回查 GET /admin/system-configs?page=1&size=20 校验该配置项 configValue 等于提交值","0","管理员更新系统配置_修改免邮门槛_C端下单按新门槛计算运费","tests.contract","Tue Oct 06 16:17:20 CST 2026","skipped","Tue Oct 06 16:17:20 CST 2026","","test_inventory_driven","",""
+"GET /admin/brands
+
+HTTP=200；code=0；两次响应的 data.total 一致且 data.records 均为数组（不得 500）","267","管理员分页查询品牌_非法分页参数_正常返回","tests.contract","Tue Oct 06 16:14:59 CST 2026","passed","Tue Oct 06 16:15:00 CST 2026","","test_inventory_driven","",""
+"GET /admin/customers
+
+HTTP=200；code=0；data.total 非空且 data.records 为数组","171","管理员分页查询会员_典型请求_查询成功","tests.contract","Tue Oct 06 16:15:23 CST 2026","passed","Tue Oct 06 16:15:23 CST 2026","","test_inventory_driven","",""
+"POST /admin/auth/logout
+
+HTTP=401；error.code=UNAUTHORIZED；响应不含业务数据且不泄露内部堆栈","1176","管理员退出登录（logout）_未带Token_拒绝访问","tests.contract","Tue Oct 06 16:14:55 CST 2026","passed","Tue Oct 06 16:14:56 CST 2026","","test_inventory_driven","",""
+"GET /admin/after-sales
+
+HTTP=200；code=0；两次响应的 data.total 一致且 data.records 均为数组（不得 500）","160","管理员分页查询售后单_非法分页参数_正常返回","tests.contract","Tue Oct 06 16:14:28 CST 2026","passed","Tue Oct 06 16:14:29 CST 2026","","test_inventory_driven","",""
+"GET /admin/dashboard/stats
+
+HTTP=200；code=0；data 为对象或数组且非空","226","管理员获取工作台统计_典型请求_查询成功","tests.contract","Tue Oct 06 16:15:26 CST 2026","passed","Tue Oct 06 16:15:26 CST 2026","","test_inventory_driven","",""
+"DELETE /admin/permissions/{id}
+
+HTTP=401；error.code=UNAUTHORIZED；响应不含业务数据且不泄露内部堆栈","553","管理员删除权限_未带Token_拒绝访问","tests.contract","Tue Oct 06 16:16:57 CST 2026","passed","Tue Oct 06 16:16:57 CST 2026","","test_inventory_driven","",""
+"PUT /admin/customers/{id}/status
+
+HTTP=200；code=0；回查 GET /admin/customers/{id} 校验关键字段与首次提交的值一致","1","管理员冻结/解冻会员_重复提交_结果一致","tests.contract","Tue Oct 06 16:15:26 CST 2026","skipped","Tue Oct 06 16:15:26 CST 2026","","test_inventory_driven","",""
+"POST /admin/files/confirm
+
+HTTP=200；code=BAD_REQUEST；响应 message 指明缺失字段且不含内部堆栈","0","管理员确认上传完成_缺少必填参数_提示参数错误","tests.contract","Tue Oct 06 16:16:43 CST 2026","skipped","Tue Oct 06 16:16:43 CST 2026","","test_inventory_driven","",""
+"PUT /admin/reviews/{id}/status
+
+HTTP=200；code=0；回查 GET /api/products/{spuId}/reviews 校验该评价不再出现在 data 中","0","管理员隐藏评价_已发表评价_商品详情不再展示该评价","tests.contract","Tue Oct 06 16:17:19 CST 2026","skipped","Tue Oct 06 16:17:19 CST 2026","","test_inventory_driven","",""
+"GET /admin/warehouses
+
+HTTP=401；error.code=UNAUTHORIZED；响应不含业务数据且不泄露内部堆栈","39","管理员获取仓库列表_未带Token_拒绝访问","tests.contract","Tue Oct 06 16:17:07 CST 2026","passed","Tue Oct 06 16:17:07 CST 2026","","test_inventory_driven","",""
+"POST /api/favorites/{spuId}
+
+HTTP=200；code=0；回查 GET /api/favorites?page=1&size=20 校验 data.total 比提交前增加 1","142","收藏商品_典型请求_操作成功","tests.contract","Tue Oct 06 16:17:13 CST 2026","passed","Tue Oct 06 16:17:13 CST 2026","","test_inventory_driven","",""
+"PUT /admin/customers/{id}/status
+
+HTTP=200；code=0；回查 GET /admin/customers/{id} 校验 data.status 等于本次提交的状态值","0","管理员冻结/解冻会员_典型请求_修改成功","tests.contract","Tue Oct 06 16:15:26 CST 2026","skipped","Tue Oct 06 16:15:26 CST 2026","","test_inventory_driven","",""
+"PUT /admin/roles/{id}
+
+HTTP=404；error.code=NOT_FOUND（实测：省略末段路径参数后路由未命中，由 NoResourceFoundException 映射）","67","管理员更新角色_缺少路径参数id_提示资源不存在","tests.contract","Tue Oct 06 16:17:06 CST 2026","passed","Tue Oct 06 16:17:06 CST 2026","","test_inventory_driven","",""
+"PUT /admin/products/{id}/on
+
+HTTP=401；error.code=UNAUTHORIZED；响应不含业务数据且不泄露内部堆栈","0","管理员商品上架_未带Token_拒绝访问","tests.contract","Tue Oct 06 16:17:05 CST 2026","skipped","Tue Oct 06 16:17:05 CST 2026","","test_inventory_driven","",""
+"POST /api/auth/login
+
+HTTP=200；code=0；data.accessToken 非空","146","手机号验证码登录（login）_重复提交_再次签发令牌","tests.contract","Tue Oct 06 16:17:09 CST 2026","passed","Tue Oct 06 16:17:09 CST 2026","","test_inventory_driven","",""
+"PUT /admin/site/brand
+
+HTTP=200；code=0；回查 GET /admin/site/brand?page=1&size=20 校验目标记录的字段值与首次提交的值一致","0","管理员更新站点品牌_重复提交_结果一致","tests.contract","Tue Oct 06 16:17:06 CST 2026","skipped","Tue Oct 06 16:17:06 CST 2026","","test_inventory_driven","",""
+"POST /admin/permissions
+
+HTTP=401；error.code=UNAUTHORIZED；响应不含业务数据且不泄露内部堆栈","37","管理员创建权限_未带Token_拒绝访问","tests.contract","Tue Oct 06 16:16:55 CST 2026","passed","Tue Oct 06 16:16:55 CST 2026","","test_inventory_driven","",""
+"POST /api/files/upload
+
+HTTP=200；code=0；data.objectKey 非空且 data.url 非空","0","直传上传_典型请求_创建成功","tests.contract","Tue Oct 06 16:17:13 CST 2026","skipped","Tue Oct 06 16:17:13 CST 2026","","test_inventory_driven","",""
+"GET /admin/home/slots
+
+HTTP=200；code=0；data 为对象或数组且非空","48","管理员运营位列表_典型请求_查询成功","tests.contract","Tue Oct 06 16:16:43 CST 2026","passed","Tue Oct 06 16:16:43 CST 2026","","test_inventory_driven","",""
+"GET /api/orders/{id}/logistics
+
+HTTP=400；error.code=无（框架级）；响应为框架错误体，不含业务数据（实测：中段路径参数被省略时请求在路由前即被拒绝，不进入业务逻辑）","86","物流查询_缺少路径参数id_提示资源不存在","tests.contract","Tue Oct 06 16:17:15 CST 2026","passed","Tue Oct 06 16:17:15 CST 2026","","test_inventory_driven","",""
+"DELETE /admin/brands/{id}
+
+HTTP=404；error.code=NOT_FOUND（实测：省略末段路径参数后路由未命中，由 NoResourceFoundException 映射）","125","管理员删除品牌_缺少路径参数id_提示资源不存在","tests.contract","Tue Oct 06 16:15:03 CST 2026","passed","Tue Oct 06 16:15:03 CST 2026","","test_inventory_driven","",""
+"GET /admin/users
+
+HTTP=200；code=0；data.total 非空且 data.records 为数组","62","管理员分页查询用户_典型请求_查询成功","tests.contract","Tue Oct 06 16:17:06 CST 2026","passed","Tue Oct 06 16:17:06 CST 2026","","test_inventory_driven","",""
+"PUT /admin/system-configs/{id}
+
+HTTP=200；code=0；回查 GET /admin/system-configs 校验目标记录的configValue等于本次提交值","0","管理员更新系统配置_典型请求_修改成功","tests.contract","Tue Oct 06 16:17:06 CST 2026","skipped","Tue Oct 06 16:17:06 CST 2026","","test_inventory_driven","",""
+"DELETE /admin/dicts/{id}
+
+HTTP=200；code=0；回查 GET /admin/dicts?page=1&size=20 校验该记录已不在 data.records 中","336","管理员删除字典_重复删除_第二次不报错","tests.contract","Tue Oct 06 16:16:42 CST 2026","passed","Tue Oct 06 16:16:42 CST 2026","","test_inventory_driven","",""
+"PUT /admin/reviews/{id}/status
+
+HTTP=401；error.code=UNAUTHORIZED；响应不含业务数据且不泄露内部堆栈","0","管理员隐藏/恢复评价_未带Token_拒绝访问","tests.contract","Tue Oct 06 16:17:05 CST 2026","skipped","Tue Oct 06 16:17:05 CST 2026","","test_inventory_driven","",""
+"PUT /admin/dicts/{id}
+
+HTTP=200；code=0；回查 GET /admin/dicts?page=1&size=20 校验目标记录的字段值与首次提交的值一致","181","管理员更新字典_重复提交_结果一致","tests.contract","Tue Oct 06 16:16:42 CST 2026","passed","Tue Oct 06 16:16:43 CST 2026","","test_inventory_driven","",""
+"POST /admin/dict-items
+
+HTTP=401；error.code=UNAUTHORIZED；响应不含业务数据且不泄露内部堆栈","421","管理员创建字典项_未带Token_拒绝访问","tests.contract","Tue Oct 06 16:15:41 CST 2026","passed","Tue Oct 06 16:15:41 CST 2026","","test_inventory_driven","",""
+"PUT /admin/attributes/{id}
+
+HTTP=404；error.code=NOT_FOUND（实测：省略末段路径参数后路由未命中，由 NoResourceFoundException 映射）","98","管理员更新属性_缺少路径参数id_提示资源不存在","tests.contract","Tue Oct 06 16:14:52 CST 2026","passed","Tue Oct 06 16:14:52 CST 2026","","test_inventory_driven","",""
+"DELETE /api/addresses/{id}
+
+HTTP=200；code=0；回查 GET /api/addresses 校验该记录已不在 data.records 中","1","删除收货地址_典型请求_删除成功","tests.contract","Tue Oct 06 16:17:08 CST 2026","skipped","Tue Oct 06 16:17:08 CST 2026","","test_inventory_driven","",""
+"GET /admin/orders
+
+HTTP=401；error.code=UNAUTHORIZED；响应不含业务数据且不泄露内部堆栈","38","管理员分页查询订单_未带Token_拒绝访问","tests.contract","Tue Oct 06 16:16:51 CST 2026","passed","Tue Oct 06 16:16:51 CST 2026","","test_inventory_driven","",""
+"GET /api/me
+
+HTTP=200；code=0；data 为对象或数组且非空","48","当前顾客资料_典型请求_查询成功","tests.contract","Tue Oct 06 16:17:13 CST 2026","passed","Tue Oct 06 16:17:13 CST 2026","","test_inventory_driven","",""
+"POST /admin/in-out
+
+HTTP=200；code=0；回查列表校验 data.total 比首次提交后增加 1","388","管理员创建出入库单_重复提交_生成独立业务记录","tests.contract","Tue Oct 06 16:16:43 CST 2026","failed","Tue Oct 06 16:16:44 CST 2026","","test_inventory_driven","",""
+"PUT /admin/stocks/adjust
+
+HTTP=200；code=0；回查 GET /admin/stocks?page=1&size=20 校验该 SKU 物理库存等于初始值加本次 changeQty","0","管理员调整库存_典型请求_修改成功","tests.contract","Tue Oct 06 16:17:06 CST 2026","skipped","Tue Oct 06 16:17:06 CST 2026","","test_inventory_driven","",""
+"GET /api/history
+
+HTTP=200；code=0；data.records 中同一商品的足迹记录仅一条，且 lastAt 为最近一次浏览时间","52","会员浏览足迹_重复浏览同一商品_仅保留最新一条","tests.contract","Tue Oct 06 16:17:17 CST 2026","passed","Tue Oct 06 16:17:17 CST 2026","","test_inventory_driven","",""
+"PUT /admin/stocks/adjust
+
+HTTP=401；error.code=UNAUTHORIZED；响应不含业务数据且不泄露内部堆栈","0","管理员调整库存_未带Token_拒绝访问","tests.contract","Tue Oct 06 16:17:06 CST 2026","skipped","Tue Oct 06 16:17:06 CST 2026","","test_inventory_driven","",""
+"POST /admin/attributes
+
+HTTP=401；error.code=UNAUTHORIZED；响应不含业务数据且不泄露内部堆栈","226","管理员创建属性_未带Token_拒绝访问","tests.contract","Tue Oct 06 16:14:49 CST 2026","passed","Tue Oct 06 16:14:49 CST 2026","","test_inventory_driven","",""
+"DELETE /api/cart/items/{id}
+
+HTTP=404；error.code=NOT_FOUND（实测：省略末段路径参数后路由未命中，由 NoResourceFoundException 映射）","64","移除购物车项_缺少路径参数id_提示资源不存在","tests.contract","Tue Oct 06 16:17:12 CST 2026","passed","Tue Oct 06 16:17:12 CST 2026","","test_inventory_driven","",""
+"GET /admin/after-sales/{id}
+
+HTTP=404；error.code=NOT_FOUND（实测：省略末段路径参数后路由未命中，由 NoResourceFoundException 映射）","234","管理员获取售后详情_缺少路径参数id_提示资源不存在","tests.contract","Tue Oct 06 16:14:29 CST 2026","passed","Tue Oct 06 16:14:30 CST 2026","","test_inventory_driven","",""
+"POST /admin/attributes
+
+HTTP=200；code=0；回查列表校验 data.total 比首次提交后增加 1","449","管理员创建属性_重复提交_生成独立业务记录","tests.contract","Tue Oct 06 16:14:50 CST 2026","failed","Tue Oct 06 16:14:51 CST 2026","","test_inventory_driven","",""
+"DELETE /api/addresses/{id}
+
+HTTP=401；error.code=UNAUTHORIZED；响应不含业务数据且不泄露内部堆栈","0","删除收货地址_未带Token_拒绝访问","tests.contract","Tue Oct 06 16:17:08 CST 2026","skipped","Tue Oct 06 16:17:08 CST 2026","","test_inventory_driven","",""
+"PUT /admin/stocks/adjust
+
+HTTP=200；code=0；回查 GET /admin/stocks 校验该 SKU 物理库存等于初始值加两倍 changeQty（增量两次生效）","0","管理员调整库存_重复提交_库存按增量再次变动","tests.contract","Tue Oct 06 16:17:06 CST 2026","skipped","Tue Oct 06 16:17:06 CST 2026","","test_inventory_driven","",""
+"POST /api/cart/clear-invalid
+
+HTTP=401；error.code=UNAUTHORIZED；响应不含业务数据且不泄露内部堆栈","77","清理购物车失效项_未带Token_拒绝访问","tests.contract","Tue Oct 06 16:17:11 CST 2026","passed","Tue Oct 06 16:17:11 CST 2026","","test_inventory_driven","",""
+"PUT /api/me
+
+HTTP=200；code=0；data.nickname 等于「自动化测试昵称」；回查 GET /api/me 校验 data.nickname 与提交值一致","0","会员修改资料_修改昵称_资料更新成功","tests.contract","Tue Oct 06 16:17:17 CST 2026","skipped","Tue Oct 06 16:17:17 CST 2026","","test_inventory_driven","",""
+"GET /api/history
+
+HTTP=200；code=0；data.total 非空且 data.records 为数组","67","浏览足迹_典型请求_查询成功","tests.contract","Tue Oct 06 16:17:13 CST 2026","passed","Tue Oct 06 16:17:13 CST 2026","","test_inventory_driven","",""
+"PUT /admin/products/{id}/on
+
+HTTP=400；error.code=无（框架级）；响应为框架错误体，不含业务数据（实测：中段路径参数被省略时请求在路由前即被拒绝，不进入业务逻辑）","0","管理员商品上架_缺少路径参数id_提示资源不存在","tests.contract","Tue Oct 06 16:17:05 CST 2026","skipped","Tue Oct 06 16:17:05 CST 2026","","test_inventory_driven","",""
+"POST /admin/dicts
+
+HTTP=200；code=0；回查列表校验 data.total 比首次提交后增加 1","2","管理员创建字典_重复提交_生成独立业务记录","tests.contract","Tue Oct 06 16:16:40 CST 2026","broken","Tue Oct 06 16:16:40 CST 2026","","test_inventory_driven","",""
+"DELETE /api/cart/items/{id}
+
+HTTP=200；code=NOT_FOUND；回查列表确认该记录已不存在","83","移除购物车项_重复提交_提示资源不存在","tests.contract","Tue Oct 06 16:17:12 CST 2026","skipped","Tue Oct 06 16:17:12 CST 2026","","test_inventory_driven","",""
+"POST /api/addresses
+
+HTTP=200；code=0；回查 GET /api/addresses 校验 data.total 比提交前增加 1","0","新增收货地址_典型请求_创建成功","tests.contract","Tue Oct 06 16:17:08 CST 2026","skipped","Tue Oct 06 16:17:08 CST 2026","","test_inventory_driven","",""
+"PUT /admin/reviews/{id}/status
+
+HTTP=400；error.code=无（框架级）；响应为框架错误体，不含业务数据（实测：中段路径参数被省略时请求在路由前即被拒绝，不进入业务逻辑）","0","管理员隐藏/恢复评价_缺少路径参数id_提示资源不存在","tests.contract","Tue Oct 06 16:17:05 CST 2026","skipped","Tue Oct 06 16:17:05 CST 2026","","test_inventory_driven","",""
+"POST /api/auth/login
+
+HTTP=200；code=LOGIN_FAILED；响应 message 包含「验证码」且不回显手机号明文","39","会员短信登录_验证码错误_提示登录失败","tests.contract","Tue Oct 06 16:17:17 CST 2026","passed","Tue Oct 06 16:17:17 CST 2026","","test_inventory_driven","",""
+"POST /api/cart/clear-invalid
+
+HTTP=200；code=0；回查 GET /api/cart 校验失效商品行已移除且有效行仍存在","49","清理失效购物车项_存在失效行_移除失效并保留有效行","tests.contract","Tue Oct 06 16:17:17 CST 2026","passed","Tue Oct 06 16:17:17 CST 2026","","test_inventory_driven","",""
+"GET /admin/system-configs
+
+HTTP=401；error.code=UNAUTHORIZED；响应不含业务数据且不泄露内部堆栈","42","管理员查询系统配置_未带Token_拒绝访问","tests.contract","Tue Oct 06 16:17:06 CST 2026","passed","Tue Oct 06 16:17:06 CST 2026","","test_inventory_driven","",""
+"POST /admin/files/presign
+
+HTTP=200；code=0；data.objectKey 与首次上传返回的对象键不同","0","管理员获取预签名上传地址_重复提交_生成新对象键","tests.contract","Tue Oct 06 16:16:43 CST 2026","skipped","Tue Oct 06 16:16:43 CST 2026","","test_inventory_driven","",""
+"DELETE /admin/depts/{id}
+
+HTTP=401；error.code=UNAUTHORIZED；响应不含业务数据且不泄露内部堆栈","1014","管理员删除部门_未带Token_拒绝访问","tests.contract","Tue Oct 06 16:15:33 CST 2026","passed","Tue Oct 06 16:15:34 CST 2026","","test_inventory_driven","",""
+"PUT /admin/users/{id}/status
+
+HTTP=200；code=0；回查 GET /admin/users/{id} 校验 data.status 等于本次提交的状态值","1","管理员更新用户状态_典型请求_修改成功","tests.contract","Tue Oct 06 16:17:07 CST 2026","skipped","Tue Oct 06 16:17:07 CST 2026","","test_inventory_driven","",""
+"POST /api/files/upload
+
+HTTP=401；error.code=UNAUTHORIZED；响应不含业务数据且不泄露内部堆栈","0","直传上传_未带Token_拒绝访问","tests.contract","Tue Oct 06 16:17:13 CST 2026","skipped","Tue Oct 06 16:17:13 CST 2026","","test_inventory_driven","",""
+"GET /admin/categories/tree
+
+HTTP=401；error.code=UNAUTHORIZED；响应不含业务数据且不泄露内部堆栈","510","管理员获取类目树_未带Token_拒绝访问","tests.contract","Tue Oct 06 16:15:13 CST 2026","passed","Tue Oct 06 16:15:13 CST 2026","","test_inventory_driven","",""
+"POST /api/orders/{id}/confirm
+
+HTTP=401；error.code=UNAUTHORIZED；响应不含业务数据且不泄露内部堆栈","64","确认收货_未带Token_拒绝访问","tests.contract","Tue Oct 06 16:17:15 CST 2026","passed","Tue Oct 06 16:17:15 CST 2026","","test_inventory_driven","",""
+"POST /admin/files/confirm
+
+HTTP=401；error.code=UNAUTHORIZED；响应不含业务数据且不泄露内部堆栈","1","管理员确认上传完成_未带Token_拒绝访问","tests.contract","Tue Oct 06 16:16:43 CST 2026","skipped","Tue Oct 06 16:16:43 CST 2026","","test_inventory_driven","",""
+"GET /api/payment/{orderId}/status
+
+HTTP=200；code=0；回查 GET /api/payment/{orderId}/status 校验 data 为对象且非空","73","支付状态查询_典型请求_查询成功","tests.contract","Tue Oct 06 16:17:15 CST 2026","skipped","Tue Oct 06 16:17:15 CST 2026","","test_inventory_driven","",""
+"GET /admin/roles
+
+HTTP=401；error.code=UNAUTHORIZED；响应不含业务数据且不泄露内部堆栈","41","管理员分页查询角色_未带Token_拒绝访问","tests.contract","Tue Oct 06 16:17:05 CST 2026","passed","Tue Oct 06 16:17:05 CST 2026","","test_inventory_driven","",""
+"PUT /admin/users/{id}/status
+
+HTTP=400；error.code=无（框架级）；响应为框架错误体，不含业务数据（实测：中段路径参数被省略时请求在路由前即被拒绝，不进入业务逻辑）","0","管理员更新用户状态_缺少路径参数id_提示资源不存在","tests.contract","Tue Oct 06 16:17:07 CST 2026","skipped","Tue Oct 06 16:17:07 CST 2026","","test_inventory_driven","",""
+"PUT /admin/site/brand
+
+HTTP=401；error.code=UNAUTHORIZED；响应不含业务数据且不泄露内部堆栈","0","管理员更新站点品牌_未带Token_拒绝访问","tests.contract","Tue Oct 06 16:17:06 CST 2026","skipped","Tue Oct 06 16:17:06 CST 2026","","test_inventory_driven","",""
+"PUT /admin/permissions/{id}
+
+HTTP=401；error.code=UNAUTHORIZED；响应不含业务数据且不泄露内部堆栈","2282","管理员更新权限_未带Token_拒绝访问","tests.contract","Tue Oct 06 16:17:00 CST 2026","passed","Tue Oct 06 16:17:02 CST 2026","","test_inventory_driven","",""
+"GET /admin/permissions/tree
+
+HTTP=200；code=0；data 为对象或数组且非空","57","管理员权限树_典型请求_查询成功","tests.contract","Tue Oct 06 16:16:55 CST 2026","passed","Tue Oct 06 16:16:55 CST 2026","","test_inventory_driven","",""
+"POST /admin/users
+
+HTTP=200；code=0；回查 GET /admin/users?page=1&size=20 校验 data.total 比提交前增加 1","99","管理员创建用户_典型请求_创建成功","tests.contract","Tue Oct 06 16:17:06 CST 2026","failed","Tue Oct 06 16:17:07 CST 2026","","test_inventory_driven","",""
+"POST /admin/auth/login
+
+HTTP=200；code=0；data.accessToken 非空且 data.user.username 等于登录账号","526","管理员用户登录_典型请求_登录成功","tests.contract","Tue Oct 06 16:14:52 CST 2026","passed","Tue Oct 06 16:14:53 CST 2026","","test_inventory_driven","",""
+"PUT /admin/users/{id}/status
+
+HTTP=200；code=0；回查 GET /admin/users/{id} 校验关键字段与首次提交的值一致","0","管理员更新用户状态_重复提交_结果一致","tests.contract","Tue Oct 06 16:17:07 CST 2026","skipped","Tue Oct 06 16:17:07 CST 2026","","test_inventory_driven","",""
+"PUT /api/addresses/{id}
+
+HTTP=200；code=0；回查 GET /api/addresses 校验目标记录的name等于本次提交值","1","修改收货地址_典型请求_修改成功","tests.contract","Tue Oct 06 16:17:08 CST 2026","skipped","Tue Oct 06 16:17:08 CST 2026","","test_inventory_driven","",""
+"POST /admin/files/upload
+
+HTTP=401；error.code=UNAUTHORIZED；响应不含业务数据且不泄露内部堆栈","0","管理员直传上传文件_未带Token_拒绝访问","tests.contract","Tue Oct 06 16:16:43 CST 2026","skipped","Tue Oct 06 16:16:43 CST 2026","","test_inventory_driven","",""
+"POST /api/files/confirm
+
+HTTP=401；error.code=UNAUTHORIZED；响应不含业务数据且不泄露内部堆栈","0","文件上传确认_未带Token_拒绝访问","tests.contract","Tue Oct 06 16:17:13 CST 2026","skipped","Tue Oct 06 16:17:13 CST 2026","","test_inventory_driven","",""
+"POST /admin/after-sales/{id}/audit
+
+HTTP=200；code=AFTER_SALE_STATUS_INVALID；回查 GET /admin/after-sales/{id} 校验 data.status 未再次变更","615","管理员审核售后单_重复提交_不再产生副作用","tests.contract","Tue Oct 06 16:14:47 CST 2026","failed","Tue Oct 06 16:14:48 CST 2026","","test_inventory_driven","",""
+"POST /admin/dict-items
+
+HTTP=200；code=BAD_REQUEST；响应 message 指明缺失字段且不含内部堆栈","296","管理员创建字典项_缺少必填参数_提示参数错误","tests.contract","Tue Oct 06 16:15:41 CST 2026","failed","Tue Oct 06 16:15:41 CST 2026","","test_inventory_driven","",""
+"POST /api/after-sales
+
+HTTP=200；code=ORDER_STATUS_INVALID；回查 GET /api/after-sales 校验未新增售后单","40","申请售后_待支付订单_提示订单状态不允许","tests.contract","Tue Oct 06 16:17:18 CST 2026","failed","Tue Oct 06 16:17:18 CST 2026","","test_inventory_driven","",""
+"GET /admin/stocks
+
+HTTP=200；code=0；两次响应的 data.total 一致且 data.records 均为数组（不得 500）","51","管理员分页查询库存_非法分页参数_正常返回","tests.contract","Tue Oct 06 16:17:06 CST 2026","passed","Tue Oct 06 16:17:06 CST 2026","","test_inventory_driven","",""
+"GET /admin/reviews
+
+HTTP=200；code=0；两次响应的 data.total 一致且 data.records 均为数组（不得 500）","50","管理员评价分页_非法分页参数_正常返回","tests.contract","Tue Oct 06 16:17:05 CST 2026","passed","Tue Oct 06 16:17:05 CST 2026","","test_inventory_driven","",""
+"POST /admin/depts
+
+HTTP=200；code=0；回查列表校验 data.total 比首次提交后增加 1","1772","管理员创建部门_重复提交_生成独立业务记录","tests.contract","Tue Oct 06 16:15:29 CST 2026","passed","Tue Oct 06 16:15:31 CST 2026","","test_inventory_driven","",""
+"PUT /admin/dict-items/{id}
+
+HTTP=401；error.code=UNAUTHORIZED；响应不含业务数据且不泄露内部堆栈","2","管理员更新字典项_未带Token_拒绝访问","tests.contract","Tue Oct 06 16:16:39 CST 2026","broken","Tue Oct 06 16:16:39 CST 2026","","test_inventory_driven","",""
+"DELETE /admin/categories/{id}
+
+HTTP=401；error.code=UNAUTHORIZED；响应不含业务数据且不泄露内部堆栈","1777","管理员删除类目_未带Token_拒绝访问","tests.contract","Tue Oct 06 16:15:16 CST 2026","passed","Tue Oct 06 16:15:18 CST 2026","","test_inventory_driven","",""
+"PUT /admin/products/{id}/on
+
+HTTP=200；code=0；回查 GET /admin/products/{id} 校验关键字段与首次提交的值一致","0","管理员商品上架_重复提交_结果一致","tests.contract","Tue Oct 06 16:17:05 CST 2026","skipped","Tue Oct 06 16:17:05 CST 2026","","test_inventory_driven","",""
+"DELETE /admin/users/{id}
+
+HTTP=200；code=0；回查 GET /admin/users/{id} 校验 error.code=NOT_FOUND","51","管理员删除用户_典型请求_删除成功","tests.contract","Tue Oct 06 16:17:07 CST 2026","skipped","Tue Oct 06 16:17:07 CST 2026","","test_inventory_driven","",""
+"POST /api/reviews
+
+HTTP=200；code=REVIEW_EXISTS；回查 GET /api/products/{spuId}/reviews 校验同一订单项仍只有一条评价","174","发表评价_重复提交_提示评价已存在","tests.contract","Tue Oct 06 16:17:16 CST 2026","passed","Tue Oct 06 16:17:16 CST 2026","","test_inventory_driven","",""
+"PUT /admin/dict-items/{id}
+
+HTTP=200；code=0；回查 GET /admin/dict-items 校验目标记录 status 等于本次提交的状态值","2","管理员更新字典项_典型请求_修改成功","tests.contract","Tue Oct 06 16:16:39 CST 2026","broken","Tue Oct 06 16:16:39 CST 2026","","test_inventory_driven","",""
+"POST /admin/roles
+
+HTTP=200；code=CONFLICT；回查列表校验本次唯一键仅一条记录","108","管理员创建角色_重复提交_提示已存在","tests.contract","Tue Oct 06 16:17:05 CST 2026","failed","Tue Oct 06 16:17:05 CST 2026","","test_inventory_driven","",""
+"GET /api/files/view
+
+HTTP=200；code=0；data 为对象或数组且非空","0","查看文件_典型请求_查询成功","tests.contract","Tue Oct 06 16:17:13 CST 2026","skipped","Tue Oct 06 16:17:13 CST 2026","","test_inventory_driven","",""
+"DELETE /admin/dict-items/{id}
+
+HTTP=200；code=0；回查 GET /admin/dict-items 校验该记录已不在 data.records 中","1514","管理员删除字典项_典型请求_删除成功","tests.contract","Tue Oct 06 16:15:45 CST 2026","skipped","Tue Oct 06 16:15:46 CST 2026","","test_inventory_driven","",""
+"POST /api/orders/{id}/confirm
+
+HTTP=200；code=0；回查 GET /api/orders/{id} 校验 data.status 为 COMPLETED","63","确认收货_典型请求_操作成功","tests.contract","Tue Oct 06 16:17:14 CST 2026","failed","Tue Oct 06 16:17:15 CST 2026","","test_inventory_driven","",""
+"GET /api/products/{spuId}/reviews
+
+HTTP=400；error.code=无（框架级）；响应为框架错误体，不含业务数据（实测：中段路径参数被省略时请求在路由前即被拒绝，不进入业务逻辑）","36","商品评价列表_缺少路径参数spuId_提示资源不存在","tests.contract","Tue Oct 06 16:17:16 CST 2026","passed","Tue Oct 06 16:17:16 CST 2026","","test_inventory_driven","",""
+"GET /admin/operation-logs/export
+
+HTTP=401；error.code=UNAUTHORIZED；响应不含业务数据且不泄露内部堆栈","281","管理员导出操作日志_未带Token_拒绝访问","tests.contract","Tue Oct 06 16:16:50 CST 2026","passed","Tue Oct 06 16:16:50 CST 2026","","test_inventory_driven","",""
+"GET /api/me
+
+HTTP=401；error.code=UNAUTHORIZED；响应不含业务数据且不泄露内部堆栈","50","当前顾客资料_未带Token_拒绝访问","tests.contract","Tue Oct 06 16:17:13 CST 2026","passed","Tue Oct 06 16:17:13 CST 2026","","test_inventory_driven","",""
+"POST /admin/categories
+
+HTTP=200；code=BAD_REQUEST；响应 message 指明缺失字段且不含内部堆栈","292","管理员创建类目_缺少必填参数_提示参数错误","tests.contract","Tue Oct 06 16:15:11 CST 2026","failed","Tue Oct 06 16:15:11 CST 2026","","test_inventory_driven","",""
+"PUT /admin/users/{id}
+
+HTTP=401；error.code=UNAUTHORIZED；响应不含业务数据且不泄露内部堆栈","50","管理员更新用户_未带Token_拒绝访问","tests.contract","Tue Oct 06 16:17:07 CST 2026","skipped","Tue Oct 06 16:17:07 CST 2026","","test_inventory_driven","",""
+"GET /admin/in-out
+
+HTTP=200；code=0；两次响应的 data.total 一致且 data.records 均为数组（不得 500）","46","管理员出入库分页_非法分页参数_正常返回","tests.contract","Tue Oct 06 16:16:43 CST 2026","passed","Tue Oct 06 16:16:43 CST 2026","","test_inventory_driven","",""
+"GET /api/history
+
+HTTP=401；error.code=UNAUTHORIZED；响应不含业务数据且不泄露内部堆栈","47","浏览足迹_未带Token_拒绝访问","tests.contract","Tue Oct 06 16:17:13 CST 2026","passed","Tue Oct 06 16:17:13 CST 2026","","test_inventory_driven","",""
+"POST /admin/depts
+
+HTTP=200；code=BAD_REQUEST；响应 message 指明缺失字段且不含内部堆栈","309","管理员创建部门_缺少必填参数_提示参数错误","tests.contract","Tue Oct 06 16:15:28 CST 2026","failed","Tue Oct 06 16:15:29 CST 2026","","test_inventory_driven","",""
+"PUT /admin/permissions/{id}
+
+HTTP=200；code=0；回查 GET /admin/permissions?page=1&size=20 校验目标记录的字段值与首次提交的值一致","562","管理员更新权限_重复提交_结果一致","tests.contract","Tue Oct 06 16:17:03 CST 2026","passed","Tue Oct 06 16:17:03 CST 2026","","test_inventory_driven","",""
+"GET /api/orders
+
+HTTP=200；code=0；data.total 非空且 data.records 为数组","62","我的订单列表_典型请求_查询成功","tests.contract","Tue Oct 06 16:17:13 CST 2026","passed","Tue Oct 06 16:17:14 CST 2026","","test_inventory_driven","",""
+"PUT /admin/attributes/{id}
+
+HTTP=401；error.code=UNAUTHORIZED；响应不含业务数据且不泄露内部堆栈","70","管理员更新属性_未带Token_拒绝访问","tests.contract","Tue Oct 06 16:14:52 CST 2026","skipped","Tue Oct 06 16:14:52 CST 2026","","test_inventory_driven","",""
+"PUT /admin/warehouses/{id}
+
+HTTP=200；code=0；回查 GET /admin/warehouses 校验目标记录 status 等于本次提交的状态值","0","管理员更新仓库_典型请求_修改成功","tests.contract","Tue Oct 06 16:17:08 CST 2026","skipped","Tue Oct 06 16:17:08 CST 2026","","test_inventory_driven","",""
+"GET /admin/orders/{id}
+
+HTTP=200；code=0；回查 GET /admin/orders/{id} 校验 data 为对象且非空","359","管理员获取订单详情_典型请求_查询成功","tests.contract","Tue Oct 06 16:16:51 CST 2026","passed","Tue Oct 06 16:16:52 CST 2026","","test_inventory_driven","",""
+"POST /admin/brands
+
+HTTP=200；code=0；回查列表校验 data.total 比首次提交后增加 1","739","管理员创建品牌_重复提交_生成独立业务记录","tests.contract","Tue Oct 06 16:15:01 CST 2026","passed","Tue Oct 06 16:15:02 CST 2026","","test_inventory_driven","",""
+"POST /admin/depts
+
+HTTP=200；code=0；回查 GET /admin/depts 校验目标记录 status 等于本次提交的状态值","1135","管理员创建部门_典型请求_创建成功","tests.contract","Tue Oct 06 16:15:27 CST 2026","passed","Tue Oct 06 16:15:28 CST 2026","","test_inventory_driven","",""
+"PUT /admin/depts/{id}
+
+HTTP=401；error.code=UNAUTHORIZED；响应不含业务数据且不泄露内部堆栈","1253","管理员更新部门_未带Token_拒绝访问","tests.contract","Tue Oct 06 16:15:37 CST 2026","passed","Tue Oct 06 16:15:38 CST 2026","","test_inventory_driven","",""
+"GET /admin/system-configs
+
+HTTP=200；code=0；data 为对象或数组且非空","52","管理员查询系统配置_典型请求_查询成功","tests.contract","Tue Oct 06 16:17:06 CST 2026","passed","Tue Oct 06 16:17:06 CST 2026","","test_inventory_driven","",""
+"GET /api/orders/{id}
+
+HTTP=200；code=0；回查 GET /api/orders/{id} 校验 data 为对象且非空","148","订单详情_典型请求_查询成功","tests.contract","Tue Oct 06 16:17:14 CST 2026","passed","Tue Oct 06 16:17:14 CST 2026","","test_inventory_driven","",""
+"POST /api/auth/login
+
+HTTP=200；code=0；data.accessToken 非空且 data.customer.phone 与登录手机号一致","69","手机号验证码登录（login）_典型请求_登录成功","tests.contract","Tue Oct 06 16:17:09 CST 2026","passed","Tue Oct 06 16:17:09 CST 2026","","test_inventory_driven","",""
+"POST /api/auth/phone
+
+HTTP=200；code=0；data.accessToken 非空","152","手机号验证码登录（phone）_重复提交_再次签发令牌","tests.contract","Tue Oct 06 16:17:10 CST 2026","passed","Tue Oct 06 16:17:10 CST 2026","","test_inventory_driven","",""
+"GET /admin/customers/{id}
+
+HTTP=401；error.code=UNAUTHORIZED；响应不含业务数据且不泄露内部堆栈","135","管理员会员详情_未带Token_拒绝访问","tests.contract","Tue Oct 06 16:15:24 CST 2026","passed","Tue Oct 06 16:15:24 CST 2026","","test_inventory_driven","",""
+"DELETE /admin/products/{id}
+
+HTTP=200；code=NOT_FOUND；回查列表确认该记录已不存在","56","管理员删除商品_重复提交_提示资源不存在","tests.contract","Tue Oct 06 16:17:04 CST 2026","skipped","Tue Oct 06 16:17:04 CST 2026","","test_inventory_driven","",""
+"POST /admin/brands
+
+HTTP=401；error.code=UNAUTHORIZED；响应不含业务数据且不泄露内部堆栈","227","管理员创建品牌_未带Token_拒绝访问","tests.contract","Tue Oct 06 16:15:00 CST 2026","passed","Tue Oct 06 16:15:01 CST 2026","","test_inventory_driven","",""
+"DELETE /api/addresses/{id}
+
+HTTP=200；code=NOT_FOUND；回查列表确认该记录已不存在","0","删除收货地址_重复提交_提示资源不存在","tests.contract","Tue Oct 06 16:17:08 CST 2026","skipped","Tue Oct 06 16:17:08 CST 2026","","test_inventory_driven","",""
+"GET /api/favorites
+
+HTTP=401；error.code=UNAUTHORIZED；响应不含业务数据且不泄露内部堆栈","63","收藏列表_未带Token_拒绝访问","tests.contract","Tue Oct 06 16:17:13 CST 2026","passed","Tue Oct 06 16:17:13 CST 2026","","test_inventory_driven","",""
+"PUT /admin/dicts/{id}
+
+HTTP=401；error.code=UNAUTHORIZED；响应不含业务数据且不泄露内部堆栈","129","管理员更新字典_未带Token_拒绝访问","tests.contract","Tue Oct 06 16:16:42 CST 2026","passed","Tue Oct 06 16:16:42 CST 2026","","test_inventory_driven","",""
+"GET /admin/operation-logs
+
+HTTP=200；code=0；两次响应的 data.total 一致且 data.records 均为数组（不得 500）","50","管理员分页查询操作日志_非法分页参数_正常返回","tests.contract","Tue Oct 06 16:16:44 CST 2026","passed","Tue Oct 06 16:16:44 CST 2026","","test_inventory_driven","",""
+"POST /admin/users
+
+HTTP=200；code=CONFLICT；回查 GET /admin/users?page=1&size=20 校验该用户名仅一条记录","51","管理员创建用户_重复用户名_提示已存在","tests.contract","Tue Oct 06 16:17:19 CST 2026","failed","Tue Oct 06 16:17:19 CST 2026","","test_inventory_driven","",""
+"GET /admin/dicts
+
+HTTP=401；error.code=UNAUTHORIZED；响应不含业务数据且不泄露内部堆栈","1","管理员分页查询字典_未带Token_拒绝访问","tests.contract","Tue Oct 06 16:16:40 CST 2026","broken","Tue Oct 06 16:16:40 CST 2026","","test_inventory_driven","",""
+"PUT /admin/warehouses/{id}
+
+HTTP=200；code=0；回查 GET /admin/warehouses?page=1&size=20 校验目标记录的字段值与首次提交的值一致","0","管理员更新仓库_重复提交_结果一致","tests.contract","Tue Oct 06 16:17:08 CST 2026","skipped","Tue Oct 06 16:17:08 CST 2026","","test_inventory_driven","",""
+"POST /admin/attributes
+
+HTTP=200；code=0；回查 GET /admin/attributes 校验 data.total 比提交前增加 1","341","管理员创建属性_典型请求_创建成功","tests.contract","Tue Oct 06 16:14:48 CST 2026","failed","Tue Oct 06 16:14:49 CST 2026","","test_inventory_driven","",""
+"DELETE /admin/roles/{id}
+
+HTTP=401；error.code=UNAUTHORIZED；响应不含业务数据且不泄露内部堆栈","54","管理员删除角色_未带Token_拒绝访问","tests.contract","Tue Oct 06 16:17:05 CST 2026","skipped","Tue Oct 06 16:17:06 CST 2026","","test_inventory_driven","",""
+"POST /api/cart/clear-invalid
+
+HTTP=200；code=0；回查 GET /api/cart 校验 data.items 数量与首次提交后一致","167","清理购物车失效项_重复提交_无额外副作用","tests.contract","Tue Oct 06 16:17:11 CST 2026","passed","Tue Oct 06 16:17:11 CST 2026","","test_inventory_driven","",""
+"DELETE /api/cart/items/{id}
+
+HTTP=200；code=0；回查 GET /api/cart 校验该记录已不在 data.records 中","84","移除购物车项_典型请求_删除成功","tests.contract","Tue Oct 06 16:17:12 CST 2026","skipped","Tue Oct 06 16:17:12 CST 2026","","test_inventory_driven","",""
+"GET /admin/operation-logs
+
+HTTP=200；code=0；data.total 非空且 data.records 为数组","332","管理员分页查询操作日志_典型请求_查询成功","tests.contract","Tue Oct 06 16:16:44 CST 2026","passed","Tue Oct 06 16:16:44 CST 2026","","test_inventory_driven","",""
+"POST /admin/after-sales/{id}/audit
+
+HTTP=200；code=BAD_REQUEST；回查 GET /admin/after-sales/{id} 校验 status 仍为 PENDING_AUDIT","54","管理员审核售后_驳回未填处理意见_提示参数错误","tests.contract","Tue Oct 06 16:17:18 CST 2026","passed","Tue Oct 06 16:17:19 CST 2026","","test_inventory_driven","",""
+"POST /api/addresses
+
+HTTP=401；error.code=UNAUTHORIZED；响应不含业务数据且不泄露内部堆栈","1","新增收货地址_未带Token_拒绝访问","tests.contract","Tue Oct 06 16:17:08 CST 2026","skipped","Tue Oct 06 16:17:08 CST 2026","","test_inventory_driven","",""
+"DELETE /admin/dicts/{id}
+
+HTTP=404；error.code=NOT_FOUND（实测：省略末段路径参数后路由未命中，由 NoResourceFoundException 映射）","172","管理员删除字典_缺少路径参数id_提示资源不存在","tests.contract","Tue Oct 06 16:16:42 CST 2026","passed","Tue Oct 06 16:16:42 CST 2026","","test_inventory_driven","",""
+"PUT /api/cart/items/{id}
+
+HTTP=401；error.code=UNAUTHORIZED；响应不含业务数据且不泄露内部堆栈","65","修改购物车数量_未带Token_拒绝访问","tests.contract","Tue Oct 06 16:17:12 CST 2026","skipped","Tue Oct 06 16:17:12 CST 2026","","test_inventory_driven","",""
+"POST /admin/warehouses
+
+HTTP=401；error.code=UNAUTHORIZED；响应不含业务数据且不泄露内部堆栈","44","管理员创建仓库_未带Token_拒绝访问","tests.contract","Tue Oct 06 16:17:07 CST 2026","passed","Tue Oct 06 16:17:08 CST 2026","","test_inventory_driven","",""
+"POST /api/orders
+
+HTTP=200；code=0；两次响应的 data.orderNo 相同；回查 GET /api/orders 校验 data.total 未因第二次提交而增加","43","提交订单_同幂等键重复提交_不重复下单","tests.contract","Tue Oct 06 16:17:17 CST 2026","skipped","Tue Oct 06 16:17:17 CST 2026","","test_inventory_driven","",""
+"GET /admin/auth/me
+
+HTTP=200；code=0；data 为对象或数组且非空","90","管理员获取当前用户信息_典型请求_查询成功","tests.contract","Tue Oct 06 16:14:57 CST 2026","passed","Tue Oct 06 16:14:57 CST 2026","","test_inventory_driven","",""
+"POST /api/auth/sms/send
+
+HTTP=200；code=BAD_REQUEST；响应 message 包含「发送过于频繁」","152","发送验证码_重复提交_提示发送过于频繁","tests.contract","Tue Oct 06 16:17:11 CST 2026","passed","Tue Oct 06 16:17:11 CST 2026","","test_inventory_driven","",""
+"PUT /admin/home/slots/{code}
+
+HTTP=401；error.code=UNAUTHORIZED；响应不含业务数据且不泄露内部堆栈","0","管理员保存运营位_未带Token_拒绝访问","tests.contract","Tue Oct 06 16:16:43 CST 2026","skipped","Tue Oct 06 16:16:43 CST 2026","","test_inventory_driven","",""
+"PUT /admin/system-configs/{id}
+
+HTTP=401；error.code=UNAUTHORIZED；响应不含业务数据且不泄露内部堆栈","0","管理员更新系统配置_未带Token_拒绝访问","tests.contract","Tue Oct 06 16:17:06 CST 2026","skipped","Tue Oct 06 16:17:06 CST 2026","","test_inventory_driven","",""
+"PUT /admin/users/{id}
+
+HTTP=200；code=0；回查 GET /admin/users/{id} 校验关键字段与本次提交值一致","59","管理员更新用户_典型请求_修改成功","tests.contract","Tue Oct 06 16:17:07 CST 2026","skipped","Tue Oct 06 16:17:07 CST 2026","","test_inventory_driven","",""
+"GET /api/orders/{id}
+
+HTTP=404；error.code=NOT_FOUND（实测：省略末段路径参数后路由未命中，由 NoResourceFoundException 映射）","68","订单详情_缺少路径参数id_提示资源不存在","tests.contract","Tue Oct 06 16:17:14 CST 2026","passed","Tue Oct 06 16:17:14 CST 2026","","test_inventory_driven","",""
+"POST /admin/products
+
+HTTP=401；error.code=UNAUTHORIZED；响应不含业务数据且不泄露内部堆栈","46","管理员创建商品_未带Token_拒绝访问","tests.contract","Tue Oct 06 16:17:04 CST 2026","passed","Tue Oct 06 16:17:04 CST 2026","","test_inventory_driven","",""
+"POST /api/cart/items
+
+HTTP=200；code=0；回查 GET /api/cart 校验 data.items 中该规格数量等于两次提交数量之和","159","加入购物车_重复添加_数量累加","tests.contract","Tue Oct 06 16:17:12 CST 2026","passed","Tue Oct 06 16:17:12 CST 2026","","test_inventory_driven","",""
+"GET /admin/operation-logs/export
+
+HTTP=200；响应为文件流或表格文本且响应体非空","5092","管理员导出操作日志_典型请求_导出成功","tests.contract","Tue Oct 06 16:16:44 CST 2026","passed","Tue Oct 06 16:16:50 CST 2026","","test_inventory_driven","",""
+"GET /admin/users/{id}
+
+HTTP=200；code=0；回查 GET /admin/users/{id} 校验 data 为对象且非空","113","管理员获取用户详情_典型请求_查询成功","tests.contract","Tue Oct 06 16:17:07 CST 2026","passed","Tue Oct 06 16:17:07 CST 2026","","test_inventory_driven","",""
+"PUT /admin/categories/{id}
+
+HTTP=401；error.code=UNAUTHORIZED；响应不含业务数据且不泄露内部堆栈","1020","管理员更新类目_未带Token_拒绝访问","tests.contract","Tue Oct 06 16:15:20 CST 2026","passed","Tue Oct 06 16:15:21 CST 2026","","test_inventory_driven","",""
+"GET /admin/permissions
+
+HTTP=200；code=0；data 为对象或数组且非空","334","管理员权限列表_典型请求_查询成功","tests.contract","Tue Oct 06 16:16:54 CST 2026","passed","Tue Oct 06 16:16:54 CST 2026","","test_inventory_driven","",""
+"DELETE /admin/depts/{id}
+
+HTTP=200；code=0；回查 GET /admin/depts 校验该记录已不在 data.records 中","1401","管理员删除部门_典型请求_删除成功","tests.contract","Tue Oct 06 16:15:32 CST 2026","passed","Tue Oct 06 16:15:33 CST 2026","","test_inventory_driven","",""
+"GET /admin/products
+
+HTTP=200；code=0；data.total 非空且 data.records 为数组","52","管理员分页查询商品_典型请求_查询成功","tests.contract","Tue Oct 06 16:17:03 CST 2026","passed","Tue Oct 06 16:17:03 CST 2026","","test_inventory_driven","",""
+"DELETE /admin/depts/{id}
+
+HTTP=404；error.code=NOT_FOUND（实测：省略末段路径参数后路由未命中，由 NoResourceFoundException 映射）","345","管理员删除部门_缺少路径参数id_提示资源不存在","tests.contract","Tue Oct 06 16:15:34 CST 2026","passed","Tue Oct 06 16:15:35 CST 2026","","test_inventory_driven","",""
+"PUT /admin/users/{id}/password
+
+HTTP=200；code=0；回查 GET /admin/users/{id} 校验关键字段与首次提交的值一致","0","管理员重置密码_重复提交_结果一致","tests.contract","Tue Oct 06 16:17:07 CST 2026","skipped","Tue Oct 06 16:17:07 CST 2026","","test_inventory_driven","",""
+"GET /admin/in-out
+
+HTTP=401；error.code=UNAUTHORIZED；响应不含业务数据且不泄露内部堆栈","34","管理员出入库分页_未带Token_拒绝访问","tests.contract","Tue Oct 06 16:16:43 CST 2026","passed","Tue Oct 06 16:16:43 CST 2026","","test_inventory_driven","",""
+"GET /api/site/brand
+
+HTTP=200；code=0；data 为对象或数组且非空","38","站点品牌_典型请求_查询成功","tests.contract","Tue Oct 06 16:17:17 CST 2026","passed","Tue Oct 06 16:17:17 CST 2026","","test_inventory_driven","",""
+"GET /admin/files/view
+
+HTTP=400；error.code=BAD_REQUEST；响应 message 指明缺失字段且不含内部堆栈","0","管理员查看/下载文件_缺少必填参数objectKey_提示参数错误","tests.contract","Tue Oct 06 16:16:43 CST 2026","skipped","Tue Oct 06 16:16:43 CST 2026","","test_inventory_driven","",""
+"PUT /admin/products/batch-off
+
+HTTP=200；code=0；回查 GET /admin/products?page=1&size=20 校验目标记录的字段值与首次提交的值一致","0","管理员批量下架_重复提交_结果一致","tests.contract","Tue Oct 06 16:17:04 CST 2026","skipped","Tue Oct 06 16:17:04 CST 2026","","test_inventory_driven","",""
+"POST /api/auth/sms/send
+
+HTTP=400；error.code=BAD_REQUEST；响应 message 指明首个校验失败字段且不含内部堆栈","70","发送验证码_缺少必填参数_提示参数错误","tests.contract","Tue Oct 06 16:17:11 CST 2026","passed","Tue Oct 06 16:17:11 CST 2026","","test_inventory_driven","",""
+"PUT /admin/products/{id}
+
+HTTP=404；error.code=NOT_FOUND（实测：省略末段路径参数后路由未命中，由 NoResourceFoundException 映射）","51","管理员更新商品_缺少路径参数id_提示资源不存在","tests.contract","Tue Oct 06 16:17:04 CST 2026","passed","Tue Oct 06 16:17:04 CST 2026","","test_inventory_driven","",""
+"GET /admin/categories
+
+HTTP=401；error.code=UNAUTHORIZED；响应不含业务数据且不泄露内部堆栈","263","管理员获取类目列表_未带Token_拒绝访问","tests.contract","Tue Oct 06 16:15:09 CST 2026","passed","Tue Oct 06 16:15:10 CST 2026","","test_inventory_driven","",""
+"PUT /admin/home/slots/{code}
+
+HTTP=404；error.code=NOT_FOUND（实测：省略末段路径参数后路由未命中，由 NoResourceFoundException 映射）","0","管理员保存运营位_缺少路径参数code_提示资源不存在","tests.contract","Tue Oct 06 16:16:43 CST 2026","skipped","Tue Oct 06 16:16:43 CST 2026","","test_inventory_driven","",""
+"POST /api/auth/refresh
+
+HTTP=400；error.code=BAD_REQUEST；响应 message 指明首个校验失败字段且不含内部堆栈","80","刷新令牌（refresh）_缺少必填参数_提示参数错误","tests.contract","Tue Oct 06 16:17:10 CST 2026","passed","Tue Oct 06 16:17:10 CST 2026","","test_inventory_driven","",""
+"PUT /api/addresses/{id}/default
+
+HTTP=200；code=0；回查 GET /api/addresses?page=1&size=20 校验目标记录的字段值与首次提交的值一致","0","设置默认收货地址_重复提交_结果一致","tests.contract","Tue Oct 06 16:17:08 CST 2026","skipped","Tue Oct 06 16:17:08 CST 2026","","test_inventory_driven","",""
+"PUT /admin/site/brand
+
+HTTP=200；code=0；回查 GET /admin/site/brand 校验目标记录的name等于本次提交值","0","管理员更新站点品牌_典型请求_修改成功","tests.contract","Tue Oct 06 16:17:06 CST 2026","skipped","Tue Oct 06 16:17:06 CST 2026","","test_inventory_driven","",""
+"GET /api/after-sales
+
+HTTP=200；code=0；data.total 非空且 data.records 为数组","104","我的售后列表_典型请求_查询成功","tests.contract","Tue Oct 06 16:17:08 CST 2026","passed","Tue Oct 06 16:17:08 CST 2026","","test_inventory_driven","",""
+"GET /admin/users
+
+HTTP=401；error.code=UNAUTHORIZED；响应不含业务数据且不泄露内部堆栈","40","管理员分页查询用户_未带Token_拒绝访问","tests.contract","Tue Oct 06 16:17:06 CST 2026","passed","Tue Oct 06 16:17:06 CST 2026","","test_inventory_driven","",""
+"DELETE /admin/products/{id}
+
+HTTP=200；code=0；回查 GET /admin/products/{id} 校验 error.code=NOT_FOUND","93","管理员删除商品_典型请求_删除成功","tests.contract","Tue Oct 06 16:17:04 CST 2026","skipped","Tue Oct 06 16:17:04 CST 2026","","test_inventory_driven","",""
+"GET /admin/products
+
+HTTP=401；error.code=UNAUTHORIZED；响应不含业务数据且不泄露内部堆栈","34","管理员分页查询商品_未带Token_拒绝访问","tests.contract","Tue Oct 06 16:17:03 CST 2026","passed","Tue Oct 06 16:17:03 CST 2026","","test_inventory_driven","",""
+"POST /api/orders
+
+HTTP=401；error.code=UNAUTHORIZED；响应不含业务数据且不泄露内部堆栈","82","提交订单_未带Token_拒绝访问","tests.contract","Tue Oct 06 16:17:14 CST 2026","skipped","Tue Oct 06 16:17:14 CST 2026","","test_inventory_driven","",""
+"GET /admin/categories/tree
+
+HTTP=200；code=0；data 为对象或数组且非空","348","管理员获取类目树_典型请求_查询成功","tests.contract","Tue Oct 06 16:15:12 CST 2026","passed","Tue Oct 06 16:15:12 CST 2026","","test_inventory_driven","",""
+"POST /api/reviews
+
+HTTP=401；error.code=UNAUTHORIZED；响应不含业务数据且不泄露内部堆栈","130","发表评价_未带Token_拒绝访问","tests.contract","Tue Oct 06 16:17:16 CST 2026","passed","Tue Oct 06 16:17:16 CST 2026","","test_inventory_driven","",""
+"DELETE /admin/permissions/{id}
+
+HTTP=200；code=0；回查 GET /admin/permissions 校验该记录已不在 data.records 中","740","管理员删除权限_典型请求_删除成功","tests.contract","Tue Oct 06 16:16:56 CST 2026","passed","Tue Oct 06 16:16:57 CST 2026","","test_inventory_driven","",""
+"POST /api/payment/sandbox
+
+HTTP=200；code=ORDER_STATUS_INVALID；回查详情校验状态未再次变更","89","沙箱支付_重复提交_不再产生副作用","tests.contract","Tue Oct 06 16:17:15 CST 2026","skipped","Tue Oct 06 16:17:15 CST 2026","","test_inventory_driven","",""
+"GET /api/orders/{id}/logistics
+
+HTTP=401；error.code=UNAUTHORIZED；响应不含业务数据且不泄露内部堆栈","72","物流查询_未带Token_拒绝访问","tests.contract","Tue Oct 06 16:17:15 CST 2026","passed","Tue Oct 06 16:17:15 CST 2026","","test_inventory_driven","",""
+"POST /api/files/confirm
+
+HTTP=200；code=0；回查列表校验 data.total 比首次提交后增加 1","0","文件上传确认_重复提交_生成独立业务记录","tests.contract","Tue Oct 06 16:17:13 CST 2026","skipped","Tue Oct 06 16:17:13 CST 2026","","test_inventory_driven","",""
+"PUT /admin/products/{id}/off
+
+HTTP=200；code=0；回查 GET /admin/products/{id} 校验 data.status 为 OFF","0","管理员商品下架_典型请求_修改成功","tests.contract","Tue Oct 06 16:17:05 CST 2026","skipped","Tue Oct 06 16:17:05 CST 2026","","test_inventory_driven","",""
+"PUT /admin/users/{id}/password
+
+HTTP=200；code=0；回查 GET /admin/users/{id} 校验关键字段与本次提交值一致","0","管理员重置密码_典型请求_修改成功","tests.contract","Tue Oct 06 16:17:07 CST 2026","skipped","Tue Oct 06 16:17:07 CST 2026","","test_inventory_driven","",""
+"PUT /admin/warehouses/{id}
+
+HTTP=404；error.code=NOT_FOUND（实测：省略末段路径参数后路由未命中，由 NoResourceFoundException 映射）","0","管理员更新仓库_缺少路径参数id_提示资源不存在","tests.contract","Tue Oct 06 16:17:08 CST 2026","skipped","Tue Oct 06 16:17:08 CST 2026","","test_inventory_driven","",""
+"POST /api/favorites/{spuId}
+
+HTTP=200；code=0；回查 GET /api/favorites 校验该商品在 data 列表中仅出现一次","46","会员收藏商品_重复收藏_不产生重复记录","tests.contract","Tue Oct 06 16:17:17 CST 2026","passed","Tue Oct 06 16:17:17 CST 2026","","test_inventory_driven","",""
+"POST /api/orders
+
+HTTP=200；code=0；data.orderNo 非空；回查 GET /admin/stocks 校验该 SKU 的 locked_stock 增加订单数量、可售数量相应减少","41","提交订单_下单锁定库存_物理库存不变且锁定增加","tests.contract","Tue Oct 06 16:17:17 CST 2026","skipped","Tue Oct 06 16:17:17 CST 2026","","test_inventory_driven","",""
+"GET /api/orders
+
+HTTP=200；code=0；两次响应的 data.total 一致且 data.records 均为数组（不得 500）","70","我的订单列表_非法分页参数_正常返回","tests.contract","Tue Oct 06 16:17:14 CST 2026","passed","Tue Oct 06 16:17:14 CST 2026","","test_inventory_driven","",""
+"PUT /admin/users/{id}/password
+
+HTTP=401；error.code=UNAUTHORIZED；响应不含业务数据且不泄露内部堆栈","0","管理员重置密码_未带Token_拒绝访问","tests.contract","Tue Oct 06 16:17:07 CST 2026","skipped","Tue Oct 06 16:17:07 CST 2026","","test_inventory_driven","",""
+"DELETE /admin/users/{id}
+
+HTTP=404；error.code=NOT_FOUND（实测：省略末段路径参数后路由未命中，由 NoResourceFoundException 映射）","51","管理员删除用户_缺少路径参数id_提示资源不存在","tests.contract","Tue Oct 06 16:17:07 CST 2026","passed","Tue Oct 06 16:17:07 CST 2026","","test_inventory_driven","",""
+"PUT /admin/products/batch-off
+
+HTTP=200；code=0；回查 GET /admin/products?page=1&size=20 校验目标记录 status 等于本次提交的状态值","0","管理员批量下架_典型请求_修改成功","tests.contract","Tue Oct 06 16:17:04 CST 2026","skipped","Tue Oct 06 16:17:04 CST 2026","","test_inventory_driven","",""
+"PUT /admin/users/{id}/password
+
+HTTP=200；code=0；回查 POST /admin/auth/login 校验新密码登录返回 code=0 且旧密码返回 code=LOGIN_FAILED","0","管理员重置密码_指定账号_新密码可登录且旧密码失效","tests.contract","Tue Oct 06 16:17:19 CST 2026","skipped","Tue Oct 06 16:17:19 CST 2026","","test_inventory_driven","",""
+"POST /api/auth/logout
+
+HTTP=200；code=0；回查 GET /api/me 校验 error.code=UNAUTHORIZED（令牌已失效）","339","退出登录（logout）_典型请求_操作成功","tests.contract","Tue Oct 06 16:17:09 CST 2026","passed","Tue Oct 06 16:17:09 CST 2026","","test_inventory_driven","",""
+"GET /admin/customers
+
+HTTP=200；code=0；两次响应的 data.total 一致且 data.records 均为数组（不得 500）","260","管理员分页查询会员_非法分页参数_正常返回","tests.contract","Tue Oct 06 16:15:23 CST 2026","passed","Tue Oct 06 16:15:23 CST 2026","","test_inventory_driven","",""
+"GET /admin/warehouses
+
+HTTP=200；code=0；data 为对象或数组且非空","46","管理员获取仓库列表_典型请求_查询成功","tests.contract","Tue Oct 06 16:17:07 CST 2026","passed","Tue Oct 06 16:17:07 CST 2026","","test_inventory_driven","",""
+"PUT /admin/users/{id}/password
+
+HTTP=400；error.code=无（框架级）；响应为框架错误体，不含业务数据（实测：中段路径参数被省略时请求在路由前即被拒绝，不进入业务逻辑）","0","管理员重置密码_缺少路径参数id_提示资源不存在","tests.contract","Tue Oct 06 16:17:07 CST 2026","skipped","Tue Oct 06 16:17:07 CST 2026","","test_inventory_driven","",""
+"GET /admin/categories
+
+HTTP=200；code=0；data 为对象或数组且非空","325","管理员获取类目列表_典型请求_查询成功","tests.contract","Tue Oct 06 16:15:09 CST 2026","passed","Tue Oct 06 16:15:09 CST 2026","","test_inventory_driven","",""
+"GET /api/after-sales/{id}
+
+HTTP=200；code=0；回查 GET /api/after-sales/{id} 校验 data 为对象且非空","126","售后详情_典型请求_查询成功","tests.contract","Tue Oct 06 16:17:08 CST 2026","passed","Tue Oct 06 16:17:08 CST 2026","","test_inventory_driven","",""
+"GET /api/search
+
+HTTP=200；code=0；两次响应的 data.total 一致且 data.records 均为数组（不得 500）","36","关键词搜索_非法分页参数_正常返回","tests.contract","Tue Oct 06 16:17:17 CST 2026","passed","Tue Oct 06 16:17:17 CST 2026","","test_inventory_driven","",""
+"GET /admin/stocks
+
+HTTP=401；error.code=UNAUTHORIZED；响应不含业务数据且不泄露内部堆栈","42","管理员分页查询库存_未带Token_拒绝访问","tests.contract","Tue Oct 06 16:17:06 CST 2026","passed","Tue Oct 06 16:17:06 CST 2026","","test_inventory_driven","",""
+"GET /api/payment/{orderId}/status
+
+HTTP=401；error.code=UNAUTHORIZED；响应不含业务数据且不泄露内部堆栈","67","支付状态查询_未带Token_拒绝访问","tests.contract","Tue Oct 06 16:17:15 CST 2026","skipped","Tue Oct 06 16:17:16 CST 2026","","test_inventory_driven","",""
+"GET /api/orders/{id}/logistics
+
+HTTP=200；code=0；回查 GET /api/orders/{id}/logistics 校验 data 为对象且非空","69","物流查询_典型请求_查询成功","tests.contract","Tue Oct 06 16:17:15 CST 2026","passed","Tue Oct 06 16:17:15 CST 2026","","test_inventory_driven","",""
+"PUT /api/me
+
+HTTP=401；error.code=UNAUTHORIZED；响应不含业务数据且不泄露内部堆栈","1","更新资料_未带Token_拒绝访问","tests.contract","Tue Oct 06 16:17:13 CST 2026","skipped","Tue Oct 06 16:17:13 CST 2026","","test_inventory_driven","",""
+"GET /api/files/view
+
+HTTP=400；error.code=BAD_REQUEST；响应 message 指明缺失字段且不含内部堆栈","0","查看文件_缺少必填参数objectKey_提示参数错误","tests.contract","Tue Oct 06 16:17:13 CST 2026","skipped","Tue Oct 06 16:17:13 CST 2026","","test_inventory_driven","",""
+"PUT /admin/home/slots/{code}
+
+HTTP=200；code=0；回查 GET /admin/home/slots 校验目标记录 status 等于本次提交的状态值","1","管理员保存运营位_典型请求_修改成功","tests.contract","Tue Oct 06 16:16:43 CST 2026","skipped","Tue Oct 06 16:16:43 CST 2026","","test_inventory_driven","",""
+"GET /admin/orders/{id}
+
+HTTP=404；error.code=NOT_FOUND（实测：省略末段路径参数后路由未命中，由 NoResourceFoundException 映射）","337","管理员获取订单详情_缺少路径参数id_提示资源不存在","tests.contract","Tue Oct 06 16:16:52 CST 2026","passed","Tue Oct 06 16:16:53 CST 2026","","test_inventory_driven","",""
+"GET /admin/reviews
+
+HTTP=401；error.code=UNAUTHORIZED；响应不含业务数据且不泄露内部堆栈","39","管理员评价分页_未带Token_拒绝访问","tests.contract","Tue Oct 06 16:17:05 CST 2026","passed","Tue Oct 06 16:17:05 CST 2026","","test_inventory_driven","",""
+"POST /api/cart/items
+
+HTTP=200；code=BAD_REQUEST；回查 GET /api/cart 校验该规格未新增记录","45","加入购物车_数量为零_提示参数错误","tests.contract","Tue Oct 06 16:17:17 CST 2026","passed","Tue Oct 06 16:17:17 CST 2026","","test_inventory_driven","",""
+"GET /admin/brands
+
+HTTP=200；code=0；data.total 非空且 data.records 为数组","466","管理员分页查询品牌_典型请求_查询成功","tests.contract","Tue Oct 06 16:14:59 CST 2026","passed","Tue Oct 06 16:14:59 CST 2026","","test_inventory_driven","",""
+"POST /admin/in-out
+
+HTTP=200；code=0；回查 GET /admin/in-out?page=1&size=20 校验 data.total 比提交前增加 1","147","管理员创建出入库单_典型请求_创建成功","tests.contract","Tue Oct 06 16:16:43 CST 2026","failed","Tue Oct 06 16:16:43 CST 2026","","test_inventory_driven","",""
+"POST /api/files/upload
+
+HTTP=200；code=0；data.objectKey 与首次上传返回的对象键不同","0","直传上传_重复提交_生成新对象键","tests.contract","Tue Oct 06 16:17:13 CST 2026","skipped","Tue Oct 06 16:17:13 CST 2026","","test_inventory_driven","",""
+"POST /api/payment/sandbox
+
+HTTP=200；code=0；回查 GET /api/payment/{orderId}/status 校验 data.status 为 PAID","74","沙箱支付_典型请求_操作成功","tests.contract","Tue Oct 06 16:17:15 CST 2026","skipped","Tue Oct 06 16:17:15 CST 2026","","test_inventory_driven","",""
+"GET /admin/dict-items/by-code
+
+HTTP=200；code=0；data 为对象或数组且非空","330","管理员按编码查询字典项_典型请求_查询成功","tests.contract","Tue Oct 06 16:15:44 CST 2026","passed","Tue Oct 06 16:15:44 CST 2026","","test_inventory_driven","",""
+"POST /api/auth/refresh
+
+HTTP=200；code=0；data.accessToken 非空（实测：C 端刷新不轮换旧令牌）","133","刷新令牌（refresh）_重复提交_再次刷新令牌","tests.contract","Tue Oct 06 16:17:10 CST 2026","passed","Tue Oct 06 16:17:10 CST 2026","","test_inventory_driven","",""
+"DELETE /admin/attributes/{id}
+
+HTTP=200；code=0；回查 GET /admin/attributes 校验该记录已不在 data.records 中","162","管理员删除属性_典型请求_删除成功","tests.contract","Tue Oct 06 16:14:51 CST 2026","skipped","Tue Oct 06 16:14:51 CST 2026","","test_inventory_driven","",""
+"PUT /api/cart/items/{id}
+
+HTTP=200；code=0；回查 GET /api/cart 校验目标记录的quantity等于本次提交值","83","修改购物车数量_典型请求_修改成功","tests.contract","Tue Oct 06 16:17:12 CST 2026","skipped","Tue Oct 06 16:17:12 CST 2026","","test_inventory_driven","",""
+"POST /api/orders/{id}/cancel
+
+HTTP=200；code=0；回查 GET /api/orders/{id} 校验 data.status 为 CLOSED；回查 GET /admin/stocks 校验锁定库存回落","42","取消订单_待支付订单_关闭订单并解锁库存","tests.contract","Tue Oct 06 16:17:17 CST 2026","passed","Tue Oct 06 16:17:17 CST 2026","","test_inventory_driven","",""
+"GET /api/after-sales
+
+HTTP=200；code=0；两次响应的 data.total 一致且 data.records 均为数组（不得 500）","66","我的售后列表_非法分页参数_正常返回","tests.contract","Tue Oct 06 16:17:08 CST 2026","passed","Tue Oct 06 16:17:08 CST 2026","","test_inventory_driven","",""
+"PUT /api/cart/items/{id}
+
+HTTP=200；code=BAD_REQUEST；回查 GET /api/cart 校验该行 quantity 保持原值","54","修改购物车数量_数量小于等于零_提示参数错误","tests.contract","Tue Oct 06 16:17:17 CST 2026","skipped","Tue Oct 06 16:17:17 CST 2026","","test_inventory_driven","",""
+"DELETE /api/favorites/{spuId}
+
+HTTP=200；code=0；回查 GET /api/favorites?page=1&size=20 校验该记录已不在 data.records 中","1","取消收藏_典型请求_删除成功","tests.contract","Tue Oct 06 16:17:13 CST 2026","skipped","Tue Oct 06 16:17:13 CST 2026","","test_inventory_driven","",""
+"POST /api/orders/{id}/confirm
+
+HTTP=400；error.code=无（框架级）；响应为框架错误体，不含业务数据（实测：中段路径参数被省略时请求在路由前即被拒绝，不进入业务逻辑）","83","确认收货_缺少路径参数id_提示资源不存在","tests.contract","Tue Oct 06 16:17:15 CST 2026","passed","Tue Oct 06 16:17:15 CST 2026","","test_inventory_driven","",""
+"POST /admin/products
+
+HTTP=200；code=0；回查列表校验 data.total 比首次提交后增加 1","92","管理员创建商品_重复提交_生成独立业务记录","tests.contract","Tue Oct 06 16:17:04 CST 2026","failed","Tue Oct 06 16:17:04 CST 2026","","test_inventory_driven","",""
+"POST /admin/roles
+
+HTTP=200；code=CONFLICT；回查 GET /admin/roles?page=1&size=20 校验该编码仅一条记录","123","管理员创建角色_重复角色编码_提示已存在","tests.contract","Tue Oct 06 16:17:19 CST 2026","failed","Tue Oct 06 16:17:19 CST 2026","","test_inventory_driven","",""
+"POST /admin/roles
+
+HTTP=200；code=0；回查 GET /admin/roles?page=1&size=20 校验目标记录 status 等于本次提交的状态值","140","管理员创建角色_典型请求_创建成功","tests.contract","Tue Oct 06 16:17:05 CST 2026","failed","Tue Oct 06 16:17:05 CST 2026","","test_inventory_driven","",""
+"PUT /admin/products/{id}
+
+HTTP=200；code=0；回查 GET /admin/products/{id} 校验 data.status 等于本次提交的状态值","73","管理员更新商品_典型请求_修改成功","tests.contract","Tue Oct 06 16:17:04 CST 2026","skipped","Tue Oct 06 16:17:04 CST 2026","","test_inventory_driven","",""
+"PUT /admin/depts/{id}
+
+HTTP=404；error.code=NOT_FOUND（实测：省略末段路径参数后路由未命中，由 NoResourceFoundException 映射）","305","管理员更新部门_缺少路径参数id_提示资源不存在","tests.contract","Tue Oct 06 16:15:38 CST 2026","passed","Tue Oct 06 16:15:38 CST 2026","","test_inventory_driven","",""
+"POST /api/auth/logout
+
+HTTP=401；error.code=TOKEN_INVALID（源码登出即把令牌加入黑名单，第二次必然被拒）","623","退出登录（logout）_重复提交_令牌已失效被拒绝","tests.contract","Tue Oct 06 16:17:09 CST 2026","passed","Tue Oct 06 16:17:10 CST 2026","","test_inventory_driven","",""
+"DELETE /admin/products/{id}
+
+HTTP=200；code=CONFLICT；回查 GET /admin/products/{id} 校验该商品仍存在","159","管理员删除商品_已上架商品_提示状态不允许","tests.contract","Tue Oct 06 16:17:19 CST 2026","skipped","Tue Oct 06 16:17:19 CST 2026","","test_inventory_driven","",""
+"POST /api/reviews
+
+HTTP=200；code=0；回查 GET /api/products/{spuId}/reviews 校验本次评价出现在 data 列表中","131","发表评价_典型请求_创建成功","tests.contract","Tue Oct 06 16:17:16 CST 2026","failed","Tue Oct 06 16:17:16 CST 2026","","test_inventory_driven","",""
+"POST /api/orders/{id}/confirm
+
+HTTP=200；code=ORDER_STATUS_INVALID；回查 GET /api/orders/{id} 校验状态仍为 PENDING_SHIP","46","确认收货_待发货订单_提示订单状态不允许","tests.contract","Tue Oct 06 16:17:18 CST 2026","passed","Tue Oct 06 16:17:18 CST 2026","","test_inventory_driven","",""
+"DELETE /api/favorites/{spuId}
+
+HTTP=404；error.code=NOT_FOUND（实测：省略末段路径参数后路由未命中，由 NoResourceFoundException 映射）","0","取消收藏_缺少路径参数spuId_提示资源不存在","tests.contract","Tue Oct 06 16:17:13 CST 2026","skipped","Tue Oct 06 16:17:13 CST 2026","","test_inventory_driven","",""
+"GET /admin/dicts
+
+HTTP=200；code=0；两次响应的 data.total 一致且 data.records 均为数组（不得 500）","2","管理员分页查询字典_非法分页参数_正常返回","tests.contract","Tue Oct 06 16:16:40 CST 2026","broken","Tue Oct 06 16:16:40 CST 2026","","test_inventory_driven","",""
+"GET /admin/orders
+
+HTTP=200；code=0；data.total 非空且 data.records 为数组","269","管理员分页查询订单_典型请求_查询成功","tests.contract","Tue Oct 06 16:16:50 CST 2026","passed","Tue Oct 06 16:16:51 CST 2026","","test_inventory_driven","",""
+"PUT /admin/permissions/{id}
+
+HTTP=404；error.code=NOT_FOUND（实测：省略末段路径参数后路由未命中，由 NoResourceFoundException 映射）","329","管理员更新权限_缺少路径参数id_提示资源不存在","tests.contract","Tue Oct 06 16:17:02 CST 2026","passed","Tue Oct 06 16:17:03 CST 2026","","test_inventory_driven","",""
+"POST /admin/orders/{id}/ship
+
+HTTP=401；error.code=UNAUTHORIZED；响应不含业务数据且不泄露内部堆栈","365","管理员订单发货_未带Token_拒绝访问","tests.contract","Tue Oct 06 16:16:53 CST 2026","passed","Tue Oct 06 16:16:53 CST 2026","","test_inventory_driven","",""
+"POST /admin/files/confirm
+
+HTTP=200；code=0；data.objectKey 等于本次提交的对象键","0","管理员确认上传完成_典型请求_创建成功","tests.contract","Tue Oct 06 16:16:43 CST 2026","skipped","Tue Oct 06 16:16:43 CST 2026","","test_inventory_driven","",""
+"POST /admin/warehouses
+
+HTTP=200；code=BAD_REQUEST；响应 message 指明缺失字段且不含内部堆栈","58","管理员创建仓库_缺少必填参数_提示参数错误","tests.contract","Tue Oct 06 16:17:08 CST 2026","failed","Tue Oct 06 16:17:08 CST 2026","","test_inventory_driven","",""
+"DELETE /admin/roles/{id}
+
+HTTP=404；error.code=NOT_FOUND（实测：省略末段路径参数后路由未命中，由 NoResourceFoundException 映射）","57","管理员删除角色_缺少路径参数id_提示资源不存在","tests.contract","Tue Oct 06 16:17:06 CST 2026","passed","Tue Oct 06 16:17:06 CST 2026","","test_inventory_driven","",""
+"POST /admin/dicts
+
+HTTP=401；error.code=UNAUTHORIZED；响应不含业务数据且不泄露内部堆栈","2","管理员创建字典_未带Token_拒绝访问","tests.contract","Tue Oct 06 16:16:40 CST 2026","broken","Tue Oct 06 16:16:40 CST 2026","","test_inventory_driven","",""
+"POST /admin/warehouses
+
+HTTP=200；code=0；回查列表校验 data.total 比首次提交后增加 1","0","管理员创建仓库_重复提交_生成独立业务记录","tests.contract","Tue Oct 06 16:17:08 CST 2026","skipped","Tue Oct 06 16:17:08 CST 2026","","test_inventory_driven","",""
+"GET /api/search
+
+HTTP=200；code=0；data.total 非空且 data.records 为数组","35","关键词搜索_典型请求_查询成功","tests.contract","Tue Oct 06 16:17:16 CST 2026","passed","Tue Oct 06 16:17:17 CST 2026","","test_inventory_driven","",""
+"POST /api/orders/{id}/cancel
+
+HTTP=400；error.code=无（框架级）；响应为框架错误体，不含业务数据（实测：中段路径参数被省略时请求在路由前即被拒绝，不进入业务逻辑）","46","取消订单_缺少路径参数id_提示资源不存在","tests.contract","Tue Oct 06 16:17:14 CST 2026","passed","Tue Oct 06 16:17:14 CST 2026","","test_inventory_driven","",""
+"GET /admin/roles
+
+HTTP=200；code=0；两次响应的 data.total 一致且 data.records 均为数组（不得 500）","52","管理员分页查询角色_非法分页参数_正常返回","tests.contract","Tue Oct 06 16:17:05 CST 2026","passed","Tue Oct 06 16:17:05 CST 2026","","test_inventory_driven","",""
+"GET /admin/after-sales
+
+HTTP=401；error.code=UNAUTHORIZED；响应不含业务数据且不泄露内部堆栈","219","管理员分页查询售后单_未带Token_拒绝访问","tests.contract","Tue Oct 06 16:14:28 CST 2026","passed","Tue Oct 06 16:14:28 CST 2026","","test_inventory_driven","",""
+"GET /admin/operation-logs/{id}
+
+HTTP=401；error.code=UNAUTHORIZED；响应不含业务数据且不泄露内部堆栈","35","管理员操作日志详情_未带Token_拒绝访问","tests.contract","Tue Oct 06 16:16:50 CST 2026","passed","Tue Oct 06 16:16:50 CST 2026","","test_inventory_driven","",""
+"GET /admin/dict-items/by-code
+
+HTTP=401；error.code=UNAUTHORIZED；响应不含业务数据且不泄露内部堆栈","172","管理员按编码查询字典项_未带Token_拒绝访问","tests.contract","Tue Oct 06 16:15:44 CST 2026","passed","Tue Oct 06 16:15:45 CST 2026","","test_inventory_driven","",""
+"POST /admin/permissions
+
+HTTP=200；code=0；回查 GET /admin/permissions 校验目标记录 status 等于本次提交的状态值","390","管理员创建权限_典型请求_创建成功","tests.contract","Tue Oct 06 16:16:54 CST 2026","passed","Tue Oct 06 16:16:54 CST 2026","","test_inventory_driven","",""
+"PUT /api/me
+
+HTTP=200；code=0；回查 GET /api/me?page=1&size=20 校验目标记录的字段值与首次提交的值一致","0","更新资料_重复提交_结果一致","tests.contract","Tue Oct 06 16:17:13 CST 2026","skipped","Tue Oct 06 16:17:13 CST 2026","","test_inventory_driven","",""
+"PUT /admin/attributes/{id}
+
+HTTP=200；code=0；回查 GET /admin/attributes 校验目标记录的name等于本次提交值","84","管理员更新属性_典型请求_修改成功","tests.contract","Tue Oct 06 16:14:51 CST 2026","skipped","Tue Oct 06 16:14:52 CST 2026","","test_inventory_driven","",""
+"GET /admin/products/{id}
+
+HTTP=404；error.code=NOT_FOUND（实测：省略末段路径参数后路由未命中，由 NoResourceFoundException 映射）","56","管理员获取商品详情_缺少路径参数id_提示资源不存在","tests.contract","Tue Oct 06 16:17:04 CST 2026","passed","Tue Oct 06 16:17:04 CST 2026","","test_inventory_driven","",""
+"DELETE /admin/attributes/{id}
+
+HTTP=200；code=0；回查 GET /admin/attributes?page=1&size=20 校验该记录已不在 data.records 中","159","管理员删除属性_重复删除_第二次不报错","tests.contract","Tue Oct 06 16:14:51 CST 2026","skipped","Tue Oct 06 16:14:51 CST 2026","","test_inventory_driven","",""
+"POST /api/auth/refresh
+
+HTTP=200；code=TOKEN_INVALID；响应不含业务数据","36","会员刷新令牌_无效刷新令牌_拒绝访问","tests.contract","Tue Oct 06 16:17:17 CST 2026","failed","Tue Oct 06 16:17:17 CST 2026","","test_inventory_driven","",""
+"POST /api/favorites/{spuId}
+
+HTTP=200；code=0；回查 GET /api/favorites 校验列表中该商品仅出现一次","141","收藏商品_重复添加_不产生重复记录","tests.contract","Tue Oct 06 16:17:13 CST 2026","passed","Tue Oct 06 16:17:13 CST 2026","","test_inventory_driven","",""
+"GET /admin/depts/tree
+
+HTTP=200；code=0；data 为对象或数组且非空","607","管理员部门树_典型请求_查询成功","tests.contract","Tue Oct 06 16:15:31 CST 2026","passed","Tue Oct 06 16:15:31 CST 2026","","test_inventory_driven","",""
+"POST /api/cart/items
+
+HTTP=200；code=0；回查 GET /api/cart 校验 data.total 比提交前增加 1","295","加入购物车_典型请求_创建成功","tests.contract","Tue Oct 06 16:17:11 CST 2026","passed","Tue Oct 06 16:17:12 CST 2026","","test_inventory_driven","",""
+"GET /api/products/{spuId}/reviews
+
+HTTP=200；code=0；两次响应的 data.total 一致且 data.records 均为数组（不得 500）","43","商品评价列表_非法分页参数_正常返回","tests.contract","Tue Oct 06 16:17:16 CST 2026","passed","Tue Oct 06 16:17:16 CST 2026","","test_inventory_driven","",""
+"PUT /admin/roles/{id}
+
+HTTP=401；error.code=UNAUTHORIZED；响应不含业务数据且不泄露内部堆栈","53","管理员更新角色_未带Token_拒绝访问","tests.contract","Tue Oct 06 16:17:06 CST 2026","skipped","Tue Oct 06 16:17:06 CST 2026","","test_inventory_driven","",""
+"GET /api/categories
+
+HTTP=200；code=0；data 为对象或数组且非空","50","分类列表_典型请求_查询成功","tests.contract","Tue Oct 06 16:17:12 CST 2026","passed","Tue Oct 06 16:17:12 CST 2026","","test_inventory_driven","",""
+"POST /api/reviews
+
+HTTP=200；code=0；data 为新建评价 id；回查 GET /api/products/{spuId}/reviews 校验该评价 status 为 VISIBLE","1","发表评价_已完成订单项_评价可见","tests.contract","Tue Oct 06 16:17:19 CST 2026","skipped","Tue Oct 06 16:17:19 CST 2026","","test_inventory_driven","",""
+"POST /api/reviews
+
+HTTP=200；code=REVIEW_EXISTS；回查 GET /api/products/{spuId}/reviews 校验该订单项的评价仅一条","1","发表评价_同订单项重复评价_提示评价已存在","tests.contract","Tue Oct 06 16:17:19 CST 2026","skipped","Tue Oct 06 16:17:19 CST 2026","","test_inventory_driven","",""
+"DELETE /api/favorites/{spuId}
+
+HTTP=401；error.code=UNAUTHORIZED；响应不含业务数据且不泄露内部堆栈","0","取消收藏_未带Token_拒绝访问","tests.contract","Tue Oct 06 16:17:13 CST 2026","skipped","Tue Oct 06 16:17:13 CST 2026","","test_inventory_driven","",""
+"POST /admin/brands
+
+HTTP=200；code=0；回查 GET /admin/brands?page=1&size=20 校验目标记录 status 等于本次提交的状态值","618","管理员创建品牌_典型请求_创建成功","tests.contract","Tue Oct 06 16:15:00 CST 2026","passed","Tue Oct 06 16:15:00 CST 2026","","test_inventory_driven","",""
+"DELETE /admin/attributes/{id}
+
+HTTP=404；error.code=NOT_FOUND（实测：省略末段路径参数后路由未命中，由 NoResourceFoundException 映射）","151","管理员删除属性_缺少路径参数id_提示资源不存在","tests.contract","Tue Oct 06 16:14:51 CST 2026","passed","Tue Oct 06 16:14:51 CST 2026","","test_inventory_driven","",""
+"POST /api/orders
+
+HTTP=200；code=BAD_REQUEST；回查 GET /api/orders 校验未新增订单","44","提交订单_购物车无可结算商品_提示参数错误","tests.contract","Tue Oct 06 16:17:17 CST 2026","skipped","Tue Oct 06 16:17:18 CST 2026","","test_inventory_driven","",""
+"PUT /admin/users/{id}
+
+HTTP=200；code=0；回查 GET /admin/users/{id} 校验关键字段与首次提交的值一致","51","管理员更新用户_重复提交_结果一致","tests.contract","Tue Oct 06 16:17:07 CST 2026","skipped","Tue Oct 06 16:17:07 CST 2026","","test_inventory_driven","",""
+"GET /admin/orders
+
+HTTP=200；code=0；两次响应的 data.total 一致且 data.records 均为数组（不得 500）","345","管理员分页查询订单_非法分页参数_正常返回","tests.contract","Tue Oct 06 16:16:51 CST 2026","passed","Tue Oct 06 16:16:51 CST 2026","","test_inventory_driven","",""
+"GET /admin/depts
+
+HTTP=200；code=0；data 为对象或数组且非空","284","管理员部门列表_典型请求_查询成功","tests.contract","Tue Oct 06 16:15:26 CST 2026","passed","Tue Oct 06 16:15:26 CST 2026","","test_inventory_driven","",""
+"DELETE /admin/permissions/{id}
+
+HTTP=200；code=0；回查 GET /admin/permissions?page=1&size=20 校验该记录已不在 data.records 中","2192","管理员删除权限_重复删除_第二次不报错","tests.contract","Tue Oct 06 16:16:57 CST 2026","passed","Tue Oct 06 16:17:00 CST 2026","","test_inventory_driven","",""
+"PUT /admin/depts/{id}
+
+HTTP=200；code=0；回查 GET /admin/depts?page=1&size=20 校验目标记录的字段值与首次提交的值一致","691","管理员更新部门_重复提交_结果一致","tests.contract","Tue Oct 06 16:15:38 CST 2026","passed","Tue Oct 06 16:15:39 CST 2026","","test_inventory_driven","",""
+"GET /admin/dashboard/stats
+
+HTTP=401；error.code=UNAUTHORIZED；响应不含业务数据且不泄露内部堆栈","125","管理员获取工作台统计_未带Token_拒绝访问","tests.contract","Tue Oct 06 16:15:26 CST 2026","passed","Tue Oct 06 16:15:26 CST 2026","","test_inventory_driven","",""
+"POST /api/favorites/{spuId}
+
+HTTP=404；error.code=NOT_FOUND（实测：省略末段路径参数后路由未命中，由 NoResourceFoundException 映射）","63","收藏商品_缺少路径参数spuId_提示资源不存在","tests.contract","Tue Oct 06 16:17:13 CST 2026","passed","Tue Oct 06 16:17:13 CST 2026","","test_inventory_driven","",""
+"POST /api/orders/{id}/cancel
+
+HTTP=200；code=0；回查 GET /api/orders/{id} 校验 data.status 为 CLOSED；回查 GET /admin/stocks 校验该 SKU 锁定库存等于首次取消后的值（只解锁一次）","100","取消订单_重复提交_幂等关闭且库存只解锁一次","tests.contract","Tue Oct 06 16:17:14 CST 2026","passed","Tue Oct 06 16:17:14 CST 2026","","test_inventory_driven","",""
+"GET /admin/orders/export
+
+HTTP=200；响应为文件流或表格文本且响应体非空","332","管理员导出订单 CSV_典型请求_导出成功","tests.contract","Tue Oct 06 16:16:51 CST 2026","passed","Tue Oct 06 16:16:51 CST 2026","","test_inventory_driven","",""
+"POST /admin/categories
+
+HTTP=200；code=0；回查 GET /admin/categories 校验目标记录 status 等于本次提交的状态值","749","管理员创建类目_典型请求_创建成功","tests.contract","Tue Oct 06 16:15:10 CST 2026","passed","Tue Oct 06 16:15:10 CST 2026","","test_inventory_driven","",""
+"POST /admin/users
+
+HTTP=401；error.code=UNAUTHORIZED；响应不含业务数据且不泄露内部堆栈","41","管理员创建用户_未带Token_拒绝访问","tests.contract","Tue Oct 06 16:17:07 CST 2026","passed","Tue Oct 06 16:17:07 CST 2026","","test_inventory_driven","",""
+"POST /admin/dict-items
+
+HTTP=200；code=0；回查列表校验 data.total 比首次提交后增加 1","2708","管理员创建字典项_重复提交_生成独立业务记录","tests.contract","Tue Oct 06 16:15:41 CST 2026","passed","Tue Oct 06 16:15:44 CST 2026","","test_inventory_driven","",""
+"PUT /api/cart/items/{id}
+
+HTTP=404；error.code=NOT_FOUND（实测：省略末段路径参数后路由未命中，由 NoResourceFoundException 映射）","58","修改购物车数量_缺少路径参数id_提示资源不存在","tests.contract","Tue Oct 06 16:17:12 CST 2026","passed","Tue Oct 06 16:17:12 CST 2026","","test_inventory_driven","",""
+"PUT /admin/users/{id}
+
+HTTP=404；error.code=NOT_FOUND（实测：省略末段路径参数后路由未命中，由 NoResourceFoundException 映射）","53","管理员更新用户_缺少路径参数id_提示资源不存在","tests.contract","Tue Oct 06 16:17:07 CST 2026","passed","Tue Oct 06 16:17:07 CST 2026","","test_inventory_driven","",""
+"POST /api/files/confirm
+
+HTTP=200；code=0；data.objectKey 等于本次提交的对象键","0","文件上传确认_典型请求_创建成功","tests.contract","Tue Oct 06 16:17:13 CST 2026","skipped","Tue Oct 06 16:17:13 CST 2026","","test_inventory_driven","",""
+"POST /api/payment/sandbox
+
+HTTP=200；code=NOT_FOUND；回查该订单支付状态未被改变","43","沙箱支付_访问他人订单_提示资源不存在","tests.contract","Tue Oct 06 16:17:18 CST 2026","failed","Tue Oct 06 16:17:18 CST 2026","","test_inventory_driven","",""
+"GET /api/home
+
+HTTP=200；code=0；data 为对象或数组且非空","88","首页信息_典型请求_查询成功","tests.contract","Tue Oct 06 16:17:13 CST 2026","passed","Tue Oct 06 16:17:13 CST 2026","","test_inventory_driven","",""
+"PUT /admin/depts/{id}
+
+HTTP=200；code=0；回查 GET /admin/depts 校验目标记录 status 等于本次提交的状态值","1216","管理员更新部门_典型请求_修改成功","tests.contract","Tue Oct 06 16:15:35 CST 2026","passed","Tue Oct 06 16:15:37 CST 2026","","test_inventory_driven","",""
+"DELETE /admin/products/{id}
+
+HTTP=401；error.code=UNAUTHORIZED；响应不含业务数据且不泄露内部堆栈","53","管理员删除商品_未带Token_拒绝访问","tests.contract","Tue Oct 06 16:17:04 CST 2026","skipped","Tue Oct 06 16:17:04 CST 2026","","test_inventory_driven","",""
+"GET /api/orders/{id}
+
+HTTP=401；error.code=UNAUTHORIZED；响应不含业务数据且不泄露内部堆栈","76","订单详情_未带Token_拒绝访问","tests.contract","Tue Oct 06 16:17:14 CST 2026","passed","Tue Oct 06 16:17:14 CST 2026","","test_inventory_driven","",""
+"GET /api/cart
+
+HTTP=200；code=0；data 为对象或数组且非空","85","购物车列表_典型请求_查询成功","tests.contract","Tue Oct 06 16:17:11 CST 2026","passed","Tue Oct 06 16:17:11 CST 2026","","test_inventory_driven","",""
+"GET /api/products
+
+HTTP=200；code=0；两次响应的 data.total 一致且 data.records 均为数组（不得 500）","79","商品列表_非法分页参数_正常返回","tests.contract","Tue Oct 06 16:17:16 CST 2026","passed","Tue Oct 06 16:17:16 CST 2026","","test_inventory_driven","",""
+"DELETE /api/addresses/{id}
+
+HTTP=404；error.code=NOT_FOUND（实测：省略末段路径参数后路由未命中，由 NoResourceFoundException 映射）","0","删除收货地址_缺少路径参数id_提示资源不存在","tests.contract","Tue Oct 06 16:17:08 CST 2026","skipped","Tue Oct 06 16:17:08 CST 2026","","test_inventory_driven","",""
+"POST /admin/after-sales/{id}/audit
+
+HTTP=200；code=0；回查 GET /admin/after-sales/{id} 校验 data.afterSale.status 为 COMPLETED 且 auditRemark 等于本次意见","109","管理员审核售后_审核通过_售后完结","tests.contract","Tue Oct 06 16:17:18 CST 2026","failed","Tue Oct 06 16:17:18 CST 2026","","test_inventory_driven","",""
+"GET /api/after-sales
+
+HTTP=401；error.code=UNAUTHORIZED；响应不含业务数据且不泄露内部堆栈","54","我的售后列表_未带Token_拒绝访问","tests.contract","Tue Oct 06 16:17:08 CST 2026","passed","Tue Oct 06 16:17:08 CST 2026","","test_inventory_driven","",""
+"GET /api/cart
+
+HTTP=401；error.code=UNAUTHORIZED；响应不含业务数据且不泄露内部堆栈","79","购物车列表_未带Token_拒绝访问","tests.contract","Tue Oct 06 16:17:11 CST 2026","passed","Tue Oct 06 16:17:11 CST 2026","","test_inventory_driven","",""
+"GET /admin/orders/export
+
+HTTP=401；error.code=UNAUTHORIZED；响应不含业务数据且不泄露内部堆栈","75","管理员导出订单 CSV_未带Token_拒绝访问","tests.contract","Tue Oct 06 16:16:51 CST 2026","passed","Tue Oct 06 16:16:51 CST 2026","","test_inventory_driven","",""
+"POST /api/after-sales
+
+HTTP=200；code=0；回查 GET /api/after-sales?page=1&size=20 校验 data.total 比提交前增加 1","133","申请售后_典型请求_创建成功","tests.contract","Tue Oct 06 16:17:08 CST 2026","skipped","Tue Oct 06 16:17:08 CST 2026","","test_inventory_driven","",""
+"GET /admin/dict-items/by-code
+
+HTTP=400；error.code=BAD_REQUEST；响应 message 指明缺失字段且不含内部堆栈","279","管理员按编码查询字典项_缺少必填参数code_提示参数错误","tests.contract","Tue Oct 06 16:15:45 CST 2026","failed","Tue Oct 06 16:15:45 CST 2026","","test_inventory_driven","",""
+"PUT /admin/brands/{id}
+
+HTTP=404；error.code=NOT_FOUND（实测：省略末段路径参数后路由未命中，由 NoResourceFoundException 映射）","360","管理员更新品牌_缺少路径参数id_提示资源不存在","tests.contract","Tue Oct 06 16:15:07 CST 2026","passed","Tue Oct 06 16:15:08 CST 2026","","test_inventory_driven","",""
+"POST /admin/products
+
+HTTP=200；code=0；回查 GET /admin/products?page=1&size=20 校验 data.total 比提交前增加 1","101","管理员创建商品_典型请求_创建成功","tests.contract","Tue Oct 06 16:17:04 CST 2026","failed","Tue Oct 06 16:17:04 CST 2026","","test_inventory_driven","",""
+"GET /admin/roles
+
+HTTP=200；code=0；data.total 非空且 data.records 为数组","114","管理员分页查询角色_典型请求_查询成功","tests.contract","Tue Oct 06 16:17:05 CST 2026","passed","Tue Oct 06 16:17:05 CST 2026","","test_inventory_driven","",""
+"PUT /admin/home/slots/{code}
+
+HTTP=200；code=0；回查 GET /admin/home/slots?page=1&size=20 校验目标记录的字段值与首次提交的值一致","0","管理员保存运营位_重复提交_结果一致","tests.contract","Tue Oct 06 16:16:43 CST 2026","skipped","Tue Oct 06 16:16:43 CST 2026","","test_inventory_driven","",""
+"POST /admin/dicts
+
+HTTP=200；code=0；回查 GET /admin/dicts?page=1&size=20 校验 data.total 比提交前增加 1","2","管理员创建字典_典型请求_创建成功","tests.contract","Tue Oct 06 16:16:40 CST 2026","broken","Tue Oct 06 16:16:40 CST 2026","","test_inventory_driven","",""
+"POST /admin/after-sales/{id}/audit
+
+HTTP=200；code=AFTER_SALE_STATUS_INVALID；回查 GET /admin/after-sales/{id} 校验 status 仍为 COMPLETED","59","管理员审核售后_重复审核已完结售后_提示售后状态不允许","tests.contract","Tue Oct 06 16:17:19 CST 2026","failed","Tue Oct 06 16:17:19 CST 2026","","test_inventory_driven","",""
+"POST /api/after-sales
+
+HTTP=200；code=BAD_REQUEST；回查 GET /api/after-sales 校验该订单的售后单仍只有一条","83","申请售后_同订单重复申请_提示已有进行中售后","tests.contract","Tue Oct 06 16:17:18 CST 2026","failed","Tue Oct 06 16:17:18 CST 2026","","test_inventory_driven","",""
+"DELETE /admin/depts/{id}
+
+HTTP=200；code=0；回查 GET /admin/depts?page=1&size=20 校验该记录已不在 data.records 中","729","管理员删除部门_重复删除_第二次不报错","tests.contract","Tue Oct 06 16:15:35 CST 2026","passed","Tue Oct 06 16:15:35 CST 2026","","test_inventory_driven","",""
+"POST /api/orders/{id}/cancel
+
+HTTP=401；error.code=UNAUTHORIZED；响应不含业务数据且不泄露内部堆栈","57","取消订单_未带Token_拒绝访问","tests.contract","Tue Oct 06 16:17:14 CST 2026","passed","Tue Oct 06 16:17:14 CST 2026","","test_inventory_driven","",""
+"GET /admin/home/slots/{code}
+
+HTTP=404；error.code=NOT_FOUND（实测：省略末段路径参数后路由未命中，由 NoResourceFoundException 映射）","46","管理员运营位详情_缺少路径参数code_提示资源不存在","tests.contract","Tue Oct 06 16:16:43 CST 2026","passed","Tue Oct 06 16:16:43 CST 2026","","test_inventory_driven","",""
+"GET /admin/operation-logs/{id}
+
+HTTP=200；code=0；回查 GET /admin/operation-logs/{id} 校验 data 为对象且非空","396","管理员操作日志详情_典型请求_查询成功","tests.contract","Tue Oct 06 16:16:50 CST 2026","passed","Tue Oct 06 16:16:50 CST 2026","","test_inventory_driven","",""
+"GET /api/orders/{id}
+
+HTTP=200；code=NOT_FOUND；响应不含该订单的任何业务字段","41","查询订单详情_访问他人订单_提示资源不存在","tests.contract","Tue Oct 06 16:17:18 CST 2026","failed","Tue Oct 06 16:17:18 CST 2026","","test_inventory_driven","",""
+"DELETE /admin/dicts/{id}
+
+HTTP=401；error.code=UNAUTHORIZED；响应不含业务数据且不泄露内部堆栈","930","管理员删除字典_未带Token_拒绝访问","tests.contract","Tue Oct 06 16:16:41 CST 2026","passed","Tue Oct 06 16:16:42 CST 2026","","test_inventory_driven","",""
+"PUT /api/addresses/{id}/default
+
+HTTP=401；error.code=UNAUTHORIZED；响应不含业务数据且不泄露内部堆栈","0","设置默认收货地址_未带Token_拒绝访问","tests.contract","Tue Oct 06 16:17:08 CST 2026","skipped","Tue Oct 06 16:17:08 CST 2026","","test_inventory_driven","",""
+"GET /admin/after-sales
+
+HTTP=200；code=0；data.total 非空且 data.records 为数组","202","管理员分页查询售后单_典型请求_查询成功","tests.contract","Tue Oct 06 16:14:28 CST 2026","passed","Tue Oct 06 16:14:28 CST 2026","","test_inventory_driven","",""
+"DELETE /api/favorites/{spuId}
+
+HTTP=200；code=0；回查 GET /api/favorites?page=1&size=20 校验该记录已不在 data.records 中","1","取消收藏_重复删除_第二次不报错","tests.contract","Tue Oct 06 16:17:13 CST 2026","skipped","Tue Oct 06 16:17:13 CST 2026","","test_inventory_driven","",""
+"POST /api/cart/clear-invalid
+
+HTTP=200；code=0；回查 GET /api/cart 校验 data.total 比提交前增加 1","85","清理购物车失效项_典型请求_操作成功","tests.contract","Tue Oct 06 16:17:11 CST 2026","passed","Tue Oct 06 16:17:11 CST 2026","","test_inventory_driven","",""
+"DELETE /admin/categories/{id}
+
+HTTP=200；code=CONFLICT；回查 GET /admin/categories/tree 校验该类目及其子类目仍存在","280","管理员删除类目_存在子类目_提示状态不允许","tests.contract","Tue Oct 06 16:17:19 CST 2026","failed","Tue Oct 06 16:17:19 CST 2026","","test_inventory_driven","",""
+"POST /admin/depts
+
+HTTP=401；error.code=UNAUTHORIZED；响应不含业务数据且不泄露内部堆栈","323","管理员创建部门_未带Token_拒绝访问","tests.contract","Tue Oct 06 16:15:28 CST 2026","passed","Tue Oct 06 16:15:28 CST 2026","","test_inventory_driven","",""
+"GET /admin/roles/all
+
+HTTP=401；error.code=UNAUTHORIZED；响应不含业务数据且不泄露内部堆栈","45","管理员查询全部角色_未带Token_拒绝访问","tests.contract","Tue Oct 06 16:17:05 CST 2026","passed","Tue Oct 06 16:17:05 CST 2026","","test_inventory_driven","",""
+"GET /admin/products/{id}
+
+HTTP=200；code=0；回查 GET /admin/products/{id} 校验 data 为对象且非空","110","管理员获取商品详情_典型请求_查询成功","tests.contract","Tue Oct 06 16:17:04 CST 2026","passed","Tue Oct 06 16:17:04 CST 2026","","test_inventory_driven","",""
+"GET /admin/home/slots/{code}
+
+HTTP=401；error.code=UNAUTHORIZED；响应不含业务数据且不泄露内部堆栈","35","管理员运营位详情_未带Token_拒绝访问","tests.contract","Tue Oct 06 16:16:43 CST 2026","passed","Tue Oct 06 16:16:43 CST 2026","","test_inventory_driven","",""
+"GET /admin/attributes
+
+HTTP=200；code=0；data 为对象或数组且非空","222","管理员查询属性列表_典型请求_查询成功","tests.contract","Tue Oct 06 16:14:48 CST 2026","passed","Tue Oct 06 16:14:48 CST 2026","","test_inventory_driven","",""
+"POST /api/orders/{id}/cancel
+
+HTTP=200；code=0；回查 GET /api/orders/{id} 校验 data.status 为 CLOSED","62","取消订单_典型请求_操作成功","tests.contract","Tue Oct 06 16:17:14 CST 2026","passed","Tue Oct 06 16:17:14 CST 2026","","test_inventory_driven","",""
+"POST /api/payment/sandbox
+
+HTTP=401；error.code=UNAUTHORIZED；响应不含业务数据且不泄露内部堆栈","92","沙箱支付_未带Token_拒绝访问","tests.contract","Tue Oct 06 16:17:15 CST 2026","skipped","Tue Oct 06 16:17:15 CST 2026","","test_inventory_driven","",""
+"POST /admin/after-sales/{id}/audit
+
+HTTP=200；code=0；回查 GET /admin/after-sales/{id} 校验 data.status 为 COMPLETED","16180","管理员审核售后单_典型请求_操作成功","tests.contract","Tue Oct 06 16:14:30 CST 2026","failed","Tue Oct 06 16:14:46 CST 2026","","test_inventory_driven","",""
+"POST /api/orders/{id}/cancel
+
+HTTP=200；code=ORDER_STATUS_INVALID；回查 GET /api/orders/{id} 校验状态未变更为 CLOSED","40","取消订单_已支付订单_提示订单状态不允许","tests.contract","Tue Oct 06 16:17:18 CST 2026","failed","Tue Oct 06 16:17:18 CST 2026","","test_inventory_driven","",""
+"GET /api/after-sales/{id}
+
+HTTP=404；error.code=NOT_FOUND（实测：省略末段路径参数后路由未命中，由 NoResourceFoundException 映射）","60","售后详情_缺少路径参数id_提示资源不存在","tests.contract","Tue Oct 06 16:17:09 CST 2026","passed","Tue Oct 06 16:17:09 CST 2026","","test_inventory_driven","",""
+"GET /admin/products/{id}
+
+HTTP=401；error.code=UNAUTHORIZED；响应不含业务数据且不泄露内部堆栈","41","管理员获取商品详情_未带Token_拒绝访问","tests.contract","Tue Oct 06 16:17:04 CST 2026","passed","Tue Oct 06 16:17:04 CST 2026","","test_inventory_driven","",""
+"POST /admin/auth/logout
+
+HTTP=200；code=0；回查 GET /admin/auth/me 校验 error.code=UNAUTHORIZED（令牌已失效）","1211","管理员退出登录（logout）_典型请求_操作成功","tests.contract","Tue Oct 06 16:14:54 CST 2026","passed","Tue Oct 06 16:14:55 CST 2026","","test_inventory_driven","",""
+"GET /admin/orders/{id}
+
+HTTP=401；error.code=UNAUTHORIZED；响应不含业务数据且不泄露内部堆栈","320","管理员获取订单详情_未带Token_拒绝访问","tests.contract","Tue Oct 06 16:16:52 CST 2026","passed","Tue Oct 06 16:16:52 CST 2026","","test_inventory_driven","",""
+"PUT /admin/categories/{id}
+
+HTTP=200；code=0；回查 GET /admin/categories?page=1&size=20 校验目标记录的字段值与首次提交的值一致","1605","管理员更新类目_重复提交_结果一致","tests.contract","Tue Oct 06 16:15:21 CST 2026","passed","Tue Oct 06 16:15:23 CST 2026","","test_inventory_driven","",""
+"POST /admin/attributes
+
+HTTP=200；code=BAD_REQUEST；响应 message 指明缺失字段且不含内部堆栈","1326","管理员创建属性_缺少必填参数_提示参数错误","tests.contract","Tue Oct 06 16:14:49 CST 2026","failed","Tue Oct 06 16:14:50 CST 2026","","test_inventory_driven","",""
+"PUT /admin/dicts/{id}
+
+HTTP=200；code=0；回查 GET /admin/dicts?page=1&size=20 校验目标记录的name等于本次提交值","156","管理员更新字典_典型请求_修改成功","tests.contract","Tue Oct 06 16:16:42 CST 2026","passed","Tue Oct 06 16:16:42 CST 2026","","test_inventory_driven","",""
+"GET /admin/dict-items
+
+HTTP=401；error.code=UNAUTHORIZED；响应不含业务数据且不泄露内部堆栈","155","管理员查询字典项_未带Token_拒绝访问","tests.contract","Tue Oct 06 16:15:40 CST 2026","passed","Tue Oct 06 16:15:40 CST 2026","","test_inventory_driven","",""
+"POST /admin/brands
+
+HTTP=200；code=BAD_REQUEST；响应 message 指明缺失字段且不含内部堆栈","251","管理员创建品牌_缺少必填参数_提示参数错误","tests.contract","Tue Oct 06 16:15:01 CST 2026","passed","Tue Oct 06 16:15:01 CST 2026","","test_inventory_driven","",""
+"PUT /admin/customers/{id}/status
+
+HTTP=400；error.code=无（框架级）；响应为框架错误体，不含业务数据（实测：中段路径参数被省略时请求在路由前即被拒绝，不进入业务逻辑）","2","管理员冻结/解冻会员_缺少路径参数id_提示资源不存在","tests.contract","Tue Oct 06 16:15:26 CST 2026","skipped","Tue Oct 06 16:15:26 CST 2026","","test_inventory_driven","",""
+"POST /api/orders
+
+HTTP=200；code=0；回查 GET /api/orders/{id} 校验 data.freightAmount 等于 0 且 data.payAmount 等于 data.goodsAmount","41","提交订单_购物车金额达到免邮门槛_运费为零","tests.contract","Tue Oct 06 16:17:18 CST 2026","skipped","Tue Oct 06 16:17:18 CST 2026","","test_inventory_driven","",""
+"DELETE /admin/dict-items/{id}
+
+HTTP=401；error.code=UNAUTHORIZED；响应不含业务数据且不泄露内部堆栈","52207","管理员删除字典项_未带Token_拒绝访问","tests.contract","Tue Oct 06 16:15:46 CST 2026","broken","Tue Oct 06 16:16:39 CST 2026","","test_inventory_driven","",""
+"POST /api/payment/sandbox
+
+HTTP=200；code=ORDER_STATUS_INVALID；回查 GET /api/payment/{orderId}/status 校验仅存在一条支付流水","94","沙箱支付_重复支付已支付订单_提示订单状态不允许","tests.contract","Tue Oct 06 16:17:18 CST 2026","passed","Tue Oct 06 16:17:18 CST 2026","","test_inventory_driven","",""
+"PUT /admin/products/{id}
+
+HTTP=401；error.code=UNAUTHORIZED；响应不含业务数据且不泄露内部堆栈","54","管理员更新商品_未带Token_拒绝访问","tests.contract","Tue Oct 06 16:17:04 CST 2026","skipped","Tue Oct 06 16:17:04 CST 2026","","test_inventory_driven","",""
+"POST /api/orders/{id}/confirm
+
+HTTP=200；code=ORDER_STATUS_INVALID；回查 GET /api/orders/{id} 校验 data.status 未再次变更","153","确认收货_重复提交_不再产生副作用","tests.contract","Tue Oct 06 16:17:15 CST 2026","passed","Tue Oct 06 16:17:15 CST 2026","","test_inventory_driven","",""
+"GET /api/payment/{orderId}/status
+
+HTTP=400；error.code=无（框架级）；响应为框架错误体，不含业务数据（实测：中段路径参数被省略时请求在路由前即被拒绝，不进入业务逻辑）","66","支付状态查询_缺少路径参数orderId_提示资源不存在","tests.contract","Tue Oct 06 16:17:16 CST 2026","passed","Tue Oct 06 16:17:16 CST 2026","","test_inventory_driven","",""
+"POST /api/favorites/{spuId}
+
+HTTP=401；error.code=UNAUTHORIZED；响应不含业务数据且不泄露内部堆栈","58","收藏商品_未带Token_拒绝访问","tests.contract","Tue Oct 06 16:17:13 CST 2026","passed","Tue Oct 06 16:17:13 CST 2026","","test_inventory_driven","",""
+"PUT /admin/attributes/{id}
+
+HTTP=200；code=0；回查 GET /admin/attributes?page=1&size=20 校验目标记录的字段值与首次提交的值一致","354","管理员更新属性_重复提交_结果一致","tests.contract","Tue Oct 06 16:14:52 CST 2026","skipped","Tue Oct 06 16:14:52 CST 2026","","test_inventory_driven","",""
+"POST /api/addresses
+
+HTTP=200；code=0；回查列表校验 data.total 比首次提交后增加 1","0","新增收货地址_重复提交_生成独立业务记录","tests.contract","Tue Oct 06 16:17:08 CST 2026","skipped","Tue Oct 06 16:17:08 CST 2026","","test_inventory_driven","",""
+"GET /admin/products
+
+HTTP=200；code=0；两次响应的 data.total 一致且 data.records 均为数组（不得 500）","48","管理员分页查询商品_非法分页参数_正常返回","tests.contract","Tue Oct 06 16:17:03 CST 2026","passed","Tue Oct 06 16:17:04 CST 2026","","test_inventory_driven","",""
+"DELETE /api/history
+
+HTTP=200；code=0；回查 GET /api/history?page=1&size=20 校验该记录已不在 data.records 中","0","清空浏览足迹_典型请求_删除成功","tests.contract","Tue Oct 06 16:17:13 CST 2026","skipped","Tue Oct 06 16:17:13 CST 2026","","test_inventory_driven","",""
+"POST /api/auth/login
+
+HTTP=200；code=CUSTOMER_FROZEN；响应 message 包含「不可用」","42","会员短信登录_冻结会员_提示账号不可用","tests.contract","Tue Oct 06 16:17:17 CST 2026","passed","Tue Oct 06 16:17:17 CST 2026","","test_inventory_driven","",""
+"PUT /api/cart/items/{id}
+
+HTTP=200；code=0；回查 GET /api/cart?page=1&size=20 校验目标记录的字段值与首次提交的值一致","68","修改购物车数量_重复提交_结果一致","tests.contract","Tue Oct 06 16:17:12 CST 2026","skipped","Tue Oct 06 16:17:12 CST 2026","","test_inventory_driven","",""
+"POST /admin/auth/login
+
+HTTP=400；error.code=BAD_REQUEST；响应 message 指明首个校验失败字段且不含内部堆栈","122","管理员用户登录_缺少必填参数_提示参数错误","tests.contract","Tue Oct 06 16:14:53 CST 2026","passed","Tue Oct 06 16:14:53 CST 2026","","test_inventory_driven","",""
+"PUT /admin/products/{id}/off
+
+HTTP=200；code=0；回查 GET /admin/products/{id} 校验关键字段与首次提交的值一致","0","管理员商品下架_重复提交_结果一致","tests.contract","Tue Oct 06 16:17:05 CST 2026","skipped","Tue Oct 06 16:17:05 CST 2026","","test_inventory_driven","",""
+"PUT /api/me
+
+HTTP=200；code=0；回查 GET /api/me 校验目标记录的nickname等于本次提交值","0","更新资料_典型请求_修改成功","tests.contract","Tue Oct 06 16:17:13 CST 2026","skipped","Tue Oct 06 16:17:13 CST 2026","","test_inventory_driven","",""
+"POST /api/files/presign
+
+HTTP=200；code=0；data.objectKey 非空且 data.uploadUrl 非空","0","文件预签名上传_典型请求_创建成功","tests.contract","Tue Oct 06 16:17:13 CST 2026","skipped","Tue Oct 06 16:17:13 CST 2026","","test_inventory_driven","",""
+"GET /admin/depts
+
+HTTP=401；error.code=UNAUTHORIZED；响应不含业务数据且不泄露内部堆栈","832","管理员部门列表_未带Token_拒绝访问","tests.contract","Tue Oct 06 16:15:26 CST 2026","passed","Tue Oct 06 16:15:27 CST 2026","","test_inventory_driven","",""
+"PUT /admin/users/{id}/status
+
+HTTP=401；error.code=UNAUTHORIZED；响应不含业务数据且不泄露内部堆栈","0","管理员更新用户状态_未带Token_拒绝访问","tests.contract","Tue Oct 06 16:17:07 CST 2026","skipped","Tue Oct 06 16:17:07 CST 2026","","test_inventory_driven","",""
+"POST /admin/categories
+
+HTTP=401；error.code=UNAUTHORIZED；响应不含业务数据且不泄露内部堆栈","266","管理员创建类目_未带Token_拒绝访问","tests.contract","Tue Oct 06 16:15:10 CST 2026","passed","Tue Oct 06 16:15:11 CST 2026","","test_inventory_driven","",""
+"POST /admin/files/presign
+
+HTTP=200；code=0；data.objectKey 非空且 data.uploadUrl 非空","0","管理员获取预签名上传地址_典型请求_创建成功","tests.contract","Tue Oct 06 16:16:43 CST 2026","skipped","Tue Oct 06 16:16:43 CST 2026","","test_inventory_driven","",""
+"POST /admin/in-out
+
+HTTP=401；error.code=UNAUTHORIZED；响应不含业务数据且不泄露内部堆栈","291","管理员创建出入库单_未带Token_拒绝访问","tests.contract","Tue Oct 06 16:16:43 CST 2026","passed","Tue Oct 06 16:16:43 CST 2026","","test_inventory_driven","",""
+"DELETE /api/history
+
+HTTP=401；error.code=UNAUTHORIZED；响应不含业务数据且不泄露内部堆栈","1","清空浏览足迹_未带Token_拒绝访问","tests.contract","Tue Oct 06 16:17:13 CST 2026","skipped","Tue Oct 06 16:17:13 CST 2026","","test_inventory_driven","",""
+"GET /admin/depts/tree
+
+HTTP=401；error.code=UNAUTHORIZED；响应不含业务数据且不泄露内部堆栈","784","管理员部门树_未带Token_拒绝访问","tests.contract","Tue Oct 06 16:15:31 CST 2026","passed","Tue Oct 06 16:15:32 CST 2026","","test_inventory_driven","",""
+"PUT /admin/system-configs/{id}
+
+HTTP=200；code=0；回查 GET /admin/system-configs?page=1&size=20 校验目标记录的字段值与首次提交的值一致","0","管理员更新系统配置_重复提交_结果一致","tests.contract","Tue Oct 06 16:17:06 CST 2026","skipped","Tue Oct 06 16:17:06 CST 2026","","test_inventory_driven","",""
+"PUT /api/addresses/{id}
+
+HTTP=200；code=0；回查 GET /api/addresses?page=1&size=20 校验目标记录的字段值与首次提交的值一致","0","修改收货地址_重复提交_结果一致","tests.contract","Tue Oct 06 16:17:08 CST 2026","skipped","Tue Oct 06 16:17:08 CST 2026","","test_inventory_driven","",""
+"PUT /admin/products/{id}
+
+HTTP=200；code=0；回查 GET /admin/products/{id} 校验 status 保持 DRAFT 且 scheduleOnAt 等于提交值","55","管理员设置定时上架_未来时间_商品保持草稿等待定时任务","tests.contract","Tue Oct 06 16:17:19 CST 2026","skipped","Tue Oct 06 16:17:20 CST 2026","","test_inventory_driven","",""
+"GET /admin/users/{id}
+
+HTTP=404；error.code=NOT_FOUND（实测：省略末段路径参数后路由未命中，由 NoResourceFoundException 映射）","51","管理员获取用户详情_缺少路径参数id_提示资源不存在","tests.contract","Tue Oct 06 16:17:07 CST 2026","passed","Tue Oct 06 16:17:07 CST 2026","","test_inventory_driven","",""
+"POST /admin/orders/{id}/ship
+
+HTTP=400；error.code=无（框架级）；响应为框架错误体，不含业务数据（实测：中段路径参数被省略时请求在路由前即被拒绝，不进入业务逻辑）","326","管理员订单发货_缺少路径参数id_提示资源不存在","tests.contract","Tue Oct 06 16:16:53 CST 2026","passed","Tue Oct 06 16:16:53 CST 2026","","test_inventory_driven","",""
+"POST /api/auth/phone
+
+HTTP=200；code=0；data.accessToken 非空且 data.customer.phone 与登录手机号一致","82","手机号验证码登录（phone）_典型请求_登录成功","tests.contract","Tue Oct 06 16:17:10 CST 2026","passed","Tue Oct 06 16:17:10 CST 2026","","test_inventory_driven","",""
+"GET /admin/auth/me
+
+HTTP=401；error.code=UNAUTHORIZED；响应不含业务数据且不泄露内部堆栈","201","管理员获取当前用户信息_未带Token_拒绝访问","tests.contract","Tue Oct 06 16:14:57 CST 2026","passed","Tue Oct 06 16:14:58 CST 2026","","test_inventory_driven","",""
+"DELETE /admin/roles/{id}
+
+HTTP=200；code=0；回查 GET /admin/roles?page=1&size=20 校验该记录已不在 data.records 中","56","管理员删除角色_重复删除_第二次不报错","tests.contract","Tue Oct 06 16:17:06 CST 2026","skipped","Tue Oct 06 16:17:06 CST 2026","","test_inventory_driven","",""
+"GET /admin/permissions
+
+HTTP=401；error.code=UNAUTHORIZED；响应不含业务数据且不泄露内部堆栈","98","管理员权限列表_未带Token_拒绝访问","tests.contract","Tue Oct 06 16:16:54 CST 2026","passed","Tue Oct 06 16:16:54 CST 2026","","test_inventory_driven","",""
+"PUT /admin/dicts/{id}
+
+HTTP=404；error.code=NOT_FOUND（实测：省略末段路径参数后路由未命中，由 NoResourceFoundException 映射）","44","管理员更新字典_缺少路径参数id_提示资源不存在","tests.contract","Tue Oct 06 16:16:42 CST 2026","passed","Tue Oct 06 16:16:42 CST 2026","","test_inventory_driven","",""
+"POST /admin/auth/login
+
+HTTP=200；code=0；data.accessToken 非空","815","管理员用户登录_重复提交_再次签发令牌","tests.contract","Tue Oct 06 16:14:53 CST 2026","passed","Tue Oct 06 16:14:54 CST 2026","","test_inventory_driven","",""
+"POST /api/orders
+
+HTTP=200；code=0；回查 GET /api/orders/{id} 校验 data.freightAmount 等于系统配置的默认运费，且 data.payAmount 等于 data.goodsAmount 加运费","44","提交订单_购物车金额低于免邮门槛_收取默认运费","tests.contract","Tue Oct 06 16:17:18 CST 2026","skipped","Tue Oct 06 16:17:18 CST 2026","","test_inventory_driven","",""
+"GET /admin/customers
+
+HTTP=401；error.code=UNAUTHORIZED；响应不含业务数据且不泄露内部堆栈","222","管理员分页查询会员_未带Token_拒绝访问","tests.contract","Tue Oct 06 16:15:23 CST 2026","passed","Tue Oct 06 16:15:23 CST 2026","","test_inventory_driven","",""
+"POST /api/auth/login
+
+HTTP=400；error.code=BAD_REQUEST；响应 message 指明首个校验失败字段且不含内部堆栈","61","手机号验证码登录（login）_缺少必填参数_提示参数错误","tests.contract","Tue Oct 06 16:17:09 CST 2026","passed","Tue Oct 06 16:17:09 CST 2026","","test_inventory_driven","",""
+"POST /admin/files/upload
+
+HTTP=200；code=0；data.objectKey 非空且 data.url 非空","0","管理员直传上传文件_典型请求_创建成功","tests.contract","Tue Oct 06 16:16:43 CST 2026","skipped","Tue Oct 06 16:16:43 CST 2026","","test_inventory_driven","",""
+"DELETE /admin/roles/{id}
+
+HTTP=200；code=0；回查 GET /admin/roles?page=1&size=20 校验该记录已不在 data.records 中","49","管理员删除角色_典型请求_删除成功","tests.contract","Tue Oct 06 16:17:05 CST 2026","skipped","Tue Oct 06 16:17:05 CST 2026","","test_inventory_driven","",""
+"GET /admin/reviews
+
+HTTP=200；code=0；data.total 非空且 data.records 为数组","58","管理员评价分页_典型请求_查询成功","tests.contract","Tue Oct 06 16:17:05 CST 2026","passed","Tue Oct 06 16:17:05 CST 2026","","test_inventory_driven","",""
+"POST /admin/roles
+
+HTTP=401；error.code=UNAUTHORIZED；响应不含业务数据且不泄露内部堆栈","41","管理员创建角色_未带Token_拒绝访问","tests.contract","Tue Oct 06 16:17:05 CST 2026","passed","Tue Oct 06 16:17:05 CST 2026","","test_inventory_driven","",""
+"POST /admin/warehouses
+
+HTTP=200；code=0；回查 GET /admin/warehouses 校验目标记录 status 等于本次提交的状态值","0","管理员创建仓库_典型请求_创建成功","tests.contract","Tue Oct 06 16:17:07 CST 2026","skipped","Tue Oct 06 16:17:07 CST 2026","","test_inventory_driven","",""
+"PUT /admin/products/batch-off
+
+HTTP=200；code=0；回查 GET /admin/products/{id} 校验两条商品 status 均为 OFF","0","管理员批量下架商品_多商品_全部转为下架","tests.contract","Tue Oct 06 16:17:20 CST 2026","skipped","Tue Oct 06 16:17:20 CST 2026","","test_inventory_driven","",""
+"GET /admin/dict-items
+
+HTTP=400；error.code=BAD_REQUEST；响应 message 指明缺失字段且不含内部堆栈","143","管理员查询字典项_缺少必填参数dictId_提示参数错误","tests.contract","Tue Oct 06 16:15:40 CST 2026","failed","Tue Oct 06 16:15:40 CST 2026","","test_inventory_driven","",""
+"GET /admin/dicts
+
+HTTP=200；code=0；data.total 非空且 data.records 为数组","1","管理员分页查询字典_典型请求_查询成功","tests.contract","Tue Oct 06 16:16:40 CST 2026","broken","Tue Oct 06 16:16:40 CST 2026","","test_inventory_driven","",""
+"GET /api/addresses
+
+HTTP=401；error.code=UNAUTHORIZED；响应不含业务数据且不泄露内部堆栈","0","收货地址列表_未带Token_拒绝访问","tests.contract","Tue Oct 06 16:17:08 CST 2026","skipped","Tue Oct 06 16:17:08 CST 2026","","test_inventory_driven","",""
+"POST /admin/files/presign
+
+HTTP=200；code=BAD_REQUEST；响应 message 指明缺失字段且不含内部堆栈","0","管理员获取预签名上传地址_缺少必填参数_提示参数错误","tests.contract","Tue Oct 06 16:16:43 CST 2026","skipped","Tue Oct 06 16:16:43 CST 2026","","test_inventory_driven","",""
+"POST /api/cart/items
+
+HTTP=200；code=PRODUCT_UNAVAILABLE；回查 GET /api/cart 校验未新增该商品记录","57","加入购物车_商品已下架_提示商品不可用","tests.contract","Tue Oct 06 16:17:17 CST 2026","failed","Tue Oct 06 16:17:17 CST 2026","","test_inventory_driven","",""
+"POST /admin/orders/{id}/ship
+
+HTTP=200；code=0；回查 GET /admin/orders/{id} 校验 data.status 为 PENDING_RECEIVE","50","管理员订单发货_典型请求_操作成功","tests.contract","Tue Oct 06 16:16:53 CST 2026","failed","Tue Oct 06 16:16:53 CST 2026","","test_inventory_driven","",""
+"DELETE /admin/brands/{id}
+
+HTTP=200；code=0；回查 GET /admin/brands?page=1&size=20 校验该记录已不在 data.records 中","826","管理员删除品牌_典型请求_删除成功","tests.contract","Tue Oct 06 16:15:02 CST 2026","passed","Tue Oct 06 16:15:02 CST 2026","","test_inventory_driven","",""
+"DELETE /api/cart/items/{id}
+
+HTTP=401；error.code=UNAUTHORIZED；响应不含业务数据且不泄露内部堆栈","81","移除购物车项_未带Token_拒绝访问","tests.contract","Tue Oct 06 16:17:12 CST 2026","skipped","Tue Oct 06 16:17:12 CST 2026","","test_inventory_driven","",""
+"GET /admin/users
+
+HTTP=200；code=0；两次响应的 data.total 一致且 data.records 均为数组（不得 500）","52","管理员分页查询用户_非法分页参数_正常返回","tests.contract","Tue Oct 06 16:17:06 CST 2026","passed","Tue Oct 06 16:17:06 CST 2026","","test_inventory_driven","",""
+"POST /api/files/presign
+
+HTTP=401；error.code=UNAUTHORIZED；响应不含业务数据且不泄露内部堆栈","0","文件预签名上传_未带Token_拒绝访问","tests.contract","Tue Oct 06 16:17:13 CST 2026","skipped","Tue Oct 06 16:17:13 CST 2026","","test_inventory_driven","",""
+"PUT /admin/warehouses/{id}
+
+HTTP=401；error.code=UNAUTHORIZED；响应不含业务数据且不泄露内部堆栈","1","管理员更新仓库_未带Token_拒绝访问","tests.contract","Tue Oct 06 16:17:08 CST 2026","skipped","Tue Oct 06 16:17:08 CST 2026","","test_inventory_driven","",""
+"GET /api/favorites
+
+HTTP=200；code=0；两次响应的 data.total 一致且 data.records 均为数组（不得 500）","75","收藏列表_非法分页参数_正常返回","tests.contract","Tue Oct 06 16:17:13 CST 2026","passed","Tue Oct 06 16:17:13 CST 2026","","test_inventory_driven","",""
+"GET /api/products/{spuId}
+
+HTTP=200；code=0；回查 GET /api/products/{spuId} 校验 data 为对象且非空","95","商品详情_典型请求_查询成功","tests.contract","Tue Oct 06 16:17:16 CST 2026","passed","Tue Oct 06 16:17:16 CST 2026","","test_inventory_driven","",""
+"GET /api/addresses
+
+HTTP=200；code=0；data 为对象或数组且非空","1","收货地址列表_典型请求_查询成功","tests.contract","Tue Oct 06 16:17:08 CST 2026","skipped","Tue Oct 06 16:17:08 CST 2026","","test_inventory_driven","",""
+"GET /admin/site/brand
+
+HTTP=401；error.code=UNAUTHORIZED；响应不含业务数据且不泄露内部堆栈","40","管理员获取站点品牌_未带Token_拒绝访问","tests.contract","Tue Oct 06 16:17:06 CST 2026","passed","Tue Oct 06 16:17:06 CST 2026","","test_inventory_driven","",""
+"PUT /admin/brands/{id}
+
+HTTP=401；error.code=UNAUTHORIZED；响应不含业务数据且不泄露内部堆栈","903","管理员更新品牌_未带Token_拒绝访问","tests.contract","Tue Oct 06 16:15:07 CST 2026","passed","Tue Oct 06 16:15:07 CST 2026","","test_inventory_driven","",""
+"DELETE /admin/categories/{id}
+
+HTTP=200；code=0；回查 GET /admin/categories?page=1&size=20 校验该记录已不在 data.records 中","1136","管理员删除类目_重复删除_第二次不报错","tests.contract","Tue Oct 06 16:15:18 CST 2026","passed","Tue Oct 06 16:15:19 CST 2026","","test_inventory_driven","",""
+"GET /admin/brands
+
+HTTP=401；error.code=UNAUTHORIZED；响应不含业务数据且不泄露内部堆栈","437","管理员分页查询品牌_未带Token_拒绝访问","tests.contract","Tue Oct 06 16:14:59 CST 2026","passed","Tue Oct 06 16:14:59 CST 2026","","test_inventory_driven","",""
+"PUT /admin/roles/{id}
+
+HTTP=200；code=0；回查 GET /admin/roles?page=1&size=20 校验目标记录的字段值与首次提交的值一致","58","管理员更新角色_重复提交_结果一致","tests.contract","Tue Oct 06 16:17:06 CST 2026","skipped","Tue Oct 06 16:17:06 CST 2026","","test_inventory_driven","",""
+"DELETE /api/history
+
+HTTP=200；code=0；回查 GET /api/history?page=1&size=20 校验 data.total 为 0","0","清空浏览足迹_重复删除_第二次不报错","tests.contract","Tue Oct 06 16:17:13 CST 2026","skipped","Tue Oct 06 16:17:13 CST 2026","","test_inventory_driven","",""
+"PUT /admin/products/{id}
+
+HTTP=200；code=0；回查 GET /admin/products/{id} 校验关键字段与首次提交的值一致","53","管理员更新商品_重复提交_结果一致","tests.contract","Tue Oct 06 16:17:04 CST 2026","skipped","Tue Oct 06 16:17:05 CST 2026","","test_inventory_driven","",""
+"PUT /api/addresses/{id}
+
+HTTP=401；error.code=UNAUTHORIZED；响应不含业务数据且不泄露内部堆栈","0","修改收货地址_未带Token_拒绝访问","tests.contract","Tue Oct 06 16:17:08 CST 2026","skipped","Tue Oct 06 16:17:08 CST 2026","","test_inventory_driven","",""
+"GET /admin/in-out
+
+HTTP=200；code=0；data.total 非空且 data.records 为数组","61","管理员出入库分页_典型请求_查询成功","tests.contract","Tue Oct 06 16:16:43 CST 2026","passed","Tue Oct 06 16:16:43 CST 2026","","test_inventory_driven","",""
+"GET /api/history
+
+HTTP=200；code=0；两次响应的 data.total 一致且 data.records 均为数组（不得 500）","51","浏览足迹_非法分页参数_正常返回","tests.contract","Tue Oct 06 16:17:13 CST 2026","passed","Tue Oct 06 16:17:13 CST 2026","","test_inventory_driven","",""
+"POST /admin/permissions
+
+HTTP=200；code=CONFLICT；回查列表校验本次唯一键仅一条记录","732","管理员创建权限_重复提交_提示已存在","tests.contract","Tue Oct 06 16:16:55 CST 2026","passed","Tue Oct 06 16:16:55 CST 2026","","test_inventory_driven","",""
+"PUT /api/addresses/{id}/default
+
+HTTP=200；code=0；回查 GET /api/addresses?page=1&size=20 校验目标记录 isDefault 为 true","0","设置默认收货地址_典型请求_修改成功","tests.contract","Tue Oct 06 16:17:08 CST 2026","skipped","Tue Oct 06 16:17:08 CST 2026","","test_inventory_driven","",""
+"POST /admin/files/upload
+
+HTTP=200；code=0；data.objectKey 与首次上传返回的对象键不同","0","管理员直传上传文件_重复提交_生成新对象键","tests.contract","Tue Oct 06 16:16:43 CST 2026","skipped","Tue Oct 06 16:16:43 CST 2026","","test_inventory_driven","",""
+"PUT /admin/permissions/{id}
+
+HTTP=200；code=0；回查 GET /admin/permissions 校验目标记录 status 等于本次提交的状态值","530","管理员更新权限_典型请求_修改成功","tests.contract","Tue Oct 06 16:17:00 CST 2026","passed","Tue Oct 06 16:17:00 CST 2026","","test_inventory_driven","",""
+"POST /admin/after-sales/{id}/audit
+
+HTTP=401；error.code=UNAUTHORIZED；响应不含业务数据且不泄露内部堆栈","700","管理员审核售后单_未带Token_拒绝访问","tests.contract","Tue Oct 06 16:14:46 CST 2026","passed","Tue Oct 06 16:14:47 CST 2026","","test_inventory_driven","",""
+"PUT /admin/brands/{id}
+
+HTTP=200；code=0；回查 GET /admin/brands?page=1&size=20 校验目标记录的字段值与首次提交的值一致","1292","管理员更新品牌_重复提交_结果一致","tests.contract","Tue Oct 06 16:15:08 CST 2026","passed","Tue Oct 06 16:15:09 CST 2026","","test_inventory_driven","",""
+"POST /api/auth/phone
+
+HTTP=400；error.code=BAD_REQUEST；响应 message 指明首个校验失败字段且不含内部堆栈","71","手机号验证码登录（phone）_缺少必填参数_提示参数错误","tests.contract","Tue Oct 06 16:17:10 CST 2026","passed","Tue Oct 06 16:17:10 CST 2026","","test_inventory_driven","",""
+"GET /admin/after-sales/{id}
+
+HTTP=200；code=0；回查 GET /admin/after-sales/{id} 校验 data 为对象且非空","280","管理员获取售后详情_典型请求_查询成功","tests.contract","Tue Oct 06 16:14:29 CST 2026","passed","Tue Oct 06 16:14:29 CST 2026","","test_inventory_driven","",""
+"GET /admin/after-sales/{id}
+
+HTTP=401；error.code=UNAUTHORIZED；响应不含业务数据且不泄露内部堆栈","459","管理员获取售后详情_未带Token_拒绝访问","tests.contract","Tue Oct 06 16:14:29 CST 2026","passed","Tue Oct 06 16:14:29 CST 2026","","test_inventory_driven","",""
+"GET /admin/attributes
+
+HTTP=401；error.code=UNAUTHORIZED；响应不含业务数据且不泄露内部堆栈","248","管理员查询属性列表_未带Token_拒绝访问","tests.contract","Tue Oct 06 16:14:48 CST 2026","passed","Tue Oct 06 16:14:48 CST 2026","","test_inventory_driven","",""
+"POST /admin/auth/refresh
+
+HTTP=200；code=0；data.accessToken 非空","263","管理员刷新令牌（refresh）_典型请求_创建成功","tests.contract","Tue Oct 06 16:14:58 CST 2026","passed","Tue Oct 06 16:14:58 CST 2026","","test_inventory_driven","",""
+"PUT /api/addresses/{id}/default
+
+HTTP=400；error.code=无（框架级）；响应为框架错误体，不含业务数据（实测：中段路径参数被省略时请求在路由前即被拒绝，不进入业务逻辑）","0","设置默认收货地址_缺少路径参数id_提示资源不存在","tests.contract","Tue Oct 06 16:17:08 CST 2026","skipped","Tue Oct 06 16:17:08 CST 2026","","test_inventory_driven","",""
+"POST /admin/categories
+
+HTTP=200；code=0；回查列表校验 data.total 比首次提交后增加 1","1110","管理员创建类目_重复提交_生成独立业务记录","tests.contract","Tue Oct 06 16:15:11 CST 2026","passed","Tue Oct 06 16:15:12 CST 2026","","test_inventory_driven","",""
+"POST /api/after-sales
+
+HTTP=200；code=BAD_REQUEST；回查 GET /api/after-sales 校验该订单的售后单仍只有一条","164","申请售后_重复提交_提示已有进行中售后","tests.contract","Tue Oct 06 16:17:08 CST 2026","skipped","Tue Oct 06 16:17:08 CST 2026","","test_inventory_driven","",""
+"PUT /api/addresses/{id}
+
+HTTP=404；error.code=NOT_FOUND（实测：省略末段路径参数后路由未命中，由 NoResourceFoundException 映射）","0","修改收货地址_缺少路径参数id_提示资源不存在","tests.contract","Tue Oct 06 16:17:08 CST 2026","skipped","Tue Oct 06 16:17:08 CST 2026","","test_inventory_driven","",""
+"POST /admin/auth/refresh
+
+HTTP=400；error.code=BAD_REQUEST；响应 message 指明首个校验失败字段且不含内部堆栈","243","管理员刷新令牌（refresh）_缺少必填参数_提示参数错误","tests.contract","Tue Oct 06 16:14:58 CST 2026","passed","Tue Oct 06 16:14:58 CST 2026","","test_inventory_driven","",""
+"POST /admin/orders/{id}/ship
+
+HTTP=200；code=0；回查 GET /admin/orders/{id} 校验 status 为 PENDING_RECEIVE；回查 GET /admin/in-out?page=1&size=5 校验生成类型为 SALE_OUT 的单据","127","管理员发货_待发货订单_扣减物理库存并写入出库单","tests.contract","Tue Oct 06 16:17:17 CST 2026","failed","Tue Oct 06 16:17:17 CST 2026","","test_inventory_driven","",""
+"DELETE /admin/dicts/{id}
+
+HTTP=200；code=0；回查 GET /admin/dicts?page=1&size=20 校验该记录已不在 data.records 中","2","管理员删除字典_典型请求_删除成功","tests.contract","Tue Oct 06 16:16:40 CST 2026","broken","Tue Oct 06 16:16:40 CST 2026","","test_inventory_driven","",""
+"GET /admin/home/slots
+
+HTTP=401；error.code=UNAUTHORIZED；响应不含业务数据且不泄露内部堆栈","33","管理员运营位列表_未带Token_拒绝访问","tests.contract","Tue Oct 06 16:16:43 CST 2026","passed","Tue Oct 06 16:16:43 CST 2026","","test_inventory_driven","",""
+"GET /admin/stocks
+
+HTTP=200；code=0；data.total 非空且 data.records 为数组","56","管理员分页查询库存_典型请求_查询成功","tests.contract","Tue Oct 06 16:17:06 CST 2026","passed","Tue Oct 06 16:17:06 CST 2026","","test_inventory_driven","",""
+"POST /admin/auth/refresh
+
+HTTP=200；error.code=TOKEN_INVALID（实测：管理端刷新即轮换令牌，旧 refreshToken 失效）","540","管理员刷新令牌（refresh）_重复提交_刷新令牌已轮换被拒绝","tests.contract","Tue Oct 06 16:14:58 CST 2026","passed","Tue Oct 06 16:14:59 CST 2026","","test_inventory_driven","",""
+"GET /admin/files/view
+
+HTTP=200；code=0；data 为对象或数组且非空","0","管理员查看/下载文件_典型请求_查询成功","tests.contract","Tue Oct 06 16:16:43 CST 2026","skipped","Tue Oct 06 16:16:43 CST 2026","","test_inventory_driven","",""
+"DELETE /admin/dict-items/{id}
+
+HTTP=404；error.code=NOT_FOUND（实测：省略末段路径参数后路由未命中，由 NoResourceFoundException 映射）","2","管理员删除字典项_缺少路径参数id_提示资源不存在","tests.contract","Tue Oct 06 16:16:39 CST 2026","broken","Tue Oct 06 16:16:39 CST 2026","","test_inventory_driven","",""
+"GET /admin/customers/{id}
+
+HTTP=404；error.code=NOT_FOUND（实测：省略末段路径参数后路由未命中，由 NoResourceFoundException 映射）","1514","管理员会员详情_缺少路径参数id_提示资源不存在","tests.contract","Tue Oct 06 16:15:24 CST 2026","passed","Tue Oct 06 16:15:25 CST 2026","","test_inventory_driven","",""
+"GET /admin/customers/{id}
+
+HTTP=200；code=0；回查 GET /admin/customers/{id} 校验 data 为对象且非空","345","管理员会员详情_典型请求_查询成功","tests.contract","Tue Oct 06 16:15:23 CST 2026","passed","Tue Oct 06 16:15:24 CST 2026","","test_inventory_driven","",""
+"POST /api/files/confirm
+
+HTTP=200；code=BAD_REQUEST；响应 message 指明缺失字段且不含内部堆栈","0","文件上传确认_缺少必填参数_提示参数错误","tests.contract","Tue Oct 06 16:17:13 CST 2026","skipped","Tue Oct 06 16:17:13 CST 2026","","test_inventory_driven","",""
+"POST /api/orders
+
+HTTP=200；code=0；回查 GET /api/orders?page=1&size=20 校验目标记录的字段值与首次提交的值一致","81","提交订单_重复提交_结果一致","tests.contract","Tue Oct 06 16:17:14 CST 2026","skipped","Tue Oct 06 16:17:14 CST 2026","","test_inventory_driven","",""
+"PUT /admin/products/{id}/off
+
+HTTP=400；error.code=无（框架级）；响应为框架错误体，不含业务数据（实测：中段路径参数被省略时请求在路由前即被拒绝，不进入业务逻辑）","0","管理员商品下架_缺少路径参数id_提示资源不存在","tests.contract","Tue Oct 06 16:17:05 CST 2026","skipped","Tue Oct 06 16:17:05 CST 2026","","test_inventory_driven","",""
+"DELETE /admin/dict-items/{id}
+
+HTTP=200；code=0；回查 GET /admin/dict-items?page=1&size=20 校验该记录已不在 data.records 中","5","管理员删除字典项_重复删除_第二次不报错","tests.contract","Tue Oct 06 16:16:39 CST 2026","broken","Tue Oct 06 16:16:39 CST 2026","","test_inventory_driven","",""
+"PUT /admin/reviews/{id}/status
+
+HTTP=200；code=0；回查 GET /admin/reviews?page=1&size=20 校验目标记录的字段值与首次提交的值一致","0","管理员隐藏/恢复评价_重复提交_结果一致","tests.contract","Tue Oct 06 16:17:05 CST 2026","skipped","Tue Oct 06 16:17:05 CST 2026","","test_inventory_driven","",""
+"POST /api/auth/login
+
+HTTP=200；code=0；data.accessToken 非空；回查 GET /api/me 校验 data.phone 等于本次登录手机号","49","会员短信登录_未注册手机号_自动注册并签发令牌","tests.contract","Tue Oct 06 16:17:17 CST 2026","passed","Tue Oct 06 16:17:17 CST 2026","","test_inventory_driven","",""
+"PUT /admin/roles/{id}
+
+HTTP=200；code=0；回查 GET /admin/roles?page=1&size=20 校验目标记录 status 等于本次提交的状态值","51","管理员更新角色_典型请求_修改成功","tests.contract","Tue Oct 06 16:17:06 CST 2026","skipped","Tue Oct 06 16:17:06 CST 2026","","test_inventory_driven","",""
+"POST /api/auth/refresh
+
+HTTP=200；code=0；data.accessToken 非空","86","刷新令牌（refresh）_典型请求_创建成功","tests.contract","Tue Oct 06 16:17:10 CST 2026","passed","Tue Oct 06 16:17:10 CST 2026","","test_inventory_driven","",""
+"PUT /admin/products/{id}/off
+
+HTTP=401；error.code=UNAUTHORIZED；响应不含业务数据且不泄露内部堆栈","0","管理员商品下架_未带Token_拒绝访问","tests.contract","Tue Oct 06 16:17:05 CST 2026","skipped","Tue Oct 06 16:17:05 CST 2026","","test_inventory_driven","",""
+"PUT /admin/products/{id}/on
+
+HTTP=200；code=0；回查 GET /admin/products/{id} 校验 data.status 为 ON","0","管理员商品上架_典型请求_修改成功","tests.contract","Tue Oct 06 16:17:05 CST 2026","skipped","Tue Oct 06 16:17:05 CST 2026","","test_inventory_driven","",""
+"GET /admin/site/brand
+
+HTTP=200；code=0；data 为对象或数组且非空","59","管理员获取站点品牌_典型请求_查询成功","tests.contract","Tue Oct 06 16:17:06 CST 2026","passed","Tue Oct 06 16:17:06 CST 2026","","test_inventory_driven","",""
+"POST /admin/users
+
+HTTP=200；code=CONFLICT；回查列表校验本次唯一键仅一条记录","95","管理员创建用户_重复提交_提示已存在","tests.contract","Tue Oct 06 16:17:07 CST 2026","failed","Tue Oct 06 16:17:07 CST 2026","","test_inventory_driven","",""
+"DELETE /admin/categories/{id}
+
+HTTP=404；error.code=NOT_FOUND（实测：省略末段路径参数后路由未命中，由 NoResourceFoundException 映射）","512","管理员删除类目_缺少路径参数id_提示资源不存在","tests.contract","Tue Oct 06 16:15:18 CST 2026","passed","Tue Oct 06 16:15:18 CST 2026","","test_inventory_driven","",""
+"PUT /admin/dict-items/{id}
+
+HTTP=200；code=0；回查 GET /admin/dict-items?page=1&size=20 校验目标记录的字段值与首次提交的值一致","2","管理员更新字典项_重复提交_结果一致","tests.contract","Tue Oct 06 16:16:40 CST 2026","broken","Tue Oct 06 16:16:40 CST 2026","","test_inventory_driven","",""
+"POST /api/payment/sandbox
+
+HTTP=200；code=0；data.status 为 PENDING_SHIP；回查 GET /api/payment/{orderId}/status 校验 data.status 为 PAID 且 tradeNo 非空","46","沙箱支付_待支付订单_订单转为待发货并写入流水","tests.contract","Tue Oct 06 16:17:18 CST 2026","skipped","Tue Oct 06 16:17:18 CST 2026","","test_inventory_driven","",""
+"PUT /admin/site/brand
+
+HTTP=200；code=0；回查 GET /api/site/brand 校验 data.name 等于本次提交值","0","管理员修改站点品牌_提交新名称_前台读取同步更新","tests.contract","Tue Oct 06 16:17:20 CST 2026","skipped","Tue Oct 06 16:17:20 CST 2026","","test_inventory_driven","",""
+"PUT /admin/dict-items/{id}
+
+HTTP=404；error.code=NOT_FOUND（实测：省略末段路径参数后路由未命中，由 NoResourceFoundException 映射）","1","管理员更新字典项_缺少路径参数id_提示资源不存在","tests.contract","Tue Oct 06 16:16:39 CST 2026","broken","Tue Oct 06 16:16:39 CST 2026","","test_inventory_driven","",""
+"GET /admin/home/slots/{code}
+
+HTTP=200；code=0；回查 GET /admin/home/slots/{code} 校验 data 为对象且非空","88","管理员运营位详情_典型请求_查询成功","tests.contract","Tue Oct 06 16:16:43 CST 2026","passed","Tue Oct 06 16:16:43 CST 2026","","test_inventory_driven","",""
+"PUT /admin/stocks/adjust
+
+HTTP=200；code=BAD_REQUEST；回查 GET /admin/stocks 校验该 SKU 的 physical_stock 与 locked_stock 未变化","0","管理员调整库存_调整后物理库存低于锁定库存_提示参数错误","tests.contract","Tue Oct 06 16:17:17 CST 2026","skipped","Tue Oct 06 16:17:17 CST 2026","","test_inventory_driven","",""
+"GET /admin/operation-logs/{id}
+
+HTTP=404；error.code=NOT_FOUND（实测：省略末段路径参数后路由未命中，由 NoResourceFoundException 映射）","157","管理员操作日志详情_缺少路径参数id_提示资源不存在","tests.contract","Tue Oct 06 16:16:50 CST 2026","passed","Tue Oct 06 16:16:50 CST 2026","","test_inventory_driven","",""
+"POST /api/cart/items
+
+HTTP=200；code=0；回查 GET /api/cart 校验 data.items 中该规格 quantity 等于 2","62","加入购物车_同规格重复加购_数量累加","tests.contract","Tue Oct 06 16:17:17 CST 2026","passed","Tue Oct 06 16:17:17 CST 2026","","test_inventory_driven","",""
+"POST /api/files/presign
+
+HTTP=200；code=0；data.objectKey 与首次上传返回的对象键不同","0","文件预签名上传_重复提交_生成新对象键","tests.contract","Tue Oct 06 16:17:13 CST 2026","skipped","Tue Oct 06 16:17:13 CST 2026","","test_inventory_driven","",""
+"POST /admin/files/confirm
+
+HTTP=200；code=0；回查列表校验 data.total 比首次提交后增加 1","0","管理员确认上传完成_重复提交_生成独立业务记录","tests.contract","Tue Oct 06 16:16:43 CST 2026","skipped","Tue Oct 06 16:16:43 CST 2026","","test_inventory_driven","",""
+"POST /api/after-sales
+
+HTTP=401；error.code=UNAUTHORIZED；响应不含业务数据且不泄露内部堆栈","148","申请售后_未带Token_拒绝访问","tests.contract","Tue Oct 06 16:17:08 CST 2026","skipped","Tue Oct 06 16:17:08 CST 2026","","test_inventory_driven","",""
+"PUT /admin/system-configs/{id}
+
+HTTP=404；error.code=NOT_FOUND（实测：省略末段路径参数后路由未命中，由 NoResourceFoundException 映射）","0","管理员更新系统配置_缺少路径参数id_提示资源不存在","tests.contract","Tue Oct 06 16:17:06 CST 2026","skipped","Tue Oct 06 16:17:06 CST 2026","","test_inventory_driven","",""
+"DELETE /admin/brands/{id}
+
+HTTP=200；code=0；回查 GET /admin/brands?page=1&size=20 校验该记录已不在 data.records 中","1670","管理员删除品牌_重复删除_第二次不报错","tests.contract","Tue Oct 06 16:15:03 CST 2026","passed","Tue Oct 06 16:15:04 CST 2026","","test_inventory_driven","",""
+"GET /admin/permissions/tree
+
+HTTP=401；error.code=UNAUTHORIZED；响应不含业务数据且不泄露内部堆栈","335","管理员权限树_未带Token_拒绝访问","tests.contract","Tue Oct 06 16:16:55 CST 2026","passed","Tue Oct 06 16:16:56 CST 2026","","test_inventory_driven","",""
+"GET /admin/dict-items
+
+HTTP=200；code=0；data 为对象或数组且非空","642","管理员查询字典项_典型请求_查询成功","tests.contract","Tue Oct 06 16:15:39 CST 2026","passed","Tue Oct 06 16:15:40 CST 2026","","test_inventory_driven","",""
+"DELETE /admin/users/{id}
+
+HTTP=200；code=CONFLICT；回查 GET /admin/users?page=1&size=20 校验 admin 账号仍存在","95","管理员删除超管账号_超管账号_提示状态不允许","tests.contract","Tue Oct 06 16:17:19 CST 2026","skipped","Tue Oct 06 16:17:19 CST 2026","","test_inventory_driven","",""
+"GET /api/products/{spuId}/reviews
+
+HTTP=200；code=0；data.total 非空且 data.records 为数组","42","商品评价列表_典型请求_查询成功","tests.contract","Tue Oct 06 16:17:16 CST 2026","passed","Tue Oct 06 16:17:16 CST 2026","","test_inventory_driven","",""
+"GET /api/orders
+
+HTTP=401；error.code=UNAUTHORIZED；响应不含业务数据且不泄露内部堆栈","54","我的订单列表_未带Token_拒绝访问","tests.contract","Tue Oct 06 16:17:14 CST 2026","passed","Tue Oct 06 16:17:14 CST 2026","","test_inventory_driven","",""
+"PUT /admin/brands/{id}
+
+HTTP=200；code=0；回查 GET /admin/brands?page=1&size=20 校验目标记录 status 等于本次提交的状态值","2045","管理员更新品牌_典型请求_修改成功","tests.contract","Tue Oct 06 16:15:04 CST 2026","passed","Tue Oct 06 16:15:07 CST 2026","","test_inventory_driven","",""
+"PUT /admin/products/batch-off
+
+HTTP=401；error.code=UNAUTHORIZED；响应不含业务数据且不泄露内部堆栈","0","管理员批量下架_未带Token_拒绝访问","tests.contract","Tue Oct 06 16:17:04 CST 2026","skipped","Tue Oct 06 16:17:04 CST 2026","","test_inventory_driven","",""
+"GET /admin/operation-logs
+
+HTTP=401；error.code=UNAUTHORIZED；响应不含业务数据且不泄露内部堆栈","133","管理员分页查询操作日志_未带Token_拒绝访问","tests.contract","Tue Oct 06 16:16:44 CST 2026","passed","Tue Oct 06 16:16:44 CST 2026","","test_inventory_driven","",""
+"POST /api/reviews
+
+HTTP=200；code=ORDER_STATUS_INVALID；回查 GET /api/products/{spuId}/reviews 校验未新增评价","0","发表评价_未完成订单_提示订单状态不允许","tests.contract","Tue Oct 06 16:17:19 CST 2026","skipped","Tue Oct 06 16:17:19 CST 2026","","test_inventory_driven","",""
+"POST /api/files/presign
+
+HTTP=200；code=0；data.objectKey 非空；回查 GET /api/me 校验头像字段指向本次上传的对象键","0","会员上传头像_两步式上传_资料返回头像对象键","tests.contract","Tue Oct 06 16:17:17 CST 2026","skipped","Tue Oct 06 16:17:17 CST 2026","","test_inventory_driven","",""
+"POST /api/auth/sms/send
+
+HTTP=200；code=0；data.cooldownSec 为数字且大于 0","70","发送验证码_典型请求_发送成功","tests.contract","Tue Oct 06 16:17:10 CST 2026","passed","Tue Oct 06 16:17:11 CST 2026","","test_inventory_driven","",""
+"GET /api/products/{spuId}
+
+HTTP=404；error.code=NOT_FOUND（实测：省略末段路径参数后路由未命中，由 NoResourceFoundException 映射）","44","商品详情_缺少路径参数spuId_提示资源不存在","tests.contract","Tue Oct 06 16:17:16 CST 2026","passed","Tue Oct 06 16:17:16 CST 2026","","test_inventory_driven","",""
+"GET /api/products
+
+HTTP=200；code=0；data.total 非空且 data.records 为数组","83","商品列表_典型请求_查询成功","tests.contract","Tue Oct 06 16:17:16 CST 2026","passed","Tue Oct 06 16:17:16 CST 2026","","test_inventory_driven","",""
+"GET /api/after-sales/{id}
+
+HTTP=401；error.code=UNAUTHORIZED；响应不含业务数据且不泄露内部堆栈","55","售后详情_未带Token_拒绝访问","tests.contract","Tue Oct 06 16:17:08 CST 2026","passed","Tue Oct 06 16:17:09 CST 2026","","test_inventory_driven","",""
+"PUT /admin/categories/{id}
+
+HTTP=404；error.code=NOT_FOUND（实测：省略末段路径参数后路由未命中，由 NoResourceFoundException 映射）","249","管理员更新类目_缺少路径参数id_提示资源不存在","tests.contract","Tue Oct 06 16:15:21 CST 2026","passed","Tue Oct 06 16:15:21 CST 2026","","test_inventory_driven","",""
+"DELETE /admin/categories/{id}
+
+HTTP=200；code=0；回查 GET /admin/categories 校验该记录已不在 data.records 中","2751","管理员删除类目_典型请求_删除成功","tests.contract","Tue Oct 06 16:15:13 CST 2026","passed","Tue Oct 06 16:15:16 CST 2026","","test_inventory_driven","",""
+"PUT /admin/reviews/{id}/status
+
+HTTP=200；code=0；回查 GET /admin/reviews?page=1&size=20 校验目标记录 status 等于本次提交的状态值","0","管理员隐藏/恢复评价_典型请求_修改成功","tests.contract","Tue Oct 06 16:17:05 CST 2026","skipped","Tue Oct 06 16:17:05 CST 2026","","test_inventory_driven","",""
+"POST /api/cart/items
+
+HTTP=401；error.code=UNAUTHORIZED；响应不含业务数据且不泄露内部堆栈","63","加入购物车_未带Token_拒绝访问","tests.contract","Tue Oct 06 16:17:12 CST 2026","passed","Tue Oct 06 16:17:12 CST 2026","","test_inventory_driven","",""
+"PUT /admin/products/{id}/on
+
+HTTP=200；code=BAD_REQUEST；回查 GET /admin/products/{id} 校验 status 仍为 DRAFT","0","管理员上架商品_缺少可售规格_提示参数错误","tests.contract","Tue Oct 06 16:17:19 CST 2026","skipped","Tue Oct 06 16:17:19 CST 2026","","test_inventory_driven","",""

@@ -1,0 +1,1 @@
+HTTP=200；code=0；回查 GET /api/favorites 校验该商品在 data 列表中仅出现一次

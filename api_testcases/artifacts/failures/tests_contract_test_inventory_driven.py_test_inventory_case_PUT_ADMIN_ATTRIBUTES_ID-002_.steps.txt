@@ -1,0 +1,4 @@
+1. 执行 pytest 用例：tests/contract/test_inventory_driven.py::test_inventory_case[PUT_ADMIN_ATTRIBUTES_ID-002]
+2. 记录请求方法、脱敏请求头、URL、请求体和响应体
+3. 对照用例预期断言；失败原因为：E   NameError: name 'method' is not defined
+4. 将 JSON 证据和 PNG 证据上传至禅道 Bug 附件

@@ -1,0 +1,11 @@
+{
+ "url": "http://127.0.0.1:8086/api/orders/2107347521234735106/logistics",
+ "method": "GET",
+ "http": 200,
+ "body": {
+  "code": 0,
+  "data": [],
+  "msg": "success",
+  "traceId": "545aa683c9134d0284e70dae349feedb"
+ }
+}

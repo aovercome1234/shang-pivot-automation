@@ -1,0 +1,14 @@
+{
+ "url": "http://111.170.33.2:60084/api/favorites",
+ "method": "GET",
+ "http": 200,
+ "body": {
+  "code": 0,
+  "data": {
+   "total": "3",
+   "records": []
+  },
+  "msg": "success",
+  "traceId": "f727ff8bba174f1e86f20af2d33aaf10"
+ }
+}

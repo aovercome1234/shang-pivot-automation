@@ -1,0 +1,8 @@
+{
+  "case_id": "tests/contract/test_inventory_driven.py::test_inventory_case[PUT_ADMIN_ATTRIBUTES_ID-004]",
+  "phase": "call",
+  "outcome": "failed",
+  "timestamp": "2026-10-06T05:49:07.806725+00:00",
+  "longrepr": "E   NameError: name 'method' is not defined",
+  "request_response": null
+}

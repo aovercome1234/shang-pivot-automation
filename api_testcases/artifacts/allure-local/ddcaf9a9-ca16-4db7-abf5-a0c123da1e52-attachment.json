@@ -1,0 +1,10 @@
+{
+ "url": null,
+ "method": "PUT",
+ "http": null,
+ "body": {
+  "code": 0,
+  "msg": "success",
+  "traceId": "7decc6f94d554293b249928b4de4ca5e"
+ }
+}

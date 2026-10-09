@@ -1,0 +1,10 @@
+{
+ "url": "http://111.170.33.2:60084/api/auth/refresh",
+ "method": "POST",
+ "http": 400,
+ "body": {
+  "code": 40000,
+  "msg": "must not be blank",
+  "traceId": "99b7431a277a436aa56a9274e95f698b"
+ }
+}

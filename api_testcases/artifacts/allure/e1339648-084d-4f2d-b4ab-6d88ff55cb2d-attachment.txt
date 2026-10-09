@@ -1,0 +1,1 @@
+HTTP=200；code=BAD_REQUEST；回查 GET /api/cart 校验该规格未新增记录

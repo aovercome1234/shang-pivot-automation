@@ -1,0 +1,84 @@
+{
+ "url": "http://127.0.0.1:8086/admin/categories/tree",
+ "method": "GET",
+ "http": 200,
+ "body": {
+  "code": 0,
+  "data": [
+   {
+    "children": [],
+    "id": "10",
+    "level": 1,
+    "name": "手机",
+    "parentId": "0",
+    "sort": 10,
+    "status": "ENABLED"
+   },
+   {
+    "children": [],
+    "id": "11",
+    "level": 1,
+    "name": "电脑/办公",
+    "parentId": "0",
+    "sort": 11,
+    "status": "ENABLED"
+   },
+   {
+    "children": [],
+    "id": "12",
+    "level": 1,
+    "name": "家电",
+    "parentId": "0",
+    "sort": 12,
+    "status": "ENABLED"
+   },
+   {
+    "children": [],
+    "id": "13",
+    "level": 1,
+    "name": "数码配件",
+    "parentId": "0",
+    "sort": 13,
+    "status": "ENABLED"
+   },
+   {
+    "children": [],
+    "id": "14",
+    "level": 1,
+    "name": "家居收纳",
+    "parentId": "0",
+    "sort": 14,
+    "status": "ENABLED"
+   },
+   {
+    "children": [],
+    "id": "15",
+    "level": 1,
+    "name": "美妆个护",
+    "parentId": "0",
+    "sort": 15,
+    "status": "ENABLED"
+   },
+   {
+    "children": [],
+    "id": "16",
+    "level": 1,
+    "name": "食品生鲜",
+    "parentId": "0",
+    "sort": 16,
+    "status": "ENABLED"
+   },
+   {
+    "children": [],
+    "id": "17",
+    "level": 1,
+    "name": "运动户外",
+    "parentId": "0",
+    "sort": 17,
+    "status": "ENABLED"
+   }
+  ],
+  "msg": "success",
+  "traceId": "82d54d74e7ff4a2fa8ec971822cd472a"
+ }
+}

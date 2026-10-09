@@ -1,0 +1,10 @@
+{
+ "url": "http://127.0.0.1:8086/admin/orders/2107347521234735106/ship",
+ "method": "POST",
+ "http": 200,
+ "body": {
+  "code": 40902,
+  "msg": "订单状态不允许",
+  "traceId": "b32f575029aa4ecd8c6fa747132af15d"
+ }
+}

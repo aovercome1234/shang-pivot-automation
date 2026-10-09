@@ -1,0 +1,1 @@
+HTTP=200；code=0；data.objectKey 非空且 data.uploadUrl 非空

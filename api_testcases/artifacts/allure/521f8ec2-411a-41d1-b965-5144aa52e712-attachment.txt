@@ -1,0 +1,1 @@
+HTTP=200；code=LOGIN_FAILED；响应 message 包含「验证码」且不回显手机号明文

@@ -1,0 +1,10 @@
+{
+ "url": "http://111.170.33.2:60085/admin/auth/refresh",
+ "method": "POST",
+ "http": 200,
+ "body": {
+  "code": 40103,
+  "msg": "Token无效",
+  "traceId": "47d307443e064e18aa59e1f80b9c1043"
+ }
+}

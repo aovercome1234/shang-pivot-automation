@@ -1,0 +1,10 @@
+{
+ "url": "http://111.170.33.2:60085/admin/users/",
+ "method": "GET",
+ "http": 404,
+ "body": {
+  "code": 40400,
+  "msg": "资源不存在",
+  "traceId": "7bf90d1bf29f4ce9a99fabf2d497f0e7"
+ }
+}

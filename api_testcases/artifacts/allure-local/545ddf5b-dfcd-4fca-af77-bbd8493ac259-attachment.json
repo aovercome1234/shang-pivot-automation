@@ -1,0 +1,10 @@
+{
+ "url": "http://127.0.0.1:8096/admin/products/2107341659854278657",
+ "method": "DELETE",
+ "http": 200,
+ "body": {
+  "code": 40400,
+  "msg": "商品不存在",
+  "traceId": "fcc33f7993064ab3a5e4cd0a5c4d1345"
+ }
+}

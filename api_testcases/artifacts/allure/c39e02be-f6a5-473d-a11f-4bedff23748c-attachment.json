@@ -1,0 +1,47 @@
+{
+ "url": "http://111.170.33.2:60084/api/after-sales",
+ "method": "GET",
+ "http": 200,
+ "body": {
+  "code": 0,
+  "data": {
+   "total": "2",
+   "records": [
+    {
+     "afterSaleNo": "AS202609140101",
+     "createdAt": "2026-10-03T23:44:56.613177+08:00",
+     "customerId": "9001",
+     "deleted": false,
+     "evidencePics": [
+      "/admin/files/view?objectKey=PRODUCT%2Fseed%2Fproduct_62.jpg"
+     ],
+     "id": "101",
+     "orderId": "104",
+     "reason": "七天无理由（演示）",
+     "refundAmount": 1999.0,
+     "status": "PENDING_AUDIT",
+     "type": "REFUND",
+     "updatedAt": "2026-10-03T23:44:56.613177+08:00"
+    },
+    {
+     "afterSaleNo": "AS202609130001",
+     "createdAt": "2026-10-03T23:44:55.805432+08:00",
+     "customerId": "9001",
+     "deleted": false,
+     "evidencePics": [
+      "demo/aftersale/evidence-1.jpg"
+     ],
+     "id": "1",
+     "orderId": "1",
+     "reason": "不想要了（演示）",
+     "refundAmount": 2999.0,
+     "status": "PENDING_AUDIT",
+     "type": "REFUND",
+     "updatedAt": "2026-10-03T23:44:55.805432+08:00"
+    }
+   ]
+  },
+  "msg": "success",
+  "traceId": "ac3be4e9eb534cac9347946a115b2683"
+ }
+}

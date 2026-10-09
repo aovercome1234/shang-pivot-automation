@@ -1,0 +1,14 @@
+{
+ "url": "http://127.0.0.1:8086/admin/stocks",
+ "method": "GET",
+ "http": 200,
+ "body": {
+  "code": 0,
+  "data": {
+   "total": "48",
+   "records": []
+  },
+  "msg": "success",
+  "traceId": "9ba2e22e35954682acdd8e79df1668a0"
+ }
+}

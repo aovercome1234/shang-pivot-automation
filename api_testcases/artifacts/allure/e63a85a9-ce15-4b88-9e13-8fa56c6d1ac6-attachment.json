@@ -1,0 +1,41 @@
+{
+ "url": "http://111.170.33.2:60084/api/favorites",
+ "method": "GET",
+ "http": 200,
+ "body": {
+  "code": 0,
+  "data": {
+   "total": "3",
+   "records": [
+    {
+     "soldCount": "0",
+     "priceMax": 619.0,
+     "price": 599.0,
+     "subtitle": "三季适用，搭建方便",
+     "name": "双人帐篷 防雨款",
+     "spuId": "246",
+     "pic": "/admin/files/view?objectKey=PRODUCT%2Fseed%2Fproduct_146.jpg"
+    },
+    {
+     "soldCount": "1560",
+     "price": 1999.0,
+     "subtitle": "主动降噪",
+     "name": "AirPods Pro 2",
+     "spuId": "162",
+     "pic": "/admin/files/view?objectKey=PRODUCT%2Fseed%2Fproduct_62.jpg"
+    },
+    {
+     "soldCount": "1280",
+     "priceMax": 10999.0,
+     "price": 7999.0,
+     "subtitle": "A17 Pro 芯片，旗舰性能",
+     "name": "iPhone 15 Pro 128G",
+     "spuId": "101",
+     "pic": "/admin/files/view?objectKey=PRODUCT%2Fseed%2Fproduct_1.jpg"
+    }
+   ]
+  },
+  "msg": "success",
+  "traceId": "80440a274a9d4bd395c136f8549418a9"
+ }
+}

@@ -1,0 +1,1 @@
+HTTP=200；code=0；回查 GET /api/payment/{orderId}/status 校验 data 为对象且非空

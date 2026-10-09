@@ -1,0 +1,8 @@
+{
+ "url": "http://111.170.33.2:60085/admin/operation-logs/export",
+ "method": "GET",
+ "http": 200,
+ "body": {
+  "_raw": "﻿用户,模块,操作,参数,IP,结果,时间,TraceId,User-Agent\nadmin,stock,io,\"{\"\"req\"\":{\"\"type\"\":\"\"PURCHASE_IN\"\",\"\"warehouseId\"\":1,\"\"remark\"\":\"\"自动化测试备注\"\",\"\"items\"\":[{\"\"skuId\"\":248,\"\"qty\"\":2}]}}\",120.244.61.127,FAIL,2026-1"
+ }
+}

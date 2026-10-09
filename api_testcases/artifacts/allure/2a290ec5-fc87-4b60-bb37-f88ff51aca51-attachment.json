@@ -1,0 +1,90 @@
+{
+ "url": "http://111.170.33.2:60085/admin/operation-logs",
+ "method": "GET",
+ "http": 200,
+ "body": {
+  "code": 0,
+  "data": {
+   "total": "2351",
+   "records": [
+    {
+     "action": "delete",
+     "createdAt": "2026-10-06T17:03:46.037934+08:00",
+     "deleted": false,
+     "id": "2107396383583043586",
+     "ip": "120.244.61.127",
+     "module": "dict",
+     "params": "{\"id\":2107396382043734017}",
+     "result": "SUCCESS",
+     "traceId": "e921b97d92ce4e4490e90f6367ba8311",
+     "ua": "python-requests/2.32.5",
+     "updatedAt": "2026-10-06T17:03:46.037934+08:00",
+     "userId": "1",
+     "username": "admin"
+    },
+    {
+     "action": "update",
+     "createdAt": "2026-10-06T17:03:45.890222+08:00",
+     "deleted": false,
+     "id": "2107396382974869506",
+     "ip": "120.244.61.127",
+     "module": "dict",
+     "params": "{\"id\":2107396382043734017,\"patch\":{\"code\":\"AUTOTEST\",\"name\":\"自动化测试名称\",\"remark\":\"自动化测试备注\"}}",
+     "result": "SUCCESS",
+     "traceId": "04eab1db4bab48f299980da4db0495a4",
+     "ua": "python-requests/2.32.5",
+     "updatedAt": "2026-10-06T17:03:45.890222+08:00",
+     "userId": "1",
+     "username": "admin"
+    },
+    {
+     "action": "update",
+     "createdAt": "2026-10-06T17:03:45.803371+08:00",
+     "deleted": false,
+     "id": "2107396382609965057",
+     "ip": "120.244.61.127",
+     "module": "dict",
+     "params": "{\"id\":2107396382043734017,\"patch\":{\"code\":\"AUTOTEST\",\"name\":\"自动化测试名称\",\"remark\":\"自动化测试备注\"}}",
+     "result": "SUCCESS",
+     "traceId": "f62a62942d2c440b96aba2bc438a386a",
+     "ua": "python-requests/2.32.5",
+     "updatedAt": "2026-10-06T17:03:45.803371+08:00",
+     "userId": "1",
+     "username": "admin"
+    },
+    {
+     "action": "create",
+     "createdAt": "2026-10-06T17:03:45.68627+08:00",
+     "deleted": false,
+     "id": "2107396382119231490",
+     "ip": "120.244.61.127",
+     "module": "dict",
+     "params": "{\"dict\":{\"code\":\"AUTOTEST\",\"name\":\"自动化测试名称\",\"remark\":\"自动化测试备注\",\"id\":2107396382043734017,\"createdAt\":1791277425668,\"updatedAt\":1791277425668}}",
+     "result": "SUCCESS",
+     "traceId": "028857109d57441285970595e3c082ff",
+     "ua": "python-requests/2.32.5",
+     "updatedAt": "2026-10-06T17:03:45.68627+08:00",
+     "userId": "1",
+     "username": "admin"
+    },
+    {
+     "action": "delete",
+     "createdAt": "2026-10-06T17:03:45.462721+08:00",
+     "deleted": false,
+     "id": "2107396381183901698",
+     "ip": "120.244.61.127",
+     "module": "dict",
+     "params": "{\"id\":2107396380470870017}",
+     "result": "SUCCESS",
+     "traceId": "5ca22f842f30498c86151b2c420bdb3b",
+     "ua": "python-requests/2.32.5",
+     "updatedAt": "2026-10-06T17:03:45.462721+08:00",
+     "userId": "1",
+     "username": "admin"
+    }
+   ]
+  },
+  "msg": "success",
+  "traceId": "fe0de17957bd4824b9bd190aaf4758ff"
+ }
+}

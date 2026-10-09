@@ -1,0 +1,1 @@
+HTTP=200；code=CUSTOMER_FROZEN；响应 message 包含「不可用」

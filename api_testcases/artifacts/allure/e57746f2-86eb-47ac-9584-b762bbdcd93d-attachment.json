@@ -1,0 +1,10 @@
+{
+ "url": "http://111.170.33.2:60084/api/orders/104",
+ "method": "GET",
+ "http": 401,
+ "body": {
+  "code": 40100,
+  "msg": "未认证",
+  "traceId": "c6b7bdc695d642d5ac3765d3906913d0"
+ }
+}

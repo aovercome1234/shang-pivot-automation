@@ -1,0 +1,10 @@
+{
+ "url": "http://127.0.0.1:8086/api/after-sales",
+ "method": "GET",
+ "http": 401,
+ "body": {
+  "code": 40100,
+  "msg": "未认证",
+  "traceId": "b2d8b517b90142e6a689c953c035c68c"
+ }
+}

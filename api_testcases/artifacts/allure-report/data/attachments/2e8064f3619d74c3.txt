@@ -1,0 +1,1 @@
+HTTP=200；code=0；两次响应的 data.orderNo 相同；回查 GET /api/orders 校验 data.total 未因第二次提交而增加

@@ -1,0 +1,10 @@
+{
+ "url": "http://111.170.33.2:60084/api/auth/login",
+ "method": "POST",
+ "http": 400,
+ "body": {
+  "code": 40000,
+  "msg": "must not be blank",
+  "traceId": "3d61f6d5fc6246dab41d3e3c275a2259"
+ }
+}

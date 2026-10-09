@@ -1,0 +1,22 @@
+{
+ "url": "http://127.0.0.1:8086/api/auth/login",
+ "method": "POST",
+ "http": 200,
+ "body": {
+  "code": 0,
+  "data": {
+   "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjkwMDEsImNsaWVudFR5cGUiOiJ3ZWIiLCJ1bmFtZSI6IjEzODAwMDAwMDAxIiwidG9rZW5UeXBlIjoiYWNjZXNzIiwiZXhwIjoxNzkxMjgzMDgzLCJpYXQiOjE3OTEyODIxODMsImp0aSI6ImVkN2I1YzBhZjNhZDQ1YjhhYmE4MDdlOWNmNTQzMmQ0In0.Krx66awG84pn3NYa8SdW-smgsuhjlO_EoZiCP-Yd4KA",
+   "customer": {
+    "avatar": "PRODUCT/seed/product_1.jpg",
+    "id": "9001",
+    "nickname": "张三",
+    "phone": "138****0001",
+    "status": "NORMAL"
+   },
+   "expiresIn": "900",
+   "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjkwMDEsImNsaWVudFR5cGUiOiJ3ZWIiLCJ1bmFtZSI6IjEzODAwMDAwMDAxIiwidG9rZW5UeXBlIjoicmVmcmVzaCIsImV4cCI6MTc5MTg4Njk4MywiaWF0IjoxNzkxMjgyMTgzLCJqdGkiOiIzOWFiMzU3M2NkMWY0NWNiYWMzZDJjNjUwMjJiOGRlYSJ9.sUP43tfoWkOdLMksxx4Ed7VovVngf6f4GD7XPatRm4g"
+  },
+  "msg": "success",
+  "traceId": "c14ff214c7de45048b140a71e27dc426"
+ }
+}

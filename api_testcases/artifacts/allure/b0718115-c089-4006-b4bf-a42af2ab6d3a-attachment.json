@@ -1,0 +1,10 @@
+{
+ "url": "http://127.0.0.1:8086/admin/users",
+ "method": "POST",
+ "http": 401,
+ "body": {
+  "code": 40100,
+  "msg": "未认证",
+  "traceId": "eb0026f0cd104c88bcd110f7f8ca7efb"
+ }
+}

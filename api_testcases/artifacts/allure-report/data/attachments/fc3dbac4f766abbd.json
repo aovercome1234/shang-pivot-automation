@@ -1,0 +1,10 @@
+{
+ "url": "http://111.170.33.2:60085/admin/system-configs",
+ "method": "GET",
+ "http": 401,
+ "body": {
+  "code": 40100,
+  "msg": "未认证",
+  "traceId": "e18cc81efe0b4aaf9cc961b46ba92e63"
+ }
+}

@@ -1,0 +1,90 @@
+{
+ "url": "http://111.170.33.2:60085/admin/operation-logs",
+ "method": "GET",
+ "http": 200,
+ "body": {
+  "code": 0,
+  "data": {
+   "total": "2161",
+   "records": [
+    {
+     "action": "io",
+     "createdAt": "2026-10-06T16:29:37.127496+08:00",
+     "deleted": false,
+     "id": "2107387789840023553",
+     "ip": "120.244.61.127",
+     "module": "stock",
+     "params": "{\"req\":{\"type\":\"PURCHASE_IN\",\"warehouseId\":1,\"remark\":\"自动化测试备注\",\"items\":[{\"skuId\":248,\"qty\":2}]}}",
+     "result": "FAIL",
+     "traceId": "b8ac28846559410d8f4fa13cd67b276e",
+     "ua": "python-requests/2.32.5",
+     "updatedAt": "2026-10-06T16:29:37.127496+08:00",
+     "userId": "1",
+     "username": "admin"
+    },
+    {
+     "action": "io",
+     "createdAt": "2026-10-06T16:29:37.077471+08:00",
+     "deleted": false,
+     "id": "2107387789634502658",
+     "ip": "120.244.61.127",
+     "module": "stock",
+     "params": "{\"req\":{\"type\":\"PURCHASE_IN\",\"warehouseId\":1,\"remark\":\"自动化测试备注\",\"items\":[{\"skuId\":248,\"qty\":2}]}}",
+     "result": "FAIL",
+     "traceId": "5684c0dd6bd74b2fb172af4ea4fcc6b6",
+     "ua": "python-requests/2.32.5",
+     "updatedAt": "2026-10-06T16:29:37.077471+08:00",
+     "userId": "1",
+     "username": "admin"
+    },
+    {
+     "action": "io",
+     "createdAt": "2026-10-06T16:29:36.944807+08:00",
+     "deleted": false,
+     "id": "2107387789076660226",
+     "ip": "120.244.61.127",
+     "module": "stock",
+     "params": "{\"req\":{\"type\":\"PURCHASE_IN\",\"warehouseId\":1,\"remark\":\"自动化测试备注\",\"items\":[{\"skuId\":248,\"qty\":2}]}}",
+     "result": "FAIL",
+     "traceId": "4ce9d34ed60c4acfa03e111b686c630b",
+     "ua": "python-requests/2.32.5",
+     "updatedAt": "2026-10-06T16:29:36.944807+08:00",
+     "userId": "1",
+     "username": "admin"
+    },
+    {
+     "action": "delete",
+     "createdAt": "2026-10-06T16:29:36.290106+08:00",
+     "deleted": false,
+     "id": "2107387786329391105",
+     "ip": "120.244.61.127",
+     "module": "dict",
+     "params": "{\"id\":2107387785691856897}",
+     "result": "SUCCESS",
+     "traceId": "341c87437cf54051ae15854b0a151d48",
+     "ua": "python-requests/2.32.5",
+     "updatedAt": "2026-10-06T16:29:36.290106+08:00",
+     "userId": "1",
+     "username": "admin"
+    },
+    {
+     "action": "update",
+     "createdAt": "2026-10-06T16:29:36.242421+08:00",
+     "deleted": false,
+     "id": "2107387786128064513",
+     "ip": "120.244.61.127",
+     "module": "dict",
+     "params": "{\"id\":2107387785691856897,\"patch\":{\"code\":\"AUTOTEST\",\"name\":\"自动化测试名称\",\"remark\":\"自动化测试备注\"}}",
+     "result": "SUCCESS",
+     "traceId": "854107b64bd94f9b861ad0e82fa15549",
+     "ua": "python-requests/2.32.5",
+     "updatedAt": "2026-10-06T16:29:36.242421+08:00",
+     "userId": "1",
+     "username": "admin"
+    }
+   ]
+  },
+  "msg": "success",
+  "traceId": "05ca572fd3224c3c99ed9258e1aee2de"
+ }
+}

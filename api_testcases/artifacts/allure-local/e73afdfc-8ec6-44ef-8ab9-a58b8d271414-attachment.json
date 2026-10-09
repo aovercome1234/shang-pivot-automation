@@ -1,0 +1,10 @@
+{
+ "url": "http://127.0.0.1:8096/admin/brands",
+ "method": "POST",
+ "http": 200,
+ "body": {
+  "code": 40000,
+  "msg": "请填写品牌名称",
+  "traceId": "b614d909e4dd48509a74896ba027f7d6"
+ }
+}

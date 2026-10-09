@@ -1,0 +1,10 @@
+{
+ "url": "http://111.170.33.2:60084/api/auth/login",
+ "method": "POST",
+ "http": 200,
+ "body": {
+  "code": 40101,
+  "msg": "验证码错误或已过期",
+  "traceId": "3e6ce95d1b384e8da261636409f74a54"
+ }
+}

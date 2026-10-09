@@ -1,0 +1,8 @@
+{
+  "case_id": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_ADMIN_FILES_VIEW-001]",
+  "phase": "call",
+  "outcome": "failed",
+  "timestamp": "2026-10-06T05:49:09.480043+00:00",
+  "longrepr": "E   AssertionError: [GET_ADMIN_FILES_VIEW-001] 业务码期望 0 实际 40400｜文件不存在或无法读取\n    assert False",
+  "request_response": null
+}

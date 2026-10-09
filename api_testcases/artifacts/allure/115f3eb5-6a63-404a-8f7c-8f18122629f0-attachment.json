@@ -1,0 +1,10 @@
+{
+ "url": "http://127.0.0.1:8086/admin/operation-logs/2107416332920119298",
+ "method": "GET",
+ "http": 401,
+ "body": {
+  "code": 40100,
+  "msg": "未认证",
+  "traceId": "1c8cfb05a6ee413393524752d17e8112"
+ }
+}

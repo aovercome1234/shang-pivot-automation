@@ -1,0 +1,1 @@
+HTTP=200；code=0；data.orderNo 非空；回查 GET /admin/stocks 校验该 SKU 的 locked_stock 增加订单数量、可售数量相应减少

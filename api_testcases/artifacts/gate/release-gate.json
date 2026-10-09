@@ -1,0 +1,55 @@
+{
+ "verdict": "FAIL",
+ "passed": 6,
+ "total": 8,
+ "checks": [
+  {
+   "id": "C1",
+   "name": "lint 离线 fail 0",
+   "pass": true,
+   "detail": "用例 474 条 | fail 0"
+  },
+  {
+   "id": "C2",
+   "name": "三件套对账 PASS",
+   "pass": true,
+   "detail": "接口差集 0 / 需求缺口 0 / 词典未登记 0"
+  },
+  {
+   "id": "C3",
+   "name": "失败 ⊆ 登记 ⊆ 失败（双向核对）",
+   "pass": true,
+   "detail": "失败 34 / 已登记 34 / 未登记 0"
+  },
+  {
+   "id": "C4",
+   "name": "xfail ⊆ 已登记",
+   "pass": true,
+   "detail": "本版无 pytest xfail 机制；等价判定为 C3（失败须登记）"
+  },
+  {
+   "id": "C5",
+   "name": "P0 跳过数 = 0",
+   "pass": false,
+   "detail": "P0 跳过 54 条"
+  },
+  {
+   "id": "C6",
+   "name": "评审 P0 覆盖 100%",
+   "pass": true,
+   "detail": "P0 评审 156/156"
+  },
+  {
+   "id": "C7",
+   "name": "缺陷全关闭",
+   "pass": false,
+   "detail": "未关闭缺陷 9 条：['22', '21', '20', '19', '18', '17']"
+  },
+  {
+   "id": "C8",
+   "name": "结果新鲜度 ≤ 48h 且与本次运行绑定",
+   "pass": true,
+   "detail": "run_id=20261006-182259-75507 龄 0.1h（阈值 48h）；与 junit 同批"
+  }
+ ]
+}

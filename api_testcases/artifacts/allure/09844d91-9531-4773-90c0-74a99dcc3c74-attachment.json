@@ -1,0 +1,10 @@
+{
+ "url": "http://127.0.0.1:8086/admin/attributes",
+ "method": "POST",
+ "http": 500,
+ "body": {
+  "code": 50000,
+  "msg": "系统异常",
+  "traceId": "bb1eb383ca0146a0ba09d073f38b1777"
+ }
+}

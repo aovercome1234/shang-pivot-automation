@@ -1,0 +1,10 @@
+{
+ "url": "http://127.0.0.1:8086/api/auth/login",
+ "method": "POST",
+ "http": 200,
+ "body": {
+  "code": 40310,
+  "msg": "账号不可用",
+  "traceId": "be5ef9d3780a40cabc3febd23f977977"
+ }
+}

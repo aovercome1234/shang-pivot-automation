@@ -1,0 +1,4277 @@
+{
+  "exit_status": 1,
+  "base_url": "http://127.0.0.1:8086",
+  "run_id": "20261006-182259-75507",
+  "started_at": "2026-10-06T18:22:59",
+  "finished_at": "2026-10-06T18:23:06",
+  "junit_xml": "/Users/imac/Desktop/电商自动化测试/shang-pivot-master/api_testcases/artifacts/junit.xml",
+  "junit_sha256": "945080303841d9b453720de78bbb6c9ce2339e2adf00579f6c6272603032d322",
+  "results": [
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_ADMIN_AFTER_SALES-001]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_ADMIN_AFTER_SALES-001"
+      ],
+      "duration_seconds": 0.012024416999999898,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_ADMIN_AFTER_SALES-002]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_ADMIN_AFTER_SALES-002"
+      ],
+      "duration_seconds": 0.003800542000000018,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_ADMIN_AFTER_SALES-005]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_ADMIN_AFTER_SALES-005"
+      ],
+      "duration_seconds": 0.014553750000000032,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_ADMIN_AFTER_SALES_ID-001]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_ADMIN_AFTER_SALES_ID-001"
+      ],
+      "duration_seconds": 0.020120833000000005,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_ADMIN_AFTER_SALES_ID-002]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_ADMIN_AFTER_SALES_ID-002"
+      ],
+      "duration_seconds": 0.0023770829999999465,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_ADMIN_AFTER_SALES_ID-003]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_ADMIN_AFTER_SALES_ID-003"
+      ],
+      "duration_seconds": 0.013538999999999968,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_ADMIN_AFTER_SALES_ID_AUDIT-001]",
+      "outcome": "failed",
+      "case_ids": [
+        "POST_ADMIN_AFTER_SALES_ID_AUDIT-001"
+      ],
+      "duration_seconds": 0.02043545899999999,
+      "evidence_json": "/Users/imac/Desktop/电商自动化测试/shang-pivot-master/api_testcases/artifacts/failures/tests_contract_test_inventory_driven.py_test_inventory_case_POST_ADMIN_AFTER_SALES_ID_AUDIT-001_.json"
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_ADMIN_AFTER_SALES_ID_AUDIT-002]",
+      "outcome": "passed",
+      "case_ids": [
+        "POST_ADMIN_AFTER_SALES_ID_AUDIT-002"
+      ],
+      "duration_seconds": 0.003748957999999969,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_ADMIN_AFTER_SALES_ID_AUDIT-003]",
+      "outcome": "passed",
+      "case_ids": [
+        "POST_ADMIN_AFTER_SALES_ID_AUDIT-003"
+      ],
+      "duration_seconds": 0.009544250000000032,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_ADMIN_AFTER_SALES_ID_AUDIT-004]",
+      "outcome": "passed",
+      "case_ids": [
+        "POST_ADMIN_AFTER_SALES_ID_AUDIT-004"
+      ],
+      "duration_seconds": 0.04826454200000008,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_ADMIN_ATTRIBUTES-001]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_ADMIN_ATTRIBUTES-001"
+      ],
+      "duration_seconds": 0.006724999999999981,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_ADMIN_ATTRIBUTES-002]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_ADMIN_ATTRIBUTES-002"
+      ],
+      "duration_seconds": 0.0019492500000000135,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_ADMIN_ATTRIBUTES-001]",
+      "outcome": "failed",
+      "case_ids": [
+        "POST_ADMIN_ATTRIBUTES-001"
+      ],
+      "duration_seconds": 0.01741949999999992,
+      "evidence_json": "/Users/imac/Desktop/电商自动化测试/shang-pivot-master/api_testcases/artifacts/failures/tests_contract_test_inventory_driven.py_test_inventory_case_POST_ADMIN_ATTRIBUTES-001_.json"
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_ADMIN_ATTRIBUTES-002]",
+      "outcome": "passed",
+      "case_ids": [
+        "POST_ADMIN_ATTRIBUTES-002"
+      ],
+      "duration_seconds": 0.0027759170000000166,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_ADMIN_ATTRIBUTES-003]",
+      "outcome": "passed",
+      "case_ids": [
+        "POST_ADMIN_ATTRIBUTES-003"
+      ],
+      "duration_seconds": 0.007251125000000025,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_ADMIN_ATTRIBUTES-004]",
+      "outcome": "failed",
+      "case_ids": [
+        "POST_ADMIN_ATTRIBUTES-004"
+      ],
+      "duration_seconds": 0.018131000000000008,
+      "evidence_json": "/Users/imac/Desktop/电商自动化测试/shang-pivot-master/api_testcases/artifacts/failures/tests_contract_test_inventory_driven.py_test_inventory_case_POST_ADMIN_ATTRIBUTES-004_.json"
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[DELETE_ADMIN_ATTRIBUTES_ID-001]",
+      "outcome": "skipped",
+      "case_ids": [
+        "DELETE_ADMIN_ATTRIBUTES_ID-001"
+      ],
+      "duration_seconds": 0.019908833999999986,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[DELETE_ADMIN_ATTRIBUTES_ID-002]",
+      "outcome": "skipped",
+      "case_ids": [
+        "DELETE_ADMIN_ATTRIBUTES_ID-002"
+      ],
+      "duration_seconds": 0.012843083000000033,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[DELETE_ADMIN_ATTRIBUTES_ID-003]",
+      "outcome": "passed",
+      "case_ids": [
+        "DELETE_ADMIN_ATTRIBUTES_ID-003"
+      ],
+      "duration_seconds": 0.008581292000000018,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[DELETE_ADMIN_ATTRIBUTES_ID-004]",
+      "outcome": "skipped",
+      "case_ids": [
+        "DELETE_ADMIN_ATTRIBUTES_ID-004"
+      ],
+      "duration_seconds": 0.00773112499999995,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[PUT_ADMIN_ATTRIBUTES_ID-001]",
+      "outcome": "skipped",
+      "case_ids": [
+        "PUT_ADMIN_ATTRIBUTES_ID-001"
+      ],
+      "duration_seconds": 0.010448790999999957,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[PUT_ADMIN_ATTRIBUTES_ID-002]",
+      "outcome": "skipped",
+      "case_ids": [
+        "PUT_ADMIN_ATTRIBUTES_ID-002"
+      ],
+      "duration_seconds": 0.006948667000000075,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[PUT_ADMIN_ATTRIBUTES_ID-003]",
+      "outcome": "passed",
+      "case_ids": [
+        "PUT_ADMIN_ATTRIBUTES_ID-003"
+      ],
+      "duration_seconds": 0.00544854199999989,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[PUT_ADMIN_ATTRIBUTES_ID-004]",
+      "outcome": "skipped",
+      "case_ids": [
+        "PUT_ADMIN_ATTRIBUTES_ID-004"
+      ],
+      "duration_seconds": 0.006436083999999953,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_ADMIN_AUTH_LOGIN-001]",
+      "outcome": "passed",
+      "case_ids": [
+        "POST_ADMIN_AUTH_LOGIN-001"
+      ],
+      "duration_seconds": 0.10332625000000006,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_ADMIN_AUTH_LOGIN-003]",
+      "outcome": "passed",
+      "case_ids": [
+        "POST_ADMIN_AUTH_LOGIN-003"
+      ],
+      "duration_seconds": 0.008382582999999943,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_ADMIN_AUTH_LOGIN-004]",
+      "outcome": "passed",
+      "case_ids": [
+        "POST_ADMIN_AUTH_LOGIN-004"
+      ],
+      "duration_seconds": 0.21806941699999993,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_ADMIN_AUTH_LOGOUT-001]",
+      "outcome": "passed",
+      "case_ids": [
+        "POST_ADMIN_AUTH_LOGOUT-001"
+      ],
+      "duration_seconds": 0.1320685829999999,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_ADMIN_AUTH_LOGOUT-002]",
+      "outcome": "passed",
+      "case_ids": [
+        "POST_ADMIN_AUTH_LOGOUT-002"
+      ],
+      "duration_seconds": 0.1592534160000001,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_ADMIN_AUTH_LOGOUT-004]",
+      "outcome": "passed",
+      "case_ids": [
+        "POST_ADMIN_AUTH_LOGOUT-004"
+      ],
+      "duration_seconds": 0.12009366600000004,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_ADMIN_AUTH_ME-001]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_ADMIN_AUTH_ME-001"
+      ],
+      "duration_seconds": 0.010579125000000023,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_ADMIN_AUTH_ME-002]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_ADMIN_AUTH_ME-002"
+      ],
+      "duration_seconds": 0.001606749999999879,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_ADMIN_AUTH_REFRESH-001]",
+      "outcome": "passed",
+      "case_ids": [
+        "POST_ADMIN_AUTH_REFRESH-001"
+      ],
+      "duration_seconds": 0.009235832999999971,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_ADMIN_AUTH_REFRESH-003]",
+      "outcome": "passed",
+      "case_ids": [
+        "POST_ADMIN_AUTH_REFRESH-003"
+      ],
+      "duration_seconds": 0.00678991700000009,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_ADMIN_AUTH_REFRESH-004]",
+      "outcome": "passed",
+      "case_ids": [
+        "POST_ADMIN_AUTH_REFRESH-004"
+      ],
+      "duration_seconds": 0.010314582999999988,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_ADMIN_BRANDS-001]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_ADMIN_BRANDS-001"
+      ],
+      "duration_seconds": 0.009934250000000144,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_ADMIN_BRANDS-002]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_ADMIN_BRANDS-002"
+      ],
+      "duration_seconds": 0.0019933340000000133,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_ADMIN_BRANDS-005]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_ADMIN_BRANDS-005"
+      ],
+      "duration_seconds": 0.011798415999999978,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_ADMIN_BRANDS-001]",
+      "outcome": "passed",
+      "case_ids": [
+        "POST_ADMIN_BRANDS-001"
+      ],
+      "duration_seconds": 0.025964917000000032,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_ADMIN_BRANDS-002]",
+      "outcome": "passed",
+      "case_ids": [
+        "POST_ADMIN_BRANDS-002"
+      ],
+      "duration_seconds": 0.0027085000000000026,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_ADMIN_BRANDS-003]",
+      "outcome": "passed",
+      "case_ids": [
+        "POST_ADMIN_BRANDS-003"
+      ],
+      "duration_seconds": 0.005490666000000033,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_ADMIN_BRANDS-004]",
+      "outcome": "passed",
+      "case_ids": [
+        "POST_ADMIN_BRANDS-004"
+      ],
+      "duration_seconds": 0.01974750000000003,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[DELETE_ADMIN_BRANDS_ID-001]",
+      "outcome": "passed",
+      "case_ids": [
+        "DELETE_ADMIN_BRANDS_ID-001"
+      ],
+      "duration_seconds": 0.03188320800000022,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[DELETE_ADMIN_BRANDS_ID-002]",
+      "outcome": "passed",
+      "case_ids": [
+        "DELETE_ADMIN_BRANDS_ID-002"
+      ],
+      "duration_seconds": 0.013044166000000024,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[DELETE_ADMIN_BRANDS_ID-003]",
+      "outcome": "passed",
+      "case_ids": [
+        "DELETE_ADMIN_BRANDS_ID-003"
+      ],
+      "duration_seconds": 0.005476833999999986,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[DELETE_ADMIN_BRANDS_ID-004]",
+      "outcome": "passed",
+      "case_ids": [
+        "DELETE_ADMIN_BRANDS_ID-004"
+      ],
+      "duration_seconds": 0.023995792000000016,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[PUT_ADMIN_BRANDS_ID-001]",
+      "outcome": "passed",
+      "case_ids": [
+        "PUT_ADMIN_BRANDS_ID-001"
+      ],
+      "duration_seconds": 0.021167166000000126,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[PUT_ADMIN_BRANDS_ID-002]",
+      "outcome": "passed",
+      "case_ids": [
+        "PUT_ADMIN_BRANDS_ID-002"
+      ],
+      "duration_seconds": 0.01108433299999989,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[PUT_ADMIN_BRANDS_ID-003]",
+      "outcome": "passed",
+      "case_ids": [
+        "PUT_ADMIN_BRANDS_ID-003"
+      ],
+      "duration_seconds": 0.004361832999999926,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[PUT_ADMIN_BRANDS_ID-004]",
+      "outcome": "passed",
+      "case_ids": [
+        "PUT_ADMIN_BRANDS_ID-004"
+      ],
+      "duration_seconds": 0.02542054199999999,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_ADMIN_CATEGORIES-001]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_ADMIN_CATEGORIES-001"
+      ],
+      "duration_seconds": 0.004536874999999885,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_ADMIN_CATEGORIES-002]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_ADMIN_CATEGORIES-002"
+      ],
+      "duration_seconds": 0.0014245410000000014,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_ADMIN_CATEGORIES-001]",
+      "outcome": "passed",
+      "case_ids": [
+        "POST_ADMIN_CATEGORIES-001"
+      ],
+      "duration_seconds": 0.018192250000000243,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_ADMIN_CATEGORIES-002]",
+      "outcome": "passed",
+      "case_ids": [
+        "POST_ADMIN_CATEGORIES-002"
+      ],
+      "duration_seconds": 0.0022552079999997865,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_ADMIN_CATEGORIES-003]",
+      "outcome": "passed",
+      "case_ids": [
+        "POST_ADMIN_CATEGORIES-003"
+      ],
+      "duration_seconds": 0.005342624999999934,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_ADMIN_CATEGORIES-004]",
+      "outcome": "passed",
+      "case_ids": [
+        "POST_ADMIN_CATEGORIES-004"
+      ],
+      "duration_seconds": 0.018527957999999956,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_ADMIN_CATEGORIES_TREE-001]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_ADMIN_CATEGORIES_TREE-001"
+      ],
+      "duration_seconds": 0.005920584000000062,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_ADMIN_CATEGORIES_TREE-002]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_ADMIN_CATEGORIES_TREE-002"
+      ],
+      "duration_seconds": 0.001676959000000089,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[DELETE_ADMIN_CATEGORIES_ID-001]",
+      "outcome": "passed",
+      "case_ids": [
+        "DELETE_ADMIN_CATEGORIES_ID-001"
+      ],
+      "duration_seconds": 0.024131082999999887,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[DELETE_ADMIN_CATEGORIES_ID-002]",
+      "outcome": "passed",
+      "case_ids": [
+        "DELETE_ADMIN_CATEGORIES_ID-002"
+      ],
+      "duration_seconds": 0.010905249999999977,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[DELETE_ADMIN_CATEGORIES_ID-003]",
+      "outcome": "passed",
+      "case_ids": [
+        "DELETE_ADMIN_CATEGORIES_ID-003"
+      ],
+      "duration_seconds": 0.0047292090000001785,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[DELETE_ADMIN_CATEGORIES_ID-004]",
+      "outcome": "passed",
+      "case_ids": [
+        "DELETE_ADMIN_CATEGORIES_ID-004"
+      ],
+      "duration_seconds": 0.02379637499999987,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[PUT_ADMIN_CATEGORIES_ID-001]",
+      "outcome": "passed",
+      "case_ids": [
+        "PUT_ADMIN_CATEGORIES_ID-001"
+      ],
+      "duration_seconds": 0.018919625000000106,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[PUT_ADMIN_CATEGORIES_ID-002]",
+      "outcome": "passed",
+      "case_ids": [
+        "PUT_ADMIN_CATEGORIES_ID-002"
+      ],
+      "duration_seconds": 0.013113624999999907,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[PUT_ADMIN_CATEGORIES_ID-003]",
+      "outcome": "passed",
+      "case_ids": [
+        "PUT_ADMIN_CATEGORIES_ID-003"
+      ],
+      "duration_seconds": 0.004230541000000088,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[PUT_ADMIN_CATEGORIES_ID-004]",
+      "outcome": "passed",
+      "case_ids": [
+        "PUT_ADMIN_CATEGORIES_ID-004"
+      ],
+      "duration_seconds": 0.02380504200000022,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_ADMIN_CUSTOMERS-001]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_ADMIN_CUSTOMERS-001"
+      ],
+      "duration_seconds": 0.005847000000000158,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_ADMIN_CUSTOMERS-002]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_ADMIN_CUSTOMERS-002"
+      ],
+      "duration_seconds": 0.0014176250000002,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_ADMIN_CUSTOMERS-005]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_ADMIN_CUSTOMERS-005"
+      ],
+      "duration_seconds": 0.01616387500000016,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_ADMIN_CUSTOMERS_ID-001]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_ADMIN_CUSTOMERS_ID-001"
+      ],
+      "duration_seconds": 0.019401917000000157,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_ADMIN_CUSTOMERS_ID-002]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_ADMIN_CUSTOMERS_ID-002"
+      ],
+      "duration_seconds": 0.0018134159999996236,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_ADMIN_CUSTOMERS_ID-003]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_ADMIN_CUSTOMERS_ID-003"
+      ],
+      "duration_seconds": 0.009842041999999829,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[PUT_ADMIN_CUSTOMERS_ID_STATUS-001]",
+      "outcome": "skipped",
+      "case_ids": [
+        "PUT_ADMIN_CUSTOMERS_ID_STATUS-001"
+      ],
+      "duration_seconds": 0.0001286249999998823,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[PUT_ADMIN_CUSTOMERS_ID_STATUS-002]",
+      "outcome": "skipped",
+      "case_ids": [
+        "PUT_ADMIN_CUSTOMERS_ID_STATUS-002"
+      ],
+      "duration_seconds": 0.00011833300000008151,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[PUT_ADMIN_CUSTOMERS_ID_STATUS-003]",
+      "outcome": "skipped",
+      "case_ids": [
+        "PUT_ADMIN_CUSTOMERS_ID_STATUS-003"
+      ],
+      "duration_seconds": 0.00012075000000022484,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[PUT_ADMIN_CUSTOMERS_ID_STATUS-004]",
+      "outcome": "skipped",
+      "case_ids": [
+        "PUT_ADMIN_CUSTOMERS_ID_STATUS-004"
+      ],
+      "duration_seconds": 0.00011229200000029138,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_ADMIN_DASHBOARD_STATS-001]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_ADMIN_DASHBOARD_STATS-001"
+      ],
+      "duration_seconds": 0.008607209000000005,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_ADMIN_DASHBOARD_STATS-002]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_ADMIN_DASHBOARD_STATS-002"
+      ],
+      "duration_seconds": 0.0014247499999999746,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_ADMIN_DEPTS-001]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_ADMIN_DEPTS-001"
+      ],
+      "duration_seconds": 0.004635332999999964,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_ADMIN_DEPTS-002]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_ADMIN_DEPTS-002"
+      ],
+      "duration_seconds": 0.0012566669999998226,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_ADMIN_DEPTS-001]",
+      "outcome": "passed",
+      "case_ids": [
+        "POST_ADMIN_DEPTS-001"
+      ],
+      "duration_seconds": 0.01475379099999996,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_ADMIN_DEPTS-002]",
+      "outcome": "passed",
+      "case_ids": [
+        "POST_ADMIN_DEPTS-002"
+      ],
+      "duration_seconds": 0.002510500000000082,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_ADMIN_DEPTS-003]",
+      "outcome": "passed",
+      "case_ids": [
+        "POST_ADMIN_DEPTS-003"
+      ],
+      "duration_seconds": 0.012601207999999975,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_ADMIN_DEPTS-004]",
+      "outcome": "passed",
+      "case_ids": [
+        "POST_ADMIN_DEPTS-004"
+      ],
+      "duration_seconds": 0.03330179099999997,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_ADMIN_DEPTS_TREE-001]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_ADMIN_DEPTS_TREE-001"
+      ],
+      "duration_seconds": 0.0067137910000001355,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_ADMIN_DEPTS_TREE-002]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_ADMIN_DEPTS_TREE-002"
+      ],
+      "duration_seconds": 0.00185550000000001,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[DELETE_ADMIN_DEPTS_ID-001]",
+      "outcome": "passed",
+      "case_ids": [
+        "DELETE_ADMIN_DEPTS_ID-001"
+      ],
+      "duration_seconds": 0.024413791999999823,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[DELETE_ADMIN_DEPTS_ID-002]",
+      "outcome": "passed",
+      "case_ids": [
+        "DELETE_ADMIN_DEPTS_ID-002"
+      ],
+      "duration_seconds": 0.011339458000000135,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[DELETE_ADMIN_DEPTS_ID-003]",
+      "outcome": "passed",
+      "case_ids": [
+        "DELETE_ADMIN_DEPTS_ID-003"
+      ],
+      "duration_seconds": 0.005920291999999883,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[DELETE_ADMIN_DEPTS_ID-004]",
+      "outcome": "passed",
+      "case_ids": [
+        "DELETE_ADMIN_DEPTS_ID-004"
+      ],
+      "duration_seconds": 0.023425666000000067,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[PUT_ADMIN_DEPTS_ID-001]",
+      "outcome": "passed",
+      "case_ids": [
+        "PUT_ADMIN_DEPTS_ID-001"
+      ],
+      "duration_seconds": 0.020250625000000078,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[PUT_ADMIN_DEPTS_ID-002]",
+      "outcome": "passed",
+      "case_ids": [
+        "PUT_ADMIN_DEPTS_ID-002"
+      ],
+      "duration_seconds": 0.013141582999999901,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[PUT_ADMIN_DEPTS_ID-003]",
+      "outcome": "passed",
+      "case_ids": [
+        "PUT_ADMIN_DEPTS_ID-003"
+      ],
+      "duration_seconds": 0.004848165999999932,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[PUT_ADMIN_DEPTS_ID-004]",
+      "outcome": "passed",
+      "case_ids": [
+        "PUT_ADMIN_DEPTS_ID-004"
+      ],
+      "duration_seconds": 0.03785545899999976,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_ADMIN_DICT_ITEMS-001]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_ADMIN_DICT_ITEMS-001"
+      ],
+      "duration_seconds": 0.010010332999999871,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_ADMIN_DICT_ITEMS-002]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_ADMIN_DICT_ITEMS-002"
+      ],
+      "duration_seconds": 0.0014081670000001267,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_ADMIN_DICT_ITEMS-003]",
+      "outcome": "failed",
+      "case_ids": [
+        "GET_ADMIN_DICT_ITEMS-003"
+      ],
+      "duration_seconds": 0.005040750000000038,
+      "evidence_json": "/Users/imac/Desktop/电商自动化测试/shang-pivot-master/api_testcases/artifacts/failures/tests_contract_test_inventory_driven.py_test_inventory_case_GET_ADMIN_DICT_ITEMS-003_.json"
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_ADMIN_DICT_ITEMS-001]",
+      "outcome": "failed",
+      "case_ids": [
+        "POST_ADMIN_DICT_ITEMS-001"
+      ],
+      "duration_seconds": 0.02047750000000015,
+      "evidence_json": "/Users/imac/Desktop/电商自动化测试/shang-pivot-master/api_testcases/artifacts/failures/tests_contract_test_inventory_driven.py_test_inventory_case_POST_ADMIN_DICT_ITEMS-001_.json"
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_ADMIN_DICT_ITEMS-002]",
+      "outcome": "passed",
+      "case_ids": [
+        "POST_ADMIN_DICT_ITEMS-002"
+      ],
+      "duration_seconds": 0.0027178330000001694,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_ADMIN_DICT_ITEMS-003]",
+      "outcome": "passed",
+      "case_ids": [
+        "POST_ADMIN_DICT_ITEMS-003"
+      ],
+      "duration_seconds": 0.006344249999999718,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_ADMIN_DICT_ITEMS-004]",
+      "outcome": "passed",
+      "case_ids": [
+        "POST_ADMIN_DICT_ITEMS-004"
+      ],
+      "duration_seconds": 0.016979332999999652,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_ADMIN_DICT_ITEMS_BY_CODE-001]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_ADMIN_DICT_ITEMS_BY_CODE-001"
+      ],
+      "duration_seconds": 0.004651125000000089,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_ADMIN_DICT_ITEMS_BY_CODE-002]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_ADMIN_DICT_ITEMS_BY_CODE-002"
+      ],
+      "duration_seconds": 0.0015257500000003255,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_ADMIN_DICT_ITEMS_BY_CODE-003]",
+      "outcome": "failed",
+      "case_ids": [
+        "GET_ADMIN_DICT_ITEMS_BY_CODE-003"
+      ],
+      "duration_seconds": 0.004722667000000236,
+      "evidence_json": "/Users/imac/Desktop/电商自动化测试/shang-pivot-master/api_testcases/artifacts/failures/tests_contract_test_inventory_driven.py_test_inventory_case_GET_ADMIN_DICT_ITEMS_BY_CODE-003_.json"
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[DELETE_ADMIN_DICT_ITEMS_ID-001]",
+      "outcome": "skipped",
+      "case_ids": [
+        "DELETE_ADMIN_DICT_ITEMS_ID-001"
+      ],
+      "duration_seconds": 0.015432708000000073,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[DELETE_ADMIN_DICT_ITEMS_ID-002]",
+      "outcome": "skipped",
+      "case_ids": [
+        "DELETE_ADMIN_DICT_ITEMS_ID-002"
+      ],
+      "duration_seconds": 0.016290999999999833,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[DELETE_ADMIN_DICT_ITEMS_ID-003]",
+      "outcome": "passed",
+      "case_ids": [
+        "DELETE_ADMIN_DICT_ITEMS_ID-003"
+      ],
+      "duration_seconds": 0.005657917000000179,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[DELETE_ADMIN_DICT_ITEMS_ID-004]",
+      "outcome": "skipped",
+      "case_ids": [
+        "DELETE_ADMIN_DICT_ITEMS_ID-004"
+      ],
+      "duration_seconds": 0.01574466699999988,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[PUT_ADMIN_DICT_ITEMS_ID-001]",
+      "outcome": "skipped",
+      "case_ids": [
+        "PUT_ADMIN_DICT_ITEMS_ID-001"
+      ],
+      "duration_seconds": 0.016806875000000332,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[PUT_ADMIN_DICT_ITEMS_ID-002]",
+      "outcome": "skipped",
+      "case_ids": [
+        "PUT_ADMIN_DICT_ITEMS_ID-002"
+      ],
+      "duration_seconds": 0.01312991600000002,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[PUT_ADMIN_DICT_ITEMS_ID-003]",
+      "outcome": "passed",
+      "case_ids": [
+        "PUT_ADMIN_DICT_ITEMS_ID-003"
+      ],
+      "duration_seconds": 0.0049542909999997775,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[PUT_ADMIN_DICT_ITEMS_ID-004]",
+      "outcome": "skipped",
+      "case_ids": [
+        "PUT_ADMIN_DICT_ITEMS_ID-004"
+      ],
+      "duration_seconds": 0.012503292000000332,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_ADMIN_DICTS-001]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_ADMIN_DICTS-001"
+      ],
+      "duration_seconds": 0.00698091699999992,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_ADMIN_DICTS-002]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_ADMIN_DICTS-002"
+      ],
+      "duration_seconds": 0.0019323330000000638,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_ADMIN_DICTS-005]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_ADMIN_DICTS-005"
+      ],
+      "duration_seconds": 0.012514165999999882,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_ADMIN_DICTS-001]",
+      "outcome": "passed",
+      "case_ids": [
+        "POST_ADMIN_DICTS-001"
+      ],
+      "duration_seconds": 0.030799124999999705,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_ADMIN_DICTS-002]",
+      "outcome": "passed",
+      "case_ids": [
+        "POST_ADMIN_DICTS-002"
+      ],
+      "duration_seconds": 0.0029634170000001347,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_ADMIN_DICTS-003]",
+      "outcome": "passed",
+      "case_ids": [
+        "POST_ADMIN_DICTS-003"
+      ],
+      "duration_seconds": 0.009754415999999821,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_ADMIN_DICTS-004]",
+      "outcome": "passed",
+      "case_ids": [
+        "POST_ADMIN_DICTS-004"
+      ],
+      "duration_seconds": 0.02066770799999995,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[DELETE_ADMIN_DICTS_ID-001]",
+      "outcome": "passed",
+      "case_ids": [
+        "DELETE_ADMIN_DICTS_ID-001"
+      ],
+      "duration_seconds": 0.027227750000000217,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[DELETE_ADMIN_DICTS_ID-002]",
+      "outcome": "passed",
+      "case_ids": [
+        "DELETE_ADMIN_DICTS_ID-002"
+      ],
+      "duration_seconds": 0.01780554099999998,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[DELETE_ADMIN_DICTS_ID-003]",
+      "outcome": "passed",
+      "case_ids": [
+        "DELETE_ADMIN_DICTS_ID-003"
+      ],
+      "duration_seconds": 0.007391832999999792,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[DELETE_ADMIN_DICTS_ID-004]",
+      "outcome": "passed",
+      "case_ids": [
+        "DELETE_ADMIN_DICTS_ID-004"
+      ],
+      "duration_seconds": 0.03612875000000004,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[PUT_ADMIN_DICTS_ID-001]",
+      "outcome": "passed",
+      "case_ids": [
+        "PUT_ADMIN_DICTS_ID-001"
+      ],
+      "duration_seconds": 0.03566041699999989,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[PUT_ADMIN_DICTS_ID-002]",
+      "outcome": "passed",
+      "case_ids": [
+        "PUT_ADMIN_DICTS_ID-002"
+      ],
+      "duration_seconds": 0.013066874999999811,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[PUT_ADMIN_DICTS_ID-003]",
+      "outcome": "passed",
+      "case_ids": [
+        "PUT_ADMIN_DICTS_ID-003"
+      ],
+      "duration_seconds": 0.006814875000000331,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[PUT_ADMIN_DICTS_ID-004]",
+      "outcome": "passed",
+      "case_ids": [
+        "PUT_ADMIN_DICTS_ID-004"
+      ],
+      "duration_seconds": 0.028014750000000088,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_ADMIN_FILES_CONFIRM-001]",
+      "outcome": "skipped",
+      "case_ids": [
+        "POST_ADMIN_FILES_CONFIRM-001"
+      ],
+      "duration_seconds": 0.00014225000000012145,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_ADMIN_FILES_CONFIRM-002]",
+      "outcome": "skipped",
+      "case_ids": [
+        "POST_ADMIN_FILES_CONFIRM-002"
+      ],
+      "duration_seconds": 0.00012845899999991417,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_ADMIN_FILES_CONFIRM-003]",
+      "outcome": "skipped",
+      "case_ids": [
+        "POST_ADMIN_FILES_CONFIRM-003"
+      ],
+      "duration_seconds": 0.0001180000000000625,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_ADMIN_FILES_CONFIRM-004]",
+      "outcome": "skipped",
+      "case_ids": [
+        "POST_ADMIN_FILES_CONFIRM-004"
+      ],
+      "duration_seconds": 0.00022362499999983854,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_ADMIN_FILES_PRESIGN-001]",
+      "outcome": "skipped",
+      "case_ids": [
+        "POST_ADMIN_FILES_PRESIGN-001"
+      ],
+      "duration_seconds": 0.00012870800000008842,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_ADMIN_FILES_PRESIGN-002]",
+      "outcome": "skipped",
+      "case_ids": [
+        "POST_ADMIN_FILES_PRESIGN-002"
+      ],
+      "duration_seconds": 0.00011979200000000745,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_ADMIN_FILES_PRESIGN-004]",
+      "outcome": "skipped",
+      "case_ids": [
+        "POST_ADMIN_FILES_PRESIGN-004"
+      ],
+      "duration_seconds": 0.0001190829999999643,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_ADMIN_FILES_UPLOAD-001]",
+      "outcome": "skipped",
+      "case_ids": [
+        "POST_ADMIN_FILES_UPLOAD-001"
+      ],
+      "duration_seconds": 0.00011791599999977365,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_ADMIN_FILES_UPLOAD-002]",
+      "outcome": "skipped",
+      "case_ids": [
+        "POST_ADMIN_FILES_UPLOAD-002"
+      ],
+      "duration_seconds": 0.00011916600000017041,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_ADMIN_FILES_UPLOAD-004]",
+      "outcome": "skipped",
+      "case_ids": [
+        "POST_ADMIN_FILES_UPLOAD-004"
+      ],
+      "duration_seconds": 0.00011554200000007953,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_ADMIN_FILES_VIEW-001]",
+      "outcome": "skipped",
+      "case_ids": [
+        "GET_ADMIN_FILES_VIEW-001"
+      ],
+      "duration_seconds": 0.0002036250000001516,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_ADMIN_FILES_VIEW-003]",
+      "outcome": "skipped",
+      "case_ids": [
+        "GET_ADMIN_FILES_VIEW-003"
+      ],
+      "duration_seconds": 0.0001177500000002496,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_ADMIN_HOME_SLOTS-001]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_ADMIN_HOME_SLOTS-001"
+      ],
+      "duration_seconds": 0.00867883299999983,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_ADMIN_HOME_SLOTS-002]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_ADMIN_HOME_SLOTS-002"
+      ],
+      "duration_seconds": 0.0016612499999997254,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_ADMIN_HOME_SLOTS_CODE-001]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_ADMIN_HOME_SLOTS_CODE-001"
+      ],
+      "duration_seconds": 0.016404207999999976,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_ADMIN_HOME_SLOTS_CODE-002]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_ADMIN_HOME_SLOTS_CODE-002"
+      ],
+      "duration_seconds": 0.0016547919999996274,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_ADMIN_HOME_SLOTS_CODE-003]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_ADMIN_HOME_SLOTS_CODE-003"
+      ],
+      "duration_seconds": 0.005376625000000246,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[PUT_ADMIN_HOME_SLOTS_CODE-001]",
+      "outcome": "skipped",
+      "case_ids": [
+        "PUT_ADMIN_HOME_SLOTS_CODE-001"
+      ],
+      "duration_seconds": 0.0001475840000000339,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[PUT_ADMIN_HOME_SLOTS_CODE-002]",
+      "outcome": "skipped",
+      "case_ids": [
+        "PUT_ADMIN_HOME_SLOTS_CODE-002"
+      ],
+      "duration_seconds": 0.00013191599999995418,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[PUT_ADMIN_HOME_SLOTS_CODE-003]",
+      "outcome": "skipped",
+      "case_ids": [
+        "PUT_ADMIN_HOME_SLOTS_CODE-003"
+      ],
+      "duration_seconds": 0.00012366699999999398,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[PUT_ADMIN_HOME_SLOTS_CODE-004]",
+      "outcome": "skipped",
+      "case_ids": [
+        "PUT_ADMIN_HOME_SLOTS_CODE-004"
+      ],
+      "duration_seconds": 0.00011833399999972016,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_ADMIN_IN_OUT-001]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_ADMIN_IN_OUT-001"
+      ],
+      "duration_seconds": 0.015037165999999935,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_ADMIN_IN_OUT-002]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_ADMIN_IN_OUT-002"
+      ],
+      "duration_seconds": 0.002030417000000284,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_ADMIN_IN_OUT-005]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_ADMIN_IN_OUT-005"
+      ],
+      "duration_seconds": 0.014634582999999868,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_ADMIN_IN_OUT-001]",
+      "outcome": "skipped",
+      "case_ids": [
+        "POST_ADMIN_IN_OUT-001"
+      ],
+      "duration_seconds": 0.016283708000000008,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_ADMIN_IN_OUT-002]",
+      "outcome": "skipped",
+      "case_ids": [
+        "POST_ADMIN_IN_OUT-002"
+      ],
+      "duration_seconds": 0.012270500000000073,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_ADMIN_IN_OUT-004]",
+      "outcome": "skipped",
+      "case_ids": [
+        "POST_ADMIN_IN_OUT-004"
+      ],
+      "duration_seconds": 0.012253250000000104,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_ADMIN_OPERATION_LOGS-001]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_ADMIN_OPERATION_LOGS-001"
+      ],
+      "duration_seconds": 0.006569874999999836,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_ADMIN_OPERATION_LOGS-002]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_ADMIN_OPERATION_LOGS-002"
+      ],
+      "duration_seconds": 0.0015685830000000678,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_ADMIN_OPERATION_LOGS-005]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_ADMIN_OPERATION_LOGS-005"
+      ],
+      "duration_seconds": 0.009992250000000258,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_ADMIN_OPERATION_LOGS_EXPORT-001]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_ADMIN_OPERATION_LOGS_EXPORT-001"
+      ],
+      "duration_seconds": 0.014591790999999965,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_ADMIN_OPERATION_LOGS_EXPORT-002]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_ADMIN_OPERATION_LOGS_EXPORT-002"
+      ],
+      "duration_seconds": 0.0015572500000002876,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_ADMIN_OPERATION_LOGS_ID-001]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_ADMIN_OPERATION_LOGS_ID-001"
+      ],
+      "duration_seconds": 0.013775874999999882,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_ADMIN_OPERATION_LOGS_ID-002]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_ADMIN_OPERATION_LOGS_ID-002"
+      ],
+      "duration_seconds": 0.001439250000000225,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_ADMIN_OPERATION_LOGS_ID-003]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_ADMIN_OPERATION_LOGS_ID-003"
+      ],
+      "duration_seconds": 0.0045615419999998075,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_ADMIN_ORDERS-001]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_ADMIN_ORDERS-001"
+      ],
+      "duration_seconds": 0.005803208999999754,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_ADMIN_ORDERS-002]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_ADMIN_ORDERS-002"
+      ],
+      "duration_seconds": 0.001481957999999839,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_ADMIN_ORDERS-005]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_ADMIN_ORDERS-005"
+      ],
+      "duration_seconds": 0.010062041999999938,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_ADMIN_ORDERS_EXPORT-001]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_ADMIN_ORDERS_EXPORT-001"
+      ],
+      "duration_seconds": 0.006229999999999958,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_ADMIN_ORDERS_EXPORT-002]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_ADMIN_ORDERS_EXPORT-002"
+      ],
+      "duration_seconds": 0.001380082999999921,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_ADMIN_ORDERS_ID-001]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_ADMIN_ORDERS_ID-001"
+      ],
+      "duration_seconds": 0.017745542000000114,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_ADMIN_ORDERS_ID-002]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_ADMIN_ORDERS_ID-002"
+      ],
+      "duration_seconds": 0.001845125000000003,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_ADMIN_ORDERS_ID-003]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_ADMIN_ORDERS_ID-003"
+      ],
+      "duration_seconds": 0.005019874999999896,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_ADMIN_ORDERS_ID_SHIP-001]",
+      "outcome": "failed",
+      "case_ids": [
+        "POST_ADMIN_ORDERS_ID_SHIP-001"
+      ],
+      "duration_seconds": 0.005795875000000006,
+      "evidence_json": "/Users/imac/Desktop/电商自动化测试/shang-pivot-master/api_testcases/artifacts/failures/tests_contract_test_inventory_driven.py_test_inventory_case_POST_ADMIN_ORDERS_ID_SHIP-001_.json"
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_ADMIN_ORDERS_ID_SHIP-002]",
+      "outcome": "passed",
+      "case_ids": [
+        "POST_ADMIN_ORDERS_ID_SHIP-002"
+      ],
+      "duration_seconds": 0.002341458000000074,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_ADMIN_ORDERS_ID_SHIP-003]",
+      "outcome": "passed",
+      "case_ids": [
+        "POST_ADMIN_ORDERS_ID_SHIP-003"
+      ],
+      "duration_seconds": 0.0016676250000000614,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_ADMIN_ORDERS_ID_SHIP-004]",
+      "outcome": "passed",
+      "case_ids": [
+        "POST_ADMIN_ORDERS_ID_SHIP-004"
+      ],
+      "duration_seconds": 0.016160541999999722,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_ADMIN_PERMISSIONS-001]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_ADMIN_PERMISSIONS-001"
+      ],
+      "duration_seconds": 0.006208749999999874,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_ADMIN_PERMISSIONS-002]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_ADMIN_PERMISSIONS-002"
+      ],
+      "duration_seconds": 0.0016749580000001707,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_ADMIN_PERMISSIONS-001]",
+      "outcome": "passed",
+      "case_ids": [
+        "POST_ADMIN_PERMISSIONS-001"
+      ],
+      "duration_seconds": 0.01762220800000014,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_ADMIN_PERMISSIONS-002]",
+      "outcome": "passed",
+      "case_ids": [
+        "POST_ADMIN_PERMISSIONS-002"
+      ],
+      "duration_seconds": 0.0019701659999999954,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_ADMIN_PERMISSIONS-003]",
+      "outcome": "passed",
+      "case_ids": [
+        "POST_ADMIN_PERMISSIONS-003"
+      ],
+      "duration_seconds": 0.0048859580000000236,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_ADMIN_PERMISSIONS-004]",
+      "outcome": "passed",
+      "case_ids": [
+        "POST_ADMIN_PERMISSIONS-004"
+      ],
+      "duration_seconds": 0.013792791999999832,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_ADMIN_PERMISSIONS_TREE-001]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_ADMIN_PERMISSIONS_TREE-001"
+      ],
+      "duration_seconds": 0.006587042000000043,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_ADMIN_PERMISSIONS_TREE-002]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_ADMIN_PERMISSIONS_TREE-002"
+      ],
+      "duration_seconds": 0.0013454999999997774,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[DELETE_ADMIN_PERMISSIONS_ID-001]",
+      "outcome": "passed",
+      "case_ids": [
+        "DELETE_ADMIN_PERMISSIONS_ID-001"
+      ],
+      "duration_seconds": 0.02455887499999987,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[DELETE_ADMIN_PERMISSIONS_ID-002]",
+      "outcome": "passed",
+      "case_ids": [
+        "DELETE_ADMIN_PERMISSIONS_ID-002"
+      ],
+      "duration_seconds": 0.011270416999999977,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[DELETE_ADMIN_PERMISSIONS_ID-003]",
+      "outcome": "passed",
+      "case_ids": [
+        "DELETE_ADMIN_PERMISSIONS_ID-003"
+      ],
+      "duration_seconds": 0.00513991700000016,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[DELETE_ADMIN_PERMISSIONS_ID-004]",
+      "outcome": "passed",
+      "case_ids": [
+        "DELETE_ADMIN_PERMISSIONS_ID-004"
+      ],
+      "duration_seconds": 0.023093792000000057,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[PUT_ADMIN_PERMISSIONS_ID-001]",
+      "outcome": "passed",
+      "case_ids": [
+        "PUT_ADMIN_PERMISSIONS_ID-001"
+      ],
+      "duration_seconds": 0.019492708000000025,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[PUT_ADMIN_PERMISSIONS_ID-002]",
+      "outcome": "passed",
+      "case_ids": [
+        "PUT_ADMIN_PERMISSIONS_ID-002"
+      ],
+      "duration_seconds": 0.011417291999999968,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[PUT_ADMIN_PERMISSIONS_ID-003]",
+      "outcome": "passed",
+      "case_ids": [
+        "PUT_ADMIN_PERMISSIONS_ID-003"
+      ],
+      "duration_seconds": 0.004434666999999948,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[PUT_ADMIN_PERMISSIONS_ID-004]",
+      "outcome": "passed",
+      "case_ids": [
+        "PUT_ADMIN_PERMISSIONS_ID-004"
+      ],
+      "duration_seconds": 0.024886582999999796,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_ADMIN_PRODUCTS-001]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_ADMIN_PRODUCTS-001"
+      ],
+      "duration_seconds": 0.010726875000000025,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_ADMIN_PRODUCTS-002]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_ADMIN_PRODUCTS-002"
+      ],
+      "duration_seconds": 0.0017621669999998701,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_ADMIN_PRODUCTS-005]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_ADMIN_PRODUCTS-005"
+      ],
+      "duration_seconds": 0.020782791999999883,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_ADMIN_PRODUCTS-001]",
+      "outcome": "failed",
+      "case_ids": [
+        "POST_ADMIN_PRODUCTS-001"
+      ],
+      "duration_seconds": 0.018054916000000087,
+      "evidence_json": "/Users/imac/Desktop/电商自动化测试/shang-pivot-master/api_testcases/artifacts/failures/tests_contract_test_inventory_driven.py_test_inventory_case_POST_ADMIN_PRODUCTS-001_.json"
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_ADMIN_PRODUCTS-002]",
+      "outcome": "passed",
+      "case_ids": [
+        "POST_ADMIN_PRODUCTS-002"
+      ],
+      "duration_seconds": 0.00257133300000012,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_ADMIN_PRODUCTS-004]",
+      "outcome": "failed",
+      "case_ids": [
+        "POST_ADMIN_PRODUCTS-004"
+      ],
+      "duration_seconds": 0.01713975000000012,
+      "evidence_json": "/Users/imac/Desktop/电商自动化测试/shang-pivot-master/api_testcases/artifacts/failures/tests_contract_test_inventory_driven.py_test_inventory_case_POST_ADMIN_PRODUCTS-004_.json"
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[PUT_ADMIN_PRODUCTS_BATCH_OFF-001]",
+      "outcome": "skipped",
+      "case_ids": [
+        "PUT_ADMIN_PRODUCTS_BATCH_OFF-001"
+      ],
+      "duration_seconds": 0.00014204199999978684,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[PUT_ADMIN_PRODUCTS_BATCH_OFF-002]",
+      "outcome": "skipped",
+      "case_ids": [
+        "PUT_ADMIN_PRODUCTS_BATCH_OFF-002"
+      ],
+      "duration_seconds": 0.00011941700000006605,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[PUT_ADMIN_PRODUCTS_BATCH_OFF-004]",
+      "outcome": "skipped",
+      "case_ids": [
+        "PUT_ADMIN_PRODUCTS_BATCH_OFF-004"
+      ],
+      "duration_seconds": 0.00012354199999986548,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[DELETE_ADMIN_PRODUCTS_ID-001]",
+      "outcome": "skipped",
+      "case_ids": [
+        "DELETE_ADMIN_PRODUCTS_ID-001"
+      ],
+      "duration_seconds": 0.009695875000000242,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[DELETE_ADMIN_PRODUCTS_ID-002]",
+      "outcome": "skipped",
+      "case_ids": [
+        "DELETE_ADMIN_PRODUCTS_ID-002"
+      ],
+      "duration_seconds": 0.0071215410000000645,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[DELETE_ADMIN_PRODUCTS_ID-003]",
+      "outcome": "passed",
+      "case_ids": [
+        "DELETE_ADMIN_PRODUCTS_ID-003"
+      ],
+      "duration_seconds": 0.00631079099999976,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[DELETE_ADMIN_PRODUCTS_ID-004]",
+      "outcome": "skipped",
+      "case_ids": [
+        "DELETE_ADMIN_PRODUCTS_ID-004"
+      ],
+      "duration_seconds": 0.006409208,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_ADMIN_PRODUCTS_ID-001]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_ADMIN_PRODUCTS_ID-001"
+      ],
+      "duration_seconds": 0.016983000000000192,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_ADMIN_PRODUCTS_ID-002]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_ADMIN_PRODUCTS_ID-002"
+      ],
+      "duration_seconds": 0.0016799169999996977,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_ADMIN_PRODUCTS_ID-003]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_ADMIN_PRODUCTS_ID-003"
+      ],
+      "duration_seconds": 0.004484750000000037,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[PUT_ADMIN_PRODUCTS_ID-001]",
+      "outcome": "skipped",
+      "case_ids": [
+        "PUT_ADMIN_PRODUCTS_ID-001"
+      ],
+      "duration_seconds": 0.0064259580000003425,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[PUT_ADMIN_PRODUCTS_ID-002]",
+      "outcome": "skipped",
+      "case_ids": [
+        "PUT_ADMIN_PRODUCTS_ID-002"
+      ],
+      "duration_seconds": 0.0066852079999999425,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[PUT_ADMIN_PRODUCTS_ID-003]",
+      "outcome": "passed",
+      "case_ids": [
+        "PUT_ADMIN_PRODUCTS_ID-003"
+      ],
+      "duration_seconds": 0.004630082999999896,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[PUT_ADMIN_PRODUCTS_ID-004]",
+      "outcome": "skipped",
+      "case_ids": [
+        "PUT_ADMIN_PRODUCTS_ID-004"
+      ],
+      "duration_seconds": 0.009907957999999883,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[PUT_ADMIN_PRODUCTS_ID_OFF-001]",
+      "outcome": "skipped",
+      "case_ids": [
+        "PUT_ADMIN_PRODUCTS_ID_OFF-001"
+      ],
+      "duration_seconds": 0.00014166700000028953,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[PUT_ADMIN_PRODUCTS_ID_OFF-002]",
+      "outcome": "skipped",
+      "case_ids": [
+        "PUT_ADMIN_PRODUCTS_ID_OFF-002"
+      ],
+      "duration_seconds": 0.0001225419999997257,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[PUT_ADMIN_PRODUCTS_ID_OFF-003]",
+      "outcome": "skipped",
+      "case_ids": [
+        "PUT_ADMIN_PRODUCTS_ID_OFF-003"
+      ],
+      "duration_seconds": 0.00035979099999972064,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[PUT_ADMIN_PRODUCTS_ID_OFF-004]",
+      "outcome": "skipped",
+      "case_ids": [
+        "PUT_ADMIN_PRODUCTS_ID_OFF-004"
+      ],
+      "duration_seconds": 0.00011754199999991499,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[PUT_ADMIN_PRODUCTS_ID_ON-001]",
+      "outcome": "skipped",
+      "case_ids": [
+        "PUT_ADMIN_PRODUCTS_ID_ON-001"
+      ],
+      "duration_seconds": 0.0001183750000000039,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[PUT_ADMIN_PRODUCTS_ID_ON-002]",
+      "outcome": "skipped",
+      "case_ids": [
+        "PUT_ADMIN_PRODUCTS_ID_ON-002"
+      ],
+      "duration_seconds": 0.0004024579999999389,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[PUT_ADMIN_PRODUCTS_ID_ON-003]",
+      "outcome": "skipped",
+      "case_ids": [
+        "PUT_ADMIN_PRODUCTS_ID_ON-003"
+      ],
+      "duration_seconds": 0.000159416999999884,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[PUT_ADMIN_PRODUCTS_ID_ON-004]",
+      "outcome": "skipped",
+      "case_ids": [
+        "PUT_ADMIN_PRODUCTS_ID_ON-004"
+      ],
+      "duration_seconds": 0.00013816600000016166,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_ADMIN_REVIEWS-001]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_ADMIN_REVIEWS-001"
+      ],
+      "duration_seconds": 0.013228624999999994,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_ADMIN_REVIEWS-002]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_ADMIN_REVIEWS-002"
+      ],
+      "duration_seconds": 0.0017299999999997873,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_ADMIN_REVIEWS-005]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_ADMIN_REVIEWS-005"
+      ],
+      "duration_seconds": 0.01611858399999999,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[PUT_ADMIN_REVIEWS_ID_STATUS-001]",
+      "outcome": "skipped",
+      "case_ids": [
+        "PUT_ADMIN_REVIEWS_ID_STATUS-001"
+      ],
+      "duration_seconds": 0.0001389999999998892,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[PUT_ADMIN_REVIEWS_ID_STATUS-002]",
+      "outcome": "skipped",
+      "case_ids": [
+        "PUT_ADMIN_REVIEWS_ID_STATUS-002"
+      ],
+      "duration_seconds": 0.00013012500000009197,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[PUT_ADMIN_REVIEWS_ID_STATUS-003]",
+      "outcome": "skipped",
+      "case_ids": [
+        "PUT_ADMIN_REVIEWS_ID_STATUS-003"
+      ],
+      "duration_seconds": 0.00012133300000005676,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[PUT_ADMIN_REVIEWS_ID_STATUS-004]",
+      "outcome": "skipped",
+      "case_ids": [
+        "PUT_ADMIN_REVIEWS_ID_STATUS-004"
+      ],
+      "duration_seconds": 0.00012304100000015694,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_ADMIN_ROLES-001]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_ADMIN_ROLES-001"
+      ],
+      "duration_seconds": 0.009315500000000032,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_ADMIN_ROLES-002]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_ADMIN_ROLES-002"
+      ],
+      "duration_seconds": 0.0013257499999999034,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_ADMIN_ROLES-005]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_ADMIN_ROLES-005"
+      ],
+      "duration_seconds": 0.015573124999999965,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_ADMIN_ROLES-001]",
+      "outcome": "failed",
+      "case_ids": [
+        "POST_ADMIN_ROLES-001"
+      ],
+      "duration_seconds": 0.014179916999999875,
+      "evidence_json": "/Users/imac/Desktop/电商自动化测试/shang-pivot-master/api_testcases/artifacts/failures/tests_contract_test_inventory_driven.py_test_inventory_case_POST_ADMIN_ROLES-001_.json"
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_ADMIN_ROLES-002]",
+      "outcome": "passed",
+      "case_ids": [
+        "POST_ADMIN_ROLES-002"
+      ],
+      "duration_seconds": 0.0026212499999997974,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_ADMIN_ROLES-004]",
+      "outcome": "failed",
+      "case_ids": [
+        "POST_ADMIN_ROLES-004"
+      ],
+      "duration_seconds": 0.014235208999999749,
+      "evidence_json": "/Users/imac/Desktop/电商自动化测试/shang-pivot-master/api_testcases/artifacts/failures/tests_contract_test_inventory_driven.py_test_inventory_case_POST_ADMIN_ROLES-004_.json"
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_ADMIN_ROLES_ALL-001]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_ADMIN_ROLES_ALL-001"
+      ],
+      "duration_seconds": 0.009139042000000153,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_ADMIN_ROLES_ALL-002]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_ADMIN_ROLES_ALL-002"
+      ],
+      "duration_seconds": 0.0014157920000004154,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[DELETE_ADMIN_ROLES_ID-001]",
+      "outcome": "skipped",
+      "case_ids": [
+        "DELETE_ADMIN_ROLES_ID-001"
+      ],
+      "duration_seconds": 0.0073224999999998985,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[DELETE_ADMIN_ROLES_ID-002]",
+      "outcome": "skipped",
+      "case_ids": [
+        "DELETE_ADMIN_ROLES_ID-002"
+      ],
+      "duration_seconds": 0.007692041000000316,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[DELETE_ADMIN_ROLES_ID-003]",
+      "outcome": "passed",
+      "case_ids": [
+        "DELETE_ADMIN_ROLES_ID-003"
+      ],
+      "duration_seconds": 0.006945583000000255,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[DELETE_ADMIN_ROLES_ID-004]",
+      "outcome": "skipped",
+      "case_ids": [
+        "DELETE_ADMIN_ROLES_ID-004"
+      ],
+      "duration_seconds": 0.006960249999999668,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[PUT_ADMIN_ROLES_ID-001]",
+      "outcome": "skipped",
+      "case_ids": [
+        "PUT_ADMIN_ROLES_ID-001"
+      ],
+      "duration_seconds": 0.00760391699999996,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[PUT_ADMIN_ROLES_ID-002]",
+      "outcome": "skipped",
+      "case_ids": [
+        "PUT_ADMIN_ROLES_ID-002"
+      ],
+      "duration_seconds": 0.017325500000000105,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[PUT_ADMIN_ROLES_ID-003]",
+      "outcome": "passed",
+      "case_ids": [
+        "PUT_ADMIN_ROLES_ID-003"
+      ],
+      "duration_seconds": 0.007886333000000079,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[PUT_ADMIN_ROLES_ID-004]",
+      "outcome": "skipped",
+      "case_ids": [
+        "PUT_ADMIN_ROLES_ID-004"
+      ],
+      "duration_seconds": 0.0065631670000003695,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_ADMIN_SITE_BRAND-001]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_ADMIN_SITE_BRAND-001"
+      ],
+      "duration_seconds": 0.004955959000000121,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_ADMIN_SITE_BRAND-002]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_ADMIN_SITE_BRAND-002"
+      ],
+      "duration_seconds": 0.0013137500000004465,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[PUT_ADMIN_SITE_BRAND-001]",
+      "outcome": "skipped",
+      "case_ids": [
+        "PUT_ADMIN_SITE_BRAND-001"
+      ],
+      "duration_seconds": 0.0001287500000000108,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[PUT_ADMIN_SITE_BRAND-002]",
+      "outcome": "skipped",
+      "case_ids": [
+        "PUT_ADMIN_SITE_BRAND-002"
+      ],
+      "duration_seconds": 0.00034779099999937557,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[PUT_ADMIN_SITE_BRAND-004]",
+      "outcome": "skipped",
+      "case_ids": [
+        "PUT_ADMIN_SITE_BRAND-004"
+      ],
+      "duration_seconds": 0.00012174999999992053,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_ADMIN_STOCKS-001]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_ADMIN_STOCKS-001"
+      ],
+      "duration_seconds": 0.00915666599999998,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_ADMIN_STOCKS-002]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_ADMIN_STOCKS-002"
+      ],
+      "duration_seconds": 0.0014691670000006596,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_ADMIN_STOCKS-005]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_ADMIN_STOCKS-005"
+      ],
+      "duration_seconds": 0.011986334000000376,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[PUT_ADMIN_STOCKS_ADJUST-001]",
+      "outcome": "skipped",
+      "case_ids": [
+        "PUT_ADMIN_STOCKS_ADJUST-001"
+      ],
+      "duration_seconds": 0.00012720799999943466,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[PUT_ADMIN_STOCKS_ADJUST-002]",
+      "outcome": "skipped",
+      "case_ids": [
+        "PUT_ADMIN_STOCKS_ADJUST-002"
+      ],
+      "duration_seconds": 0.00012654200000028482,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[PUT_ADMIN_STOCKS_ADJUST-004]",
+      "outcome": "skipped",
+      "case_ids": [
+        "PUT_ADMIN_STOCKS_ADJUST-004"
+      ],
+      "duration_seconds": 0.00011379199999961287,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_ADMIN_SYSTEM_CONFIGS-001]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_ADMIN_SYSTEM_CONFIGS-001"
+      ],
+      "duration_seconds": 0.004839583999999952,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_ADMIN_SYSTEM_CONFIGS-002]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_ADMIN_SYSTEM_CONFIGS-002"
+      ],
+      "duration_seconds": 0.0016265830000001813,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[PUT_ADMIN_SYSTEM_CONFIGS_ID-001]",
+      "outcome": "skipped",
+      "case_ids": [
+        "PUT_ADMIN_SYSTEM_CONFIGS_ID-001"
+      ],
+      "duration_seconds": 0.000128583000000404,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[PUT_ADMIN_SYSTEM_CONFIGS_ID-002]",
+      "outcome": "skipped",
+      "case_ids": [
+        "PUT_ADMIN_SYSTEM_CONFIGS_ID-002"
+      ],
+      "duration_seconds": 0.00012208299999993955,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[PUT_ADMIN_SYSTEM_CONFIGS_ID-003]",
+      "outcome": "skipped",
+      "case_ids": [
+        "PUT_ADMIN_SYSTEM_CONFIGS_ID-003"
+      ],
+      "duration_seconds": 0.00012533300000061587,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[PUT_ADMIN_SYSTEM_CONFIGS_ID-004]",
+      "outcome": "skipped",
+      "case_ids": [
+        "PUT_ADMIN_SYSTEM_CONFIGS_ID-004"
+      ],
+      "duration_seconds": 0.0001232499999996861,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_ADMIN_USERS-001]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_ADMIN_USERS-001"
+      ],
+      "duration_seconds": 0.006229291000000359,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_ADMIN_USERS-002]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_ADMIN_USERS-002"
+      ],
+      "duration_seconds": 0.0014914590000003614,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_ADMIN_USERS-005]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_ADMIN_USERS-005"
+      ],
+      "duration_seconds": 0.014087165999999485,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_ADMIN_USERS-001]",
+      "outcome": "failed",
+      "case_ids": [
+        "POST_ADMIN_USERS-001"
+      ],
+      "duration_seconds": 0.011223874999999772,
+      "evidence_json": "/Users/imac/Desktop/电商自动化测试/shang-pivot-master/api_testcases/artifacts/failures/tests_contract_test_inventory_driven.py_test_inventory_case_POST_ADMIN_USERS-001_.json"
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_ADMIN_USERS-002]",
+      "outcome": "passed",
+      "case_ids": [
+        "POST_ADMIN_USERS-002"
+      ],
+      "duration_seconds": 0.0023134159999997905,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_ADMIN_USERS-004]",
+      "outcome": "failed",
+      "case_ids": [
+        "POST_ADMIN_USERS-004"
+      ],
+      "duration_seconds": 0.01498170900000062,
+      "evidence_json": "/Users/imac/Desktop/电商自动化测试/shang-pivot-master/api_testcases/artifacts/failures/tests_contract_test_inventory_driven.py_test_inventory_case_POST_ADMIN_USERS-004_.json"
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[DELETE_ADMIN_USERS_ID-001]",
+      "outcome": "skipped",
+      "case_ids": [
+        "DELETE_ADMIN_USERS_ID-001"
+      ],
+      "duration_seconds": 0.006510915999999867,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[DELETE_ADMIN_USERS_ID-002]",
+      "outcome": "skipped",
+      "case_ids": [
+        "DELETE_ADMIN_USERS_ID-002"
+      ],
+      "duration_seconds": 0.0054222080000005946,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[DELETE_ADMIN_USERS_ID-003]",
+      "outcome": "passed",
+      "case_ids": [
+        "DELETE_ADMIN_USERS_ID-003"
+      ],
+      "duration_seconds": 0.006320915999999954,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[DELETE_ADMIN_USERS_ID-004]",
+      "outcome": "skipped",
+      "case_ids": [
+        "DELETE_ADMIN_USERS_ID-004"
+      ],
+      "duration_seconds": 0.00515425000000036,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_ADMIN_USERS_ID-001]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_ADMIN_USERS_ID-001"
+      ],
+      "duration_seconds": 0.014253082999999833,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_ADMIN_USERS_ID-002]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_ADMIN_USERS_ID-002"
+      ],
+      "duration_seconds": 0.0014197920000000863,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_ADMIN_USERS_ID-003]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_ADMIN_USERS_ID-003"
+      ],
+      "duration_seconds": 0.006834332999999582,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[PUT_ADMIN_USERS_ID-001]",
+      "outcome": "skipped",
+      "case_ids": [
+        "PUT_ADMIN_USERS_ID-001"
+      ],
+      "duration_seconds": 0.008592750000000038,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[PUT_ADMIN_USERS_ID-002]",
+      "outcome": "skipped",
+      "case_ids": [
+        "PUT_ADMIN_USERS_ID-002"
+      ],
+      "duration_seconds": 0.007756166000000064,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[PUT_ADMIN_USERS_ID-003]",
+      "outcome": "passed",
+      "case_ids": [
+        "PUT_ADMIN_USERS_ID-003"
+      ],
+      "duration_seconds": 0.009423833000000492,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[PUT_ADMIN_USERS_ID-004]",
+      "outcome": "skipped",
+      "case_ids": [
+        "PUT_ADMIN_USERS_ID-004"
+      ],
+      "duration_seconds": 0.008470542000000414,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[PUT_ADMIN_USERS_ID_PASSWORD-001]",
+      "outcome": "skipped",
+      "case_ids": [
+        "PUT_ADMIN_USERS_ID_PASSWORD-001"
+      ],
+      "duration_seconds": 0.0001353749999992715,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[PUT_ADMIN_USERS_ID_PASSWORD-002]",
+      "outcome": "skipped",
+      "case_ids": [
+        "PUT_ADMIN_USERS_ID_PASSWORD-002"
+      ],
+      "duration_seconds": 0.00014562500000003809,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[PUT_ADMIN_USERS_ID_PASSWORD-003]",
+      "outcome": "skipped",
+      "case_ids": [
+        "PUT_ADMIN_USERS_ID_PASSWORD-003"
+      ],
+      "duration_seconds": 0.0001292499999996366,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[PUT_ADMIN_USERS_ID_PASSWORD-004]",
+      "outcome": "skipped",
+      "case_ids": [
+        "PUT_ADMIN_USERS_ID_PASSWORD-004"
+      ],
+      "duration_seconds": 0.0001383339999998512,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[PUT_ADMIN_USERS_ID_STATUS-001]",
+      "outcome": "skipped",
+      "case_ids": [
+        "PUT_ADMIN_USERS_ID_STATUS-001"
+      ],
+      "duration_seconds": 0.00013774999999949245,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[PUT_ADMIN_USERS_ID_STATUS-002]",
+      "outcome": "skipped",
+      "case_ids": [
+        "PUT_ADMIN_USERS_ID_STATUS-002"
+      ],
+      "duration_seconds": 0.00011850000000013239,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[PUT_ADMIN_USERS_ID_STATUS-003]",
+      "outcome": "skipped",
+      "case_ids": [
+        "PUT_ADMIN_USERS_ID_STATUS-003"
+      ],
+      "duration_seconds": 0.00019433400000057333,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[PUT_ADMIN_USERS_ID_STATUS-004]",
+      "outcome": "skipped",
+      "case_ids": [
+        "PUT_ADMIN_USERS_ID_STATUS-004"
+      ],
+      "duration_seconds": 0.00011987500000021356,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_ADMIN_WAREHOUSES-001]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_ADMIN_WAREHOUSES-001"
+      ],
+      "duration_seconds": 0.010975832999999824,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_ADMIN_WAREHOUSES-002]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_ADMIN_WAREHOUSES-002"
+      ],
+      "duration_seconds": 0.0013464589999996335,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_ADMIN_WAREHOUSES-001]",
+      "outcome": "skipped",
+      "case_ids": [
+        "POST_ADMIN_WAREHOUSES-001"
+      ],
+      "duration_seconds": 0.00012462499999976728,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_ADMIN_WAREHOUSES-002]",
+      "outcome": "passed",
+      "case_ids": [
+        "POST_ADMIN_WAREHOUSES-002"
+      ],
+      "duration_seconds": 0.0019800409999994883,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_ADMIN_WAREHOUSES-003]",
+      "outcome": "passed",
+      "case_ids": [
+        "POST_ADMIN_WAREHOUSES-003"
+      ],
+      "duration_seconds": 0.008429125000000148,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_ADMIN_WAREHOUSES-004]",
+      "outcome": "skipped",
+      "case_ids": [
+        "POST_ADMIN_WAREHOUSES-004"
+      ],
+      "duration_seconds": 0.00012224999999954633,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[PUT_ADMIN_WAREHOUSES_ID-001]",
+      "outcome": "skipped",
+      "case_ids": [
+        "PUT_ADMIN_WAREHOUSES_ID-001"
+      ],
+      "duration_seconds": 0.00012037499999983936,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[PUT_ADMIN_WAREHOUSES_ID-002]",
+      "outcome": "skipped",
+      "case_ids": [
+        "PUT_ADMIN_WAREHOUSES_ID-002"
+      ],
+      "duration_seconds": 0.00012529200000077623,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[PUT_ADMIN_WAREHOUSES_ID-003]",
+      "outcome": "skipped",
+      "case_ids": [
+        "PUT_ADMIN_WAREHOUSES_ID-003"
+      ],
+      "duration_seconds": 0.00011929099999985482,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[PUT_ADMIN_WAREHOUSES_ID-004]",
+      "outcome": "skipped",
+      "case_ids": [
+        "PUT_ADMIN_WAREHOUSES_ID-004"
+      ],
+      "duration_seconds": 0.00011925000000001518,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_API_ADDRESSES-001]",
+      "outcome": "skipped",
+      "case_ids": [
+        "GET_API_ADDRESSES-001"
+      ],
+      "duration_seconds": 0.00011554199999963544,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_API_ADDRESSES-002]",
+      "outcome": "skipped",
+      "case_ids": [
+        "GET_API_ADDRESSES-002"
+      ],
+      "duration_seconds": 0.00012066700000001873,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_API_ADDRESSES-001]",
+      "outcome": "skipped",
+      "case_ids": [
+        "POST_API_ADDRESSES-001"
+      ],
+      "duration_seconds": 0.00012033300000080516,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_API_ADDRESSES-002]",
+      "outcome": "skipped",
+      "case_ids": [
+        "POST_API_ADDRESSES-002"
+      ],
+      "duration_seconds": 0.00011612499999991144,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_API_ADDRESSES-004]",
+      "outcome": "skipped",
+      "case_ids": [
+        "POST_API_ADDRESSES-004"
+      ],
+      "duration_seconds": 0.00011979199999956336,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[DELETE_API_ADDRESSES_ID-001]",
+      "outcome": "skipped",
+      "case_ids": [
+        "DELETE_API_ADDRESSES_ID-001"
+      ],
+      "duration_seconds": 0.0001225419999997257,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[DELETE_API_ADDRESSES_ID-002]",
+      "outcome": "skipped",
+      "case_ids": [
+        "DELETE_API_ADDRESSES_ID-002"
+      ],
+      "duration_seconds": 0.0001395419999994374,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[DELETE_API_ADDRESSES_ID-003]",
+      "outcome": "skipped",
+      "case_ids": [
+        "DELETE_API_ADDRESSES_ID-003"
+      ],
+      "duration_seconds": 0.00012074999999978075,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[DELETE_API_ADDRESSES_ID-004]",
+      "outcome": "skipped",
+      "case_ids": [
+        "DELETE_API_ADDRESSES_ID-004"
+      ],
+      "duration_seconds": 0.00019025000000016945,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[PUT_API_ADDRESSES_ID-001]",
+      "outcome": "skipped",
+      "case_ids": [
+        "PUT_API_ADDRESSES_ID-001"
+      ],
+      "duration_seconds": 0.00011683299999987184,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[PUT_API_ADDRESSES_ID-002]",
+      "outcome": "skipped",
+      "case_ids": [
+        "PUT_API_ADDRESSES_ID-002"
+      ],
+      "duration_seconds": 0.00011783300000001162,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[PUT_API_ADDRESSES_ID-003]",
+      "outcome": "skipped",
+      "case_ids": [
+        "PUT_API_ADDRESSES_ID-003"
+      ],
+      "duration_seconds": 0.00011512499999977166,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[PUT_API_ADDRESSES_ID-004]",
+      "outcome": "skipped",
+      "case_ids": [
+        "PUT_API_ADDRESSES_ID-004"
+      ],
+      "duration_seconds": 0.00011612499999991144,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[PUT_API_ADDRESSES_ID_DEFAULT-001]",
+      "outcome": "skipped",
+      "case_ids": [
+        "PUT_API_ADDRESSES_ID_DEFAULT-001"
+      ],
+      "duration_seconds": 0.0001150409999999269,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[PUT_API_ADDRESSES_ID_DEFAULT-002]",
+      "outcome": "skipped",
+      "case_ids": [
+        "PUT_API_ADDRESSES_ID_DEFAULT-002"
+      ],
+      "duration_seconds": 0.00012037499999983936,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[PUT_API_ADDRESSES_ID_DEFAULT-003]",
+      "outcome": "skipped",
+      "case_ids": [
+        "PUT_API_ADDRESSES_ID_DEFAULT-003"
+      ],
+      "duration_seconds": 0.00018820900000005025,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[PUT_API_ADDRESSES_ID_DEFAULT-004]",
+      "outcome": "skipped",
+      "case_ids": [
+        "PUT_API_ADDRESSES_ID_DEFAULT-004"
+      ],
+      "duration_seconds": 0.00012150000000055172,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_API_AFTER_SALES-001]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_API_AFTER_SALES-001"
+      ],
+      "duration_seconds": 0.006887917000000243,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_API_AFTER_SALES-002]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_API_AFTER_SALES-002"
+      ],
+      "duration_seconds": 0.0013582500000000053,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_API_AFTER_SALES-005]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_API_AFTER_SALES-005"
+      ],
+      "duration_seconds": 0.00974529199999985,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_API_AFTER_SALES-001]",
+      "outcome": "skipped",
+      "case_ids": [
+        "POST_API_AFTER_SALES-001"
+      ],
+      "duration_seconds": 0.03364041699999998,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_API_AFTER_SALES-002]",
+      "outcome": "skipped",
+      "case_ids": [
+        "POST_API_AFTER_SALES-002"
+      ],
+      "duration_seconds": 0.01679187500000001,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_API_AFTER_SALES-004]",
+      "outcome": "skipped",
+      "case_ids": [
+        "POST_API_AFTER_SALES-004"
+      ],
+      "duration_seconds": 0.016187541999999944,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_API_AFTER_SALES_ID-001]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_API_AFTER_SALES_ID-001"
+      ],
+      "duration_seconds": 0.009099166999999575,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_API_AFTER_SALES_ID-002]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_API_AFTER_SALES_ID-002"
+      ],
+      "duration_seconds": 0.001385625000000168,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_API_AFTER_SALES_ID-003]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_API_AFTER_SALES_ID-003"
+      ],
+      "duration_seconds": 0.002327709000000233,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_API_AUTH_LOGIN-001]",
+      "outcome": "passed",
+      "case_ids": [
+        "POST_API_AUTH_LOGIN-001"
+      ],
+      "duration_seconds": 0.00483262500000059,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_API_AUTH_LOGIN-003]",
+      "outcome": "passed",
+      "case_ids": [
+        "POST_API_AUTH_LOGIN-003"
+      ],
+      "duration_seconds": 0.0028004580000002832,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_API_AUTH_LOGIN-004]",
+      "outcome": "passed",
+      "case_ids": [
+        "POST_API_AUTH_LOGIN-004"
+      ],
+      "duration_seconds": 0.008106125000000297,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_API_AUTH_LOGOUT-001]",
+      "outcome": "failed",
+      "case_ids": [
+        "POST_API_AUTH_LOGOUT-001"
+      ],
+      "duration_seconds": 0.1054849579999999,
+      "evidence_json": "/Users/imac/Desktop/电商自动化测试/shang-pivot-master/api_testcases/artifacts/failures/tests_contract_test_inventory_driven.py_test_inventory_case_POST_API_AUTH_LOGOUT-001_.json"
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_API_AUTH_LOGOUT-004]",
+      "outcome": "passed",
+      "case_ids": [
+        "POST_API_AUTH_LOGOUT-004"
+      ],
+      "duration_seconds": 0.11332387499999985,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_API_AUTH_PHONE-001]",
+      "outcome": "passed",
+      "case_ids": [
+        "POST_API_AUTH_PHONE-001"
+      ],
+      "duration_seconds": 0.006717083999999929,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_API_AUTH_PHONE-003]",
+      "outcome": "passed",
+      "case_ids": [
+        "POST_API_AUTH_PHONE-003"
+      ],
+      "duration_seconds": 0.006212500000000176,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_API_AUTH_PHONE-004]",
+      "outcome": "passed",
+      "case_ids": [
+        "POST_API_AUTH_PHONE-004"
+      ],
+      "duration_seconds": 0.013329750000000473,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_API_AUTH_REFRESH-001]",
+      "outcome": "passed",
+      "case_ids": [
+        "POST_API_AUTH_REFRESH-001"
+      ],
+      "duration_seconds": 0.003659000000000745,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_API_AUTH_REFRESH-003]",
+      "outcome": "passed",
+      "case_ids": [
+        "POST_API_AUTH_REFRESH-003"
+      ],
+      "duration_seconds": 0.0029596669999998326,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_API_AUTH_REFRESH-004]",
+      "outcome": "passed",
+      "case_ids": [
+        "POST_API_AUTH_REFRESH-004"
+      ],
+      "duration_seconds": 0.006404708999999897,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_API_AUTH_SMS_SEND-001]",
+      "outcome": "passed",
+      "case_ids": [
+        "POST_API_AUTH_SMS_SEND-001"
+      ],
+      "duration_seconds": 0.005808041999999958,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_API_AUTH_SMS_SEND-003]",
+      "outcome": "passed",
+      "case_ids": [
+        "POST_API_AUTH_SMS_SEND-003"
+      ],
+      "duration_seconds": 0.002799750000000323,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_API_AUTH_SMS_SEND-004]",
+      "outcome": "passed",
+      "case_ids": [
+        "POST_API_AUTH_SMS_SEND-004"
+      ],
+      "duration_seconds": 0.006385458999999649,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_API_CART-001]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_API_CART-001"
+      ],
+      "duration_seconds": 0.008216250000000258,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_API_CART-002]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_API_CART-002"
+      ],
+      "duration_seconds": 0.0012607500000001437,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_API_CART_CLEAR_INVALID-001]",
+      "outcome": "passed",
+      "case_ids": [
+        "POST_API_CART_CLEAR_INVALID-001"
+      ],
+      "duration_seconds": 0.011914166999999587,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_API_CART_CLEAR_INVALID-002]",
+      "outcome": "passed",
+      "case_ids": [
+        "POST_API_CART_CLEAR_INVALID-002"
+      ],
+      "duration_seconds": 0.001367167000000613,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_API_CART_CLEAR_INVALID-004]",
+      "outcome": "passed",
+      "case_ids": [
+        "POST_API_CART_CLEAR_INVALID-004"
+      ],
+      "duration_seconds": 0.014147999999999605,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_API_CART_ITEMS-001]",
+      "outcome": "passed",
+      "case_ids": [
+        "POST_API_CART_ITEMS-001"
+      ],
+      "duration_seconds": 0.021411624999999823,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_API_CART_ITEMS-002]",
+      "outcome": "passed",
+      "case_ids": [
+        "POST_API_CART_ITEMS-002"
+      ],
+      "duration_seconds": 0.001943250000000063,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_API_CART_ITEMS-004]",
+      "outcome": "passed",
+      "case_ids": [
+        "POST_API_CART_ITEMS-004"
+      ],
+      "duration_seconds": 0.01139974999999982,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[DELETE_API_CART_ITEMS_ID-001]",
+      "outcome": "skipped",
+      "case_ids": [
+        "DELETE_API_CART_ITEMS_ID-001"
+      ],
+      "duration_seconds": 0.006006417000000042,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[DELETE_API_CART_ITEMS_ID-002]",
+      "outcome": "skipped",
+      "case_ids": [
+        "DELETE_API_CART_ITEMS_ID-002"
+      ],
+      "duration_seconds": 0.005503916999999525,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[DELETE_API_CART_ITEMS_ID-003]",
+      "outcome": "passed",
+      "case_ids": [
+        "DELETE_API_CART_ITEMS_ID-003"
+      ],
+      "duration_seconds": 0.002706917000000253,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[DELETE_API_CART_ITEMS_ID-004]",
+      "outcome": "skipped",
+      "case_ids": [
+        "DELETE_API_CART_ITEMS_ID-004"
+      ],
+      "duration_seconds": 0.006563749999999757,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[PUT_API_CART_ITEMS_ID-001]",
+      "outcome": "skipped",
+      "case_ids": [
+        "PUT_API_CART_ITEMS_ID-001"
+      ],
+      "duration_seconds": 0.005034624999999515,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[PUT_API_CART_ITEMS_ID-002]",
+      "outcome": "skipped",
+      "case_ids": [
+        "PUT_API_CART_ITEMS_ID-002"
+      ],
+      "duration_seconds": 0.00475379099999973,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[PUT_API_CART_ITEMS_ID-003]",
+      "outcome": "passed",
+      "case_ids": [
+        "PUT_API_CART_ITEMS_ID-003"
+      ],
+      "duration_seconds": 0.002416874999999763,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[PUT_API_CART_ITEMS_ID-004]",
+      "outcome": "skipped",
+      "case_ids": [
+        "PUT_API_CART_ITEMS_ID-004"
+      ],
+      "duration_seconds": 0.004989624999999442,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_API_CATEGORIES-001]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_API_CATEGORIES-001"
+      ],
+      "duration_seconds": 0.002279167000000193,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_API_FAVORITES-001]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_API_FAVORITES-001"
+      ],
+      "duration_seconds": 0.006740458000000338,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_API_FAVORITES-002]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_API_FAVORITES-002"
+      ],
+      "duration_seconds": 0.001469457999999868,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_API_FAVORITES-005]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_API_FAVORITES-005"
+      ],
+      "duration_seconds": 0.00910004200000003,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[DELETE_API_FAVORITES_SPUID-001]",
+      "outcome": "skipped",
+      "case_ids": [
+        "DELETE_API_FAVORITES_SPUID-001"
+      ],
+      "duration_seconds": 0.00014195800000038616,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[DELETE_API_FAVORITES_SPUID-002]",
+      "outcome": "skipped",
+      "case_ids": [
+        "DELETE_API_FAVORITES_SPUID-002"
+      ],
+      "duration_seconds": 0.00013720799999994426,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[DELETE_API_FAVORITES_SPUID-003]",
+      "outcome": "skipped",
+      "case_ids": [
+        "DELETE_API_FAVORITES_SPUID-003"
+      ],
+      "duration_seconds": 0.0001316659999996972,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[DELETE_API_FAVORITES_SPUID-004]",
+      "outcome": "skipped",
+      "case_ids": [
+        "DELETE_API_FAVORITES_SPUID-004"
+      ],
+      "duration_seconds": 0.0001249579999997863,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_API_FAVORITES_SPUID-001]",
+      "outcome": "passed",
+      "case_ids": [
+        "POST_API_FAVORITES_SPUID-001"
+      ],
+      "duration_seconds": 0.012033707999999699,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_API_FAVORITES_SPUID-002]",
+      "outcome": "passed",
+      "case_ids": [
+        "POST_API_FAVORITES_SPUID-002"
+      ],
+      "duration_seconds": 0.0013802910000002555,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_API_FAVORITES_SPUID-003]",
+      "outcome": "passed",
+      "case_ids": [
+        "POST_API_FAVORITES_SPUID-003"
+      ],
+      "duration_seconds": 0.0023093749999993918,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_API_FAVORITES_SPUID-004]",
+      "outcome": "passed",
+      "case_ids": [
+        "POST_API_FAVORITES_SPUID-004"
+      ],
+      "duration_seconds": 0.009070958999999768,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_API_FILES_CONFIRM-001]",
+      "outcome": "skipped",
+      "case_ids": [
+        "POST_API_FILES_CONFIRM-001"
+      ],
+      "duration_seconds": 0.00013858300000002544,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_API_FILES_CONFIRM-002]",
+      "outcome": "skipped",
+      "case_ids": [
+        "POST_API_FILES_CONFIRM-002"
+      ],
+      "duration_seconds": 0.00012795800000020563,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_API_FILES_CONFIRM-003]",
+      "outcome": "skipped",
+      "case_ids": [
+        "POST_API_FILES_CONFIRM-003"
+      ],
+      "duration_seconds": 0.00012979200000007296,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_API_FILES_CONFIRM-004]",
+      "outcome": "skipped",
+      "case_ids": [
+        "POST_API_FILES_CONFIRM-004"
+      ],
+      "duration_seconds": 0.00020979200000059706,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_API_FILES_PRESIGN-001]",
+      "outcome": "skipped",
+      "case_ids": [
+        "POST_API_FILES_PRESIGN-001"
+      ],
+      "duration_seconds": 0.0001223339999993911,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_API_FILES_PRESIGN-002]",
+      "outcome": "skipped",
+      "case_ids": [
+        "POST_API_FILES_PRESIGN-002"
+      ],
+      "duration_seconds": 0.0001291249999999522,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_API_FILES_PRESIGN-004]",
+      "outcome": "skipped",
+      "case_ids": [
+        "POST_API_FILES_PRESIGN-004"
+      ],
+      "duration_seconds": 0.00012100000000003774,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_API_FILES_UPLOAD-001]",
+      "outcome": "skipped",
+      "case_ids": [
+        "POST_API_FILES_UPLOAD-001"
+      ],
+      "duration_seconds": 0.0001277500000007592,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_API_FILES_UPLOAD-002]",
+      "outcome": "skipped",
+      "case_ids": [
+        "POST_API_FILES_UPLOAD-002"
+      ],
+      "duration_seconds": 0.00012395799999964652,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_API_FILES_UPLOAD-004]",
+      "outcome": "skipped",
+      "case_ids": [
+        "POST_API_FILES_UPLOAD-004"
+      ],
+      "duration_seconds": 0.00011829199999979778,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_API_FILES_VIEW-001]",
+      "outcome": "skipped",
+      "case_ids": [
+        "GET_API_FILES_VIEW-001"
+      ],
+      "duration_seconds": 0.00022691699999999315,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_API_FILES_VIEW-003]",
+      "outcome": "skipped",
+      "case_ids": [
+        "GET_API_FILES_VIEW-003"
+      ],
+      "duration_seconds": 0.00012341600000009834,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[DELETE_API_HISTORY-001]",
+      "outcome": "skipped",
+      "case_ids": [
+        "DELETE_API_HISTORY-001"
+      ],
+      "duration_seconds": 0.0001249579999997863,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[DELETE_API_HISTORY-002]",
+      "outcome": "skipped",
+      "case_ids": [
+        "DELETE_API_HISTORY-002"
+      ],
+      "duration_seconds": 0.00012579199999951385,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[DELETE_API_HISTORY-004]",
+      "outcome": "skipped",
+      "case_ids": [
+        "DELETE_API_HISTORY-004"
+      ],
+      "duration_seconds": 0.00012004199999982035,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_API_HISTORY-001]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_API_HISTORY-001"
+      ],
+      "duration_seconds": 0.009458332999999541,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_API_HISTORY-002]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_API_HISTORY-002"
+      ],
+      "duration_seconds": 0.001568791999999597,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_API_HISTORY-005]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_API_HISTORY-005"
+      ],
+      "duration_seconds": 0.012146000000000434,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_API_HOME-001]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_API_HOME-001"
+      ],
+      "duration_seconds": 0.014659374999999919,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_API_ME-001]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_API_ME-001"
+      ],
+      "duration_seconds": 0.0022408329999992205,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_API_ME-002]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_API_ME-002"
+      ],
+      "duration_seconds": 0.0015268749999997056,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[PUT_API_ME-001]",
+      "outcome": "skipped",
+      "case_ids": [
+        "PUT_API_ME-001"
+      ],
+      "duration_seconds": 0.00022250000000045844,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[PUT_API_ME-002]",
+      "outcome": "skipped",
+      "case_ids": [
+        "PUT_API_ME-002"
+      ],
+      "duration_seconds": 0.00013658299999974588,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[PUT_API_ME-004]",
+      "outcome": "skipped",
+      "case_ids": [
+        "PUT_API_ME-004"
+      ],
+      "duration_seconds": 0.0001447500000004709,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_API_ORDERS-001]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_API_ORDERS-001"
+      ],
+      "duration_seconds": 0.004428041999999799,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_API_ORDERS-002]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_API_ORDERS-002"
+      ],
+      "duration_seconds": 0.001431915999999589,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_API_ORDERS-005]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_API_ORDERS-005"
+      ],
+      "duration_seconds": 0.00712733299999968,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_API_ORDERS-001]",
+      "outcome": "failed",
+      "case_ids": [
+        "POST_API_ORDERS-001"
+      ],
+      "duration_seconds": 0.012933708000000266,
+      "evidence_json": "/Users/imac/Desktop/电商自动化测试/shang-pivot-master/api_testcases/artifacts/failures/tests_contract_test_inventory_driven.py_test_inventory_case_POST_API_ORDERS-001_.json"
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_API_ORDERS-002]",
+      "outcome": "passed",
+      "case_ids": [
+        "POST_API_ORDERS-002"
+      ],
+      "duration_seconds": 0.002352375000000073,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_API_ORDERS-004]",
+      "outcome": "failed",
+      "case_ids": [
+        "POST_API_ORDERS-004"
+      ],
+      "duration_seconds": 0.018915666999999914,
+      "evidence_json": "/Users/imac/Desktop/电商自动化测试/shang-pivot-master/api_testcases/artifacts/failures/tests_contract_test_inventory_driven.py_test_inventory_case_POST_API_ORDERS-004_.json"
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_API_ORDERS_ID-001]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_API_ORDERS_ID-001"
+      ],
+      "duration_seconds": 0.014051957999999587,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_API_ORDERS_ID-002]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_API_ORDERS_ID-002"
+      ],
+      "duration_seconds": 0.0014327080000002823,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_API_ORDERS_ID-003]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_API_ORDERS_ID-003"
+      ],
+      "duration_seconds": 0.0032387920000003234,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_API_ORDERS_ID_CANCEL-001]",
+      "outcome": "passed",
+      "case_ids": [
+        "POST_API_ORDERS_ID_CANCEL-001"
+      ],
+      "duration_seconds": 0.008022917000000795,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_API_ORDERS_ID_CANCEL-002]",
+      "outcome": "passed",
+      "case_ids": [
+        "POST_API_ORDERS_ID_CANCEL-002"
+      ],
+      "duration_seconds": 0.001392208999999589,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_API_ORDERS_ID_CANCEL-003]",
+      "outcome": "passed",
+      "case_ids": [
+        "POST_API_ORDERS_ID_CANCEL-003"
+      ],
+      "duration_seconds": 0.0014728750000001511,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_API_ORDERS_ID_CANCEL-004]",
+      "outcome": "passed",
+      "case_ids": [
+        "POST_API_ORDERS_ID_CANCEL-004"
+      ],
+      "duration_seconds": 0.018535874999999535,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_API_ORDERS_ID_CONFIRM-001]",
+      "outcome": "failed",
+      "case_ids": [
+        "POST_API_ORDERS_ID_CONFIRM-001"
+      ],
+      "duration_seconds": 0.003760624999999962,
+      "evidence_json": "/Users/imac/Desktop/电商自动化测试/shang-pivot-master/api_testcases/artifacts/failures/tests_contract_test_inventory_driven.py_test_inventory_case_POST_API_ORDERS_ID_CONFIRM-001_.json"
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_API_ORDERS_ID_CONFIRM-002]",
+      "outcome": "passed",
+      "case_ids": [
+        "POST_API_ORDERS_ID_CONFIRM-002"
+      ],
+      "duration_seconds": 0.002081624999999754,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_API_ORDERS_ID_CONFIRM-003]",
+      "outcome": "passed",
+      "case_ids": [
+        "POST_API_ORDERS_ID_CONFIRM-003"
+      ],
+      "duration_seconds": 0.0017269589999999724,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_API_ORDERS_ID_CONFIRM-004]",
+      "outcome": "passed",
+      "case_ids": [
+        "POST_API_ORDERS_ID_CONFIRM-004"
+      ],
+      "duration_seconds": 0.01608166699999991,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_API_ORDERS_ID_LOGISTICS-001]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_API_ORDERS_ID_LOGISTICS-001"
+      ],
+      "duration_seconds": 0.007320457999999697,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_API_ORDERS_ID_LOGISTICS-002]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_API_ORDERS_ID_LOGISTICS-002"
+      ],
+      "duration_seconds": 0.0017975410000001801,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_API_ORDERS_ID_LOGISTICS-003]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_API_ORDERS_ID_LOGISTICS-003"
+      ],
+      "duration_seconds": 0.001529957999999887,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_API_PAYMENT_SANDBOX-001]",
+      "outcome": "skipped",
+      "case_ids": [
+        "POST_API_PAYMENT_SANDBOX-001"
+      ],
+      "duration_seconds": 0.02497779199999961,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_API_PAYMENT_SANDBOX-002]",
+      "outcome": "skipped",
+      "case_ids": [
+        "POST_API_PAYMENT_SANDBOX-002"
+      ],
+      "duration_seconds": 0.018645042000000167,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_API_PAYMENT_SANDBOX-004]",
+      "outcome": "skipped",
+      "case_ids": [
+        "POST_API_PAYMENT_SANDBOX-004"
+      ],
+      "duration_seconds": 0.016882416999999705,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_API_PAYMENT_ORDERID_STATUS-001]",
+      "outcome": "skipped",
+      "case_ids": [
+        "GET_API_PAYMENT_ORDERID_STATUS-001"
+      ],
+      "duration_seconds": 0.0026950420000000364,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_API_PAYMENT_ORDERID_STATUS-002]",
+      "outcome": "skipped",
+      "case_ids": [
+        "GET_API_PAYMENT_ORDERID_STATUS-002"
+      ],
+      "duration_seconds": 0.0020063329999997492,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_API_PAYMENT_ORDERID_STATUS-003]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_API_PAYMENT_ORDERID_STATUS-003"
+      ],
+      "duration_seconds": 0.0017787919999996404,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_API_PRODUCTS-001]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_API_PRODUCTS-001"
+      ],
+      "duration_seconds": 0.006194500000000325,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_API_PRODUCTS-005]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_API_PRODUCTS-005"
+      ],
+      "duration_seconds": 0.006501582999999478,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_API_PRODUCTS_SPUID-001]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_API_PRODUCTS_SPUID-001"
+      ],
+      "duration_seconds": 0.012273750000000305,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_API_PRODUCTS_SPUID-003]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_API_PRODUCTS_SPUID-003"
+      ],
+      "duration_seconds": 0.002315584000000648,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_API_PRODUCTS_SPUID_REVIEWS-001]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_API_PRODUCTS_SPUID_REVIEWS-001"
+      ],
+      "duration_seconds": 0.0038623749999997514,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_API_PRODUCTS_SPUID_REVIEWS-003]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_API_PRODUCTS_SPUID_REVIEWS-003"
+      ],
+      "duration_seconds": 0.0016529170000003646,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_API_PRODUCTS_SPUID_REVIEWS-005]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_API_PRODUCTS_SPUID_REVIEWS-005"
+      ],
+      "duration_seconds": 0.007850042000000279,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_API_REVIEWS-001]",
+      "outcome": "skipped",
+      "case_ids": [
+        "POST_API_REVIEWS-001"
+      ],
+      "duration_seconds": 0.019130957999999865,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_API_REVIEWS-002]",
+      "outcome": "skipped",
+      "case_ids": [
+        "POST_API_REVIEWS-002"
+      ],
+      "duration_seconds": 0.018903124999999577,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_API_REVIEWS-004]",
+      "outcome": "skipped",
+      "case_ids": [
+        "POST_API_REVIEWS-004"
+      ],
+      "duration_seconds": 0.015837458000000026,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_API_SEARCH-001]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_API_SEARCH-001"
+      ],
+      "duration_seconds": 0.0018716249999997103,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_API_SEARCH-005]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_API_SEARCH-005"
+      ],
+      "duration_seconds": 0.002821416999999826,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_API_SITE_BRAND-001]",
+      "outcome": "passed",
+      "case_ids": [
+        "GET_API_SITE_BRAND-001"
+      ],
+      "duration_seconds": 0.0018769999999994624,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[BUS-AUTH-001]",
+      "outcome": "passed",
+      "case_ids": [
+        "BUS-AUTH-001"
+      ],
+      "duration_seconds": 0.007628874999999979,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[BUS-AUTH-002]",
+      "outcome": "passed",
+      "case_ids": [
+        "BUS-AUTH-002"
+      ],
+      "duration_seconds": 0.0028427920000000384,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[BUS-AUTH-003]",
+      "outcome": "passed",
+      "case_ids": [
+        "BUS-AUTH-003"
+      ],
+      "duration_seconds": 0.004739292000000006,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[BUS-AUTH-004]",
+      "outcome": "failed",
+      "case_ids": [
+        "BUS-AUTH-004"
+      ],
+      "duration_seconds": 0.0027184579999994796,
+      "evidence_json": "/Users/imac/Desktop/电商自动化测试/shang-pivot-master/api_testcases/artifacts/failures/tests_contract_test_inventory_driven.py_test_inventory_case_BUS-AUTH-004_.json"
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[BUS-ME-001]",
+      "outcome": "skipped",
+      "case_ids": [
+        "BUS-ME-001"
+      ],
+      "duration_seconds": 0.0001410829999999308,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[BUS-ME-002]",
+      "outcome": "skipped",
+      "case_ids": [
+        "BUS-ME-002"
+      ],
+      "duration_seconds": 0.00016845900000017622,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[BUS-ME-003]",
+      "outcome": "passed",
+      "case_ids": [
+        "BUS-ME-003"
+      ],
+      "duration_seconds": 0.0136794999999994,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[BUS-ME-004]",
+      "outcome": "passed",
+      "case_ids": [
+        "BUS-ME-004"
+      ],
+      "duration_seconds": 0.009005125000000724,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[BUS-STK-001]",
+      "outcome": "failed",
+      "case_ids": [
+        "BUS-STK-001"
+      ],
+      "duration_seconds": 0.013988417000000197,
+      "evidence_json": "/Users/imac/Desktop/电商自动化测试/shang-pivot-master/api_testcases/artifacts/failures/tests_contract_test_inventory_driven.py_test_inventory_case_BUS-STK-001_.json"
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[BUS-STK-002]",
+      "outcome": "passed",
+      "case_ids": [
+        "BUS-STK-002"
+      ],
+      "duration_seconds": 0.01276229100000048,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[BUS-STK-003]",
+      "outcome": "skipped",
+      "case_ids": [
+        "BUS-STK-003"
+      ],
+      "duration_seconds": 0.000149541999999947,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[BUS-STK-004]",
+      "outcome": "failed",
+      "case_ids": [
+        "BUS-STK-004"
+      ],
+      "duration_seconds": 0.020233541999999716,
+      "evidence_json": "/Users/imac/Desktop/电商自动化测试/shang-pivot-master/api_testcases/artifacts/failures/tests_contract_test_inventory_driven.py_test_inventory_case_BUS-STK-004_.json"
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[BUS-CART-001]",
+      "outcome": "passed",
+      "case_ids": [
+        "BUS-CART-001"
+      ],
+      "duration_seconds": 0.014167416000000266,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[BUS-CART-002]",
+      "outcome": "failed",
+      "case_ids": [
+        "BUS-CART-002"
+      ],
+      "duration_seconds": 0.00899320899999978,
+      "evidence_json": "/Users/imac/Desktop/电商自动化测试/shang-pivot-master/api_testcases/artifacts/failures/tests_contract_test_inventory_driven.py_test_inventory_case_BUS-CART-002_.json"
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[BUS-CART-003]",
+      "outcome": "failed",
+      "case_ids": [
+        "BUS-CART-003"
+      ],
+      "duration_seconds": 0.02905774999999977,
+      "evidence_json": "/Users/imac/Desktop/电商自动化测试/shang-pivot-master/api_testcases/artifacts/failures/tests_contract_test_inventory_driven.py_test_inventory_case_BUS-CART-003_.json"
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[BUS-CART-004]",
+      "outcome": "skipped",
+      "case_ids": [
+        "BUS-CART-004"
+      ],
+      "duration_seconds": 0.18288145799999977,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[BUS-CART-005]",
+      "outcome": "passed",
+      "case_ids": [
+        "BUS-CART-005"
+      ],
+      "duration_seconds": 0.02514416700000055,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[BUS-ORD-001]",
+      "outcome": "failed",
+      "case_ids": [
+        "BUS-ORD-001"
+      ],
+      "duration_seconds": 0.045115666000000054,
+      "evidence_json": "/Users/imac/Desktop/电商自动化测试/shang-pivot-master/api_testcases/artifacts/failures/tests_contract_test_inventory_driven.py_test_inventory_case_BUS-ORD-001_.json"
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[BUS-ORD-002]",
+      "outcome": "failed",
+      "case_ids": [
+        "BUS-ORD-002"
+      ],
+      "duration_seconds": 0.010286041999999718,
+      "evidence_json": "/Users/imac/Desktop/电商自动化测试/shang-pivot-master/api_testcases/artifacts/failures/tests_contract_test_inventory_driven.py_test_inventory_case_BUS-ORD-002_.json"
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[BUS-ORD-003]",
+      "outcome": "failed",
+      "case_ids": [
+        "BUS-ORD-003"
+      ],
+      "duration_seconds": 0.01015350000000037,
+      "evidence_json": "/Users/imac/Desktop/电商自动化测试/shang-pivot-master/api_testcases/artifacts/failures/tests_contract_test_inventory_driven.py_test_inventory_case_BUS-ORD-003_.json"
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[BUS-ORD-004]",
+      "outcome": "failed",
+      "case_ids": [
+        "BUS-ORD-004"
+      ],
+      "duration_seconds": 0.011913374999999782,
+      "evidence_json": "/Users/imac/Desktop/电商自动化测试/shang-pivot-master/api_testcases/artifacts/failures/tests_contract_test_inventory_driven.py_test_inventory_case_BUS-ORD-004_.json"
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[BUS-ORD-005]",
+      "outcome": "failed",
+      "case_ids": [
+        "BUS-ORD-005"
+      ],
+      "duration_seconds": 0.0055981250000005645,
+      "evidence_json": "/Users/imac/Desktop/电商自动化测试/shang-pivot-master/api_testcases/artifacts/failures/tests_contract_test_inventory_driven.py_test_inventory_case_BUS-ORD-005_.json"
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[BUS-ORD-006]",
+      "outcome": "failed",
+      "case_ids": [
+        "BUS-ORD-006"
+      ],
+      "duration_seconds": 0.005305083999999738,
+      "evidence_json": "/Users/imac/Desktop/电商自动化测试/shang-pivot-master/api_testcases/artifacts/failures/tests_contract_test_inventory_driven.py_test_inventory_case_BUS-ORD-006_.json"
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[BUS-ORD-007]",
+      "outcome": "passed",
+      "case_ids": [
+        "BUS-ORD-007"
+      ],
+      "duration_seconds": 0.010095792000000436,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[BUS-ORD-008]",
+      "outcome": "failed",
+      "case_ids": [
+        "BUS-ORD-008"
+      ],
+      "duration_seconds": 0.005064709000000001,
+      "evidence_json": "/Users/imac/Desktop/电商自动化测试/shang-pivot-master/api_testcases/artifacts/failures/tests_contract_test_inventory_driven.py_test_inventory_case_BUS-ORD-008_.json"
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[BUS-PAY-001]",
+      "outcome": "skipped",
+      "case_ids": [
+        "BUS-PAY-001"
+      ],
+      "duration_seconds": 0.027088334000000103,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[BUS-PAY-002]",
+      "outcome": "skipped",
+      "case_ids": [
+        "BUS-PAY-002"
+      ],
+      "duration_seconds": 0.020460124999999607,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[BUS-PAY-003]",
+      "outcome": "skipped",
+      "case_ids": [
+        "BUS-PAY-003"
+      ],
+      "duration_seconds": 0.017314958000000047,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[BUS-AS-001]",
+      "outcome": "skipped",
+      "case_ids": [
+        "BUS-AS-001"
+      ],
+      "duration_seconds": 0.017490708999999605,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[BUS-AS-002]",
+      "outcome": "skipped",
+      "case_ids": [
+        "BUS-AS-002"
+      ],
+      "duration_seconds": 0.019574750000000307,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[BUS-AS-003]",
+      "outcome": "skipped",
+      "case_ids": [
+        "BUS-AS-003"
+      ],
+      "duration_seconds": 0.018234917000000017,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[BUS-AS-004]",
+      "outcome": "failed",
+      "case_ids": [
+        "BUS-AS-004"
+      ],
+      "duration_seconds": 0.022059791000000217,
+      "evidence_json": "/Users/imac/Desktop/电商自动化测试/shang-pivot-master/api_testcases/artifacts/failures/tests_contract_test_inventory_driven.py_test_inventory_case_BUS-AS-004_.json"
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[BUS-AS-005]",
+      "outcome": "failed",
+      "case_ids": [
+        "BUS-AS-005"
+      ],
+      "duration_seconds": 0.018110041999999993,
+      "evidence_json": "/Users/imac/Desktop/电商自动化测试/shang-pivot-master/api_testcases/artifacts/failures/tests_contract_test_inventory_driven.py_test_inventory_case_BUS-AS-005_.json"
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[BUS-AS-006]",
+      "outcome": "passed",
+      "case_ids": [
+        "BUS-AS-006"
+      ],
+      "duration_seconds": 0.017642875000000835,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[BUS-REV-001]",
+      "outcome": "skipped",
+      "case_ids": [
+        "BUS-REV-001"
+      ],
+      "duration_seconds": 0.023550417000000046,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[BUS-REV-002]",
+      "outcome": "skipped",
+      "case_ids": [
+        "BUS-REV-002"
+      ],
+      "duration_seconds": 0.017238749999999747,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[BUS-REV-003]",
+      "outcome": "skipped",
+      "case_ids": [
+        "BUS-REV-003"
+      ],
+      "duration_seconds": 0.01616350000000022,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[BUS-REV-004]",
+      "outcome": "skipped",
+      "case_ids": [
+        "BUS-REV-004"
+      ],
+      "duration_seconds": 0.00015229200000010934,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[BUS-ADM-001]",
+      "outcome": "failed",
+      "case_ids": [
+        "BUS-ADM-001"
+      ],
+      "duration_seconds": 0.010101292000000761,
+      "evidence_json": "/Users/imac/Desktop/电商自动化测试/shang-pivot-master/api_testcases/artifacts/failures/tests_contract_test_inventory_driven.py_test_inventory_case_BUS-ADM-001_.json"
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[BUS-ADM-002]",
+      "outcome": "skipped",
+      "case_ids": [
+        "BUS-ADM-002"
+      ],
+      "duration_seconds": 0.00791933300000025,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[BUS-ADM-003]",
+      "outcome": "skipped",
+      "case_ids": [
+        "BUS-ADM-003"
+      ],
+      "duration_seconds": 0.00014341699999942392,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[BUS-ADM-004]",
+      "outcome": "failed",
+      "case_ids": [
+        "BUS-ADM-004"
+      ],
+      "duration_seconds": 0.016636957999999424,
+      "evidence_json": "/Users/imac/Desktop/电商自动化测试/shang-pivot-master/api_testcases/artifacts/failures/tests_contract_test_inventory_driven.py_test_inventory_case_BUS-ADM-004_.json"
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[BUS-ADM-005]",
+      "outcome": "failed",
+      "case_ids": [
+        "BUS-ADM-005"
+      ],
+      "duration_seconds": 0.04433254200000025,
+      "evidence_json": "/Users/imac/Desktop/电商自动化测试/shang-pivot-master/api_testcases/artifacts/failures/tests_contract_test_inventory_driven.py_test_inventory_case_BUS-ADM-005_.json"
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[BUS-ADM-006]",
+      "outcome": "skipped",
+      "case_ids": [
+        "BUS-ADM-006"
+      ],
+      "duration_seconds": 0.024633666999999804,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[BUS-ADM-007]",
+      "outcome": "skipped",
+      "case_ids": [
+        "BUS-ADM-007"
+      ],
+      "duration_seconds": 0.00015199999999992997,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[BUS-ADM-008]",
+      "outcome": "skipped",
+      "case_ids": [
+        "BUS-ADM-008"
+      ],
+      "duration_seconds": 0.006932041000000666,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[BUS-ADM-009]",
+      "outcome": "skipped",
+      "case_ids": [
+        "BUS-ADM-009"
+      ],
+      "duration_seconds": 0.00013608400000020282,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[BUS-ADM-010]",
+      "outcome": "skipped",
+      "case_ids": [
+        "BUS-ADM-010"
+      ],
+      "duration_seconds": 0.00013775000000038062,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[BUS-ADM-011]",
+      "outcome": "skipped",
+      "case_ids": [
+        "BUS-ADM-011"
+      ],
+      "duration_seconds": 0.00013791599999990467,
+      "evidence_json": ""
+    },
+    {
+      "nodeid": "tests/contract/test_inventory_driven.py::test_inventory_case[BUS-ADM-012]",
+      "outcome": "skipped",
+      "case_ids": [
+        "BUS-ADM-012"
+      ],
+      "duration_seconds": 0.00013749999999923546,
+      "evidence_json": ""
+    }
+  ]
+}

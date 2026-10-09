@@ -1,0 +1,22 @@
+{
+ "url": "http://127.0.0.1:8086/admin/depts",
+ "method": "GET",
+ "http": 200,
+ "body": {
+  "code": 0,
+  "data": [
+   {
+    "createdAt": "2026-09-30T00:27:19.183183+08:00",
+    "deleted": false,
+    "id": "1",
+    "name": "总部",
+    "parentId": "0",
+    "sort": 0,
+    "status": "ENABLED",
+    "updatedAt": "2026-09-30T00:27:19.183183+08:00"
+   }
+  ],
+  "msg": "success",
+  "traceId": "9d478ed8c459442bb6164a63cc6df3eb"
+ }
+}

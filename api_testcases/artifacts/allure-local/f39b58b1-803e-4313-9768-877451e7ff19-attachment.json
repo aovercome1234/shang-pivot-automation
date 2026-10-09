@@ -1,0 +1,73 @@
+{
+ "url": "http://127.0.0.1:8096/admin/stocks",
+ "method": "GET",
+ "http": 200,
+ "body": {
+  "code": 0,
+  "data": {
+   "total": "48",
+   "records": [
+    {
+     "warehouseId": "1",
+     "physicalStock": 6,
+     "lowThreshold": 10,
+     "lockedStock": 0,
+     "availableStock": 6,
+     "id": "2107340392335609858",
+     "warehouseName": "默认仓",
+     "skuId": "248"
+    },
+    {
+     "skuTitle": "折叠露营桌 铝合金",
+     "warehouseId": "1",
+     "physicalStock": 40,
+     "lowThreshold": 10,
+     "lockedStock": 0,
+     "availableStock": 40,
+     "id": "10047",
+     "warehouseName": "默认仓",
+     "skuId": "10047",
+     "barCode": "PKU-10047"
+    },
+    {
+     "skuTitle": "iPhone 15 Pro Max 256G",
+     "warehouseId": "1",
+     "physicalStock": 60,
+     "lowThreshold": 10,
+     "lockedStock": 0,
+     "availableStock": 60,
+     "id": "10046",
+     "warehouseName": "默认仓",
+     "skuId": "10046",
+     "barCode": "PKU-10046"
+    },
+    {
+     "skuTitle": "丝绒雾面口红 正红",
+     "warehouseId": "1",
+     "physicalStock": 280,
+     "lowThreshold": 10,
+     "lockedStock": 0,
+     "availableStock": 280,
+     "id": "10045",
+     "warehouseName": "默认仓",
+     "skuId": "10045",
+     "barCode": "PKU-10045"
+    },
+    {
+     "skuTitle": "丝绒雾面口红 豆沙",
+     "warehouseId": "1",
+     "physicalStock": 300,
+     "lowThreshold": 10,
+     "lockedStock": 0,
+     "availableStock": 300,
+     "id": "10044",
+     "warehouseName": "默认仓",
+     "skuId": "10044",
+     "barCode": "PKU-10044"
+    }
+   ]
+  },
+  "msg": "success",
+  "traceId": "cea7e7054d3841eab56973d33a293dc1"
+ }
+}

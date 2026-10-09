@@ -1,0 +1,7 @@
+1. 执行 pytest 用例：tests/contract/test_inventory_driven.py::test_inventory_case[POST_API_AUTH_LOGOUT-004]
+2. 记录请求方法、脱敏请求头、URL、请求体和响应体
+3. 对照用例预期断言；失败原因为：tests/contract/test_inventory_driven.py:188: in test_inventory_case
+    assert ok, f"[{cid}] {detail}"
+E   AssertionError: [POST_API_AUTH_LOGOUT-004] HTTP 期望 200 实际 401｜body={'code': 40103, 'msg': 'Token无效', 'traceId': '8aeac39e772d4c75b53806941aaed3a7'}
+E   assert False
+4. 将 JSON 证据和 PNG 证据上传至禅道 Bug 附件

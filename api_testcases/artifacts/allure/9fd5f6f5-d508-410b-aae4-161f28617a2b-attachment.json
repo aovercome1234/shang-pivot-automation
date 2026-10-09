@@ -1,0 +1,14 @@
+{
+ "url": "http://127.0.0.1:8086/api/search",
+ "method": "GET",
+ "http": 200,
+ "body": {
+  "code": 0,
+  "data": {
+   "total": "0",
+   "records": []
+  },
+  "msg": "success",
+  "traceId": "8dc584d0807c4a7bb9d243f54e088407"
+ }
+}

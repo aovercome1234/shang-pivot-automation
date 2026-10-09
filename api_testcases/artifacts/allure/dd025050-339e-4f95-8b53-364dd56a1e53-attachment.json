@@ -1,0 +1,10 @@
+{
+ "url": "http://127.0.0.1:8086/api/me",
+ "method": "GET",
+ "http": 401,
+ "body": {
+  "code": 40100,
+  "msg": "未认证",
+  "traceId": "50eacae1f7f4482580418fae98091109"
+ }
+}

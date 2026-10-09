@@ -1,0 +1,14 @@
+{
+ "url": "http://111.170.33.2:60085/admin/stocks",
+ "method": "GET",
+ "http": 200,
+ "body": {
+  "code": 0,
+  "data": {
+   "total": "49",
+   "records": []
+  },
+  "msg": "success",
+  "traceId": "d7734466c38b48a6aabd27331b079817"
+ }
+}

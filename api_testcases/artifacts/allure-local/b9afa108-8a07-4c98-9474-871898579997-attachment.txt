@@ -1,0 +1,1 @@
+HTTP=200；code=0；回查 GET /api/orders/{id} 校验 data.freightAmount 等于系统配置的默认运费，且 data.payAmount 等于 data.goodsAmount 加运费

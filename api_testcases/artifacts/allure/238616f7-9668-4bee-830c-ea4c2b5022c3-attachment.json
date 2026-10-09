@@ -1,0 +1,10 @@
+{
+ "url": "http://127.0.0.1:8086/admin/categories",
+ "method": "POST",
+ "http": 200,
+ "body": {
+  "code": 40000,
+  "msg": "请填写类目名称",
+  "traceId": "c3cddb229af34baa95d25642e7f178a0"
+ }
+}

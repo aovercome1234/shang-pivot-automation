@@ -1,0 +1,95 @@
+{
+ "url": "http://111.170.33.2:60085/admin/products",
+ "method": "GET",
+ "http": 200,
+ "body": {
+  "code": 0,
+  "data": {
+   "total": "32",
+   "records": [
+    {
+     "brandId": "17",
+     "categoryId": "17",
+     "categoryName": "运动户外",
+     "id": "248",
+     "maxPrice": 359.0,
+     "minPrice": 359.0,
+     "name": "折叠露营桌 铝合金",
+     "pics": [
+      "/admin/files/view?objectKey=PRODUCT%2Fseed%2Fproduct_148.jpg"
+     ],
+     "priceRange": "¥359",
+     "skuCount": 1,
+     "status": "OFF",
+     "stock": 40
+    },
+    {
+     "brandId": "10",
+     "categoryId": "10",
+     "categoryName": "手机",
+     "id": "247",
+     "maxPrice": 9999.0,
+     "minPrice": 9999.0,
+     "name": "iPhone 15 Pro Max 256G",
+     "pics": [
+      "/admin/files/view?objectKey=PRODUCT%2Fseed%2Fproduct_7.jpg"
+     ],
+     "priceRange": "¥9999",
+     "skuCount": 1,
+     "status": "DRAFT",
+     "stock": 60
+    },
+    {
+     "brandId": "17",
+     "categoryId": "17",
+     "categoryName": "运动户外",
+     "id": "246",
+     "maxPrice": 619.0,
+     "minPrice": 599.0,
+     "name": "双人帐篷 防雨款",
+     "pics": [
+      "/admin/files/view?objectKey=PRODUCT%2Fseed%2Fproduct_146.jpg"
+     ],
+     "priceRange": "¥599 ~ ¥619",
+     "skuCount": 3,
+     "status": "ON",
+     "stock": 390
+    },
+    {
+     "brandId": "17",
+     "categoryId": "17",
+     "categoryName": "运动户外",
+     "id": "241",
+     "maxPrice": 399.0,
+     "minPrice": 399.0,
+     "name": "减震跑步鞋 男款",
+     "pics": [
+      "/admin/files/view?objectKey=PRODUCT%2Fseed%2Fproduct_141.jpg"
+     ],
+     "priceRange": "¥399",
+     "skuCount": 3,
+     "status": "ON",
+     "stock": 550
+    },
+    {
+     "brandId": "16",
+     "categoryId": "16",
+     "categoryName": "食品生鲜",
+     "id": "226",
+     "maxPrice": 119.0,
+     "minPrice": 69.0,
+     "name": "挂耳咖啡 20袋",
+     "pics": [
+      "/admin/files/view?objectKey=PRODUCT%2Fseed%2Fproduct_126.jpg"
+     ],
+     "priceRange": "¥69 ~ ¥119",
+     "skuCount": 3,
+     "status": "ON",
+     "stock": 660
+    }
+   ]
+  },
+  "msg": "success",
+  "traceId": "4b3caa3c1c1843d2826c5602ee53db74"
+ }
+}

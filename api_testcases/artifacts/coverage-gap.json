@@ -1,0 +1,22 @@
+{
+ "generated_from": "/Users/imac/Desktop/电商自动化测试/shang-pivot-master/api_testcases/test_cases_inventory.md",
+ "total_cases": 474,
+ "untested_terms": [
+  "ACCOUNT_LOCKED",
+  "ADJUST",
+  "EXCHANGE",
+  "FORBIDDEN",
+  "INIT",
+  "LOCK",
+  "REFUNDING",
+  "REJECTED",
+  "RETURN_REFUND",
+  "SHIP",
+  "STOCKTAKE",
+  "STOCK_INSUFFICIENT",
+  "SUPER_ADMIN",
+  "TOKEN_EXPIRED",
+  "UNLOCK"
+ ],
+ "note": "词典定义了但无任何用例触发的词条（记法约定类已由词典『反向检查豁免』行排除）"
+}

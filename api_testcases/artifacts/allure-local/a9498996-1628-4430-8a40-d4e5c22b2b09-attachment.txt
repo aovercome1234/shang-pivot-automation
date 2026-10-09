@@ -1,0 +1,1 @@
+HTTP=200；code=CONFLICT；回查 GET /admin/categories/tree 校验该类目及其子类目仍存在

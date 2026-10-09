@@ -1,0 +1,4270 @@
+{
+ "results": [
+  {
+   "case_ids": [
+    "GET_ADMIN_AFTER_SALES-001"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_ADMIN_AFTER_SALES-001]",
+   "duration_seconds": 0.423,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_ADMIN_AFTER_SALES-002"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_ADMIN_AFTER_SALES-002]",
+   "duration_seconds": 0.042,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_ADMIN_AFTER_SALES-005"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_ADMIN_AFTER_SALES-005]",
+   "duration_seconds": 0.122,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_ADMIN_AFTER_SALES_ID-001"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_ADMIN_AFTER_SALES_ID-001]",
+   "duration_seconds": 0.201,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_ADMIN_AFTER_SALES_ID-002"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_ADMIN_AFTER_SALES_ID-002]",
+   "duration_seconds": 0.043,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_ADMIN_AFTER_SALES_ID-003"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_ADMIN_AFTER_SALES_ID-003]",
+   "duration_seconds": 0.074,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_ADMIN_AFTER_SALES_ID_AUDIT-001"
+   ],
+   "outcome": "failed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_ADMIN_AFTER_SALES_ID_AUDIT-001]",
+   "duration_seconds": 0.135,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_ADMIN_AFTER_SALES_ID_AUDIT-002"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_ADMIN_AFTER_SALES_ID_AUDIT-002]",
+   "duration_seconds": 0.047,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_ADMIN_AFTER_SALES_ID_AUDIT-003"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_ADMIN_AFTER_SALES_ID_AUDIT-003]",
+   "duration_seconds": 0.05,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_ADMIN_AFTER_SALES_ID_AUDIT-004"
+   ],
+   "outcome": "failed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_ADMIN_AFTER_SALES_ID_AUDIT-004]",
+   "duration_seconds": 0.115,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_ADMIN_ATTRIBUTES-001"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_ADMIN_ATTRIBUTES-001]",
+   "duration_seconds": 0.059,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_ADMIN_ATTRIBUTES-002"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_ADMIN_ATTRIBUTES-002]",
+   "duration_seconds": 0.042,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_ADMIN_ATTRIBUTES-001"
+   ],
+   "outcome": "failed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_ADMIN_ATTRIBUTES-001]",
+   "duration_seconds": 0.107,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_ADMIN_ATTRIBUTES-002"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_ADMIN_ATTRIBUTES-002]",
+   "duration_seconds": 0.047,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_ADMIN_ATTRIBUTES-003"
+   ],
+   "outcome": "failed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_ADMIN_ATTRIBUTES-003]",
+   "duration_seconds": 0.063,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_ADMIN_ATTRIBUTES-004"
+   ],
+   "outcome": "failed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_ADMIN_ATTRIBUTES-004]",
+   "duration_seconds": 0.146,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "DELETE_ADMIN_ATTRIBUTES_ID-001"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[DELETE_ADMIN_ATTRIBUTES_ID-001]",
+   "duration_seconds": 0.056,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "DELETE_ADMIN_ATTRIBUTES_ID-002"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[DELETE_ADMIN_ATTRIBUTES_ID-002]",
+   "duration_seconds": 0.058,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "DELETE_ADMIN_ATTRIBUTES_ID-003"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[DELETE_ADMIN_ATTRIBUTES_ID-003]",
+   "duration_seconds": 0.061,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "DELETE_ADMIN_ATTRIBUTES_ID-004"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[DELETE_ADMIN_ATTRIBUTES_ID-004]",
+   "duration_seconds": 0.058,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "PUT_ADMIN_ATTRIBUTES_ID-001"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[PUT_ADMIN_ATTRIBUTES_ID-001]",
+   "duration_seconds": 0.065,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "PUT_ADMIN_ATTRIBUTES_ID-002"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[PUT_ADMIN_ATTRIBUTES_ID-002]",
+   "duration_seconds": 0.053,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "PUT_ADMIN_ATTRIBUTES_ID-003"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[PUT_ADMIN_ATTRIBUTES_ID-003]",
+   "duration_seconds": 0.053,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "PUT_ADMIN_ATTRIBUTES_ID-004"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[PUT_ADMIN_ATTRIBUTES_ID-004]",
+   "duration_seconds": 0.062,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_ADMIN_AUTH_LOGIN-001"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_ADMIN_AUTH_LOGIN-001]",
+   "duration_seconds": 0.202,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_ADMIN_AUTH_LOGIN-003"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_ADMIN_AUTH_LOGIN-003]",
+   "duration_seconds": 0.05,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_ADMIN_AUTH_LOGIN-004"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_ADMIN_AUTH_LOGIN-004]",
+   "duration_seconds": 0.383,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_ADMIN_AUTH_LOGOUT-001"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_ADMIN_AUTH_LOGOUT-001]",
+   "duration_seconds": 0.357,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_ADMIN_AUTH_LOGOUT-002"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_ADMIN_AUTH_LOGOUT-002]",
+   "duration_seconds": 0.269,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_ADMIN_AUTH_LOGOUT-004"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_ADMIN_AUTH_LOGOUT-004]",
+   "duration_seconds": 0.316,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_ADMIN_AUTH_ME-001"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_ADMIN_AUTH_ME-001]",
+   "duration_seconds": 0.062,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_ADMIN_AUTH_ME-002"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_ADMIN_AUTH_ME-002]",
+   "duration_seconds": 0.046,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_ADMIN_AUTH_REFRESH-001"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_ADMIN_AUTH_REFRESH-001]",
+   "duration_seconds": 0.064,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_ADMIN_AUTH_REFRESH-003"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_ADMIN_AUTH_REFRESH-003]",
+   "duration_seconds": 0.063,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_ADMIN_AUTH_REFRESH-004"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_ADMIN_AUTH_REFRESH-004]",
+   "duration_seconds": 0.163,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_ADMIN_BRANDS-001"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_ADMIN_BRANDS-001]",
+   "duration_seconds": 0.067,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_ADMIN_BRANDS-002"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_ADMIN_BRANDS-002]",
+   "duration_seconds": 0.052,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_ADMIN_BRANDS-005"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_ADMIN_BRANDS-005]",
+   "duration_seconds": 0.115,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_ADMIN_BRANDS-001"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_ADMIN_BRANDS-001]",
+   "duration_seconds": 0.227,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_ADMIN_BRANDS-002"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_ADMIN_BRANDS-002]",
+   "duration_seconds": 0.043,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_ADMIN_BRANDS-003"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_ADMIN_BRANDS-003]",
+   "duration_seconds": 0.052,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_ADMIN_BRANDS-004"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_ADMIN_BRANDS-004]",
+   "duration_seconds": 0.24,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "DELETE_ADMIN_BRANDS_ID-001"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[DELETE_ADMIN_BRANDS_ID-001]",
+   "duration_seconds": 0.271,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "DELETE_ADMIN_BRANDS_ID-002"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[DELETE_ADMIN_BRANDS_ID-002]",
+   "duration_seconds": 0.146,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "DELETE_ADMIN_BRANDS_ID-003"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[DELETE_ADMIN_BRANDS_ID-003]",
+   "duration_seconds": 0.056,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "DELETE_ADMIN_BRANDS_ID-004"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[DELETE_ADMIN_BRANDS_ID-004]",
+   "duration_seconds": 0.262,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "PUT_ADMIN_BRANDS_ID-001"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[PUT_ADMIN_BRANDS_ID-001]",
+   "duration_seconds": 0.231,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "PUT_ADMIN_BRANDS_ID-002"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[PUT_ADMIN_BRANDS_ID-002]",
+   "duration_seconds": 0.147,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "PUT_ADMIN_BRANDS_ID-003"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[PUT_ADMIN_BRANDS_ID-003]",
+   "duration_seconds": 0.051,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "PUT_ADMIN_BRANDS_ID-004"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[PUT_ADMIN_BRANDS_ID-004]",
+   "duration_seconds": 0.261,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_ADMIN_CATEGORIES-001"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_ADMIN_CATEGORIES-001]",
+   "duration_seconds": 0.049,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_ADMIN_CATEGORIES-002"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_ADMIN_CATEGORIES-002]",
+   "duration_seconds": 0.041,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_ADMIN_CATEGORIES-001"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_ADMIN_CATEGORIES-001]",
+   "duration_seconds": 0.225,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_ADMIN_CATEGORIES-002"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_ADMIN_CATEGORIES-002]",
+   "duration_seconds": 0.04,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_ADMIN_CATEGORIES-003"
+   ],
+   "outcome": "failed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_ADMIN_CATEGORIES-003]",
+   "duration_seconds": 0.057,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_ADMIN_CATEGORIES-004"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_ADMIN_CATEGORIES-004]",
+   "duration_seconds": 0.382,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_ADMIN_CATEGORIES_TREE-001"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_ADMIN_CATEGORIES_TREE-001]",
+   "duration_seconds": 0.083,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_ADMIN_CATEGORIES_TREE-002"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_ADMIN_CATEGORIES_TREE-002]",
+   "duration_seconds": 0.077,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "DELETE_ADMIN_CATEGORIES_ID-001"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[DELETE_ADMIN_CATEGORIES_ID-001]",
+   "duration_seconds": 0.438,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "DELETE_ADMIN_CATEGORIES_ID-002"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[DELETE_ADMIN_CATEGORIES_ID-002]",
+   "duration_seconds": 0.198,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "DELETE_ADMIN_CATEGORIES_ID-003"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[DELETE_ADMIN_CATEGORIES_ID-003]",
+   "duration_seconds": 0.081,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "DELETE_ADMIN_CATEGORIES_ID-004"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[DELETE_ADMIN_CATEGORIES_ID-004]",
+   "duration_seconds": 0.427,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "PUT_ADMIN_CATEGORIES_ID-001"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[PUT_ADMIN_CATEGORIES_ID-001]",
+   "duration_seconds": 0.405,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "PUT_ADMIN_CATEGORIES_ID-002"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[PUT_ADMIN_CATEGORIES_ID-002]",
+   "duration_seconds": 0.276,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "PUT_ADMIN_CATEGORIES_ID-003"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[PUT_ADMIN_CATEGORIES_ID-003]",
+   "duration_seconds": 0.097,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "PUT_ADMIN_CATEGORIES_ID-004"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[PUT_ADMIN_CATEGORIES_ID-004]",
+   "duration_seconds": 0.435,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_ADMIN_CUSTOMERS-001"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_ADMIN_CUSTOMERS-001]",
+   "duration_seconds": 0.096,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_ADMIN_CUSTOMERS-002"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_ADMIN_CUSTOMERS-002]",
+   "duration_seconds": 0.078,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_ADMIN_CUSTOMERS-005"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_ADMIN_CUSTOMERS-005]",
+   "duration_seconds": 0.185,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_ADMIN_CUSTOMERS_ID-001"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_ADMIN_CUSTOMERS_ID-001]",
+   "duration_seconds": 0.257,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_ADMIN_CUSTOMERS_ID-002"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_ADMIN_CUSTOMERS_ID-002]",
+   "duration_seconds": 0.065,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_ADMIN_CUSTOMERS_ID-003"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_ADMIN_CUSTOMERS_ID-003]",
+   "duration_seconds": 0.07,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "PUT_ADMIN_CUSTOMERS_ID_STATUS-001"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[PUT_ADMIN_CUSTOMERS_ID_STATUS-001]",
+   "duration_seconds": 0.001,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "PUT_ADMIN_CUSTOMERS_ID_STATUS-002"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[PUT_ADMIN_CUSTOMERS_ID_STATUS-002]",
+   "duration_seconds": 0.001,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "PUT_ADMIN_CUSTOMERS_ID_STATUS-003"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[PUT_ADMIN_CUSTOMERS_ID_STATUS-003]",
+   "duration_seconds": 0.001,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "PUT_ADMIN_CUSTOMERS_ID_STATUS-004"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[PUT_ADMIN_CUSTOMERS_ID_STATUS-004]",
+   "duration_seconds": 0.001,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_ADMIN_DASHBOARD_STATS-001"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_ADMIN_DASHBOARD_STATS-001]",
+   "duration_seconds": 0.085,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_ADMIN_DASHBOARD_STATS-002"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_ADMIN_DASHBOARD_STATS-002]",
+   "duration_seconds": 0.06,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_ADMIN_DEPTS-001"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_ADMIN_DEPTS-001]",
+   "duration_seconds": 0.066,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_ADMIN_DEPTS-002"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_ADMIN_DEPTS-002]",
+   "duration_seconds": 0.05,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_ADMIN_DEPTS-001"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_ADMIN_DEPTS-001]",
+   "duration_seconds": 0.177,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_ADMIN_DEPTS-002"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_ADMIN_DEPTS-002]",
+   "duration_seconds": 0.048,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_ADMIN_DEPTS-003"
+   ],
+   "outcome": "failed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_ADMIN_DEPTS-003]",
+   "duration_seconds": 0.07,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_ADMIN_DEPTS-004"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_ADMIN_DEPTS-004]",
+   "duration_seconds": 0.269,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_ADMIN_DEPTS_TREE-001"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_ADMIN_DEPTS_TREE-001]",
+   "duration_seconds": 0.075,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_ADMIN_DEPTS_TREE-002"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_ADMIN_DEPTS_TREE-002]",
+   "duration_seconds": 0.068,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "DELETE_ADMIN_DEPTS_ID-001"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[DELETE_ADMIN_DEPTS_ID-001]",
+   "duration_seconds": 0.377,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "DELETE_ADMIN_DEPTS_ID-002"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[DELETE_ADMIN_DEPTS_ID-002]",
+   "duration_seconds": 0.229,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "DELETE_ADMIN_DEPTS_ID-003"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[DELETE_ADMIN_DEPTS_ID-003]",
+   "duration_seconds": 0.103,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "DELETE_ADMIN_DEPTS_ID-004"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[DELETE_ADMIN_DEPTS_ID-004]",
+   "duration_seconds": 0.423,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "PUT_ADMIN_DEPTS_ID-001"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[PUT_ADMIN_DEPTS_ID-001]",
+   "duration_seconds": 0.275,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "PUT_ADMIN_DEPTS_ID-002"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[PUT_ADMIN_DEPTS_ID-002]",
+   "duration_seconds": 0.183,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "PUT_ADMIN_DEPTS_ID-003"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[PUT_ADMIN_DEPTS_ID-003]",
+   "duration_seconds": 0.076,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "PUT_ADMIN_DEPTS_ID-004"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[PUT_ADMIN_DEPTS_ID-004]",
+   "duration_seconds": 0.416,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_ADMIN_DICT_ITEMS-001"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_ADMIN_DICT_ITEMS-001]",
+   "duration_seconds": 0.166,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_ADMIN_DICT_ITEMS-002"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_ADMIN_DICT_ITEMS-002]",
+   "duration_seconds": 0.105,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_ADMIN_DICT_ITEMS-003"
+   ],
+   "outcome": "failed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_ADMIN_DICT_ITEMS-003]",
+   "duration_seconds": 0.099,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_ADMIN_DICT_ITEMS-001"
+   ],
+   "outcome": "failed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_ADMIN_DICT_ITEMS-001]",
+   "duration_seconds": 0.256,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_ADMIN_DICT_ITEMS-002"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_ADMIN_DICT_ITEMS-002]",
+   "duration_seconds": 0.083,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_ADMIN_DICT_ITEMS-003"
+   ],
+   "outcome": "failed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_ADMIN_DICT_ITEMS-003]",
+   "duration_seconds": 0.106,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_ADMIN_DICT_ITEMS-004"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_ADMIN_DICT_ITEMS-004]",
+   "duration_seconds": 0.332,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_ADMIN_DICT_ITEMS_BY_CODE-001"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_ADMIN_DICT_ITEMS_BY_CODE-001]",
+   "duration_seconds": 0.081,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_ADMIN_DICT_ITEMS_BY_CODE-002"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_ADMIN_DICT_ITEMS_BY_CODE-002]",
+   "duration_seconds": 0.075,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_ADMIN_DICT_ITEMS_BY_CODE-003"
+   ],
+   "outcome": "failed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_ADMIN_DICT_ITEMS_BY_CODE-003]",
+   "duration_seconds": 0.092,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "DELETE_ADMIN_DICT_ITEMS_ID-001"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[DELETE_ADMIN_DICT_ITEMS_ID-001]",
+   "duration_seconds": 0.226,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "DELETE_ADMIN_DICT_ITEMS_ID-002"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[DELETE_ADMIN_DICT_ITEMS_ID-002]",
+   "duration_seconds": 0.155,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "DELETE_ADMIN_DICT_ITEMS_ID-003"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[DELETE_ADMIN_DICT_ITEMS_ID-003]",
+   "duration_seconds": 0.134,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "DELETE_ADMIN_DICT_ITEMS_ID-004"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[DELETE_ADMIN_DICT_ITEMS_ID-004]",
+   "duration_seconds": 0.179,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "PUT_ADMIN_DICT_ITEMS_ID-001"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[PUT_ADMIN_DICT_ITEMS_ID-001]",
+   "duration_seconds": 0.167,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "PUT_ADMIN_DICT_ITEMS_ID-002"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[PUT_ADMIN_DICT_ITEMS_ID-002]",
+   "duration_seconds": 0.15,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "PUT_ADMIN_DICT_ITEMS_ID-003"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[PUT_ADMIN_DICT_ITEMS_ID-003]",
+   "duration_seconds": 0.051,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "PUT_ADMIN_DICT_ITEMS_ID-004"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[PUT_ADMIN_DICT_ITEMS_ID-004]",
+   "duration_seconds": 0.152,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_ADMIN_DICTS-001"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_ADMIN_DICTS-001]",
+   "duration_seconds": 0.068,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_ADMIN_DICTS-002"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_ADMIN_DICTS-002]",
+   "duration_seconds": 0.041,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_ADMIN_DICTS-005"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_ADMIN_DICTS-005]",
+   "duration_seconds": 0.108,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_ADMIN_DICTS-001"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_ADMIN_DICTS-001]",
+   "duration_seconds": 0.159,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_ADMIN_DICTS-002"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_ADMIN_DICTS-002]",
+   "duration_seconds": 0.039,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_ADMIN_DICTS-003"
+   ],
+   "outcome": "failed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_ADMIN_DICTS-003]",
+   "duration_seconds": 0.054,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_ADMIN_DICTS-004"
+   ],
+   "outcome": "failed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_ADMIN_DICTS-004]",
+   "duration_seconds": 0.145,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "DELETE_ADMIN_DICTS_ID-001"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[DELETE_ADMIN_DICTS_ID-001]",
+   "duration_seconds": 0.264,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "DELETE_ADMIN_DICTS_ID-002"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[DELETE_ADMIN_DICTS_ID-002]",
+   "duration_seconds": 0.145,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "DELETE_ADMIN_DICTS_ID-003"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[DELETE_ADMIN_DICTS_ID-003]",
+   "duration_seconds": 0.059,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "DELETE_ADMIN_DICTS_ID-004"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[DELETE_ADMIN_DICTS_ID-004]",
+   "duration_seconds": 0.288,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "PUT_ADMIN_DICTS_ID-001"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[PUT_ADMIN_DICTS_ID-001]",
+   "duration_seconds": 0.252,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "PUT_ADMIN_DICTS_ID-002"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[PUT_ADMIN_DICTS_ID-002]",
+   "duration_seconds": 0.15,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "PUT_ADMIN_DICTS_ID-003"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[PUT_ADMIN_DICTS_ID-003]",
+   "duration_seconds": 0.056,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "PUT_ADMIN_DICTS_ID-004"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[PUT_ADMIN_DICTS_ID-004]",
+   "duration_seconds": 0.255,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_ADMIN_FILES_CONFIRM-001"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_ADMIN_FILES_CONFIRM-001]",
+   "duration_seconds": 0.002,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_ADMIN_FILES_CONFIRM-002"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_ADMIN_FILES_CONFIRM-002]",
+   "duration_seconds": 0.002,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_ADMIN_FILES_CONFIRM-003"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_ADMIN_FILES_CONFIRM-003]",
+   "duration_seconds": 0.002,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_ADMIN_FILES_CONFIRM-004"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_ADMIN_FILES_CONFIRM-004]",
+   "duration_seconds": 0.002,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_ADMIN_FILES_PRESIGN-001"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_ADMIN_FILES_PRESIGN-001]",
+   "duration_seconds": 0.002,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_ADMIN_FILES_PRESIGN-002"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_ADMIN_FILES_PRESIGN-002]",
+   "duration_seconds": 0.001,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_ADMIN_FILES_PRESIGN-004"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_ADMIN_FILES_PRESIGN-004]",
+   "duration_seconds": 0.002,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_ADMIN_FILES_UPLOAD-001"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_ADMIN_FILES_UPLOAD-001]",
+   "duration_seconds": 0.002,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_ADMIN_FILES_UPLOAD-002"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_ADMIN_FILES_UPLOAD-002]",
+   "duration_seconds": 0.001,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_ADMIN_FILES_UPLOAD-004"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_ADMIN_FILES_UPLOAD-004]",
+   "duration_seconds": 0.001,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_ADMIN_FILES_VIEW-001"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_ADMIN_FILES_VIEW-001]",
+   "duration_seconds": 0.001,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_ADMIN_FILES_VIEW-003"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_ADMIN_FILES_VIEW-003]",
+   "duration_seconds": 0.001,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_ADMIN_HOME_SLOTS-001"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_ADMIN_HOME_SLOTS-001]",
+   "duration_seconds": 0.063,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_ADMIN_HOME_SLOTS-002"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_ADMIN_HOME_SLOTS-002]",
+   "duration_seconds": 0.041,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_ADMIN_HOME_SLOTS_CODE-001"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_ADMIN_HOME_SLOTS_CODE-001]",
+   "duration_seconds": 0.157,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_ADMIN_HOME_SLOTS_CODE-002"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_ADMIN_HOME_SLOTS_CODE-002]",
+   "duration_seconds": 0.042,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_ADMIN_HOME_SLOTS_CODE-003"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_ADMIN_HOME_SLOTS_CODE-003]",
+   "duration_seconds": 0.051,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "PUT_ADMIN_HOME_SLOTS_CODE-001"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[PUT_ADMIN_HOME_SLOTS_CODE-001]",
+   "duration_seconds": 0.002,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "PUT_ADMIN_HOME_SLOTS_CODE-002"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[PUT_ADMIN_HOME_SLOTS_CODE-002]",
+   "duration_seconds": 0.001,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "PUT_ADMIN_HOME_SLOTS_CODE-003"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[PUT_ADMIN_HOME_SLOTS_CODE-003]",
+   "duration_seconds": 0.001,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "PUT_ADMIN_HOME_SLOTS_CODE-004"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[PUT_ADMIN_HOME_SLOTS_CODE-004]",
+   "duration_seconds": 0.001,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_ADMIN_IN_OUT-001"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_ADMIN_IN_OUT-001]",
+   "duration_seconds": 0.069,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_ADMIN_IN_OUT-002"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_ADMIN_IN_OUT-002]",
+   "duration_seconds": 0.044,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_ADMIN_IN_OUT-005"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_ADMIN_IN_OUT-005]",
+   "duration_seconds": 0.117,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_ADMIN_IN_OUT-001"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_ADMIN_IN_OUT-001]",
+   "duration_seconds": 0.167,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_ADMIN_IN_OUT-002"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_ADMIN_IN_OUT-002]",
+   "duration_seconds": 0.11,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_ADMIN_IN_OUT-004"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_ADMIN_IN_OUT-004]",
+   "duration_seconds": 0.11,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_ADMIN_OPERATION_LOGS-001"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_ADMIN_OPERATION_LOGS-001]",
+   "duration_seconds": 0.066,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_ADMIN_OPERATION_LOGS-002"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_ADMIN_OPERATION_LOGS-002]",
+   "duration_seconds": 0.042,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_ADMIN_OPERATION_LOGS-005"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_ADMIN_OPERATION_LOGS-005]",
+   "duration_seconds": 0.109,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_ADMIN_OPERATION_LOGS_EXPORT-001"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_ADMIN_OPERATION_LOGS_EXPORT-001]",
+   "duration_seconds": 0.354,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_ADMIN_OPERATION_LOGS_EXPORT-002"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_ADMIN_OPERATION_LOGS_EXPORT-002]",
+   "duration_seconds": 0.039,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_ADMIN_OPERATION_LOGS_ID-001"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_ADMIN_OPERATION_LOGS_ID-001]",
+   "duration_seconds": 0.149,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_ADMIN_OPERATION_LOGS_ID-002"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_ADMIN_OPERATION_LOGS_ID-002]",
+   "duration_seconds": 0.042,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_ADMIN_OPERATION_LOGS_ID-003"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_ADMIN_OPERATION_LOGS_ID-003]",
+   "duration_seconds": 0.051,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_ADMIN_ORDERS-001"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_ADMIN_ORDERS-001]",
+   "duration_seconds": 0.057,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_ADMIN_ORDERS-002"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_ADMIN_ORDERS-002]",
+   "duration_seconds": 0.04,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_ADMIN_ORDERS-005"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_ADMIN_ORDERS-005]",
+   "duration_seconds": 0.105,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_ADMIN_ORDERS_EXPORT-001"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_ADMIN_ORDERS_EXPORT-001]",
+   "duration_seconds": 0.051,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_ADMIN_ORDERS_EXPORT-002"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_ADMIN_ORDERS_EXPORT-002]",
+   "duration_seconds": 0.048,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_ADMIN_ORDERS_ID-001"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_ADMIN_ORDERS_ID-001]",
+   "duration_seconds": 0.167,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_ADMIN_ORDERS_ID-002"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_ADMIN_ORDERS_ID-002]",
+   "duration_seconds": 0.042,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_ADMIN_ORDERS_ID-003"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_ADMIN_ORDERS_ID-003]",
+   "duration_seconds": 0.05,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_ADMIN_ORDERS_ID_SHIP-001"
+   ],
+   "outcome": "failed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_ADMIN_ORDERS_ID_SHIP-001]",
+   "duration_seconds": 0.064,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_ADMIN_ORDERS_ID_SHIP-002"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_ADMIN_ORDERS_ID_SHIP-002]",
+   "duration_seconds": 0.041,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_ADMIN_ORDERS_ID_SHIP-003"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_ADMIN_ORDERS_ID_SHIP-003]",
+   "duration_seconds": 0.079,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_ADMIN_ORDERS_ID_SHIP-004"
+   ],
+   "outcome": "failed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_ADMIN_ORDERS_ID_SHIP-004]",
+   "duration_seconds": 0.113,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_ADMIN_PERMISSIONS-001"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_ADMIN_PERMISSIONS-001]",
+   "duration_seconds": 0.107,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_ADMIN_PERMISSIONS-002"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_ADMIN_PERMISSIONS-002]",
+   "duration_seconds": 0.048,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_ADMIN_PERMISSIONS-001"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_ADMIN_PERMISSIONS-001]",
+   "duration_seconds": 0.156,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_ADMIN_PERMISSIONS-002"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_ADMIN_PERMISSIONS-002]",
+   "duration_seconds": 0.042,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_ADMIN_PERMISSIONS-003"
+   ],
+   "outcome": "failed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_ADMIN_PERMISSIONS-003]",
+   "duration_seconds": 0.049,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_ADMIN_PERMISSIONS-004"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_ADMIN_PERMISSIONS-004]",
+   "duration_seconds": 0.147,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_ADMIN_PERMISSIONS_TREE-001"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_ADMIN_PERMISSIONS_TREE-001]",
+   "duration_seconds": 0.056,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_ADMIN_PERMISSIONS_TREE-002"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_ADMIN_PERMISSIONS_TREE-002]",
+   "duration_seconds": 0.039,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "DELETE_ADMIN_PERMISSIONS_ID-001"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[DELETE_ADMIN_PERMISSIONS_ID-001]",
+   "duration_seconds": 0.298,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "DELETE_ADMIN_PERMISSIONS_ID-002"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[DELETE_ADMIN_PERMISSIONS_ID-002]",
+   "duration_seconds": 0.134,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "DELETE_ADMIN_PERMISSIONS_ID-003"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[DELETE_ADMIN_PERMISSIONS_ID-003]",
+   "duration_seconds": 0.05,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "DELETE_ADMIN_PERMISSIONS_ID-004"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[DELETE_ADMIN_PERMISSIONS_ID-004]",
+   "duration_seconds": 0.228,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "PUT_ADMIN_PERMISSIONS_ID-001"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[PUT_ADMIN_PERMISSIONS_ID-001]",
+   "duration_seconds": 0.198,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "PUT_ADMIN_PERMISSIONS_ID-002"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[PUT_ADMIN_PERMISSIONS_ID-002]",
+   "duration_seconds": 0.151,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "PUT_ADMIN_PERMISSIONS_ID-003"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[PUT_ADMIN_PERMISSIONS_ID-003]",
+   "duration_seconds": 0.045,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "PUT_ADMIN_PERMISSIONS_ID-004"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[PUT_ADMIN_PERMISSIONS_ID-004]",
+   "duration_seconds": 0.252,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_ADMIN_PRODUCTS-001"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_ADMIN_PRODUCTS-001]",
+   "duration_seconds": 0.053,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_ADMIN_PRODUCTS-002"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_ADMIN_PRODUCTS-002]",
+   "duration_seconds": 0.037,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_ADMIN_PRODUCTS-005"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_ADMIN_PRODUCTS-005]",
+   "duration_seconds": 0.121,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_ADMIN_PRODUCTS-001"
+   ],
+   "outcome": "failed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_ADMIN_PRODUCTS-001]",
+   "duration_seconds": 0.107,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_ADMIN_PRODUCTS-002"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_ADMIN_PRODUCTS-002]",
+   "duration_seconds": 0.053,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_ADMIN_PRODUCTS-004"
+   ],
+   "outcome": "failed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_ADMIN_PRODUCTS-004]",
+   "duration_seconds": 0.102,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "PUT_ADMIN_PRODUCTS_BATCH_OFF-001"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[PUT_ADMIN_PRODUCTS_BATCH_OFF-001]",
+   "duration_seconds": 0.001,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "PUT_ADMIN_PRODUCTS_BATCH_OFF-002"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[PUT_ADMIN_PRODUCTS_BATCH_OFF-002]",
+   "duration_seconds": 0.001,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "PUT_ADMIN_PRODUCTS_BATCH_OFF-004"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[PUT_ADMIN_PRODUCTS_BATCH_OFF-004]",
+   "duration_seconds": 0.001,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "DELETE_ADMIN_PRODUCTS_ID-001"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[DELETE_ADMIN_PRODUCTS_ID-001]",
+   "duration_seconds": 0.076,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "DELETE_ADMIN_PRODUCTS_ID-002"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[DELETE_ADMIN_PRODUCTS_ID-002]",
+   "duration_seconds": 0.065,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "DELETE_ADMIN_PRODUCTS_ID-003"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[DELETE_ADMIN_PRODUCTS_ID-003]",
+   "duration_seconds": 0.063,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "DELETE_ADMIN_PRODUCTS_ID-004"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[DELETE_ADMIN_PRODUCTS_ID-004]",
+   "duration_seconds": 0.056,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_ADMIN_PRODUCTS_ID-001"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_ADMIN_PRODUCTS_ID-001]",
+   "duration_seconds": 0.148,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_ADMIN_PRODUCTS_ID-002"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_ADMIN_PRODUCTS_ID-002]",
+   "duration_seconds": 0.036,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_ADMIN_PRODUCTS_ID-003"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_ADMIN_PRODUCTS_ID-003]",
+   "duration_seconds": 0.055,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "PUT_ADMIN_PRODUCTS_ID-001"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[PUT_ADMIN_PRODUCTS_ID-001]",
+   "duration_seconds": 0.095,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "PUT_ADMIN_PRODUCTS_ID-002"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[PUT_ADMIN_PRODUCTS_ID-002]",
+   "duration_seconds": 0.056,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "PUT_ADMIN_PRODUCTS_ID-003"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[PUT_ADMIN_PRODUCTS_ID-003]",
+   "duration_seconds": 0.049,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "PUT_ADMIN_PRODUCTS_ID-004"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[PUT_ADMIN_PRODUCTS_ID-004]",
+   "duration_seconds": 0.056,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "PUT_ADMIN_PRODUCTS_ID_OFF-001"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[PUT_ADMIN_PRODUCTS_ID_OFF-001]",
+   "duration_seconds": 0.001,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "PUT_ADMIN_PRODUCTS_ID_OFF-002"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[PUT_ADMIN_PRODUCTS_ID_OFF-002]",
+   "duration_seconds": 0.001,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "PUT_ADMIN_PRODUCTS_ID_OFF-003"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[PUT_ADMIN_PRODUCTS_ID_OFF-003]",
+   "duration_seconds": 0.001,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "PUT_ADMIN_PRODUCTS_ID_OFF-004"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[PUT_ADMIN_PRODUCTS_ID_OFF-004]",
+   "duration_seconds": 0.001,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "PUT_ADMIN_PRODUCTS_ID_ON-001"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[PUT_ADMIN_PRODUCTS_ID_ON-001]",
+   "duration_seconds": 0.001,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "PUT_ADMIN_PRODUCTS_ID_ON-002"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[PUT_ADMIN_PRODUCTS_ID_ON-002]",
+   "duration_seconds": 0.001,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "PUT_ADMIN_PRODUCTS_ID_ON-003"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[PUT_ADMIN_PRODUCTS_ID_ON-003]",
+   "duration_seconds": 0.001,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "PUT_ADMIN_PRODUCTS_ID_ON-004"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[PUT_ADMIN_PRODUCTS_ID_ON-004]",
+   "duration_seconds": 0.001,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_ADMIN_REVIEWS-001"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_ADMIN_REVIEWS-001]",
+   "duration_seconds": 0.054,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_ADMIN_REVIEWS-002"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_ADMIN_REVIEWS-002]",
+   "duration_seconds": 0.041,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_ADMIN_REVIEWS-005"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_ADMIN_REVIEWS-005]",
+   "duration_seconds": 0.13,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "PUT_ADMIN_REVIEWS_ID_STATUS-001"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[PUT_ADMIN_REVIEWS_ID_STATUS-001]",
+   "duration_seconds": 0.001,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "PUT_ADMIN_REVIEWS_ID_STATUS-002"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[PUT_ADMIN_REVIEWS_ID_STATUS-002]",
+   "duration_seconds": 0.001,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "PUT_ADMIN_REVIEWS_ID_STATUS-003"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[PUT_ADMIN_REVIEWS_ID_STATUS-003]",
+   "duration_seconds": 0.001,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "PUT_ADMIN_REVIEWS_ID_STATUS-004"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[PUT_ADMIN_REVIEWS_ID_STATUS-004]",
+   "duration_seconds": 0.001,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_ADMIN_ROLES-001"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_ADMIN_ROLES-001]",
+   "duration_seconds": 0.059,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_ADMIN_ROLES-002"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_ADMIN_ROLES-002]",
+   "duration_seconds": 0.043,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_ADMIN_ROLES-005"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_ADMIN_ROLES-005]",
+   "duration_seconds": 0.107,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_ADMIN_ROLES-001"
+   ],
+   "outcome": "failed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_ADMIN_ROLES-001]",
+   "duration_seconds": 0.118,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_ADMIN_ROLES-002"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_ADMIN_ROLES-002]",
+   "duration_seconds": 0.05,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_ADMIN_ROLES-004"
+   ],
+   "outcome": "failed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_ADMIN_ROLES-004]",
+   "duration_seconds": 0.105,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_ADMIN_ROLES_ALL-001"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_ADMIN_ROLES_ALL-001]",
+   "duration_seconds": 0.046,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_ADMIN_ROLES_ALL-002"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_ADMIN_ROLES_ALL-002]",
+   "duration_seconds": 0.042,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "DELETE_ADMIN_ROLES_ID-001"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[DELETE_ADMIN_ROLES_ID-001]",
+   "duration_seconds": 0.05,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "DELETE_ADMIN_ROLES_ID-002"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[DELETE_ADMIN_ROLES_ID-002]",
+   "duration_seconds": 0.07,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "DELETE_ADMIN_ROLES_ID-003"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[DELETE_ADMIN_ROLES_ID-003]",
+   "duration_seconds": 0.085,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "DELETE_ADMIN_ROLES_ID-004"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[DELETE_ADMIN_ROLES_ID-004]",
+   "duration_seconds": 0.058,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "PUT_ADMIN_ROLES_ID-001"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[PUT_ADMIN_ROLES_ID-001]",
+   "duration_seconds": 0.051,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "PUT_ADMIN_ROLES_ID-002"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[PUT_ADMIN_ROLES_ID-002]",
+   "duration_seconds": 0.052,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "PUT_ADMIN_ROLES_ID-003"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[PUT_ADMIN_ROLES_ID-003]",
+   "duration_seconds": 0.046,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "PUT_ADMIN_ROLES_ID-004"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[PUT_ADMIN_ROLES_ID-004]",
+   "duration_seconds": 0.051,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_ADMIN_SITE_BRAND-001"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_ADMIN_SITE_BRAND-001]",
+   "duration_seconds": 0.047,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_ADMIN_SITE_BRAND-002"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_ADMIN_SITE_BRAND-002]",
+   "duration_seconds": 0.036,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "PUT_ADMIN_SITE_BRAND-001"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[PUT_ADMIN_SITE_BRAND-001]",
+   "duration_seconds": 0.001,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "PUT_ADMIN_SITE_BRAND-002"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[PUT_ADMIN_SITE_BRAND-002]",
+   "duration_seconds": 0.001,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "PUT_ADMIN_SITE_BRAND-004"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[PUT_ADMIN_SITE_BRAND-004]",
+   "duration_seconds": 0.001,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_ADMIN_STOCKS-001"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_ADMIN_STOCKS-001]",
+   "duration_seconds": 0.057,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_ADMIN_STOCKS-002"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_ADMIN_STOCKS-002]",
+   "duration_seconds": 0.038,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_ADMIN_STOCKS-005"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_ADMIN_STOCKS-005]",
+   "duration_seconds": 0.12,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "PUT_ADMIN_STOCKS_ADJUST-001"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[PUT_ADMIN_STOCKS_ADJUST-001]",
+   "duration_seconds": 0.001,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "PUT_ADMIN_STOCKS_ADJUST-002"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[PUT_ADMIN_STOCKS_ADJUST-002]",
+   "duration_seconds": 0.001,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "PUT_ADMIN_STOCKS_ADJUST-004"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[PUT_ADMIN_STOCKS_ADJUST-004]",
+   "duration_seconds": 0.001,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_ADMIN_SYSTEM_CONFIGS-001"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_ADMIN_SYSTEM_CONFIGS-001]",
+   "duration_seconds": 0.054,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_ADMIN_SYSTEM_CONFIGS-002"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_ADMIN_SYSTEM_CONFIGS-002]",
+   "duration_seconds": 0.04,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "PUT_ADMIN_SYSTEM_CONFIGS_ID-001"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[PUT_ADMIN_SYSTEM_CONFIGS_ID-001]",
+   "duration_seconds": 0.001,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "PUT_ADMIN_SYSTEM_CONFIGS_ID-002"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[PUT_ADMIN_SYSTEM_CONFIGS_ID-002]",
+   "duration_seconds": 0.001,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "PUT_ADMIN_SYSTEM_CONFIGS_ID-003"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[PUT_ADMIN_SYSTEM_CONFIGS_ID-003]",
+   "duration_seconds": 0.001,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "PUT_ADMIN_SYSTEM_CONFIGS_ID-004"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[PUT_ADMIN_SYSTEM_CONFIGS_ID-004]",
+   "duration_seconds": 0.001,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_ADMIN_USERS-001"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_ADMIN_USERS-001]",
+   "duration_seconds": 0.057,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_ADMIN_USERS-002"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_ADMIN_USERS-002]",
+   "duration_seconds": 0.038,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_ADMIN_USERS-005"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_ADMIN_USERS-005]",
+   "duration_seconds": 0.095,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_ADMIN_USERS-001"
+   ],
+   "outcome": "failed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_ADMIN_USERS-001]",
+   "duration_seconds": 0.171,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_ADMIN_USERS-002"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_ADMIN_USERS-002]",
+   "duration_seconds": 0.073,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_ADMIN_USERS-004"
+   ],
+   "outcome": "failed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_ADMIN_USERS-004]",
+   "duration_seconds": 0.15,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "DELETE_ADMIN_USERS_ID-001"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[DELETE_ADMIN_USERS_ID-001]",
+   "duration_seconds": 0.086,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "DELETE_ADMIN_USERS_ID-002"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[DELETE_ADMIN_USERS_ID-002]",
+   "duration_seconds": 0.082,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "DELETE_ADMIN_USERS_ID-003"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[DELETE_ADMIN_USERS_ID-003]",
+   "duration_seconds": 0.076,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "DELETE_ADMIN_USERS_ID-004"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[DELETE_ADMIN_USERS_ID-004]",
+   "duration_seconds": 0.08,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_ADMIN_USERS_ID-001"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_ADMIN_USERS_ID-001]",
+   "duration_seconds": 0.254,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_ADMIN_USERS_ID-002"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_ADMIN_USERS_ID-002]",
+   "duration_seconds": 0.076,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_ADMIN_USERS_ID-003"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_ADMIN_USERS_ID-003]",
+   "duration_seconds": 0.081,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "PUT_ADMIN_USERS_ID-001"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[PUT_ADMIN_USERS_ID-001]",
+   "duration_seconds": 0.068,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "PUT_ADMIN_USERS_ID-002"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[PUT_ADMIN_USERS_ID-002]",
+   "duration_seconds": 0.08,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "PUT_ADMIN_USERS_ID-003"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[PUT_ADMIN_USERS_ID-003]",
+   "duration_seconds": 0.069,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "PUT_ADMIN_USERS_ID-004"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[PUT_ADMIN_USERS_ID-004]",
+   "duration_seconds": 0.06,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "PUT_ADMIN_USERS_ID_PASSWORD-001"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[PUT_ADMIN_USERS_ID_PASSWORD-001]",
+   "duration_seconds": 0.001,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "PUT_ADMIN_USERS_ID_PASSWORD-002"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[PUT_ADMIN_USERS_ID_PASSWORD-002]",
+   "duration_seconds": 0.001,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "PUT_ADMIN_USERS_ID_PASSWORD-003"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[PUT_ADMIN_USERS_ID_PASSWORD-003]",
+   "duration_seconds": 0.001,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "PUT_ADMIN_USERS_ID_PASSWORD-004"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[PUT_ADMIN_USERS_ID_PASSWORD-004]",
+   "duration_seconds": 0.001,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "PUT_ADMIN_USERS_ID_STATUS-001"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[PUT_ADMIN_USERS_ID_STATUS-001]",
+   "duration_seconds": 0.001,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "PUT_ADMIN_USERS_ID_STATUS-002"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[PUT_ADMIN_USERS_ID_STATUS-002]",
+   "duration_seconds": 0.001,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "PUT_ADMIN_USERS_ID_STATUS-003"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[PUT_ADMIN_USERS_ID_STATUS-003]",
+   "duration_seconds": 0.001,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "PUT_ADMIN_USERS_ID_STATUS-004"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[PUT_ADMIN_USERS_ID_STATUS-004]",
+   "duration_seconds": 0.001,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_ADMIN_WAREHOUSES-001"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_ADMIN_WAREHOUSES-001]",
+   "duration_seconds": 0.07,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_ADMIN_WAREHOUSES-002"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_ADMIN_WAREHOUSES-002]",
+   "duration_seconds": 0.066,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_ADMIN_WAREHOUSES-001"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_ADMIN_WAREHOUSES-001]",
+   "duration_seconds": 0.002,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_ADMIN_WAREHOUSES-002"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_ADMIN_WAREHOUSES-002]",
+   "duration_seconds": 0.081,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_ADMIN_WAREHOUSES-003"
+   ],
+   "outcome": "failed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_ADMIN_WAREHOUSES-003]",
+   "duration_seconds": 0.086,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_ADMIN_WAREHOUSES-004"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_ADMIN_WAREHOUSES-004]",
+   "duration_seconds": 0.001,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "PUT_ADMIN_WAREHOUSES_ID-001"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[PUT_ADMIN_WAREHOUSES_ID-001]",
+   "duration_seconds": 0.001,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "PUT_ADMIN_WAREHOUSES_ID-002"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[PUT_ADMIN_WAREHOUSES_ID-002]",
+   "duration_seconds": 0.001,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "PUT_ADMIN_WAREHOUSES_ID-003"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[PUT_ADMIN_WAREHOUSES_ID-003]",
+   "duration_seconds": 0.001,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "PUT_ADMIN_WAREHOUSES_ID-004"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[PUT_ADMIN_WAREHOUSES_ID-004]",
+   "duration_seconds": 0.001,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_API_ADDRESSES-001"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_API_ADDRESSES-001]",
+   "duration_seconds": 0.001,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_API_ADDRESSES-002"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_API_ADDRESSES-002]",
+   "duration_seconds": 0.001,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_API_ADDRESSES-001"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_API_ADDRESSES-001]",
+   "duration_seconds": 0.001,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_API_ADDRESSES-002"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_API_ADDRESSES-002]",
+   "duration_seconds": 0.001,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_API_ADDRESSES-004"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_API_ADDRESSES-004]",
+   "duration_seconds": 0.001,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "DELETE_API_ADDRESSES_ID-001"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[DELETE_API_ADDRESSES_ID-001]",
+   "duration_seconds": 0.001,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "DELETE_API_ADDRESSES_ID-002"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[DELETE_API_ADDRESSES_ID-002]",
+   "duration_seconds": 0.001,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "DELETE_API_ADDRESSES_ID-003"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[DELETE_API_ADDRESSES_ID-003]",
+   "duration_seconds": 0.001,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "DELETE_API_ADDRESSES_ID-004"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[DELETE_API_ADDRESSES_ID-004]",
+   "duration_seconds": 0.001,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "PUT_API_ADDRESSES_ID-001"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[PUT_API_ADDRESSES_ID-001]",
+   "duration_seconds": 0.001,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "PUT_API_ADDRESSES_ID-002"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[PUT_API_ADDRESSES_ID-002]",
+   "duration_seconds": 0.001,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "PUT_API_ADDRESSES_ID-003"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[PUT_API_ADDRESSES_ID-003]",
+   "duration_seconds": 0.001,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "PUT_API_ADDRESSES_ID-004"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[PUT_API_ADDRESSES_ID-004]",
+   "duration_seconds": 0.001,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "PUT_API_ADDRESSES_ID_DEFAULT-001"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[PUT_API_ADDRESSES_ID_DEFAULT-001]",
+   "duration_seconds": 0.001,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "PUT_API_ADDRESSES_ID_DEFAULT-002"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[PUT_API_ADDRESSES_ID_DEFAULT-002]",
+   "duration_seconds": 0.001,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "PUT_API_ADDRESSES_ID_DEFAULT-003"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[PUT_API_ADDRESSES_ID_DEFAULT-003]",
+   "duration_seconds": 0.001,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "PUT_API_ADDRESSES_ID_DEFAULT-004"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[PUT_API_ADDRESSES_ID_DEFAULT-004]",
+   "duration_seconds": 0.001,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_API_AFTER_SALES-001"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_API_AFTER_SALES-001]",
+   "duration_seconds": 0.05,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_API_AFTER_SALES-002"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_API_AFTER_SALES-002]",
+   "duration_seconds": 0.044,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_API_AFTER_SALES-005"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_API_AFTER_SALES-005]",
+   "duration_seconds": 0.131,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_API_AFTER_SALES-001"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_API_AFTER_SALES-001]",
+   "duration_seconds": 0.189,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_API_AFTER_SALES-002"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_API_AFTER_SALES-002]",
+   "duration_seconds": 0.17,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_API_AFTER_SALES-004"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_API_AFTER_SALES-004]",
+   "duration_seconds": 0.162,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_API_AFTER_SALES_ID-001"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_API_AFTER_SALES_ID-001]",
+   "duration_seconds": 0.149,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_API_AFTER_SALES_ID-002"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_API_AFTER_SALES_ID-002]",
+   "duration_seconds": 0.043,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_API_AFTER_SALES_ID-003"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_API_AFTER_SALES_ID-003]",
+   "duration_seconds": 0.051,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_API_AUTH_LOGIN-001"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_API_AUTH_LOGIN-001]",
+   "duration_seconds": 0.055,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_API_AUTH_LOGIN-003"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_API_AUTH_LOGIN-003]",
+   "duration_seconds": 0.051,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_API_AUTH_LOGIN-004"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_API_AUTH_LOGIN-004]",
+   "duration_seconds": 0.118,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_API_AUTH_LOGOUT-001"
+   ],
+   "outcome": "failed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_API_AUTH_LOGOUT-001]",
+   "duration_seconds": 0.476,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_API_AUTH_LOGOUT-004"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_API_AUTH_LOGOUT-004]",
+   "duration_seconds": 0.397,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_API_AUTH_PHONE-001"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_API_AUTH_PHONE-001]",
+   "duration_seconds": 0.049,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_API_AUTH_PHONE-003"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_API_AUTH_PHONE-003]",
+   "duration_seconds": 0.049,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_API_AUTH_PHONE-004"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_API_AUTH_PHONE-004]",
+   "duration_seconds": 0.148,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_API_AUTH_REFRESH-001"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_API_AUTH_REFRESH-001]",
+   "duration_seconds": 0.045,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_API_AUTH_REFRESH-003"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_API_AUTH_REFRESH-003]",
+   "duration_seconds": 0.048,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_API_AUTH_REFRESH-004"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_API_AUTH_REFRESH-004]",
+   "duration_seconds": 0.086,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_API_AUTH_SMS_SEND-001"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_API_AUTH_SMS_SEND-001]",
+   "duration_seconds": 0.058,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_API_AUTH_SMS_SEND-003"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_API_AUTH_SMS_SEND-003]",
+   "duration_seconds": 0.053,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_API_AUTH_SMS_SEND-004"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_API_AUTH_SMS_SEND-004]",
+   "duration_seconds": 0.094,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_API_CART-001"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_API_CART-001]",
+   "duration_seconds": 0.053,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_API_CART-002"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_API_CART-002]",
+   "duration_seconds": 0.038,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_API_CART_CLEAR_INVALID-001"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_API_CART_CLEAR_INVALID-001]",
+   "duration_seconds": 0.115,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_API_CART_CLEAR_INVALID-002"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_API_CART_CLEAR_INVALID-002]",
+   "duration_seconds": 0.047,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_API_CART_CLEAR_INVALID-004"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_API_CART_CLEAR_INVALID-004]",
+   "duration_seconds": 0.156,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_API_CART_ITEMS-001"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_API_CART_ITEMS-001]",
+   "duration_seconds": 0.218,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_API_CART_ITEMS-002"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_API_CART_ITEMS-002]",
+   "duration_seconds": 0.041,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_API_CART_ITEMS-004"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_API_CART_ITEMS-004]",
+   "duration_seconds": 0.156,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "DELETE_API_CART_ITEMS_ID-001"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[DELETE_API_CART_ITEMS_ID-001]",
+   "duration_seconds": 0.051,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "DELETE_API_CART_ITEMS_ID-002"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[DELETE_API_CART_ITEMS_ID-002]",
+   "duration_seconds": 0.064,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "DELETE_API_CART_ITEMS_ID-003"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[DELETE_API_CART_ITEMS_ID-003]",
+   "duration_seconds": 0.047,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "DELETE_API_CART_ITEMS_ID-004"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[DELETE_API_CART_ITEMS_ID-004]",
+   "duration_seconds": 0.051,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "PUT_API_CART_ITEMS_ID-001"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[PUT_API_CART_ITEMS_ID-001]",
+   "duration_seconds": 0.053,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "PUT_API_CART_ITEMS_ID-002"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[PUT_API_CART_ITEMS_ID-002]",
+   "duration_seconds": 0.067,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "PUT_API_CART_ITEMS_ID-003"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[PUT_API_CART_ITEMS_ID-003]",
+   "duration_seconds": 0.049,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "PUT_API_CART_ITEMS_ID-004"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[PUT_API_CART_ITEMS_ID-004]",
+   "duration_seconds": 0.052,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_API_CATEGORIES-001"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_API_CATEGORIES-001]",
+   "duration_seconds": 0.043,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_API_FAVORITES-001"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_API_FAVORITES-001]",
+   "duration_seconds": 0.048,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_API_FAVORITES-002"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_API_FAVORITES-002]",
+   "duration_seconds": 0.038,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_API_FAVORITES-005"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_API_FAVORITES-005]",
+   "duration_seconds": 0.099,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "DELETE_API_FAVORITES_SPUID-001"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[DELETE_API_FAVORITES_SPUID-001]",
+   "duration_seconds": 0.002,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "DELETE_API_FAVORITES_SPUID-002"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[DELETE_API_FAVORITES_SPUID-002]",
+   "duration_seconds": 0.001,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "DELETE_API_FAVORITES_SPUID-003"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[DELETE_API_FAVORITES_SPUID-003]",
+   "duration_seconds": 0.001,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "DELETE_API_FAVORITES_SPUID-004"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[DELETE_API_FAVORITES_SPUID-004]",
+   "duration_seconds": 0.001,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_API_FAVORITES_SPUID-001"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_API_FAVORITES_SPUID-001]",
+   "duration_seconds": 0.142,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_API_FAVORITES_SPUID-002"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_API_FAVORITES_SPUID-002]",
+   "duration_seconds": 0.039,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_API_FAVORITES_SPUID-003"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_API_FAVORITES_SPUID-003]",
+   "duration_seconds": 0.051,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_API_FAVORITES_SPUID-004"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_API_FAVORITES_SPUID-004]",
+   "duration_seconds": 0.136,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_API_FILES_CONFIRM-001"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_API_FILES_CONFIRM-001]",
+   "duration_seconds": 0.001,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_API_FILES_CONFIRM-002"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_API_FILES_CONFIRM-002]",
+   "duration_seconds": 0.001,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_API_FILES_CONFIRM-003"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_API_FILES_CONFIRM-003]",
+   "duration_seconds": 0.001,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_API_FILES_CONFIRM-004"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_API_FILES_CONFIRM-004]",
+   "duration_seconds": 0.001,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_API_FILES_PRESIGN-001"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_API_FILES_PRESIGN-001]",
+   "duration_seconds": 0.001,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_API_FILES_PRESIGN-002"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_API_FILES_PRESIGN-002]",
+   "duration_seconds": 0.001,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_API_FILES_PRESIGN-004"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_API_FILES_PRESIGN-004]",
+   "duration_seconds": 0.002,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_API_FILES_UPLOAD-001"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_API_FILES_UPLOAD-001]",
+   "duration_seconds": 0.001,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_API_FILES_UPLOAD-002"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_API_FILES_UPLOAD-002]",
+   "duration_seconds": 0.001,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_API_FILES_UPLOAD-004"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_API_FILES_UPLOAD-004]",
+   "duration_seconds": 0.001,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_API_FILES_VIEW-001"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_API_FILES_VIEW-001]",
+   "duration_seconds": 0.001,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_API_FILES_VIEW-003"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_API_FILES_VIEW-003]",
+   "duration_seconds": 0.001,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "DELETE_API_HISTORY-001"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[DELETE_API_HISTORY-001]",
+   "duration_seconds": 0.001,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "DELETE_API_HISTORY-002"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[DELETE_API_HISTORY-002]",
+   "duration_seconds": 0.001,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "DELETE_API_HISTORY-004"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[DELETE_API_HISTORY-004]",
+   "duration_seconds": 0.001,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_API_HISTORY-001"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_API_HISTORY-001]",
+   "duration_seconds": 0.053,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_API_HISTORY-002"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_API_HISTORY-002]",
+   "duration_seconds": 0.037,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_API_HISTORY-005"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_API_HISTORY-005]",
+   "duration_seconds": 0.098,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_API_HOME-001"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_API_HOME-001]",
+   "duration_seconds": 0.076,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_API_ME-001"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_API_ME-001]",
+   "duration_seconds": 0.041,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_API_ME-002"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_API_ME-002]",
+   "duration_seconds": 0.039,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "PUT_API_ME-001"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[PUT_API_ME-001]",
+   "duration_seconds": 0.002,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "PUT_API_ME-002"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[PUT_API_ME-002]",
+   "duration_seconds": 0.001,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "PUT_API_ME-004"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[PUT_API_ME-004]",
+   "duration_seconds": 0.002,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_API_ORDERS-001"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_API_ORDERS-001]",
+   "duration_seconds": 0.052,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_API_ORDERS-002"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_API_ORDERS-002]",
+   "duration_seconds": 0.038,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_API_ORDERS-005"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_API_ORDERS-005]",
+   "duration_seconds": 0.092,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_API_ORDERS-001"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_API_ORDERS-001]",
+   "duration_seconds": 0.046,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_API_ORDERS-002"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_API_ORDERS-002]",
+   "duration_seconds": 0.045,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_API_ORDERS-004"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_API_ORDERS-004]",
+   "duration_seconds": 0.043,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_API_ORDERS_ID-001"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_API_ORDERS_ID-001]",
+   "duration_seconds": 0.139,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_API_ORDERS_ID-002"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_API_ORDERS_ID-002]",
+   "duration_seconds": 0.039,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_API_ORDERS_ID-003"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_API_ORDERS_ID-003]",
+   "duration_seconds": 0.044,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_API_ORDERS_ID_CANCEL-001"
+   ],
+   "outcome": "failed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_API_ORDERS_ID_CANCEL-001]",
+   "duration_seconds": 0.117,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_API_ORDERS_ID_CANCEL-002"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_API_ORDERS_ID_CANCEL-002]",
+   "duration_seconds": 0.035,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_API_ORDERS_ID_CANCEL-003"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_API_ORDERS_ID_CANCEL-003]",
+   "duration_seconds": 0.037,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_API_ORDERS_ID_CANCEL-004"
+   ],
+   "outcome": "failed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_API_ORDERS_ID_CANCEL-004]",
+   "duration_seconds": 0.117,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_API_ORDERS_ID_CONFIRM-001"
+   ],
+   "outcome": "failed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_API_ORDERS_ID_CONFIRM-001]",
+   "duration_seconds": 0.04,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_API_ORDERS_ID_CONFIRM-002"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_API_ORDERS_ID_CONFIRM-002]",
+   "duration_seconds": 0.038,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_API_ORDERS_ID_CONFIRM-003"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_API_ORDERS_ID_CONFIRM-003]",
+   "duration_seconds": 0.039,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_API_ORDERS_ID_CONFIRM-004"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_API_ORDERS_ID_CONFIRM-004]",
+   "duration_seconds": 0.117,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_API_ORDERS_ID_LOGISTICS-001"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_API_ORDERS_ID_LOGISTICS-001]",
+   "duration_seconds": 0.077,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_API_ORDERS_ID_LOGISTICS-002"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_API_ORDERS_ID_LOGISTICS-002]",
+   "duration_seconds": 0.037,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_API_ORDERS_ID_LOGISTICS-003"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_API_ORDERS_ID_LOGISTICS-003]",
+   "duration_seconds": 0.036,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_API_PAYMENT_SANDBOX-001"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_API_PAYMENT_SANDBOX-001]",
+   "duration_seconds": 0.146,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_API_PAYMENT_SANDBOX-002"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_API_PAYMENT_SANDBOX-002]",
+   "duration_seconds": 0.135,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_API_PAYMENT_SANDBOX-004"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_API_PAYMENT_SANDBOX-004]",
+   "duration_seconds": 0.135,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_API_PAYMENT_ORDERID_STATUS-001"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_API_PAYMENT_ORDERID_STATUS-001]",
+   "duration_seconds": 0.039,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_API_PAYMENT_ORDERID_STATUS-002"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_API_PAYMENT_ORDERID_STATUS-002]",
+   "duration_seconds": 0.041,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_API_PAYMENT_ORDERID_STATUS-003"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_API_PAYMENT_ORDERID_STATUS-003]",
+   "duration_seconds": 0.037,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_API_PRODUCTS-001"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_API_PRODUCTS-001]",
+   "duration_seconds": 0.046,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_API_PRODUCTS-005"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_API_PRODUCTS-005]",
+   "duration_seconds": 0.085,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_API_PRODUCTS_SPUID-001"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_API_PRODUCTS_SPUID-001]",
+   "duration_seconds": 0.132,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_API_PRODUCTS_SPUID-003"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_API_PRODUCTS_SPUID-003]",
+   "duration_seconds": 0.044,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_API_PRODUCTS_SPUID_REVIEWS-001"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_API_PRODUCTS_SPUID_REVIEWS-001]",
+   "duration_seconds": 0.044,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_API_PRODUCTS_SPUID_REVIEWS-003"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_API_PRODUCTS_SPUID_REVIEWS-003]",
+   "duration_seconds": 0.036,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_API_PRODUCTS_SPUID_REVIEWS-005"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_API_PRODUCTS_SPUID_REVIEWS-005]",
+   "duration_seconds": 0.084,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_API_REVIEWS-001"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_API_REVIEWS-001]",
+   "duration_seconds": 0.143,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_API_REVIEWS-002"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_API_REVIEWS-002]",
+   "duration_seconds": 0.138,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "POST_API_REVIEWS-004"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[POST_API_REVIEWS-004]",
+   "duration_seconds": 0.135,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_API_SEARCH-001"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_API_SEARCH-001]",
+   "duration_seconds": 0.037,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_API_SEARCH-005"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_API_SEARCH-005]",
+   "duration_seconds": 0.075,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "GET_API_SITE_BRAND-001"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[GET_API_SITE_BRAND-001]",
+   "duration_seconds": 0.044,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "BUS-AUTH-001"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[BUS-AUTH-001]",
+   "duration_seconds": 0.087,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "BUS-AUTH-002"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[BUS-AUTH-002]",
+   "duration_seconds": 0.044,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "BUS-AUTH-003"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[BUS-AUTH-003]",
+   "duration_seconds": 0.079,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "BUS-AUTH-004"
+   ],
+   "outcome": "failed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[BUS-AUTH-004]",
+   "duration_seconds": 0.068,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "BUS-ME-001"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[BUS-ME-001]",
+   "duration_seconds": 0.001,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "BUS-ME-002"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[BUS-ME-002]",
+   "duration_seconds": 0.001,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "BUS-ME-003"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[BUS-ME-003]",
+   "duration_seconds": 0.153,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "BUS-ME-004"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[BUS-ME-004]",
+   "duration_seconds": 0.079,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "BUS-STK-001"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[BUS-STK-001]",
+   "duration_seconds": 0.104,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "BUS-STK-002"
+   ],
+   "outcome": "failed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[BUS-STK-002]",
+   "duration_seconds": 0.187,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "BUS-STK-003"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[BUS-STK-003]",
+   "duration_seconds": 0.001,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "BUS-STK-004"
+   ],
+   "outcome": "failed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[BUS-STK-004]",
+   "duration_seconds": 0.156,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "BUS-CART-001"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[BUS-CART-001]",
+   "duration_seconds": 0.092,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "BUS-CART-002"
+   ],
+   "outcome": "failed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[BUS-CART-002]",
+   "duration_seconds": 0.048,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "BUS-CART-003"
+   ],
+   "outcome": "failed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[BUS-CART-003]",
+   "duration_seconds": 0.06,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "BUS-CART-004"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[BUS-CART-004]",
+   "duration_seconds": 0.063,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "BUS-CART-005"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[BUS-CART-005]",
+   "duration_seconds": 0.098,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "BUS-ORD-001"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[BUS-ORD-001]",
+   "duration_seconds": 0.047,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "BUS-ORD-002"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[BUS-ORD-002]",
+   "duration_seconds": 0.046,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "BUS-ORD-003"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[BUS-ORD-003]",
+   "duration_seconds": 0.049,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "BUS-ORD-004"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[BUS-ORD-004]",
+   "duration_seconds": 0.05,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "BUS-ORD-005"
+   ],
+   "outcome": "failed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[BUS-ORD-005]",
+   "duration_seconds": 0.044,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "BUS-ORD-006"
+   ],
+   "outcome": "failed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[BUS-ORD-006]",
+   "duration_seconds": 0.039,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "BUS-ORD-007"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[BUS-ORD-007]",
+   "duration_seconds": 0.083,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "BUS-ORD-008"
+   ],
+   "outcome": "failed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[BUS-ORD-008]",
+   "duration_seconds": 0.055,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "BUS-PAY-001"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[BUS-PAY-001]",
+   "duration_seconds": 0.218,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "BUS-PAY-002"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[BUS-PAY-002]",
+   "duration_seconds": 0.22,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "BUS-PAY-003"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[BUS-PAY-003]",
+   "duration_seconds": 0.17,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "BUS-AS-001"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[BUS-AS-001]",
+   "duration_seconds": 0.157,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "BUS-AS-002"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[BUS-AS-002]",
+   "duration_seconds": 0.154,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "BUS-AS-003"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[BUS-AS-003]",
+   "duration_seconds": 0.163,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "BUS-AS-004"
+   ],
+   "outcome": "failed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[BUS-AS-004]",
+   "duration_seconds": 0.195,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "BUS-AS-005"
+   ],
+   "outcome": "passed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[BUS-AS-005]",
+   "duration_seconds": 0.518,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "BUS-AS-006"
+   ],
+   "outcome": "failed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[BUS-AS-006]",
+   "duration_seconds": 0.08,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "BUS-REV-001"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[BUS-REV-001]",
+   "duration_seconds": 0.327,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "BUS-REV-002"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[BUS-REV-002]",
+   "duration_seconds": 0.283,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "BUS-REV-003"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[BUS-REV-003]",
+   "duration_seconds": 0.256,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "BUS-REV-004"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[BUS-REV-004]",
+   "duration_seconds": 0.001,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "BUS-ADM-001"
+   ],
+   "outcome": "failed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[BUS-ADM-001]",
+   "duration_seconds": 0.158,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "BUS-ADM-002"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[BUS-ADM-002]",
+   "duration_seconds": 0.087,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "BUS-ADM-003"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[BUS-ADM-003]",
+   "duration_seconds": 0.001,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "BUS-ADM-004"
+   ],
+   "outcome": "failed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[BUS-ADM-004]",
+   "duration_seconds": 0.18,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "BUS-ADM-005"
+   ],
+   "outcome": "failed",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[BUS-ADM-005]",
+   "duration_seconds": 0.408,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "BUS-ADM-006"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[BUS-ADM-006]",
+   "duration_seconds": 0.253,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "BUS-ADM-007"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[BUS-ADM-007]",
+   "duration_seconds": 0.001,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "BUS-ADM-008"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[BUS-ADM-008]",
+   "duration_seconds": 0.091,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "BUS-ADM-009"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[BUS-ADM-009]",
+   "duration_seconds": 0.001,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "BUS-ADM-010"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[BUS-ADM-010]",
+   "duration_seconds": 0.001,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "BUS-ADM-011"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[BUS-ADM-011]",
+   "duration_seconds": 0.001,
+   "evidence_json": ""
+  },
+  {
+   "case_ids": [
+    "BUS-ADM-012"
+   ],
+   "outcome": "skipped",
+   "nodeid": "tests.contract.test_inventory_driven::test_inventory_case[BUS-ADM-012]",
+   "duration_seconds": 0.006,
+   "evidence_json": ""
+  }
+ ]
+}

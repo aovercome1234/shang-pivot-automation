@@ -1,0 +1,10 @@
+{
+ "url": "http://111.170.33.2:60084/api/products/",
+ "method": "GET",
+ "http": 404,
+ "body": {
+  "code": 40400,
+  "msg": "资源不存在",
+  "traceId": "30528c618f9b40f6bd12f60fb0f542c4"
+ }
+}

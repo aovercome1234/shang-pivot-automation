@@ -1,0 +1,14 @@
+{
+ "url": "http://127.0.0.1:8086/admin/reviews",
+ "method": "GET",
+ "http": 200,
+ "body": {
+  "code": 0,
+  "data": {
+   "total": "4",
+   "records": []
+  },
+  "msg": "success",
+  "traceId": "0d1253680659436a906dc08cc9161295"
+ }
+}

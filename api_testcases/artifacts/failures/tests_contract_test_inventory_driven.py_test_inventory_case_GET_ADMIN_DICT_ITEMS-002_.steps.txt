@@ -1,0 +1,11 @@
+1. 执行 pytest 用例：tests/contract/test_inventory_driven.py::test_inventory_case[GET_ADMIN_DICT_ITEMS-002]
+2. 记录请求方法、脱敏请求头、URL、请求体和响应体
+3. 对照用例预期断言；失败原因为：tests/contract/test_inventory_driven.py:143: in test_inventory_case
+    pytest.skip(f"取值约定未解析：{err}")
+E   Skipped: 取值约定未解析：预取 /admin/dicts 失败：HTTP 401
+
+During handling of the above exception, another exception occurred:
+tests/contract/test_inventory_driven.py:174: in test_inventory_case
+    allure.attach(json.dumps({"url": url, "method": req["method"], "http": http, "body": body},
+E   KeyError: 'method'
+4. 将 JSON 证据和 PNG 证据上传至禅道 Bug 附件

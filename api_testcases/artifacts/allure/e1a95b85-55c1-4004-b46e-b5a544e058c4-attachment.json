@@ -1,0 +1,68 @@
+{
+ "url": "http://111.170.33.2:60085/admin/orders/106",
+ "method": "GET",
+ "http": 200,
+ "body": {
+  "code": 0,
+  "data": {
+   "clientType": "mp",
+   "tradeNo": "SANDBOX-T-106",
+   "paidAt": "2026-10-03T18:44:56.613177+08:00",
+   "payment": {
+    "amount": 4009.0,
+    "channel": "SANDBOX",
+    "createdAt": "2026-10-03T23:44:56.613177+08:00",
+    "deleted": false,
+    "id": "104",
+    "orderId": "106",
+    "paidAt": "2026-10-03T18:44:56.613177+08:00",
+    "status": "PAID",
+    "tradeNo": "SANDBOX-T-106",
+    "updatedAt": "2026-10-03T23:44:56.613177+08:00"
+   },
+   "customerPhoneMask": "137****0003",
+   "items": [
+    {
+     "createdAt": "2026-10-03T23:44:56.613177+08:00",
+     "deleted": false,
+     "id": "107",
+     "orderId": "106",
+     "pic": "/admin/files/view?objectKey=PRODUCT%2Fseed%2Fproduct_43.jpg",
+     "price": 3999.0,
+     "quantity": 1,
+     "skuId": "10022",
+     "specs": {},
+     "spuId": "143",
+     "subtotal": 3999.0,
+     "title": "戴森 V12 吸尘器",
+     "updatedAt": "2026-10-03T23:44:56.613177+08:00"
+    }
+   ],
+   "shipments": [],
+   "order": {
+    "addressSnapshot": {
+     "name": "李四",
+     "phone": "13700000003",
+     "detail": "体育西路 100 号",
+     "region": "广州市天河区"
+    },
+    "clientType": "mp",
+    "createdAt": "2026-10-03T23:44:56.613177+08:00",
+    "customerId": "9003",
+    "customerName": "李四",
+    "customerPhoneMask": "137****0003",
+    "deleted": false,
+    "freight": 10.0,
+    "id": "106",
+    "orderNo": "SO202609140106",
+    "paidAt": "2026-10-03T18:44:56.613177+08:00",
+    "payAmount": 4009.0,
+    "status": "PENDING_SHIP",
+    "totalAmount": 4009.0,
+    "updatedAt": "2026-10-03T23:44:56.613177+08:00"
+   }
+  },
+  "msg": "success",
+  "traceId": "8bbc733b2ac14e4c8c2b58f9e560f4b7"
+ }
+}

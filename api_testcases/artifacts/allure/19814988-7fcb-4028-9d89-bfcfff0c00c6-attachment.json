@@ -1,0 +1,13 @@
+{
+ "url": "http://127.0.0.1:8086/api/auth/sms/send",
+ "method": "POST",
+ "http": 200,
+ "body": {
+  "code": 0,
+  "data": {
+   "cooldownSec": 60
+  },
+  "msg": "success",
+  "traceId": "85108d9a0a2d4c69b722060c981af9b1"
+ }
+}

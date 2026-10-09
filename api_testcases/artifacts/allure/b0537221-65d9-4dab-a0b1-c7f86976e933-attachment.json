@@ -1,0 +1,10 @@
+{
+ "url": "http://127.0.0.1:8086/admin/customers/2107341669304045570",
+ "method": "GET",
+ "http": 401,
+ "body": {
+  "code": 40100,
+  "msg": "未认证",
+  "traceId": "838c9ea6c78e478080457ef46e731558"
+ }
+}

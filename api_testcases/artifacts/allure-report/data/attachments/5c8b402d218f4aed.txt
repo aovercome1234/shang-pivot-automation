@@ -1,0 +1,1 @@
+HTTP=200；code=0；两次响应的 data.total 一致且 data.records 均为数组（不得 500）

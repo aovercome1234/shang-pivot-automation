@@ -1,0 +1,10 @@
+{
+ "url": "http://111.170.33.2:60084/api/favorites",
+ "method": "GET",
+ "http": 401,
+ "body": {
+  "code": 40100,
+  "msg": "未认证",
+  "traceId": "64fa1fb151b14c9786ed706e7ce4fd8b"
+ }
+}

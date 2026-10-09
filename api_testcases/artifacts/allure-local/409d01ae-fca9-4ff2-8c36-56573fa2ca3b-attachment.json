@@ -1,0 +1,10 @@
+{
+ "url": "http://127.0.0.1:8096/admin/attributes",
+ "method": "POST",
+ "http": 200,
+ "body": {
+  "code": 0,
+  "msg": "success",
+  "traceId": "dc9714cdd76b41fd83cb9de1da36f717"
+ }
+}

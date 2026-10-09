@@ -1,0 +1,33 @@
+{
+ "url": "http://111.170.33.2:60085/admin/dicts",
+ "method": "GET",
+ "http": 200,
+ "body": {
+  "code": 0,
+  "data": {
+   "total": "2",
+   "records": [
+    {
+     "code": "carrier",
+     "createdAt": "2026-10-03T23:44:57.393869+08:00",
+     "deleted": false,
+     "id": "2",
+     "name": "物流承运商",
+     "remark": "发货可选承运商",
+     "updatedAt": "2026-10-03T23:44:57.393869+08:00"
+    },
+    {
+     "code": "order_status",
+     "createdAt": "2026-10-03T23:44:55.805432+08:00",
+     "deleted": false,
+     "id": "1",
+     "name": "订单状态",
+     "remark": "订单状态枚举",
+     "updatedAt": "2026-10-03T23:44:55.805432+08:00"
+    }
+   ]
+  },
+  "msg": "success",
+  "traceId": "bc421e669d5142208aebc2c6f4810bde"
+ }
+}

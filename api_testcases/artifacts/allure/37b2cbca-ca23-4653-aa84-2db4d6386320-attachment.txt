@@ -1,0 +1,1 @@
+HTTP=200；code=BAD_REQUEST；响应 message 包含「发送过于频繁」

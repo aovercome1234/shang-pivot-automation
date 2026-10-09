@@ -1,0 +1,10 @@
+{
+ "url": "http://127.0.0.1:8096/api/auth/refresh",
+ "method": "POST",
+ "http": 500,
+ "body": {
+  "code": 50000,
+  "msg": "系统异常",
+  "traceId": "8ccc18a9032c46339f5111cdc53165f5"
+ }
+}

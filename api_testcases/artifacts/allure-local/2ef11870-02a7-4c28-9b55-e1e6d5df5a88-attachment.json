@@ -1,0 +1,61 @@
+{
+ "url": "http://127.0.0.1:8096/admin/after-sales",
+ "method": "GET",
+ "http": 200,
+ "body": {
+  "code": 0,
+  "data": {
+   "total": "3",
+   "records": [
+    {
+     "afterSaleNo": "AS202610061320540890",
+     "auditRemark": "E2E驳回",
+     "createdAt": "2026-10-06T13:20:54.344142+08:00",
+     "customerId": "9001",
+     "deleted": false,
+     "id": "2107340298647441409",
+     "orderId": "2107340298110570497",
+     "reason": "E2E验证",
+     "refundAmount": 1198.0,
+     "status": "REJECTED",
+     "type": "REFUND",
+     "updatedAt": "2026-10-06T13:20:54.344142+08:00"
+    },
+    {
+     "afterSaleNo": "AS202609140101",
+     "createdAt": "2026-09-30T00:27:19.477805+08:00",
+     "customerId": "9001",
+     "deleted": false,
+     "evidencePics": [
+      "/admin/files/view?objectKey=PRODUCT%2Fseed%2Fproduct_62.jpg"
+     ],
+     "id": "101",
+     "orderId": "104",
+     "reason": "七天无理由（演示）",
+     "refundAmount": 1999.0,
+     "status": "PENDING_AUDIT",
+     "type": "REFUND",
+     "updatedAt": "2026-09-30T00:27:19.477805+08:00"
+    },
+    {
+     "afterSaleNo": "AS202609130001",
+     "createdAt": "2026-09-30T00:27:19.183183+08:00",
+     "customerId": "9001",
+     "deleted": false,
+     "evidencePics": [
+      "demo/aftersale/evidence-1.jpg"
+     ],
+     "id": "1",
+     "orderId": "1",
+     "reason": "不想要了（演示）",
+     "refundAmount": 2999.0,
+     "status": "PENDING_AUDIT",
+     "type": "REFUND",
+     "updatedAt": "2026-09-30T00:27:19.183183+08:00"
+    }
+   ]
+  },
+  "msg": "success",
+  "traceId": "9a143805750b43a69ad4ab3879a33df3"
+ }
+}

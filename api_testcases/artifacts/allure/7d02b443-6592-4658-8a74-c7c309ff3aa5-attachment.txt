@@ -1,0 +1,1 @@
+HTTP=200；code=0；回查 GET /api/cart 校验 data.items 数量与首次提交后一致

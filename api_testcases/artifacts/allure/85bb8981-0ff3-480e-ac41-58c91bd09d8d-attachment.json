@@ -1,0 +1,8 @@
+{
+ "url": "http://127.0.0.1:8086/admin/operation-logs/export",
+ "method": "GET",
+ "http": 200,
+ "body": {
+  "_raw": "﻿用户,模块,操作,参数,IP,结果,时间,TraceId,User-Agent\nadmin,dict,delete,\"{\"\"id\"\":2107416332827844610}\",127.0.0.1,SUCCESS,2026-10-06 18:23:02,4f3247c166ca4eef87c5edde7f5684cb,python-requests/2.32.5\nadmin,dict,updat"
+ }
+}

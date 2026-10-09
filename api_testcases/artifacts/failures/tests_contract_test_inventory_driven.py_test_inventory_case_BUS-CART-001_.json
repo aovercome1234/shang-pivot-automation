@@ -1,0 +1,8 @@
+{
+  "case_id": "tests/contract/test_inventory_driven.py::test_inventory_case[BUS-CART-001]",
+  "phase": "call",
+  "outcome": "failed",
+  "timestamp": "2026-10-06T08:49:09.055177+00:00",
+  "longrepr": "E   AssertionError: [BUS-CART-001] 业务码期望 0 实际 40410｜商品不存在或未上架\n    assert False",
+  "request_response": null
+}

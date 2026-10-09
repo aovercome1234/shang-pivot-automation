@@ -1,0 +1,8 @@
+{
+  "case_id": "tests/contract/test_inventory_driven.py::test_inventory_case[PUT_ADMIN_CUSTOMERS_ID_STATUS-003]",
+  "phase": "call",
+  "outcome": "failed",
+  "timestamp": "2026-10-06T03:03:30.487556+00:00",
+  "longrepr": "tests/contract/test_inventory_driven.py:101: in test_inventory_case\n    assert ok, f\"[{cid}] {detail}\"\nE   AssertionError: [PUT_ADMIN_CUSTOMERS_ID_STATUS-003] HTTP 期望 404 实际 500｜body={'code': 50000, 'msg': '系统异常', 'traceId': '7fa4cd1c389a437a8ee5494219baacfc'}\nE   assert False",
+  "request_response": null
+}

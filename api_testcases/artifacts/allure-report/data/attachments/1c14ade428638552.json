@@ -1,0 +1,52 @@
+{
+ "url": "http://111.170.33.2:60084/api/categories",
+ "method": "GET",
+ "http": 200,
+ "body": {
+  "code": 0,
+  "data": [
+   {
+    "children": [],
+    "name": "手机",
+    "id": "10"
+   },
+   {
+    "children": [],
+    "name": "电脑/办公",
+    "id": "11"
+   },
+   {
+    "children": [],
+    "name": "家电",
+    "id": "12"
+   },
+   {
+    "children": [],
+    "name": "数码配件",
+    "id": "13"
+   },
+   {
+    "children": [],
+    "name": "家居收纳",
+    "id": "14"
+   },
+   {
+    "children": [],
+    "name": "美妆个护",
+    "id": "15"
+   },
+   {
+    "children": [],
+    "name": "食品生鲜",
+    "id": "16"
+   },
+   {
+    "children": [],
+    "name": "运动户外",
+    "id": "17"
+   }
+  ],
+  "msg": "success",
+  "traceId": "4faed7780f674b579a82ce7f1d45223d"
+ }
+}

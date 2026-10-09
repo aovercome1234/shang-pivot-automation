@@ -1,0 +1,8 @@
+{
+  "case_id": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_ADMIN_DICT_ITEMS-003]",
+  "phase": "call",
+  "outcome": "failed",
+  "timestamp": "2026-10-06T10:23:01.786655+00:00",
+  "longrepr": "tests/contract/test_inventory_driven.py:295: in test_inventory_case\n    assert ok, f\"[{cid}] {detail}\"\nE   AssertionError: [GET_ADMIN_DICT_ITEMS-003] HTTP 期望 400 实际 500｜body={'code': 50000, 'msg': '系统异常', 'traceId': '57b07066fb8647efb2ffff3cf40b420f'}\nE   assert False",
+  "request_response": null
+}

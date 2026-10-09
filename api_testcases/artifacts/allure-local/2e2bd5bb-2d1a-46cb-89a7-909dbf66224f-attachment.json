@@ -1,0 +1,10 @@
+{
+ "url": "http://127.0.0.1:8096/admin/brands",
+ "method": "POST",
+ "http": 200,
+ "body": {
+  "code": 0,
+  "msg": "success",
+  "traceId": "1df4c51130974fe48969fe147726c378"
+ }
+}

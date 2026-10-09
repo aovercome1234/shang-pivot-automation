@@ -1,0 +1,8 @@
+{
+  "case_id": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_ADMIN_FILES_UPLOAD-003]",
+  "phase": "call",
+  "outcome": "failed",
+  "timestamp": "2026-10-06T03:05:57.721861+00:00",
+  "longrepr": "tests/contract/test_inventory_driven.py:101: in test_inventory_case\n    assert ok, f\"[{cid}] {detail}\"\nE   AssertionError: [POST_ADMIN_FILES_UPLOAD-003] HTTP 期望 200 实际 500｜body={'code': 50000, 'msg': '系统异常', 'traceId': 'c7bae9cff60f460db9fb981407abaeeb'}\nE   assert False",
+  "request_response": null
+}

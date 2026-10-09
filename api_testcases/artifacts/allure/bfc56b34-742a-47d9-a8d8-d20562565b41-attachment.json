@@ -1,0 +1,10 @@
+{
+ "url": "http://111.170.33.2:60085/admin/customers",
+ "method": "GET",
+ "http": 401,
+ "body": {
+  "code": 40100,
+  "msg": "未认证",
+  "traceId": "882d648c268a40f3a2326c532325f7e3"
+ }
+}

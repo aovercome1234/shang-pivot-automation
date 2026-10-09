@@ -1,0 +1,8 @@
+{
+  "case_id": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_API_CART_CLEAR_INVALID-001]",
+  "phase": "call",
+  "outcome": "failed",
+  "timestamp": "2026-10-06T03:20:42.865730+00:00",
+  "longrepr": "tests/contract/test_inventory_driven.py:178: in test_inventory_case\n    assert ok, f\"[{cid}] {detail}\"\nE   AssertionError: [POST_API_CART_CLEAR_INVALID-001] HTTP 期望 200 实际 401｜body={'code': 40103, 'msg': 'Token无效', 'traceId': '038794e1f121456bb22737962f79455f'}\nE   assert False",
+  "request_response": null
+}

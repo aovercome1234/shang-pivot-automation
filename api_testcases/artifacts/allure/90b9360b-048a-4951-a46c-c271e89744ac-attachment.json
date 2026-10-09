@@ -1,0 +1,10 @@
+{
+ "url": "http://111.170.33.2:60085/admin/users/",
+ "method": "DELETE",
+ "http": 404,
+ "body": {
+  "code": 40400,
+  "msg": "资源不存在",
+  "traceId": "58f76f6106e04263a6218a000feeeb1a"
+ }
+}

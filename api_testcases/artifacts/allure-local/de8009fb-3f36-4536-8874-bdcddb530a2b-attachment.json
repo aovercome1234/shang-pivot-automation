@@ -1,0 +1,10 @@
+{
+ "url": "http://127.0.0.1:8096/admin/products",
+ "method": "POST",
+ "http": 200,
+ "body": {
+  "code": 0,
+  "msg": "success",
+  "traceId": "b67fdff9bc8147f48ef462d7adf2de02"
+ }
+}

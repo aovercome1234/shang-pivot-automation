@@ -1,0 +1,14 @@
+{
+ "url": "http://111.170.33.2:60085/admin/in-out",
+ "method": "GET",
+ "http": 200,
+ "body": {
+  "code": 0,
+  "data": {
+   "total": "6",
+   "records": []
+  },
+  "msg": "success",
+  "traceId": "62bc25cd39e84623bb0bfb701b1a8d05"
+ }
+}

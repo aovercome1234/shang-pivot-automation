@@ -1,0 +1,10 @@
+{
+ "url": "http://127.0.0.1:8086/api/auth/logout",
+ "method": "POST",
+ "http": 200,
+ "body": {
+  "code": 0,
+  "msg": "success",
+  "traceId": "7ad5b59ad684477c981fce4eedd9b9eb"
+ }
+}

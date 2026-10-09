@@ -1,0 +1,8 @@
+{
+  "case_id": "tests/contract/test_inventory_driven.py::test_inventory_case[DELETE_API_ADDRESSES_ID-001]",
+  "phase": "call",
+  "outcome": "failed",
+  "timestamp": "2026-10-06T03:21:32.649033+00:00",
+  "longrepr": "tests/contract/test_inventory_driven.py:138: in test_inventory_case\n    pytest.skip(mk_err)\nE   Skipped: 造数失败：HTTP 200 code=40000 每个会员最多 20 条地址\n\nDuring handling of the above exception, another exception occurred:\ntests/contract/test_inventory_driven.py:179: in test_inventory_case\n    allure.attach(json.dumps({\"url\": url, \"method\": req[\"method\"], \"http\": http, \"body\": body},\nE   KeyError: 'method'",
+  "request_response": null
+}

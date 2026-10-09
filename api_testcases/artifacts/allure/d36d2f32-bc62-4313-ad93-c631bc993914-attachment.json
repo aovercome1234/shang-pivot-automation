@@ -1,0 +1,10 @@
+{
+ "url": "http://127.0.0.1:8086/api/auth/phone",
+ "method": "POST",
+ "http": 400,
+ "body": {
+  "code": 40000,
+  "msg": "不能为空",
+  "traceId": "b9390184e1c044a2b8c45f4cac8cb262"
+ }
+}

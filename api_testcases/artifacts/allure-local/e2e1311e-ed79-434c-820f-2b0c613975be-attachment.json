@@ -1,0 +1,20 @@
+{
+ "url": "http://127.0.0.1:8096/admin/depts/tree",
+ "method": "GET",
+ "http": 200,
+ "body": {
+  "code": 0,
+  "data": [
+   {
+    "children": [],
+    "id": "1",
+    "name": "总部",
+    "parentId": "0",
+    "sort": 0,
+    "status": "ENABLED"
+   }
+  ],
+  "msg": "success",
+  "traceId": "c0e843e5e5254e53aaa55df5a1f5e054"
+ }
+}

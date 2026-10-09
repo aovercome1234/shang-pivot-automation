@@ -1,0 +1,92 @@
+{
+ "url": "http://111.170.33.2:60085/admin/system-configs",
+ "method": "GET",
+ "http": 200,
+ "body": {
+  "code": 0,
+  "data": [
+   {
+    "configKey": "site.name",
+    "isSecret": false,
+    "remark": "站点名称",
+    "id": "1",
+    "category": "SYS",
+    "configValue": "Shang Pivot"
+   },
+   {
+    "configKey": "payment.sandbox.enabled",
+    "isSecret": false,
+    "remark": "沙箱支付开关",
+    "id": "2",
+    "category": "PAYMENT",
+    "configValue": "true"
+   },
+   {
+    "configKey": "order.pay-timeout-minutes",
+    "isSecret": false,
+    "remark": "待付款超时关单（分钟）",
+    "id": "10",
+    "category": "TRADE",
+    "configValue": "15"
+   },
+   {
+    "configKey": "freight.free-threshold",
+    "isSecret": false,
+    "remark": "免运门槛（元）",
+    "id": "11",
+    "category": "TRADE",
+    "configValue": "99"
+   },
+   {
+    "configKey": "freight.default-amount",
+    "isSecret": false,
+    "remark": "未满门槛默认运费（元）",
+    "id": "12",
+    "category": "TRADE",
+    "configValue": "8"
+   },
+   {
+    "configKey": "home.feed-sort",
+    "isSecret": false,
+    "remark": "猜你喜欢补位排序：sold/new",
+    "id": "13",
+    "category": "TRADE",
+    "configValue": "sold"
+   },
+   {
+    "configKey": "payment.sandbox.channel",
+    "isSecret": false,
+    "remark": "渠道标识",
+    "id": "21",
+    "category": "PAYMENT",
+    "configValue": "sandbox-mock"
+   },
+   {
+    "configKey": "payment.sandbox.merchant",
+    "isSecret": false,
+    "remark": "模拟支付商户号",
+    "id": "22",
+    "category": "PAYMENT",
+    "configValue": "shang_mock_001"
+   },
+   {
+    "configKey": "payment.sandbox.delay-ms",
+    "isSecret": false,
+    "remark": "默认成功延时（ms）",
+    "id": "23",
+    "category": "PAYMENT",
+    "configValue": "800"
+   },
+   {
+    "configKey": "payment.sandbox.notify-url",
+    "isSecret": false,
+    "remark": "回调地址",
+    "id": "24",
+    "category": "PAYMENT",
+    "configValue": "https://api.shang.example/payment/sandbox/notify"
+   }
+  ],
+  "msg": "success",
+  "traceId": "b119e1024c6a4cf5bdc36d4ccea51930"
+ }
+}

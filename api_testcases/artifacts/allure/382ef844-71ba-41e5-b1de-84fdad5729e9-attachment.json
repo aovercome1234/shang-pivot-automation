@@ -1,0 +1,48 @@
+{
+ "url": "http://127.0.0.1:8086/admin/home/slots/home_banner",
+ "method": "GET",
+ "http": 200,
+ "body": {
+  "code": 0,
+  "data": {
+   "code": "home_banner",
+   "id": "1",
+   "sort": 1,
+   "validFrom": "2026-09-23T00:27:19.62973+08:00",
+   "title": "首页 Banner",
+   "items": [
+    {
+     "linkValue": "101",
+     "imageKey": "PRODUCT/seed/product_1.jpg",
+     "linkType": "SPU",
+     "id": "8001",
+     "sort": 1,
+     "title": "秋季焕新 · iPhone",
+     "status": "ON"
+    },
+    {
+     "linkValue": "11",
+     "imageKey": "PRODUCT/seed/product_21.jpg",
+     "linkType": "CATEGORY",
+     "id": "8002",
+     "sort": 2,
+     "title": "笔记本专场",
+     "status": "ON"
+    },
+    {
+     "linkValue": "11",
+     "imageKey": "PRODUCT/seed/product_43.jpg",
+     "linkType": "CATEGORY",
+     "id": "8003",
+     "sort": 3,
+     "title": "电脑/办公专场",
+     "status": "ON"
+    }
+   ],
+   "status": "ON",
+   "validTo": "2026-11-29T00:27:19.62973+08:00"
+  },
+  "msg": "success",
+  "traceId": "2219c17f99734c41bd2b60c4c4c6145e"
+ }
+}

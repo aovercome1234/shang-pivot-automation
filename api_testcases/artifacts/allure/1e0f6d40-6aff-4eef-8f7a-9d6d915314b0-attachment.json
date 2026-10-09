@@ -1,0 +1,44 @@
+{
+ "url": "http://111.170.33.2:60085/admin/warehouses",
+ "method": "GET",
+ "http": 200,
+ "body": {
+  "code": 0,
+  "data": [
+   {
+    "createdAt": "2026-10-03T23:44:55.805432+08:00",
+    "deleted": false,
+    "id": "1",
+    "name": "默认仓",
+    "status": "ENABLED",
+    "updatedAt": "2026-10-03T23:44:55.805432+08:00"
+   },
+   {
+    "createdAt": "2026-10-06T11:19:52.863036+08:00",
+    "deleted": false,
+    "id": "2107309841787191297",
+    "name": "自动化测试名称",
+    "status": "DISABLED",
+    "updatedAt": "2026-10-06T11:19:52.863036+08:00"
+   },
+   {
+    "createdAt": "2026-10-06T11:19:53.091194+08:00",
+    "deleted": false,
+    "id": "2107309842743492609",
+    "name": "自动化测试名称",
+    "status": "DISABLED",
+    "updatedAt": "2026-10-06T11:19:53.091194+08:00"
+   },
+   {
+    "createdAt": "2026-10-06T11:19:53.155384+08:00",
+    "deleted": false,
+    "id": "2107309843016122369",
+    "name": "自动化测试名称",
+    "status": "DISABLED",
+    "updatedAt": "2026-10-06T11:19:53.155384+08:00"
+   }
+  ],
+  "msg": "success",
+  "traceId": "a25df6315e62440aa886a7e431a93576"
+ }
+}

@@ -1,0 +1,20 @@
+{
+ "url": "http://111.170.33.2:60085/admin/depts/tree",
+ "method": "GET",
+ "http": 200,
+ "body": {
+  "code": 0,
+  "data": [
+   {
+    "children": [],
+    "id": "1",
+    "name": "总部",
+    "parentId": "0",
+    "sort": 0,
+    "status": "ENABLED"
+   }
+  ],
+  "msg": "success",
+  "traceId": "003456bbec4b4201aa659f788b89e418"
+ }
+}

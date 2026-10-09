@@ -1,0 +1,10 @@
+{
+ "url": "http://111.170.33.2:60085/admin/after-sales/101/audit",
+ "method": "POST",
+ "http": 200,
+ "body": {
+  "code": 40000,
+  "msg": "拒绝时请填写处理意见",
+  "traceId": "d6ee28db0833499db09877eecdc01197"
+ }
+}

@@ -1,0 +1,14 @@
+{
+ "url": "http://127.0.0.1:8096/admin/dicts",
+ "method": "GET",
+ "http": 200,
+ "body": {
+  "code": 0,
+  "data": {
+   "total": "2",
+   "records": []
+  },
+  "msg": "success",
+  "traceId": "e5238ed46a5546f1bd945b635ee345b4"
+ }
+}

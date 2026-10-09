@@ -1,0 +1,52 @@
+{
+ "url": "http://111.170.33.2:60085/admin/after-sales/101",
+ "method": "GET",
+ "http": 200,
+ "body": {
+  "code": 0,
+  "data": {
+   "afterSale": {
+    "afterSaleNo": "AS202609140101",
+    "createdAt": "2026-10-03T23:44:56.613177+08:00",
+    "customerId": "9001",
+    "deleted": false,
+    "evidencePics": [
+     "/admin/files/view?objectKey=PRODUCT%2Fseed%2Fproduct_62.jpg"
+    ],
+    "id": "101",
+    "orderId": "104",
+    "reason": "七天无理由（演示）",
+    "refundAmount": 1999.0,
+    "status": "PENDING_AUDIT",
+    "type": "REFUND",
+    "updatedAt": "2026-10-03T23:44:56.613177+08:00"
+   },
+   "order": {
+    "addressSnapshot": {
+     "name": "张三",
+     "phone": "13800000000",
+     "detail": "建国路 88 号",
+     "region": "北京市朝阳区"
+    },
+    "clientType": "web",
+    "createdAt": "2026-10-03T23:44:56.613177+08:00",
+    "customerId": "9001",
+    "customerName": "张三",
+    "customerPhoneMask": "138****0001",
+    "deleted": false,
+    "freight": 0.0,
+    "id": "104",
+    "orderNo": "SO202609140104",
+    "paidAt": "2026-09-23T23:44:56.613177+08:00",
+    "payAmount": 1999.0,
+    "receivedAt": "2026-09-28T23:44:56.613177+08:00",
+    "shipAt": "2026-09-25T23:44:56.613177+08:00",
+    "status": "COMPLETED",
+    "totalAmount": 1999.0,
+    "updatedAt": "2026-10-03T23:44:56.613177+08:00"
+   }
+  },
+  "msg": "success",
+  "traceId": "0f618fb11b0c49019be2ded71bdf65f7"
+ }
+}

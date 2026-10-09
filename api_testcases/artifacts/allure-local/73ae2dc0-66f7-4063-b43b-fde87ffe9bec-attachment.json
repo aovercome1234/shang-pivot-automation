@@ -1,0 +1,10 @@
+{
+ "url": "http://127.0.0.1:8096/admin/products/",
+ "method": "PUT",
+ "http": 404,
+ "body": {
+  "code": 40400,
+  "msg": "资源不存在",
+  "traceId": "c337296a35a143ac9eaa41b518cfb650"
+ }
+}

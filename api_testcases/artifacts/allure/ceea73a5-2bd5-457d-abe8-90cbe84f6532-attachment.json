@@ -1,0 +1,10 @@
+{
+ "url": "http://127.0.0.1:8086/admin/operation-logs/",
+ "method": "GET",
+ "http": 404,
+ "body": {
+  "code": 40400,
+  "msg": "资源不存在",
+  "traceId": "92a8c421999b4d20bed9b48193568d1a"
+ }
+}

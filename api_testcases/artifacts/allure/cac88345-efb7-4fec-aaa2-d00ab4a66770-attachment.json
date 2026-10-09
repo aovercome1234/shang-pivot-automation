@@ -1,0 +1,10 @@
+{
+ "url": "http://127.0.0.1:8086/admin/roles",
+ "method": "POST",
+ "http": 500,
+ "body": {
+  "code": 50000,
+  "msg": "系统异常",
+  "traceId": "a0b821d820f94030a4f716e6a1625a67"
+ }
+}

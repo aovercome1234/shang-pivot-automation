@@ -1,0 +1,14 @@
+{
+ "url": "http://127.0.0.1:8086/admin/products",
+ "method": "GET",
+ "http": 200,
+ "body": {
+  "code": 0,
+  "data": {
+   "total": "32",
+   "records": []
+  },
+  "msg": "success",
+  "traceId": "d741409527284a68b74c21bea6622430"
+ }
+}

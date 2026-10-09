@@ -1,0 +1,10 @@
+{
+ "url": "http://127.0.0.1:8086/admin/users/",
+ "method": "DELETE",
+ "http": 404,
+ "body": {
+  "code": 40400,
+  "msg": "资源不存在",
+  "traceId": "1dd2d3b4c61a422caccbbd879a2783f5"
+ }
+}

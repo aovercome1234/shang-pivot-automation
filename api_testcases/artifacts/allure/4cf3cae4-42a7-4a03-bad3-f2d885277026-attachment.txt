@@ -1,0 +1,1 @@
+HTTP=200；code=0；data.cooldownSec 为数字且大于 0

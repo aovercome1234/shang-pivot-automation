@@ -1,0 +1,14 @@
+{
+ "url": "http://111.170.33.2:60084/api/search",
+ "method": "GET",
+ "http": 200,
+ "body": {
+  "code": 0,
+  "data": {
+   "total": "0",
+   "records": []
+  },
+  "msg": "success",
+  "traceId": "c159a1330d794c3989a79b9cf65db2be"
+ }
+}

@@ -1,0 +1,10 @@
+{
+ "url": "http://127.0.0.1:8096/api/orders/2107340298110570497/cancel",
+ "method": "POST",
+ "http": 200,
+ "body": {
+  "code": 0,
+  "msg": "success",
+  "traceId": "8095a422b6064e52b101c7674530ede3"
+ }
+}

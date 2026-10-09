@@ -1,0 +1,10 @@
+{
+ "url": "http://111.170.33.2:60084/api/me",
+ "method": "GET",
+ "http": 401,
+ "body": {
+  "code": 40100,
+  "msg": "未认证",
+  "traceId": "b0b49b2fcf5949dcbc06c9495803798c"
+ }
+}

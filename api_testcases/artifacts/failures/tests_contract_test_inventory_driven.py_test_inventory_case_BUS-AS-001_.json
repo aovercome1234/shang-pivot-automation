@@ -1,0 +1,8 @@
+{
+  "case_id": "tests/contract/test_inventory_driven.py::test_inventory_case[BUS-AS-001]",
+  "phase": "call",
+  "outcome": "failed",
+  "timestamp": "2026-10-06T08:49:20.063267+00:00",
+  "longrepr": "E   AssertionError: [BUS-AS-001] HTTP 期望 200 实际 500｜body={'code': 50000, 'msg': '系统异常', 'traceId': '73574fafb24642a685fc3faa11b8c159'}\n    assert False",
+  "request_response": null
+}

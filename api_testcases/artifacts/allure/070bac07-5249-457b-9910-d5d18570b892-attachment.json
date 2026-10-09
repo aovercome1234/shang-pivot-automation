@@ -1,0 +1,14 @@
+{
+ "url": "http://127.0.0.1:8086/api/products",
+ "method": "GET",
+ "http": 200,
+ "body": {
+  "code": 0,
+  "data": {
+   "total": "30",
+   "records": []
+  },
+  "msg": "success",
+  "traceId": "b9a8e53cd4664091aef0a0caca50cb83"
+ }
+}

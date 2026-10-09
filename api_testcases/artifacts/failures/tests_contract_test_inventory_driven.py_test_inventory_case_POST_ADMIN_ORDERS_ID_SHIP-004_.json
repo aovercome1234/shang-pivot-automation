@@ -1,0 +1,8 @@
+{
+  "case_id": "tests/contract/test_inventory_driven.py::test_inventory_case[POST_ADMIN_ORDERS_ID_SHIP-004]",
+  "phase": "call",
+  "outcome": "failed",
+  "timestamp": "2026-10-06T09:46:31.983879+00:00",
+  "longrepr": "tests/contract/test_inventory_driven.py:293: in test_inventory_case\n    assert ok, f\"[{cid}] {detail}\"\nE   AssertionError: [POST_ADMIN_ORDERS_ID_SHIP-004] HTTP 期望 200 实际 500｜body={'code': 50000, 'msg': '系统异常', 'traceId': '678f1a980f194d03b80449f6b5501815'}\nE   assert False",
+  "request_response": null
+}

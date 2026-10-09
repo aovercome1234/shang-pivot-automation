@@ -1,0 +1,67 @@
+{
+ "url": "http://127.0.0.1:8086/admin/dict-items",
+ "method": "GET",
+ "http": 200,
+ "body": {
+  "code": 0,
+  "data": [
+   {
+    "createdAt": "2026-09-30T00:27:19.592862+08:00",
+    "deleted": false,
+    "dictId": "2",
+    "id": "21",
+    "label": "顺丰速运",
+    "sort": 1,
+    "status": "ENABLED",
+    "updatedAt": "2026-09-30T00:27:19.592862+08:00",
+    "value": "SF"
+   },
+   {
+    "createdAt": "2026-09-30T00:27:19.592862+08:00",
+    "deleted": false,
+    "dictId": "2",
+    "id": "22",
+    "label": "中通快递",
+    "sort": 2,
+    "status": "ENABLED",
+    "updatedAt": "2026-09-30T00:27:19.592862+08:00",
+    "value": "ZTO"
+   },
+   {
+    "createdAt": "2026-09-30T00:27:19.592862+08:00",
+    "deleted": false,
+    "dictId": "2",
+    "id": "23",
+    "label": "圆通速递",
+    "sort": 3,
+    "status": "ENABLED",
+    "updatedAt": "2026-09-30T00:27:19.592862+08:00",
+    "value": "YTO"
+   },
+   {
+    "createdAt": "2026-09-30T00:27:19.592862+08:00",
+    "deleted": false,
+    "dictId": "2",
+    "id": "24",
+    "label": "韵达快递",
+    "sort": 4,
+    "status": "ENABLED",
+    "updatedAt": "2026-09-30T00:27:19.592862+08:00",
+    "value": "YD"
+   },
+   {
+    "createdAt": "2026-09-30T00:27:19.592862+08:00",
+    "deleted": false,
+    "dictId": "2",
+    "id": "25",
+    "label": "模拟快递",
+    "sort": 5,
+    "status": "ENABLED",
+    "updatedAt": "2026-09-30T00:27:19.592862+08:00",
+    "value": "MOCK"
+   }
+  ],
+  "msg": "success",
+  "traceId": "da03fd202c0e4120a23a17907e78c477"
+ }
+}

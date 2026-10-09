@@ -1,0 +1,7 @@
+1. 执行 pytest 用例：tests/contract/test_inventory_driven.py::test_inventory_case[POST_API_REVIEWS-001]
+2. 记录请求方法、脱敏请求头、URL、请求体和响应体
+3. 对照用例预期断言；失败原因为：tests/contract/test_inventory_driven.py:228: in test_inventory_case
+    assert ok, f"[{cid}] {detail}"
+E   AssertionError: [POST_API_REVIEWS-001] 业务码期望 0 实际 40904｜评价已存在
+E   assert False
+4. 将 JSON 证据和 PNG 证据上传至禅道 Bug 附件

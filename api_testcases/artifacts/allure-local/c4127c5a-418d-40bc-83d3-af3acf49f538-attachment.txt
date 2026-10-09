@@ -1,0 +1,1 @@
+HTTP=200；error.code=TOKEN_INVALID（实测：管理端刷新即轮换令牌，旧 refreshToken 失效）

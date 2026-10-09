@@ -1,0 +1,10 @@
+{
+ "url": "http://127.0.0.1:8096/admin/files/view",
+ "method": "GET",
+ "http": 200,
+ "body": {
+  "code": 40400,
+  "msg": "文件不存在或无法读取",
+  "traceId": "7ac09a96b0384e84862f4f5e151d00aa"
+ }
+}

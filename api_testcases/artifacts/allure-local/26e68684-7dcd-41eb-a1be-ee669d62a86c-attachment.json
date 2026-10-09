@@ -1,0 +1,10 @@
+{
+ "url": "http://127.0.0.1:8096/api/after-sales/",
+ "method": "GET",
+ "http": 404,
+ "body": {
+  "code": 40400,
+  "msg": "资源不存在",
+  "traceId": "1685bc21e6da4727b355e2fa6023a8ce"
+ }
+}

@@ -1,0 +1,10 @@
+{
+ "url": "http://127.0.0.1:8086/admin/depts",
+ "method": "POST",
+ "http": 200,
+ "body": {
+  "code": 40000,
+  "msg": "请填写部门名称",
+  "traceId": "d52d855c99f2418e8ac9fe0acf311f83"
+ }
+}

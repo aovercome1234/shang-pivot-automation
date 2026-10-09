@@ -1,0 +1,10 @@
+{
+ "url": "http://127.0.0.1:8096/admin/depts",
+ "method": "POST",
+ "http": 500,
+ "body": {
+  "code": 50000,
+  "msg": "系统异常",
+  "traceId": "db5435fc8f0f4b0e82653b27f3efa8d5"
+ }
+}

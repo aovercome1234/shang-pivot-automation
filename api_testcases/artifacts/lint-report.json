@@ -1,0 +1,119 @@
+{
+ "total": 474,
+ "fails": 0,
+ "warns": 16,
+ "violations": [
+  {
+   "rule": "R28",
+   "severity": "warn",
+   "case_id": "-",
+   "field": "需求追溯",
+   "message": "需求 INF-03 无任何用例引用"
+  },
+  {
+   "rule": "R36",
+   "severity": "warn",
+   "case_id": "-",
+   "field": "词典",
+   "message": "词条定义了但无任何用例触发：ACCOUNT_LOCKED"
+  },
+  {
+   "rule": "R36",
+   "severity": "warn",
+   "case_id": "-",
+   "field": "词典",
+   "message": "词条定义了但无任何用例触发：ADJUST"
+  },
+  {
+   "rule": "R36",
+   "severity": "warn",
+   "case_id": "-",
+   "field": "词典",
+   "message": "词条定义了但无任何用例触发：EXCHANGE"
+  },
+  {
+   "rule": "R36",
+   "severity": "warn",
+   "case_id": "-",
+   "field": "词典",
+   "message": "词条定义了但无任何用例触发：FORBIDDEN"
+  },
+  {
+   "rule": "R36",
+   "severity": "warn",
+   "case_id": "-",
+   "field": "词典",
+   "message": "词条定义了但无任何用例触发：INIT"
+  },
+  {
+   "rule": "R36",
+   "severity": "warn",
+   "case_id": "-",
+   "field": "词典",
+   "message": "词条定义了但无任何用例触发：LOCK"
+  },
+  {
+   "rule": "R36",
+   "severity": "warn",
+   "case_id": "-",
+   "field": "词典",
+   "message": "词条定义了但无任何用例触发：REFUNDING"
+  },
+  {
+   "rule": "R36",
+   "severity": "warn",
+   "case_id": "-",
+   "field": "词典",
+   "message": "词条定义了但无任何用例触发：REJECTED"
+  },
+  {
+   "rule": "R36",
+   "severity": "warn",
+   "case_id": "-",
+   "field": "词典",
+   "message": "词条定义了但无任何用例触发：RETURN_REFUND"
+  },
+  {
+   "rule": "R36",
+   "severity": "warn",
+   "case_id": "-",
+   "field": "词典",
+   "message": "词条定义了但无任何用例触发：SHIP"
+  },
+  {
+   "rule": "R36",
+   "severity": "warn",
+   "case_id": "-",
+   "field": "词典",
+   "message": "词条定义了但无任何用例触发：STOCKTAKE"
+  },
+  {
+   "rule": "R36",
+   "severity": "warn",
+   "case_id": "-",
+   "field": "词典",
+   "message": "词条定义了但无任何用例触发：STOCK_INSUFFICIENT"
+  },
+  {
+   "rule": "R36",
+   "severity": "warn",
+   "case_id": "-",
+   "field": "词典",
+   "message": "词条定义了但无任何用例触发：SUPER_ADMIN"
+  },
+  {
+   "rule": "R36",
+   "severity": "warn",
+   "case_id": "-",
+   "field": "词典",
+   "message": "词条定义了但无任何用例触发：TOKEN_EXPIRED"
+  },
+  {
+   "rule": "R36",
+   "severity": "warn",
+   "case_id": "-",
+   "field": "词典",
+   "message": "词条定义了但无任何用例触发：UNLOCK"
+  }
+ ]
+}

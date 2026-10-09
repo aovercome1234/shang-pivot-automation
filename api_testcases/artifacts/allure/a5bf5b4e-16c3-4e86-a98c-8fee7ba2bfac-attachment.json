@@ -1,0 +1,10 @@
+{
+ "url": "http://127.0.0.1:8086/admin/roles/",
+ "method": "DELETE",
+ "http": 404,
+ "body": {
+  "code": 40400,
+  "msg": "资源不存在",
+  "traceId": "7c2f9183e77a4551ab32f5e75ac8c69d"
+ }
+}

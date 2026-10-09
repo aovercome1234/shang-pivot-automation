@@ -1,0 +1,10 @@
+{
+ "url": "http://127.0.0.1:8086/admin/products",
+ "method": "POST",
+ "http": 500,
+ "body": {
+  "code": 50000,
+  "msg": "系统异常",
+  "traceId": "2ba8d637fcfc4f5b88d517c71c593d09"
+ }
+}

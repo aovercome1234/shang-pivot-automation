@@ -1,0 +1,16 @@
+{
+  "interface": {
+    "GET /admin/files/view": "文件代理端点：开放对象存储后由对象存储用例覆盖",
+    "GET /api/files/view": "同上（C 端）",
+    "POST /admin/files/upload": "multipart 上传端点：对象存储未部署，本轮豁免",
+    "POST /api/files/upload": "同上（C 端）",
+    "POST /admin/files/presign": "预签名端点：对象存储未部署，本轮豁免",
+    "POST /api/files/presign": "同上（C 端）",
+    "POST /admin/files/confirm": "上传确认端点：对象存储未部署，本轮豁免",
+    "POST /api/files/confirm": "同上（C 端）"
+  },
+  "requirement": {
+    "INF-03": "springdoc 自动文档端点不在 Controller 端点集内，改由人工验收确认（见 warn-exemptions.md）"
+  },
+  "dict": {}
+}

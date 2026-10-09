@@ -1,0 +1,1 @@
+HTTP=200；code=ORDER_STATUS_INVALID；回查 GET /api/orders/{id} 校验 data.status 未再次变更

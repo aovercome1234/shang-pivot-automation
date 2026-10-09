@@ -1,0 +1,67 @@
+{
+ "url": "http://111.170.33.2:60084/api/products/246",
+ "method": "GET",
+ "http": 200,
+ "body": {
+  "code": 0,
+  "data": {
+   "soldCount": "0",
+   "skus": [
+    {
+     "specs": {
+      "材质": "防雨涤纶",
+      "颜色": "军绿"
+     },
+     "price": 599.0,
+     "availableStock": 120,
+     "pic": "/admin/files/view?objectKey=PRODUCT%2Fseed%2Fproduct_146.jpg",
+     "title": "双人帐篷 防雨款 军绿",
+     "skuId": "10036"
+    },
+    {
+     "specs": {
+      "材质": "防雨涤纶",
+      "颜色": "卡其"
+     },
+     "price": 619.0,
+     "availableStock": 90,
+     "pic": "/admin/files/view?objectKey=PRODUCT%2Fseed%2Fproduct_146.jpg",
+     "title": "双人帐篷 防雨款 卡其",
+     "skuId": "10037"
+    },
+    {
+     "specs": {
+      "材质": "防雨涤纶",
+      "颜色": "墨绿"
+     },
+     "price": 599.0,
+     "availableStock": 180,
+     "pic": "/admin/files/view?objectKey=PRODUCT%2Fseed%2Fproduct_146.jpg",
+     "title": "双人帐篷 防雨款",
+     "skuId": "10035"
+    }
+   ],
+   "spu": {
+    "brandId": "17",
+    "categoryId": "17",
+    "createdAt": "2026-10-03T23:44:56.613177+08:00",
+    "deleted": false,
+    "detailHtml": "<p>三季适用，搭建方便</p>",
+    "id": "246",
+    "name": "双人帐篷 防雨款",
+    "pics": [
+     "/admin/files/view?objectKey=PRODUCT%2Fseed%2Fproduct_146.jpg"
+    ],
+    "soldCount": "0",
+    "status": "ON",
+    "subtitle": "三季适用，搭建方便",
+    "updatedAt": "2026-10-03T23:44:56.613177+08:00",
+    "videos": []
+   },
+   "reviewsPreview": [],
+   "favorited": false
+  },
+  "msg": "success",
+  "traceId": "9f540bcfc93c4cf2a79df84fefffe05b"
+ }
+}

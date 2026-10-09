@@ -1,0 +1,11 @@
+{
+ "url": "http://127.0.0.1:8096/admin/in-out",
+ "method": "POST",
+ "http": 200,
+ "body": {
+  "code": 0,
+  "data": "2107340392427884545",
+  "msg": "success",
+  "traceId": "62a2036a868f4e3895d6a6a9ccf1c633"
+ }
+}

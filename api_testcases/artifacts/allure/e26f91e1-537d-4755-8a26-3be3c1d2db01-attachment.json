@@ -1,0 +1,14 @@
+{
+ "url": "http://111.170.33.2:60085/admin/dicts",
+ "method": "GET",
+ "http": 200,
+ "body": {
+  "code": 0,
+  "data": {
+   "total": "2",
+   "records": []
+  },
+  "msg": "success",
+  "traceId": "d7cabed17b0b45c2bc270aeae580d21c"
+ }
+}

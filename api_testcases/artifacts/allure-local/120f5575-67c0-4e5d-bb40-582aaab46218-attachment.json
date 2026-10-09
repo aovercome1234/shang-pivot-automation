@@ -1,0 +1,10 @@
+{
+ "url": "http://127.0.0.1:8096/api/files/presign",
+ "method": "POST",
+ "http": 200,
+ "body": {
+  "code": 40000,
+  "msg": "bizType 仅支持 AVATAR / AFTER_SALE / REVIEW",
+  "traceId": "b1c8bac493d842b79bc05288957a94ea"
+ }
+}

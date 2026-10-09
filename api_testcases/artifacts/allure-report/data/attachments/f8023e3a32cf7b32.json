@@ -1,0 +1,10 @@
+{
+ "url": "http://111.170.33.2:60084/api/reviews",
+ "method": "POST",
+ "http": 200,
+ "body": {
+  "code": 40904,
+  "msg": "评价已存在",
+  "traceId": "f5830700a7dc455cb0b3bfb7ff9eb8b5"
+ }
+}

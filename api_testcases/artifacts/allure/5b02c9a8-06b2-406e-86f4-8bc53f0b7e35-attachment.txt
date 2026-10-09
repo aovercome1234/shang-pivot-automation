@@ -1,0 +1,1 @@
+HTTP=400；error.code=BAD_REQUEST；响应 message 指明缺失字段且不含内部堆栈

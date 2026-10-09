@@ -1,0 +1,14 @@
+{
+ "url": "http://111.170.33.2:60084/api/after-sales",
+ "method": "GET",
+ "http": 200,
+ "body": {
+  "code": 0,
+  "data": {
+   "total": "2",
+   "records": []
+  },
+  "msg": "success",
+  "traceId": "30e09809dcaf4445b73557e914803442"
+ }
+}

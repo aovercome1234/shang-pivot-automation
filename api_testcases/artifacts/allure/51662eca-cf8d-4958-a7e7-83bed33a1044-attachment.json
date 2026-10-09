@@ -1,0 +1,10 @@
+{
+ "url": "http://111.170.33.2:60085/admin/stocks",
+ "method": "GET",
+ "http": 401,
+ "body": {
+  "code": 40100,
+  "msg": "未认证",
+  "traceId": "364e799f1c8e40c6819bdd5ecacf587c"
+ }
+}

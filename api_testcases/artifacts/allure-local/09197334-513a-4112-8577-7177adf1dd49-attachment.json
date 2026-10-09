@@ -1,0 +1,10 @@
+{
+ "url": "http://127.0.0.1:8096/api/files/presign",
+ "method": "POST",
+ "http": 500,
+ "body": {
+  "code": 50000,
+  "msg": "系统异常",
+  "traceId": "270fc81fc5884f90b2f27f4dfa9c0dc1"
+ }
+}

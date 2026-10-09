@@ -1,0 +1,1 @@
+HTTP=200；code=CONFLICT；回查 GET /admin/roles?page=1&size=20 校验该编码仅一条记录

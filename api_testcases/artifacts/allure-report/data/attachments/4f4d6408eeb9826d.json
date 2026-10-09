@@ -1,0 +1,10 @@
+{
+ "url": "http://111.170.33.2:60084/api/history",
+ "method": "GET",
+ "http": 401,
+ "body": {
+  "code": 40100,
+  "msg": "未认证",
+  "traceId": "0c3cde6fa63b4a2ab8763397939a86ef"
+ }
+}

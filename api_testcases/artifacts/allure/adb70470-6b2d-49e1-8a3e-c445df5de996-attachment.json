@@ -1,0 +1,10 @@
+{
+ "url": "http://127.0.0.1:8086/admin/dicts",
+ "method": "POST",
+ "http": 200,
+ "body": {
+  "code": 40000,
+  "msg": "请填写字典编码",
+  "traceId": "5f262e8002034443b54b2da16f011d16"
+ }
+}

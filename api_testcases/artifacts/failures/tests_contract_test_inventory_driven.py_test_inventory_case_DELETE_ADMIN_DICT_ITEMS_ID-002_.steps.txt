@@ -1,0 +1,95 @@
+1. 执行 pytest 用例：tests/contract/test_inventory_driven.py::test_inventory_case[DELETE_ADMIN_DICT_ITEMS_ID-002]
+2. 记录请求方法、脱敏请求头、URL、请求体和响应体
+3. 对照用例预期断言；失败原因为：/Users/imac/Library/Python/3.9/lib/python/site-packages/urllib3/connectionpool.py:534: in _make_request
+    response = conn.getresponse()
+/Users/imac/Library/Python/3.9/lib/python/site-packages/urllib3/connection.py:571: in getresponse
+    httplib_response = super().getresponse()
+/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/http/client.py:1349: in getresponse
+    response.begin()
+/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/http/client.py:316: in begin
+    version, status, reason = self._read_status()
+/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/http/client.py:277: in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/socket.py:704: in readinto
+    return self._sock.recv_into(b)
+E   socket.timeout: timed out
+
+The above exception was the direct cause of the following exception:
+/Users/imac/Library/Python/3.9/lib/python/site-packages/requests/adapters.py:644: in send
+    resp = conn.urlopen(
+/Users/imac/Library/Python/3.9/lib/python/site-packages/urllib3/connectionpool.py:841: in urlopen
+    retries = retries.increment(
+/Users/imac/Library/Python/3.9/lib/python/site-packages/urllib3/util/retry.py:490: in increment
+    raise reraise(type(error), error, _stacktrace)
+/Users/imac/Library/Python/3.9/lib/python/site-packages/urllib3/util/util.py:39: in reraise
+    raise value
+/Users/imac/Library/Python/3.9/lib/python/site-packages/urllib3/connectionpool.py:787: in urlopen
+    response = self._make_request(
+/Users/imac/Library/Python/3.9/lib/python/site-packages/urllib3/connectionpool.py:536: in _make_request
+    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
+/Users/imac/Library/Python/3.9/lib/python/site-packages/urllib3/connectionpool.py:367: in _raise_timeout
+    raise ReadTimeoutError(
+E   urllib3.exceptions.ReadTimeoutError: HTTPConnectionPool(host='111.170.33.2', port=60085): Read timed out. (read timeout=20)
+
+During handling of the above exception, another exception occurred:
+tests/contract/test_inventory_driven.py:177: in test_inventory_case
+    req, err = build_request(patched, ctx["resolver"], ctx["admin"], ctx["user"])
+core/shang_driver.py:462: in build_request
+    val, err = res.first_id(m.group(2), kind, want=want, consumer_path=path,
+core/shang_driver.py:116: in first_id
+    st, body, _ = self.c.call("GET", base_path, token=self.tokens[token_kind], params=params)
+core/shang_driver.py:53: in call
+    r = self.s.request(method, url, headers=headers, params=params,
+/Users/imac/Library/Python/3.9/lib/python/site-packages/requests/sessions.py:589: in request
+    resp = self.send(prep, **send_kwargs)
+/Users/imac/Library/Python/3.9/lib/python/site-packages/requests/sessions.py:703: in send
+    r = adapter.send(request, **kwargs)
+/Users/imac/Library/Python/3.9/lib/python/site-packages/requests/adapters.py:690: in send
+    raise ReadTimeout(e, request=request)
+E   requests.exceptions.ReadTimeout: HTTPConnectionPool(host='111.170.33.2', port=60085): Read timed out. (read timeout=20)
+
+During handling of the above exception, another exception occurred:
+/Users/imac/Library/Python/3.9/lib/python/site-packages/urllib3/connectionpool.py:534: in _make_request
+    response = conn.getresponse()
+/Users/imac/Library/Python/3.9/lib/python/site-packages/urllib3/connection.py:571: in getresponse
+    httplib_response = super().getresponse()
+/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/http/client.py:1349: in getresponse
+    response.begin()
+/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/http/client.py:316: in begin
+    version, status, reason = self._read_status()
+/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/http/client.py:277: in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/socket.py:704: in readinto
+    return self._sock.recv_into(b)
+E   socket.timeout: timed out
+
+The above exception was the direct cause of the following exception:
+/Users/imac/Library/Python/3.9/lib/python/site-packages/requests/adapters.py:644: in send
+    resp = conn.urlopen(
+/Users/imac/Library/Python/3.9/lib/python/site-packages/urllib3/connectionpool.py:841: in urlopen
+    retries = retries.increment(
+/Users/imac/Library/Python/3.9/lib/python/site-packages/urllib3/util/retry.py:490: in increment
+    raise reraise(type(error), error, _stacktrace)
+/Users/imac/Library/Python/3.9/lib/python/site-packages/urllib3/util/util.py:39: in reraise
+    raise value
+/Users/imac/Library/Python/3.9/lib/python/site-packages/urllib3/connectionpool.py:787: in urlopen
+    response = self._make_request(
+/Users/imac/Library/Python/3.9/lib/python/site-packages/urllib3/connectionpool.py:536: in _make_request
+    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
+/Users/imac/Library/Python/3.9/lib/python/site-packages/urllib3/connectionpool.py:367: in _raise_timeout
+    raise ReadTimeoutError(
+E   urllib3.exceptions.ReadTimeoutError: HTTPConnectionPool(host='111.170.33.2', port=60085): Read timed out. (read timeout=20)
+
+During handling of the above exception, another exception occurred:
+tests/contract/test_inventory_driven.py:217: in test_inventory_case
+    st, body, _ = client.call(act[0], act[1],
+core/shang_driver.py:53: in call
+    r = self.s.request(method, url, headers=headers, params=params,
+/Users/imac/Library/Python/3.9/lib/python/site-packages/requests/sessions.py:589: in request
+    resp = self.send(prep, **send_kwargs)
+/Users/imac/Library/Python/3.9/lib/python/site-packages/requests/sessions.py:703: in send
+    r = adapter.send(request, **kwargs)
+/Users/imac/Library/Python/3.9/lib/python/site-packages/requests/adapters.py:690: in send
+    raise ReadTimeout(e, request=request)
+E   requests.exceptions.ReadTimeout: HTTPConnectionPool(host='111.170.33.2', port=60085): Read timed out. (read timeout=20)
+4. 将 JSON 证据和 PNG 证据上传至禅道 Bug 附件

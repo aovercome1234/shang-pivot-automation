@@ -1,0 +1,104 @@
+{
+ "url": "http://111.170.33.2:60085/admin/attributes",
+ "method": "GET",
+ "http": 200,
+ "body": {
+  "code": 0,
+  "data": [
+   {
+    "categoryId": "10",
+    "createdAt": "2026-10-03T23:44:56.735485+08:00",
+    "deleted": false,
+    "id": "10",
+    "name": "颜色",
+    "options": [
+     "黑色",
+     "白色",
+     "蓝色",
+     "原色钛"
+    ],
+    "sort": 1,
+    "type": "SPEC",
+    "updatedAt": "2026-10-03T23:44:56.735485+08:00"
+   },
+   {
+    "categoryId": "17",
+    "createdAt": "2026-10-03T23:44:56.735485+08:00",
+    "deleted": false,
+    "id": "12",
+    "name": "颜色",
+    "options": [
+     "军绿",
+     "卡其",
+     "黑灰"
+    ],
+    "sort": 1,
+    "type": "SPEC",
+    "updatedAt": "2026-10-03T23:44:56.735485+08:00"
+   },
+   {
+    "categoryId": "16",
+    "createdAt": "2026-10-03T23:44:56.735485+08:00",
+    "deleted": false,
+    "id": "14",
+    "name": "规格",
+    "options": [
+     "750g",
+     "1.5kg",
+     "20袋",
+     "40袋"
+    ],
+    "sort": 1,
+    "type": "SPEC",
+    "updatedAt": "2026-10-03T23:44:56.735485+08:00"
+   },
+   {
+    "categoryId": "15",
+    "createdAt": "2026-10-03T23:44:56.735485+08:00",
+    "deleted": false,
+    "id": "15",
+    "name": "色号",
+    "options": [
+     "豆沙",
+     "正红",
+     "番茄红"
+    ],
+    "sort": 1,
+    "type": "SPEC",
+    "updatedAt": "2026-10-03T23:44:56.735485+08:00"
+   },
+   {
+    "categoryId": "10",
+    "createdAt": "2026-10-03T23:44:56.735485+08:00",
+    "deleted": false,
+    "id": "11",
+    "name": "容量",
+    "options": [
+     "128GB",
+     "256GB",
+     "512GB"
+    ],
+    "sort": 2,
+    "type": "SPEC",
+    "updatedAt": "2026-10-03T23:44:56.735485+08:00"
+   },
+   {
+    "categoryId": "17",
+    "createdAt": "2026-10-03T23:44:56.735485+08:00",
+    "deleted": false,
+    "id": "13",
+    "name": "尺码",
+    "options": [
+     "41码",
+     "42码",
+     "43码"
+    ],
+    "sort": 2,
+    "type": "SPEC",
+    "updatedAt": "2026-10-03T23:44:56.735485+08:00"
+   }
+  ],
+  "msg": "success",
+  "traceId": "c937892194fa4070be2e46eb3c5002a3"
+ }
+}

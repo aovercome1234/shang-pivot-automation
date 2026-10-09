@@ -1,0 +1,425 @@
+[
+ {
+  "case_id": "POST_ADMIN_AFTER_SALES_ID_AUDIT-001",
+  "column": "预期业务码",
+  "quote": "0",
+  "verdict": "ok",
+  "reason": "audit 仅允许 PENDING_AUDIT，目标售后单为待审核时预期 code=0 成立",
+  "source": "/Users/imac/Desktop/电商自动化测试/shang-pivot-master/backend/AfterSaleService.java:60-61",
+  "repro": "见 批量执行命令（pytest 参数化，nodeid 含用例ID）"
+ },
+ {
+  "case_id": "POST_ADMIN_AFTER_SALES_ID_AUDIT-004",
+  "column": "预期业务码",
+  "quote": "AFTER_SALE_STATUS_INVALID",
+  "verdict": "ok",
+  "reason": "非待审核再审核抛 AFTER_SALE_STATUS_INVALID，与预期一致",
+  "source": "/Users/imac/Desktop/电商自动化测试/shang-pivot-master/backend/AfterSaleService.java:60-61",
+  "repro": "见 批量执行命令（pytest 参数化，nodeid 含用例ID）"
+ },
+ {
+  "case_id": "POST_ADMIN_ATTRIBUTES-001",
+  "column": "预期业务码",
+  "quote": "0",
+  "verdict": "ok",
+  "reason": "创建类无唯一约束，预期 code=0 与\"默认值+insert\"一致",
+  "source": "/Users/imac/Desktop/电商自动化测试/shang-pivot-master/backend/AttributeController.java:38-41",
+  "repro": "见 批量执行命令（pytest 参数化，nodeid 含用例ID）"
+ },
+ {
+  "case_id": "POST_ADMIN_ATTRIBUTES-003",
+  "column": "预期业务码",
+  "quote": "BAD_REQUEST",
+  "verdict": "problem",
+  "reason": "源码该创建接口无存在性校验，仅有默认值赋值（未抛 BAD_REQUEST）；提交空请求体得到 BAD_REQUEST 在源码中无依据",
+  "source": "/Users/imac/Desktop/电商自动化测试/shang-pivot-master/backend/AttributeController.java:39-41",
+  "repro": "TOK=$(curl -s -X POST http://111.170.33.2:60085/admin/auth/login -H 'Content-Type: application/json' -d '{\"username\":\"admin\",\"password\":\"Admin@123\"}' | python3 -c \"import sys,json;print(json.load(sys.stdin)['data']['accessToken'])\"); curl -s -X POST http://111.170.33.2:60085/admin/attributes -H \"Authorization: Bearer $TOK\" -H 'Content-Type: application/json' -d '{}'"
+ },
+ {
+  "case_id": "POST_ADMIN_ATTRIBUTES-004",
+  "column": "预期业务码",
+  "quote": "0",
+  "verdict": "ok",
+  "reason": "无唯一约束，重复提交各自成功，预期 code=0 成立",
+  "source": "/Users/imac/Desktop/电商自动化测试/shang-pivot-master/backend/AttributeController.java:38-41",
+  "repro": "见 批量执行命令（pytest 参数化，nodeid 含用例ID）"
+ },
+ {
+  "case_id": "POST_ADMIN_CATEGORIES-003",
+  "column": "预期业务码",
+  "quote": "BAD_REQUEST",
+  "verdict": "problem",
+  "reason": "源码该创建接口无存在性校验，仅有默认值赋值（未抛 BAD_REQUEST）；提交空请求体得到 BAD_REQUEST 在源码中无依据",
+  "source": "/Users/imac/Desktop/电商自动化测试/shang-pivot-master/backend/CategoryController.java:56-60",
+  "repro": "TOK=$(curl -s -X POST http://111.170.33.2:60085/admin/auth/login -H 'Content-Type: application/json' -d '{\"username\":\"admin\",\"password\":\"Admin@123\"}' | python3 -c \"import sys,json;print(json.load(sys.stdin)['data']['accessToken'])\"); curl -s -X POST http://111.170.33.2:60085/admin/categories -H \"Authorization: Bearer $TOK\" -H 'Content-Type: application/json' -d '{}'"
+ },
+ {
+  "case_id": "POST_ADMIN_DEPTS-003",
+  "column": "预期业务码",
+  "quote": "BAD_REQUEST",
+  "verdict": "problem",
+  "reason": "源码该创建接口无存在性校验，仅有默认值赋值（未抛 BAD_REQUEST）；提交空请求体得到 BAD_REQUEST 在源码中无依据",
+  "source": "/Users/imac/Desktop/电商自动化测试/shang-pivot-master/backend/DeptController.java:53-57",
+  "repro": "TOK=$(curl -s -X POST http://111.170.33.2:60085/admin/auth/login -H 'Content-Type: application/json' -d '{\"username\":\"admin\",\"password\":\"Admin@123\"}' | python3 -c \"import sys,json;print(json.load(sys.stdin)['data']['accessToken'])\"); curl -s -X POST http://111.170.33.2:60085/admin/depts -H \"Authorization: Bearer $TOK\" -H 'Content-Type: application/json' -d '{}'"
+ },
+ {
+  "case_id": "GET_ADMIN_DICT_ITEMS-003",
+  "column": "预期业务码",
+  "quote": "BAD_REQUEST",
+  "verdict": "ok",
+  "reason": "dictId 声明为必填（@RequestParam Long dictId，@Parameter required=true），缺参预期 400 与契约一致",
+  "source": "/Users/imac/Desktop/电商自动化测试/shang-pivot-master/backend/DictController.java:81-82",
+  "repro": "见 批量执行命令（pytest 参数化，nodeid 含用例ID）"
+ },
+ {
+  "case_id": "POST_ADMIN_DICT_ITEMS-003",
+  "column": "预期业务码",
+  "quote": "BAD_REQUEST",
+  "verdict": "problem",
+  "reason": "源码该创建接口无存在性校验，仅有默认值赋值（未抛 BAD_REQUEST）；提交空请求体得到 BAD_REQUEST 在源码中无依据",
+  "source": "/Users/imac/Desktop/电商自动化测试/shang-pivot-master/backend/DictController.java:103-107",
+  "repro": "TOK=$(curl -s -X POST http://111.170.33.2:60085/admin/auth/login -H 'Content-Type: application/json' -d '{\"username\":\"admin\",\"password\":\"Admin@123\"}' | python3 -c \"import sys,json;print(json.load(sys.stdin)['data']['accessToken'])\"); curl -s -X POST http://111.170.33.2:60085/admin/dict-items -H \"Authorization: Bearer $TOK\" -H 'Content-Type: application/json' -d '{}'"
+ },
+ {
+  "case_id": "GET_ADMIN_DICT_ITEMS_BY_CODE-003",
+  "column": "预期业务码",
+  "quote": "BAD_REQUEST",
+  "verdict": "ok",
+  "reason": "code 声明为必填，缺参预期 400 与契约一致",
+  "source": "/Users/imac/Desktop/电商自动化测试/shang-pivot-master/backend/DictController.java:90-91",
+  "repro": "见 批量执行命令（pytest 参数化，nodeid 含用例ID）"
+ },
+ {
+  "case_id": "POST_ADMIN_DICTS-004",
+  "column": "预期业务码",
+  "quote": "CONFLICT",
+  "verdict": "problem",
+  "reason": "源码 createDict 未做 code 唯一性校验（直接 insert），重复提交不会返回 CONFLICT",
+  "source": "/Users/imac/Desktop/电商自动化测试/shang-pivot-master/backend/shang-identity/src/main/java/com/shangpivot/identity/controller/DictController.java:48-51",
+  "repro": "连续两次 POST /admin/dicts（同一 code），第二次观察 code 字段"
+ },
+ {
+  "case_id": "GET_ADMIN_FILES_VIEW-001",
+  "column": "预期业务码",
+  "quote": "0",
+  "verdict": "unverifiable",
+  "reason": "环境未部署 MinIO/对象存储，无法判定该预期在目标环境是否可满足（待实测）",
+  "source": "docs/测试资料/端到端执行记录（首轮）.md §「MinIO 未部署」",
+  "repro": "curl -s 'http://111.170.33.2:60085/admin/files/view?objectKey=PRODUCT%2Fseed%2Fproduct_2.jpg' → 返回 {\"code\":40400,\"msg\":\"文件不存在或无法读取\"}（对象存储未部署，无法判定预期可达性）"
+ },
+ {
+  "case_id": "GET_ADMIN_FILES_VIEW-003",
+  "column": "预期业务码",
+  "quote": "BAD_REQUEST",
+  "verdict": "unverifiable",
+  "reason": "环境未部署 MinIO/对象存储，无法判定该预期在目标环境是否可满足（待实测）",
+  "source": "docs/测试资料/端到端执行记录（首轮）.md §「MinIO 未部署」",
+  "repro": "curl -s 'http://111.170.33.2:60085/admin/files/view?objectKey=PRODUCT%2Fseed%2Fproduct_2.jpg' → 返回 {\"code\":40400,\"msg\":\"文件不存在或无法读取\"}（对象存储未部署，无法判定预期可达性）"
+ },
+ {
+  "case_id": "POST_ADMIN_IN_OUT-001",
+  "column": "预期业务码",
+  "quote": "0",
+  "verdict": "ok",
+  "reason": "明细非空时创建成功，预期 code=0 与源码一致",
+  "source": "/Users/imac/Desktop/电商自动化测试/shang-pivot-master/backend/InOutOrderService.java:110-130",
+  "repro": "见 批量执行命令（pytest 参数化，nodeid 含用例ID）"
+ },
+ {
+  "case_id": "POST_ADMIN_IN_OUT-004",
+  "column": "预期业务码",
+  "quote": "0",
+  "verdict": "ok",
+  "reason": "单据无唯一约束，重复提交预期 code=0 成立",
+  "source": "/Users/imac/Desktop/电商自动化测试/shang-pivot-master/backend/InOutOrderService.java:110-130",
+  "repro": "见 批量执行命令（pytest 参数化，nodeid 含用例ID）"
+ },
+ {
+  "case_id": "POST_ADMIN_ORDERS_ID_SHIP-001",
+  "column": "预期业务码",
+  "quote": "0",
+  "verdict": "ok",
+  "reason": "PENDING_SHIP 可发货，预期 code=0 与源码一致",
+  "source": "/Users/imac/Desktop/电商自动化测试/shang-pivot-master/backend/OrderService.java:110-113",
+  "repro": "见 批量执行命令（pytest 参数化，nodeid 含用例ID）"
+ },
+ {
+  "case_id": "POST_ADMIN_ORDERS_ID_SHIP-004",
+  "column": "预期业务码",
+  "quote": "ORDER_STATUS_INVALID",
+  "verdict": "ok",
+  "reason": "非 PENDING_SHIP 抛 ORDER_STATUS_INVALID，与预期一致",
+  "source": "/Users/imac/Desktop/电商自动化测试/shang-pivot-master/backend/OrderService.java:111-113",
+  "repro": "见 批量执行命令（pytest 参数化，nodeid 含用例ID）"
+ },
+ {
+  "case_id": "POST_ADMIN_PERMISSIONS-003",
+  "column": "预期业务码",
+  "quote": "BAD_REQUEST",
+  "verdict": "problem",
+  "reason": "源码该创建接口无存在性校验，仅有默认值赋值（未抛 BAD_REQUEST）；提交空请求体得到 BAD_REQUEST 在源码中无依据",
+  "source": "/Users/imac/Desktop/电商自动化测试/shang-pivot-master/backend/PermissionController.java:49-53",
+  "repro": "TOK=$(curl -s -X POST http://111.170.33.2:60085/admin/auth/login -H 'Content-Type: application/json' -d '{\"username\":\"admin\",\"password\":\"Admin@123\"}' | python3 -c \"import sys,json;print(json.load(sys.stdin)['data']['accessToken'])\"); curl -s -X POST http://111.170.33.2:60085/admin/permissions -H \"Authorization: Bearer $TOK\" -H 'Content-Type: application/json' -d '{}'"
+ },
+ {
+  "case_id": "POST_ADMIN_PRODUCTS-001",
+  "column": "预期业务码",
+  "quote": "0",
+  "verdict": "ok",
+  "reason": "创建商品预期 code=0，与源码 create 一致",
+  "source": "/Users/imac/Desktop/电商自动化测试/shang-pivot-master/backend/ProductService.java:180-186",
+  "repro": "见 批量执行命令（pytest 参数化，nodeid 含用例ID）"
+ },
+ {
+  "case_id": "POST_ADMIN_PRODUCTS-004",
+  "column": "预期业务码",
+  "quote": "0",
+  "verdict": "ok",
+  "reason": "商品无唯一约束，重复提交预期 code=0 成立",
+  "source": "/Users/imac/Desktop/电商自动化测试/shang-pivot-master/backend/ProductService.java:180-186",
+  "repro": "见 批量执行命令（pytest 参数化，nodeid 含用例ID）"
+ },
+ {
+  "case_id": "POST_ADMIN_ROLES-001",
+  "column": "预期业务码",
+  "quote": "0",
+  "verdict": "ok",
+  "reason": "创建角色预期 code=0，与源码一致",
+  "source": "/Users/imac/Desktop/电商自动化测试/shang-pivot-master/backend/RoleService.java:52-59",
+  "repro": "见 批量执行命令（pytest 参数化，nodeid 含用例ID）"
+ },
+ {
+  "case_id": "POST_ADMIN_ROLES-004",
+  "column": "预期业务码",
+  "quote": "CONFLICT",
+  "verdict": "ok",
+  "reason": "重复编码抛 CONFLICT，与预期一致",
+  "source": "/Users/imac/Desktop/电商自动化测试/shang-pivot-master/backend/RoleService.java:52-54",
+  "repro": "见 批量执行命令（pytest 参数化，nodeid 含用例ID）"
+ },
+ {
+  "case_id": "POST_ADMIN_USERS-001",
+  "column": "预期业务码",
+  "quote": "0",
+  "verdict": "ok",
+  "reason": "创建用户预期 code=0，与源码一致",
+  "source": "/Users/imac/Desktop/电商自动化测试/shang-pivot-master/backend/AdminUserService.java:64-73",
+  "repro": "见 批量执行命令（pytest 参数化，nodeid 含用例ID）"
+ },
+ {
+  "case_id": "POST_ADMIN_USERS-004",
+  "column": "预期业务码",
+  "quote": "CONFLICT",
+  "verdict": "ok",
+  "reason": "重复用户名抛 CONFLICT，与预期一致",
+  "source": "/Users/imac/Desktop/电商自动化测试/shang-pivot-master/backend/AdminUserService.java:64-67",
+  "repro": "见 批量执行命令（pytest 参数化，nodeid 含用例ID）"
+ },
+ {
+  "case_id": "POST_ADMIN_WAREHOUSES-003",
+  "column": "预期业务码",
+  "quote": "BAD_REQUEST",
+  "verdict": "problem",
+  "reason": "源码该创建接口无存在性校验，仅有默认值赋值（未抛 BAD_REQUEST）；提交空请求体得到 BAD_REQUEST 在源码中无依据",
+  "source": "/Users/imac/Desktop/电商自动化测试/shang-pivot-master/backend/WarehouseController.java:36-39",
+  "repro": "TOK=$(curl -s -X POST http://111.170.33.2:60085/admin/auth/login -H 'Content-Type: application/json' -d '{\"username\":\"admin\",\"password\":\"Admin@123\"}' | python3 -c \"import sys,json;print(json.load(sys.stdin)['data']['accessToken'])\"); curl -s -X POST http://111.170.33.2:60085/admin/warehouses -H \"Authorization: Bearer $TOK\" -H 'Content-Type: application/json' -d '{}'"
+ },
+ {
+  "case_id": "POST_API_FILES_PRESIGN-001",
+  "column": "预期业务码",
+  "quote": "0",
+  "verdict": "unverifiable",
+  "reason": "环境未部署 MinIO/对象存储，无法判定该预期在目标环境是否可满足（待实测）",
+  "source": "docs/测试资料/端到端执行记录（首轮）.md §「MinIO 未部署」",
+  "repro": "curl -s -X POST http://111.170.33.2:60085/admin/files/presign -H \"Authorization: Bearer <管理员 token>\" -H 'Content-Type: application/json' -d '{\"bizType\":\"PRODUCT\",\"contentType\":\"image/png\",\"filename\":\"a.png\",\"size\":1024}' → 观察是否返回可用 uploadUrl（对象存储未部署时不可判定）"
+ },
+ {
+  "case_id": "POST_API_FILES_PRESIGN-004",
+  "column": "预期业务码",
+  "quote": "0",
+  "verdict": "unverifiable",
+  "reason": "环境未部署 MinIO/对象存储，无法判定该预期在目标环境是否可满足（待实测）",
+  "source": "docs/测试资料/端到端执行记录（首轮）.md §「MinIO 未部署」",
+  "repro": "curl -s -X POST http://111.170.33.2:60085/admin/files/presign -H \"Authorization: Bearer <管理员 token>\" -H 'Content-Type: application/json' -d '{\"bizType\":\"PRODUCT\",\"contentType\":\"image/png\",\"filename\":\"a.png\",\"size\":1024}' → 观察是否返回可用 uploadUrl（对象存储未部署时不可判定）"
+ },
+ {
+  "case_id": "GET_API_FILES_VIEW-001",
+  "column": "预期业务码",
+  "quote": "0",
+  "verdict": "unverifiable",
+  "reason": "环境未部署 MinIO/对象存储，无法判定该预期在目标环境是否可满足（待实测）",
+  "source": "docs/测试资料/端到端执行记录（首轮）.md §「MinIO 未部署」",
+  "repro": "curl -s 'http://111.170.33.2:60085/admin/files/view?objectKey=PRODUCT%2Fseed%2Fproduct_2.jpg' → 返回 {\"code\":40400,\"msg\":\"文件不存在或无法读取\"}（对象存储未部署，无法判定预期可达性）"
+ },
+ {
+  "case_id": "GET_API_FILES_VIEW-003",
+  "column": "预期业务码",
+  "quote": "BAD_REQUEST",
+  "verdict": "unverifiable",
+  "reason": "环境未部署 MinIO/对象存储，无法判定该预期在目标环境是否可满足（待实测）",
+  "source": "docs/测试资料/端到端执行记录（首轮）.md §「MinIO 未部署」",
+  "repro": "curl -s 'http://111.170.33.2:60085/admin/files/view?objectKey=PRODUCT%2Fseed%2Fproduct_2.jpg' → 返回 {\"code\":40400,\"msg\":\"文件不存在或无法读取\"}（对象存储未部署，无法判定预期可达性）"
+ },
+ {
+  "case_id": "POST_API_ORDERS_ID_CANCEL-004",
+  "column": "预期业务码",
+  "quote": "ORDER_STATUS_INVALID",
+  "verdict": "problem",
+  "reason": "源码 closeAndUnlock 对非 PENDING_PAY 静默 return（幂等），不抛 ORDER_STATUS_INVALID",
+  "source": "/Users/imac/Desktop/电商自动化测试/shang-pivot-master/backend/shang-commerce/src/main/java/com/shangpivot/commerce/application/OrderSubmitService.java:141-143",
+  "repro": "对同一订单连续两次 POST /api/orders/{id}/cancel，第二次观察 code"
+ },
+ {
+  "case_id": "POST_API_ORDERS_ID_CONFIRM-001",
+  "column": "预期业务码",
+  "quote": "0",
+  "verdict": "ok",
+  "reason": "PENDING_RECEIVE 可确认收货，预期 code=0 与源码一致",
+  "source": "/Users/imac/Desktop/电商自动化测试/shang-pivot-master/backend/OrderSubmitService.java:160-163",
+  "repro": "见 批量执行命令（pytest 参数化，nodeid 含用例ID）"
+ },
+ {
+  "case_id": "POST_API_REVIEWS-001",
+  "column": "Path/Query/Body",
+  "quote": "请求体：{\"orderItemId\": \"先调用 GET /api/orders 取一条记录的 orderItemId\", \"rating\": 1, \"content\": \"自动化测试内容\", \"picKeys\": \"自动化测试\"}",
+  "verdict": "problem",
+  "reason": "取值约定只保证取到「已完成订单的订单项」，未保证该订单项「未被评价」；源码对已评价订单项抛 REVIEW_EXISTS，故本用例结果依赖环境既有评价数据",
+  "source": "/Users/imac/Desktop/电商自动化测试/shang-pivot-master/backend/shang-commerce/src/main/java/com/shangpivot/commerce/controller/StorefrontController.java:286-288",
+  "repro": "curl -s -X POST http://111.170.33.2:60084/api/reviews -H \"Authorization: Bearer <普通用户 token>\" -H 'Content-Type: application/json' -d '{\"orderItemId\": <已评价项 id>, \"rating\": 5}' → 观察 code；本轮执行输出见 artifacts/junit.xml（POST_API_REVIEWS-001 断言 code=0 实际 40904）"
+ },
+ {
+  "case_id": "BUS-AUTH-004",
+  "column": "预期业务码",
+  "quote": "TOKEN_INVALID",
+  "verdict": "ok",
+  "reason": "无效令牌声明抛 TOKEN_INVALID，与预期一致（畸形格式未单独兜底）",
+  "source": "/Users/imac/Desktop/电商自动化测试/shang-pivot-master/backend/JwtUtil.java:52-59",
+  "repro": "见 批量执行命令（pytest 参数化，nodeid 含用例ID）"
+ },
+ {
+  "case_id": "BUS-STK-004",
+  "column": "预期业务码",
+  "quote": "0",
+  "verdict": "ok",
+  "reason": "发货扣减库存并置 PENDING_RECEIVE，预期 code=0 与源码一致",
+  "source": "/Users/imac/Desktop/电商自动化测试/shang-pivot-master/backend/OrderService.java:110-128",
+  "repro": "见 批量执行命令（pytest 参数化，nodeid 含用例ID）"
+ },
+ {
+  "case_id": "BUS-CART-003",
+  "column": "预期业务码",
+  "quote": "PRODUCT_UNAVAILABLE",
+  "verdict": "ok",
+  "reason": "SKU 未启用或 SPU 未上架抛 PRODUCT_UNAVAILABLE，与预期一致",
+  "source": "/Users/imac/Desktop/电商自动化测试/shang-pivot-master/backend/CartService.java:152-161",
+  "repro": "见 批量执行命令（pytest 参数化，nodeid 含用例ID）"
+ },
+ {
+  "case_id": "BUS-ORD-005",
+  "column": "预期业务码",
+  "quote": "ORDER_STATUS_INVALID",
+  "verdict": "problem",
+  "reason": "取消接口仅校验归属，closeAndUnlock 对非 PENDING_PAY 静默 return；已支付订单取消不会返回 ORDER_STATUS_INVALID",
+  "source": "/Users/imac/Desktop/电商自动化测试/shang-pivot-master/backend/shang-commerce/src/main/java/com/shangpivot/commerce/application/OrderSubmitService.java:129-143",
+  "repro": "对 PENDING_SHIP 订单调用 POST /api/orders/{id}/cancel，观察 code"
+ },
+ {
+  "case_id": "BUS-ORD-006",
+  "column": "预期业务码",
+  "quote": "0",
+  "verdict": "ok",
+  "reason": "待收货订单可确认收货，预期 code=0 与源码一致",
+  "source": "/Users/imac/Desktop/电商自动化测试/shang-pivot-master/backend/OrderSubmitService.java:160-163",
+  "repro": "见 批量执行命令（pytest 参数化，nodeid 含用例ID）"
+ },
+ {
+  "case_id": "BUS-ORD-008",
+  "column": "Path/Query/Body",
+  "quote": "路径参数 id：运行时先调用 GET /api/orders?page=1&size=5 取一条归属其他会员的订单 id",
+  "verdict": "problem",
+  "reason": "取值约定\"取一条归属其他会员的订单 id\"不可执行：执行器按用例自身 token 调 GET /api/orders，只能取到本人订单，无法获得他人订单",
+  "source": "api_testcases/core/shang_driver.py（Resolver.first_id 使用同一 token 拉列表）",
+  "repro": "python3 -c \"from core.shang_driver import *; c=Client(); u,_=login_customer(c); print(c.call('GET','/api/orders',token=u,params={'page':'1','size':'5'})[1]['data']['total'])\"（返回的是本人口令订单数）"
+ },
+ {
+  "case_id": "BUS-PAY-003",
+  "column": "Path/Query/Body",
+  "quote": "请求体：{orderId 先调用 GET /api/orders?page=1&size=5 取一条归属其他会员的订单 id}",
+  "verdict": "problem",
+  "reason": "取值约定\"取一条归属其他会员的订单 id\"不可执行：执行器按用例自身 token 调 GET /api/orders，只能取到本人订单，无法获得他人订单",
+  "source": "api_testcases/core/shang_driver.py（Resolver.first_id 使用同一 token 拉列表）",
+  "repro": "python3 -c \"from core.shang_driver import *; c=Client(); u,_=login_customer(c); print(c.call('GET','/api/orders',token=u,params={'page':'1','size':'5'})[1]['data']['total'])\"（返回的是本人口令订单数）"
+ },
+ {
+  "case_id": "BUS-AS-001",
+  "column": "预期业务码",
+  "quote": "0",
+  "verdict": "ok",
+  "reason": "待收货/已完成订单可申请，预期 code=0 与源码一致",
+  "source": "/Users/imac/Desktop/电商自动化测试/shang-pivot-master/backend/AfterSaleService.java:96-114",
+  "repro": "见 批量执行命令（pytest 参数化，nodeid 含用例ID）"
+ },
+ {
+  "case_id": "BUS-AS-002",
+  "column": "预期业务码",
+  "quote": "ORDER_STATUS_INVALID",
+  "verdict": "ok",
+  "reason": "非待收货/已完成抛 ORDER_STATUS_INVALID，与预期一致",
+  "source": "/Users/imac/Desktop/电商自动化测试/shang-pivot-master/backend/AfterSaleService.java:97-99",
+  "repro": "见 批量执行命令（pytest 参数化，nodeid 含用例ID）"
+ },
+ {
+  "case_id": "BUS-AS-003",
+  "column": "预期业务码",
+  "quote": "BAD_REQUEST",
+  "verdict": "ok",
+  "reason": "同订单已有进行中售后抛 BAD_REQUEST，与预期一致",
+  "source": "/Users/imac/Desktop/电商自动化测试/shang-pivot-master/backend/AfterSaleService.java:100-103",
+  "repro": "见 批量执行命令（pytest 参数化，nodeid 含用例ID）"
+ },
+ {
+  "case_id": "BUS-AS-004",
+  "column": "预期业务码",
+  "quote": "0",
+  "verdict": "ok",
+  "reason": "待审核可审核通过并完结，预期 code=0 与源码一致",
+  "source": "/Users/imac/Desktop/电商自动化测试/shang-pivot-master/backend/AfterSaleService.java:59-75",
+  "repro": "见 批量执行命令（pytest 参数化，nodeid 含用例ID）"
+ },
+ {
+  "case_id": "BUS-AS-006",
+  "column": "预期业务码",
+  "quote": "AFTER_SALE_STATUS_INVALID",
+  "verdict": "ok",
+  "reason": "非待审核再审核抛 AFTER_SALE_STATUS_INVALID，与预期一致",
+  "source": "/Users/imac/Desktop/电商自动化测试/shang-pivot-master/backend/AfterSaleService.java:60-61",
+  "repro": "见 批量执行命令（pytest 参数化，nodeid 含用例ID）"
+ },
+ {
+  "case_id": "BUS-ADM-001",
+  "column": "预期业务码",
+  "quote": "CONFLICT",
+  "verdict": "ok",
+  "reason": "重复用户名抛 CONFLICT，与预期一致",
+  "source": "/Users/imac/Desktop/电商自动化测试/shang-pivot-master/backend/AdminUserService.java:64-67",
+  "repro": "见 批量执行命令（pytest 参数化，nodeid 含用例ID）"
+ },
+ {
+  "case_id": "BUS-ADM-004",
+  "column": "预期业务码",
+  "quote": "CONFLICT",
+  "verdict": "ok",
+  "reason": "重复角色编码抛 CONFLICT，与预期一致",
+  "source": "/Users/imac/Desktop/电商自动化测试/shang-pivot-master/backend/RoleService.java:52-54",
+  "repro": "见 批量执行命令（pytest 参数化，nodeid 含用例ID）"
+ },
+ {
+  "case_id": "BUS-ADM-005",
+  "column": "预期业务码",
+  "quote": "CONFLICT",
+  "verdict": "ok",
+  "reason": "存在子类目/被引用抛 CONFLICT，与预期一致",
+  "source": "/Users/imac/Desktop/电商自动化测试/shang-pivot-master/backend/CategoryController.java:85-92",
+  "repro": "见 批量执行命令（pytest 参数化，nodeid 含用例ID）"
+ }
+]

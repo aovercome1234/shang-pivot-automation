@@ -1,0 +1,8 @@
+{
+  "case_id": "tests/contract/test_inventory_driven.py::test_inventory_case[DELETE_API_CART_ITEMS_ID-003]",
+  "phase": "call",
+  "outcome": "failed",
+  "timestamp": "2026-10-06T03:20:43.625879+00:00",
+  "longrepr": "tests/contract/test_inventory_driven.py:178: in test_inventory_case\n    assert ok, f\"[{cid}] {detail}\"\nE   AssertionError: [DELETE_API_CART_ITEMS_ID-003] HTTP 期望 404 实际 401｜body={'code': 40103, 'msg': 'Token无效', 'traceId': '80c01269d66443a2a32251b772cc2a1c'}\nE   assert False",
+  "request_response": null
+}

@@ -1,0 +1,10 @@
+{
+ "url": "http://127.0.0.1:8096/api/favorites/246",
+ "method": "POST",
+ "http": 200,
+ "body": {
+  "code": 0,
+  "msg": "success",
+  "traceId": "17f333c8739f41f8a493ad73b8af5726"
+ }
+}

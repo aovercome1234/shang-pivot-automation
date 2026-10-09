@@ -1,0 +1,8 @@
+{
+  "case_id": "tests/contract/test_inventory_driven.py::test_inventory_case[GET_ADMIN_DICT_ITEMS-002]",
+  "phase": "call",
+  "outcome": "failed",
+  "timestamp": "2026-10-06T03:20:26.107990+00:00",
+  "longrepr": "tests/contract/test_inventory_driven.py:143: in test_inventory_case\n    pytest.skip(f\"取值约定未解析：{err}\")\nE   Skipped: 取值约定未解析：预取 /admin/dicts 失败：HTTP 401\n\nDuring handling of the above exception, another exception occurred:\ntests/contract/test_inventory_driven.py:174: in test_inventory_case\n    allure.attach(json.dumps({\"url\": url, \"method\": req[\"method\"], \"http\": http, \"body\": body},\nE   KeyError: 'method'",
+  "request_response": null
+}

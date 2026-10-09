@@ -1,0 +1,14 @@
+{
+ "url": "http://111.170.33.2:60084/api/products/246/reviews",
+ "method": "GET",
+ "http": 200,
+ "body": {
+  "code": 0,
+  "data": {
+   "total": "0",
+   "records": []
+  },
+  "msg": "success",
+  "traceId": "820ec190c14a49f8a8ccbcaf5707cb99"
+ }
+}

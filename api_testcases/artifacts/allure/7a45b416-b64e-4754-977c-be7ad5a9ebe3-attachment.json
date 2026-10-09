@@ -1,0 +1,10 @@
+{
+ "url": "http://127.0.0.1:8086/admin/home/slots/home_banner",
+ "method": "GET",
+ "http": 401,
+ "body": {
+  "code": 40100,
+  "msg": "未认证",
+  "traceId": "2a27450400ba4122a2388e2e82242feb"
+ }
+}

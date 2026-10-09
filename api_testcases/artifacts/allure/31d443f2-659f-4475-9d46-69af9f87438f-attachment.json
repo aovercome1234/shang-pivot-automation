@@ -1,0 +1,10 @@
+{
+ "url": "http://111.170.33.2:60084/api/payment/sandbox",
+ "method": "POST",
+ "http": 200,
+ "body": {
+  "code": 40902,
+  "msg": "订单状态不允许",
+  "traceId": "78a2fa35c46b4076a3e17ffb2340a253"
+ }
+}
