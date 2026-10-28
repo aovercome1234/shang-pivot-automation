@@ -14,6 +14,7 @@
 | 架构决策 | [`04-architecture/adr/`](./04-architecture/adr/) |
 | V3 客服（设计就绪，未实现） | [`03-ai/customer-service-智能客服.md`](./03-ai/customer-service-智能客服.md) |
 | 启动 / 编码 / 出口 | [`开发与运维.md`](./开发与运维.md) |
+| 当前代码是哪一版 · 数据字典 · 业务规则 · 跨版本验证 | [`06-baseline/README.md`](./06-baseline/README.md) |
 | 原型本地预览（VSCode Live Server） | [`VSCode查看本地项目原型.md`](./VSCode查看本地项目原型.md) |
 | 演示商品图原件（MinIO 种子数据） | [`05-assets/`](./05-assets/) |
 
@@ -25,7 +26,8 @@ docs/
 ├── 02-design/         设计系统（含弹窗规范） + v1.0/ v2.0/ 体验设计
 ├── 03-ai/             V3 客服设计（未实现）
 ├── 04-architecture/   adr · v1.0/ · v2.0/（各含：开发设计 · 数据模型 · 接口设计）
-└── 05-assets/         项目资产：product/（演示商品图原件，MinIO 种子数据）
+├── 05-assets/         项目资产：product/（演示商品图原件，MinIO 种子数据）
+└── 06-baseline/       版本基线：版本指纹 · 数据字典 · 字段映射 · 业务规则与状态机 · 调用链路（含交互式 HTML 图） · 跨版本验证
 ```
 
 ## 版本纪律（怎么保证不倒着混）

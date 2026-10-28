@@ -67,7 +67,7 @@ bash ./scripts/deploy-app.sh                          # 应用侧（actuator 指
 | 服务 | 本机地址 | 凭据 |
 | --- | --- | --- |
 | Grafana | http://localhost:13000 | admin / admin |
-| Kibana | http://localhost:15601 | 无（数据视图「尚品汇日志」） |
+| Kibana | http://localhost:15601/monitor/kibana/ | 无（数据视图「尚品汇日志」） |
 | Prometheus | http://localhost:19090 | 无 |
 | Alertmanager | http://localhost:19093 | 无 |
 | Elasticsearch | http://localhost:19200 | 无 |
@@ -77,11 +77,15 @@ bash ./scripts/deploy-app.sh                          # 应用侧（actuator 指
 
 ### 公网入口（不开隧道也能看，一层认证）
 
+> ⚠️ **只能走 60080**。80/443 端口被服务商按备案策略拦截（访问会返回"IP 地址及端口号或未备案域名目前被限制"），
+> 不是服务器问题；nginx 在本机 80 是正常的。要使用 80/443，需要域名备案并由服务商放行。
+
+
 平台经服务器上 projectku 的 nginx 暴露在 60080 的 `/monitor/` 下，**只输一次口令**：
 
 | 入口 | 地址 | 认证 |
 | --- | --- | --- |
-| Grafana（两个项目仪表板） | http://111.170.33.2:60080/monitor/grafana/ | 只需 nginx basic：`monitor` / `Monitor@2026`（Grafana 侧已配 `[auth.proxy]`，用 nginx 传的 `X-WEBAUTH-USER` 自动登录，不再二次登录） |
+| Grafana（两个项目仪表板） | http://111.170.33.2:60080/monitor/grafana/ | 只需 nginx basic：`monitor` / `<本地运维配置>`（Grafana 侧已配 `[auth.proxy]`，用 nginx 传的 `X-WEBAUTH-USER` 自动登录，不再二次登录） |
 | Kibana（日志） | http://111.170.33.2:60080/monitor/kibana/ | 同上（Kibana 本身无认证） |
 | Prometheus | http://111.170.33.2:60080/monitor/prometheus/ | 同上 |
 | Alertmanager | http://111.170.33.2:60080/monitor/alertmanager/ | 同上 |
@@ -89,6 +93,41 @@ bash ./scripts/deploy-app.sh                          # 应用侧（actuator 指
 - 尚品汇仪表板：http://111.170.33.2:60080/monitor/grafana/d/shang-pivot-perf-overview
 - 元气购仪表板：http://111.170.33.2:60080/monitor/grafana/d/projectku-perf-overview
 - trace 没有独立公网入口：走 Grafana → Explore → Tempo（TraceQL `{resource.service.name="shang-pivot"}`）
+
+### 从「哪个请求慢」看到「哪条 SQL / 哪个函数慢」
+
+打开一条业务请求后，Trace 视图左侧就是调用栈，例如：
+
+```
+shang-pivot GET /api/products                 38.09ms
+└─ StorefrontController.products              26.08ms
+   └─ CatalogReadService.productPage          25.96ms
+      ├─ SELECT commerce.spu                  641.26μs
+      ├─ SELECT commerce.spu                  399.74μs
+      └─ CatalogReadService.toCard ×10        1.0–2.2ms
+         └─ SELECT commerce.sku               ~0.3–0.5ms
+```
+
+- 点 span 行，右侧出现 Span details。SQL span 展开 **Span attributes**，`db.statement` 就是完整 SQL，
+  另有 `db.sql.table`、`db.system`、`db.connection_string`、`thread.name`（哪个 Tomcat 线程执行）。
+- 函数 span 的耗时包含其子 span；函数自身耗时 = 本 span 耗时 − 子 span 耗时之和。
+- 常用 TraceQL：
+
+  | 目的 | 查询 |
+  | --- | --- |
+  | 看某接口全部链路 | `{ resource.service.name = "shang-pivot" && name =~ "GET /api/.*" }` |
+  | 只看某个函数 | `{ resource.service.name = "shang-pivot" && name = "CatalogReadService.productPage" }` |
+  | 按 SQL 表过滤 | `{ resource.service.name = "shang-pivot" && span.db.statement =~ ".*commerce.spu.*" }` |
+  | 只看慢请求 | `{ resource.service.name = "shang-pivot" && duration > 500ms }` |
+
+- 函数级 span 不是 agent 默认行为（默认只有 HTTP/JDBC 等边界）。名单在
+  `/etc/systemd/system/shang-pivot.service.d/otel.conf` 的 `OTEL_INSTRUMENTATION_METHODS_INCLUDE`，
+  格式 `包.类[方法1,方法2];包.类2[方法]`，不支持通配符；改完
+  `systemctl daemon-reload && systemctl restart shang-pivot`。
+- 采样率 0.1 是默认值。排障要抓每一次请求时，把同一文件的 `OTEL_TRACES_SAMPLER_ARG` 临时改成 `1.0` 再重启，结束后改回。
+- Span Profiles（span → 火焰图）暂不可用：Pyroscope 1.21 没有按 `profile_id` 反查 profile 的 API，
+  span 上的 `pyroscope.profile.id` 已写入，但 Grafana 点 span 后取不到火焰图。升级到 Pyroscope 2.x 后才能启用；
+  当前函数级定位用上面的方法 span。
 
 > 单层认证怎么实现的 / 怎么回退：Grafana 侧是 drop-in `grafana.service.d/auth-proxy.conf`，
 > nginx 侧是 `snippets/projectku-monitoring.conf` 里一行 `proxy_set_header X-WEBAUTH-USER $remote_user;`
@@ -108,7 +147,7 @@ bash ./scripts/deploy-app.sh                          # 应用侧（actuator 指
 | ES 解析管道 `shang-pivot-logs` | 日志解析（app 与 access 两种格式） | 同上 |
 | `/opt/monitoring/filebeat/filebeat.yml` | 两个输入：`/opt/shang-pivot/current/logs/shang-pivot{,-access}.log` → 索引 `shang-pivot-logs-*` | 同上（标记块） |
 | `/opt/monitoring/alertmanager/alertmanager.yml` | 一条抑制规则（尚品汇服务不可用时压掉它自己的 warning） | 同上（标记块） |
-| `/etc/systemd/system/shang-pivot.service.d/otel.conf` | OTel Java Agent：trace → 127.0.0.1:4318，采样率 0.1 | `scripts/deploy-app.sh` |
+| `/etc/systemd/system/shang-pivot.service.d/otel.conf` | OTel Java Agent：trace → 127.0.0.1:4318，采样率 0.1，关键 Controller/Service 方法级 span | `scripts/deploy-app.sh` / `server-apply-app.sh` |
 | `/etc/shang-pivot/shang-pivot.env` | `DB_URL` 追加 `stringtype=unspecified`（jsonb 下单必需） | `scripts/deploy-app.sh` |
 
 回退：`deploy-platform-to-server.sh --revert`、`deploy-app.sh --rollback`。
@@ -127,3 +166,21 @@ bash ./scripts/deploy-app.sh                          # 应用侧（actuator 指
 | 没有日志 | `platform.sh logs`；服务器 `systemctl status filebeat`、`tail /opt/monitoring/filebeat/logs/filebeat` |
 | 告警不弹窗 | 本机 `alert-watch.sh` 是否在跑；服务器 `tail /opt/monitoring/docs/performance-test-records/alerts.log` |
 | UI 打不开 | 隧道是否在跑：`bash ./scripts/open-dashboards.sh --daemon` |
+
+
+## 页面验收记录（2026-10-22）
+
+| 入口 | 结果 | 说明 |
+| --- | --- | --- |
+| Grafana 首页 `/monitor/grafana/` | 200 | 会话登录（monitor / `<本地运维配置>`），不再弹浏览器 Basic 框 |
+| 尚品汇仪表板 `/d/shang-pivot-perf-overview` | 200 | 25 面板，标题「尚品汇性能测试总览」 |
+| 元气购仪表板 `/d/projectku-perf-overview` | 200 | 25 面板，标题「元气购性能测试总览」 |
+| Kibana `/monitor/kibana/` | 200（2 次跳转 → `/app/home`） | **首屏较慢（实测约 66 秒）**：vendor bundle 十几 MB + 服务器上行带宽有限；已开 gzip，之后走浏览器缓存 |
+| Prometheus `/monitor/prometheus/` | 200（1 次跳转 → `/query`） | Targets 5 个目标全 up |
+| Alertmanager `/monitor/alertmanager/` | 200 | 正常 |
+
+- 无跨站跳转、无重定向循环、无子路径重复；Grafana 302 → 登录页属正常会话流程。
+- 隧道访问注意：Kibana 必须带 basePath → `http://localhost:15601/monitor/kibana/`（根路径会 404）；
+  Alertmanager 会跳到 `/monitor/alertmanager/#/alerts`（其 external-url 配置）。
+- 已做优化：nginx 对 `/monitor/` 开 gzip（`text/css`、`application/javascript`、`application/json` 等），
+  Kibana/Grafana 的首屏资源压缩传输。

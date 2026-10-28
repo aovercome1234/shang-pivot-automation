@@ -35,10 +35,10 @@ if [ "${1:-}" = "--daemon" ]; then
   sleep 3
   cat <<EOF
 隧道已在后台建立（日志：${LOG}）
-  Grafana      http://localhost:13000      （admin / admin）
-  Kibana       http://localhost:15601      （数据视图「尚品汇日志」）
+  Grafana      http://localhost:13000/monitor/grafana/      （账号见本地运维配置）
+  Kibana       http://localhost:15601/monitor/kibana/      （数据视图「尚品汇日志」）
   Prometheus   http://localhost:19090
-  Alertmanager http://localhost:19093
+  Alertmanager http://localhost:19093/monitor/alertmanager/
   Elasticsearch http://localhost:19200
   Tempo API    http://localhost:13200
 停止：pkill -f 'L 127.0.0.1:13000:127.0.0.1:3000'
@@ -48,6 +48,6 @@ fi
 
 cat <<EOF
 建立隧道（Ctrl-C 断开）：
-  Grafana http://localhost:13000 | Kibana http://localhost:15601 | Prometheus http://localhost:19090
+  Grafana http://localhost:13000/monitor/grafana/ | Kibana http://localhost:15601/monitor/kibana/ | Prometheus http://localhost:19090
 EOF
 exec ssh "${ARGS[@]}"

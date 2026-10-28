@@ -21,8 +21,20 @@ from uuid import uuid4
 from time import time as _time
 
 ROOT = Path(__file__).resolve().parents[1]
-ADMIN_BASE = os.getenv("ADMIN_BASE_URL", "http://111.170.33.2:60085").rstrip("/")
-MALL_BASE = os.getenv("MALL_BASE_URL", "http://111.170.33.2:60084").rstrip("/")
+def _bases() -> tuple[str, str]:
+    """目标环境解析顺序：环境变量 → config/env/<TEST_ENV>.yaml → 部署演示地址。
+
+    以前这里是硬编码部署地址，导致「不设环境变量就会打线上」，且 config/env/dev.yaml 的旧值
+    （8080/api + MySQL）与本项目不符。现在统一走 settings，`TEST_ENV=demo` 可切到部署环境。
+    """
+    try:
+        from config.settings import settings
+        return settings.admin_base, settings.mall_base
+    except Exception:
+        return ("http://111.170.33.2:60085", "http://111.170.33.2:60084")
+
+
+ADMIN_BASE, MALL_BASE = _bases()
 
 # ErrorCode.java（源码）词条 → 数值码
 ERROR_CODES = {
@@ -43,6 +55,8 @@ class Client:
     def __init__(self) -> None:
         self.s = requests.Session()
         self.s.trust_env = False
+        # 最近一次响应的头，供契约校验层比对 X-Trace-Id（call() 的返回值里放不下，避免破坏既有解包）
+        self.last_headers: dict = {}
 
     def call(self, method: str, path: str, token: str | None = None,
              body: Any = None, params: dict | None = None, timeout: int = 20):
@@ -55,6 +69,7 @@ class Client:
         r = self.s.request(method, url, headers=headers, params=params,
                            data=json.dumps(body, ensure_ascii=False).encode() if body is not None else None,
                            timeout=timeout)
+        self.last_headers = dict(r.headers)
         try:
             payload = r.json()
         except ValueError:

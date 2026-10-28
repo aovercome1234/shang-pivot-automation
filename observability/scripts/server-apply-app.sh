@@ -135,6 +135,10 @@ fi
 printf '\n=== 3. OTel Java Agent（systemd drop-in）===\n'
 if [ "$TRACING" = "yes" ]; then
   [ -n "$AGENT_JAR" ] && [ -f "$AGENT_JAR" ] || die "找不到 opentelemetry-javaagent.jar（可设 OTEL_AGENT_JAR=/path/to.jar）"
+  # Pyroscope agent 只影响持续剖析，缺失时 trace 仍要能工作，所以按存在与否决定是否挂载
+  PYROSCOPE_AGENT_JAR="${PYROSCOPE_AGENT_JAR:-/opt/monitoring/pyroscope/pyroscope-agent.jar}"
+  PYROSCOPE_AGENT_ARG=""
+  [ -f "$PYROSCOPE_AGENT_JAR" ] && PYROSCOPE_AGENT_ARG="-javaagent:${PYROSCOPE_AGENT_JAR} "
   mkdir -p "$DROPIN_DIR"
   [ -f "$DROPIN" ] || touch "$STATE_DIR/dropin-added"
   cat > "$DROPIN" <<CONF
@@ -153,19 +157,59 @@ Environment=OTEL_RESOURCE_ATTRIBUTES=deployment.environment=perf,service.namespa
 # 采样率 0.1：压测时全量采样会压垮 Tempo；定位单个请求时临时改成 1.0 再重启
 Environment=OTEL_TRACES_SAMPLER=parentbased_traceidratio
 Environment=OTEL_TRACES_SAMPLER_ARG=${SAMPLING}
+# 方法级追踪：agent 默认只在 HTTP/JDBC 等边界生成 span，看不到业务函数。
+# 这里显式列出关键 Controller/Service 方法，链路变成
+#   GET /api/products → StorefrontController.products → CatalogReadService.productPage → SELECT commerce.spu
+# 语法（agent methods 模块）：包.类[方法1,方法2];包.类2[方法]，方法与类名需写全，不支持通配符。
+Environment=OTEL_INSTRUMENTATION_METHODS_INCLUDE=com.shangpivot.commerce.controller.StorefrontController[home,products,productDetail,search,cart,addCart,submit,sandboxPay];com.shangpivot.commerce.application.CatalogReadService[home,categories,productPage,search,detail,toCard];com.shangpivot.commerce.application.CartService[getCart,addItem];com.shangpivot.commerce.application.OrderSubmitService[submit]
+
+# --- Span Profiles：Pyroscope 持续剖析（从慢 span 直达火焰图）---
+# 扩展 jar 由 grafana/otel-profiling-java 提供，经 OTel Agent 的 extensions 机制加载；
+# 它把当前 span 的 id 注入 profile 标签（span_id / trace_id），Grafana 的 Tempo 数据源
+# 配了 tracesToProfiles 后即可在 trace 视图里看到该 span 的火焰图。
+Environment=OTEL_JAVAAGENT_EXTENSIONS=/opt/monitoring/pyroscope/pyroscope-otel-javaagent-extension.jar
+Environment=PYROSCOPE_APPLICATION_NAME=shang-pivot
+Environment=PYROSCOPE_SERVER_ADDRESS=http://127.0.0.1:4040
+Environment=PYROSCOPE_FORMAT=jfr
+Environment=PYROSCOPE_PROFILING_INTERVAL=10ms
+Environment=PYROSCOPE_PROFILER_EVENT=itimer
+Environment=PYROSCOPE_PROFILER_LOCK=10ms
+Environment=PYROSCOPE_PROFILER_ALLOC=512k
+Environment=PYROSCOPE_UPLOAD_INTERVAL=15s
+Environment=OTEL_PYROSCOPE_START_PROFILING=true
+Environment=OTEL_PYROSCOPE_ADD_PROFILE_URL=false
+Environment=OTEL_PYROSCOPE_ADD_PROFILE_BASELINE_URL=false
 
 # systemd 不允许向 ExecStart 追加参数：先清空继承值，再整行重写
 ExecStart=
-ExecStart=/usr/bin/java -javaagent:${AGENT_JAR} -jar ${APP_JAR}
+ExecStart=/usr/bin/java -javaagent:${AGENT_JAR} ${PYROSCOPE_AGENT_ARG}-jar ${APP_JAR}
 CONF
   log "已写入 ${DROPIN}（agent: ${AGENT_JAR}，采样率 ${SAMPLING}）"
 else
   log "跳过（--no-tracing）"
 fi
 
+# 日志目录兜底：logs/ 是 WorkingDirectory 下的相对路径，任何一方部署时若以 root 建目录，
+# 应用（User=shang-pivot）会因 Permission denied 启动失败（2026-10-19 实际踩过）。
+mkdir -p "$DROPIN_DIR"
+cat > "$DROPIN_DIR/logging-dir.conf" <<'CONF'
+# 启动前修正日志目录属主（"+" = 以 root 执行；服务本身 User=shang-pivot）
+# 回退：rm -f 本文件 && systemctl daemon-reload
+[Service]
+ExecStartPre=+/bin/mkdir -p /opt/shang-pivot/current/logs
+ExecStartPre=+/bin/chown -R shang-pivot:shang-pivot /opt/shang-pivot/current/logs
+CONF
+log "已写入 ${DROPIN_DIR}/logging-dir.conf（日志目录兜底）"
+
 printf '\n=== 4. 换包并重启 ===\n'
 install -o shang-pivot -g shang-pivot -m 0644 "$NEW_JAR" "$APP_JAR"
 log "新包已就位：$(stat -c '%s bytes  %y' "$APP_JAR" 2>/dev/null)"
+# 修正版本标识：原 REVISION 是随旧发布包带过来的 git 短哈希，换包后必须同步，
+# 否则线上"看着是旧版本"（排查时极易误判）
+printf 'local-build:%s deployed:%s\n' \
+  "$(md5sum "$APP_JAR" | cut -d' ' -f1)" "$(date -u +%Y-%m-%dT%H:%M:%SZ)" > "$APP_DIR/REVISION"
+chown shang-pivot:shang-pivot "$APP_DIR/REVISION"
+log "REVISION 已更新：$(cat "$APP_DIR/REVISION")"
 systemctl daemon-reload
 systemctl restart "$SERVICE"
 

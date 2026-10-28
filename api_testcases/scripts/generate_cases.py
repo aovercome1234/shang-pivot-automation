@@ -340,7 +340,7 @@ def _value_hint(key: str, path: str = "") -> str:
     if low == "status":
         return '"ENABLED"'
     if low == "password":
-        return '"Aut0Test@2026"'
+        return '"<从环境变量读取>"'
     if low == "nickname":
         return '"自动化测试昵称"'
     if low == "avatar":
@@ -486,7 +486,7 @@ STRING_HINT = {
     "reason": "自动化测试原因", "content": "自动化测试内容", "subtitle": "自动化测试副标题",
     "receiver": "测试收货人", "province": "北京市", "city": "北京市", "district": "朝阳区",
     "detail": "建国路 88 号", "region": "北京市朝阳区", "slogan": "选好物，享生活",
-    "nickname": "自动化测试昵称", "username": "autotest01", "password": "Aut0Test@2026",
+    "nickname": "自动化测试昵称", "username": "autotest01", "password": "从环境变量读取",
     "trackingNo": "SF1234567890", "carrier": "顺丰速运", "billNo": "AUTO20261006001",
     "keyword": "测试", "contentType": "image/png", "bizType": "PRODUCT",
     "objectKey": "先调用 POST /admin/files/presign 获取 objectKey",

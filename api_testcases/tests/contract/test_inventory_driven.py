@@ -27,6 +27,7 @@ sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(ROOT / "scripts"))
 
 from core import assert_engine  # noqa: E402
+from core.schema_validator import SchemaValidator, summarize as schema_summarize  # noqa: E402
 from core.shang_driver import (  # noqa: E402
     Client, Resolver, build_request, check, endpoint_ops, family_of, login_admin,
     login_customer, parse_row, parse_body_text, role_of,
@@ -36,6 +37,10 @@ try:
     import allure  # type: ignore
 except ImportError:  # pragma: no cover
     allure = None
+
+# 契约校验层（L3 结构 + L3 Long 序列化 + L4 traceId）。默认开启，设 SCHEMA_CHECK=0 关闭。
+SCHEMA = SchemaValidator(enabled=os.getenv("SCHEMA_CHECK", "1") == "1")
+SCHEMA_VIOLATIONS: list[str] = []
 
 EXECUTE_WRITES = os.getenv("EXECUTE_WRITES", "0") == "1"
 WRITE_METHODS = {"POST", "PUT", "PATCH", "DELETE"}
@@ -81,6 +86,12 @@ def _get_nested(obj, dotted, default=None):
 
 
 def pytest_terminal_summary(terminalreporter, exitstatus, config):
+    if SCHEMA_VIOLATIONS:
+        print(f"\n=== 契约校验违规 {len(SCHEMA_VIOLATIONS)} 条 ===")
+        for v in SCHEMA_VIOLATIONS[:25]:
+            print("  " + v)
+        if len(SCHEMA_VIOLATIONS) > 25:
+            print(f"  … 其余 {len(SCHEMA_VIOLATIONS)-25} 条见 allure 报告")
     if UNCHECKED:
         import collections
         c = collections.Counter(x.split("｜", 1)[1][:34] for x in UNCHECKED)
@@ -182,7 +193,17 @@ def test_inventory_case(ctx, case):
     created_id = cleanup = None
     ok = detail = None
     req = {}
+    # 写操作用例默认不执行：本套件的写用例会**真实创建记录**并依赖清理链路，
+    # 而清理并非万无一失（实测一次全量运行可在 brands/categories/depts/dicts/permissions
+    # 各残留约 20 条）。原代码声明了 EXECUTE_WRITES 却从未使用，属文档与实现脱节，此处补上。
+    if case["method"] in WRITE_METHODS and not EXECUTE_WRITES:
+        pytest.skip("写操作用例默认跳过；确需执行请设 EXECUTE_WRITES=1（会创建并尝试清理真实数据）")
+
     http = body = url = None
+    # 主响应与响应头要在 try 之前占位：用例可能在主调用前就 skip（取值约定未解析等），
+    # 而 finally 里会引用它们——只在主调用后赋值会抛 UnboundLocalError，把跳过记成 broken。
+    main_headers: dict = {}
+    main_body = main_http = None
     pre_total = pre_status = None
     try:
         # 写入类：先造一条**专属记录**，用例只作用于它
@@ -216,6 +237,11 @@ def test_inventory_case(ctx, case):
 
         http, body, url = client.call(req["method"], req["path"], token=req["token"],
                                       body=req["body"], params=req["params"])
+        # 必须在此刻捕获主响应与响应头：后面的幂等二次调用、回查、以及 finally 里的清理
+        # 都会覆盖 body 与 client.last_headers（曾因此把「清理 DELETE 的响应」当成主响应校验，
+        # 造成 69 条误报）。
+        main_headers = dict(getattr(client, "last_headers", {}) or {})
+        main_body, main_http = body, http
         second = None
         if case["kind"] == "幂等":
             http2, body2, _ = client.call(req["method"], req["path"], token=req["token"],
@@ -271,6 +297,24 @@ def test_inventory_case(ctx, case):
                                                            case["kind"] == "幂等")
             if unchecked:
                 UNCHECKED.extend(f"{case['case_id']}｜{u}" for u in unchecked)
+            # ---------- 契约校验层：schema 结构 + Long 序列化 + traceId ----------
+            # 用主响应（main_body/main_http/main_headers），不是 finally 里被覆盖的变量
+            schema_problems = SCHEMA.check(case["method"], case["path"], main_http, main_body,
+                                           main_headers)
+            if schema_problems:
+                SCHEMA_VIOLATIONS.extend(f"{cid}｜{p['layer']}｜{p['message']}"
+                                         for p in schema_problems)
+                if allure:
+                    with allure.step("契约校验（schema / Long / traceId）"):
+                        allure.attach(json.dumps(schema_problems, ensure_ascii=False, indent=1),
+                                      "契约校验违规", allure.attachment_type.JSON)
+                ok = False
+                detail = (detail + " ｜ 契约校验：" + "；".join(
+                    f"[{p['layer']}] {p['message']}" for p in schema_problems))[:1200]
+            elif allure:
+                with allure.step(f"契约校验通过（schema + Long + traceId，{len(SCHEMA.long_fields)} 条 Long 规则）"):
+                    pass
+
         if "/auth/logout" in case["path"]:  # 登出会作废共享会话，立即重登
             a, ar = login_admin(client)
             u, ur = login_customer(client)
@@ -288,7 +332,8 @@ def test_inventory_case(ctx, case):
                     LEAKS.append(f"{case['case_id']} 清理 {act[0]} {act[1]} 失败："
                                  f"HTTP {st} code={body.get('code') if isinstance(body, dict) else '?'}")
 
-        allure.attach(json.dumps({"url": url, "method": case["method"], "http": http, "body": body},
+        allure.attach(json.dumps({"url": url, "method": case["method"], "http": main_http,
+                                  "body": main_body},
                                  ensure_ascii=False, indent=1)[:4000],
                       "请求与响应", allure.attachment_type.JSON)
         allure.attach(case["assertions"], "预期断言", allure.attachment_type.TEXT)

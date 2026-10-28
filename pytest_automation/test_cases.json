@@ -1,0 +1,2374 @@
+{
+  "generated_at": "2026-10-19 17:41:16",
+  "source": "pytest --collect-only",
+  "total": 145,
+  "cases": [
+    {
+      "case_id": "API-AUTH-001",
+      "type": "API",
+      "module": "认证",
+      "file": "tests/api/test_auth.py",
+      "title": "发送短信验证码",
+      "verify": "返回 cooldownSec 且大于 0；演示环境验证码固定 123456",
+      "priority": "P0",
+      "flags": "smoke",
+      "params": "",
+      "script": "tests/api/test_auth.py::TestCustomerAuth::test_send_sms",
+      "markers": [
+        "P0",
+        "api",
+        "smoke"
+      ]
+    },
+    {
+      "case_id": "API-AUTH-002",
+      "type": "API",
+      "module": "认证",
+      "file": "tests/api/test_auth.py",
+      "title": "发送验证码时手机号格式错误",
+      "verify": "HTTP 400，业务码 40000，提示手机号格式不正确",
+      "priority": "P1",
+      "flags": "-",
+      "params": "",
+      "script": "tests/api/test_auth.py::TestCustomerAuth::test_send_sms_rejects_bad_phone",
+      "markers": [
+        "P1",
+        "api"
+      ]
+    },
+    {
+      "case_id": "API-AUTH-003",
+      "type": "API",
+      "module": "认证",
+      "file": "tests/api/test_auth.py",
+      "title": "商城验证码登录响应契约",
+      "verify": "返回 accessToken、refreshToken、expiresIn（字符串）与 customer 资料",
+      "priority": "P0",
+      "flags": "smoke",
+      "params": "",
+      "script": "tests/api/test_auth.py::TestCustomerAuth::test_login_contract",
+      "markers": [
+        "P0",
+        "api",
+        "smoke"
+      ]
+    },
+    {
+      "case_id": "API-AUTH-004",
+      "type": "API",
+      "module": "认证",
+      "file": "tests/api/test_auth.py",
+      "title": "验证码错误时登录失败",
+      "verify": "业务码 40101，提示验证码错误或已过期",
+      "priority": "P1",
+      "flags": "-",
+      "params": "",
+      "script": "tests/api/test_auth.py::TestCustomerAuth::test_login_wrong_code",
+      "markers": [
+        "P1",
+        "api"
+      ]
+    },
+    {
+      "case_id": "API-AUTH-005",
+      "type": "API",
+      "module": "认证",
+      "file": "tests/api/test_auth.py",
+      "title": "查询当前会员资料",
+      "verify": "返回会员 id 与登录账号一致，status=NORMAL",
+      "priority": "P0",
+      "flags": "-",
+      "params": "",
+      "script": "tests/api/test_auth.py::TestCustomerAuth::test_me_returns_current_customer",
+      "markers": [
+        "P0",
+        "api"
+      ]
+    },
+    {
+      "case_id": "API-AUTH-006",
+      "type": "API",
+      "module": "认证",
+      "file": "tests/api/test_auth.py",
+      "title": "未登录访问会员资料",
+      "verify": "HTTP 401，业务码 40100/40103",
+      "priority": "P1",
+      "flags": "-",
+      "params": "",
+      "script": "tests/api/test_auth.py::TestCustomerAuth::test_me_requires_token",
+      "markers": [
+        "P1",
+        "api"
+      ]
+    },
+    {
+      "case_id": "API-AUTH-007",
+      "type": "API",
+      "module": "认证",
+      "file": "tests/api/test_auth.py",
+      "title": "刷新访问令牌",
+      "verify": "返回新的 accessToken 与 expiresIn",
+      "priority": "P1",
+      "flags": "-",
+      "params": "",
+      "script": "tests/api/test_auth.py::TestCustomerAuth::test_refresh_token",
+      "markers": [
+        "P1",
+        "api"
+      ]
+    },
+    {
+      "case_id": "API-AUTH-008",
+      "type": "API",
+      "module": "认证",
+      "file": "tests/api/test_auth.py",
+      "title": "登出后访问令牌立即失效",
+      "verify": "登出成功后再访问 /api/me 返回 401",
+      "priority": "P1",
+      "flags": "-",
+      "params": "",
+      "script": "tests/api/test_auth.py::TestCustomerAuth::test_logout_revokes_token",
+      "markers": [
+        "P1",
+        "api"
+      ]
+    },
+    {
+      "case_id": "API-AUTH-009",
+      "type": "API",
+      "module": "认证",
+      "file": "tests/api/test_auth.py",
+      "title": "修改会员昵称",
+      "verify": "返回新昵称并与资料接口一致",
+      "priority": "P1",
+      "flags": "-",
+      "params": "",
+      "script": "tests/api/test_auth.py::TestCustomerAuth::test_update_profile",
+      "markers": [
+        "P1",
+        "api"
+      ]
+    },
+    {
+      "case_id": "API-AUTH-010",
+      "type": "API",
+      "module": "认证",
+      "file": "tests/api/test_auth.py",
+      "title": "管理员登录并查询当前用户",
+      "verify": "username 匹配，返回 roles/permissions/menus",
+      "priority": "P0",
+      "flags": "smoke",
+      "params": "",
+      "script": "tests/api/test_auth.py::TestAdminAuth::test_admin_login_and_me",
+      "markers": [
+        "P0",
+        "api",
+        "smoke"
+      ]
+    },
+    {
+      "case_id": "API-AUTH-011",
+      "type": "API",
+      "module": "认证",
+      "file": "tests/api/test_auth.py",
+      "title": "管理员密码错误",
+      "verify": "业务码 40101",
+      "priority": "P1",
+      "flags": "-",
+      "params": "",
+      "script": "tests/api/test_auth.py::TestAdminAuth::test_admin_wrong_password",
+      "markers": [
+        "P1",
+        "api"
+      ]
+    },
+    {
+      "case_id": "API-AUTH-012",
+      "type": "API",
+      "module": "认证",
+      "file": "tests/api/test_auth.py",
+      "title": "管理端接口未认证",
+      "verify": "HTTP 401，业务码 40100/40103",
+      "priority": "P1",
+      "flags": "-",
+      "params": "",
+      "script": "tests/api/test_auth.py::TestAdminAuth::test_admin_requires_token",
+      "markers": [
+        "P1",
+        "api"
+      ]
+    },
+    {
+      "case_id": "API-AUTH-013",
+      "type": "API",
+      "module": "认证",
+      "file": "tests/api/test_auth.py",
+      "title": "响应 traceId 契约",
+      "verify": "body.traceId 为 32 位十六进制且与响应头 X-Trace-Id 一致",
+      "priority": "P2",
+      "flags": "-",
+      "params": "",
+      "script": "tests/api/test_auth.py::TestAdminAuth::test_response_has_trace_id",
+      "markers": [
+        "P2",
+        "api"
+      ]
+    },
+    {
+      "case_id": "API-CAT-001",
+      "type": "API",
+      "module": "商品与搜索",
+      "file": "tests/api/test_catalog.py",
+      "title": "首页 feed 与运营位",
+      "verify": "feed/slots 非空，商品含 spuId/name/price",
+      "priority": "P0",
+      "flags": "smoke",
+      "params": "",
+      "script": "tests/api/test_catalog.py::TestHome::test_home_feed_and_slots",
+      "markers": [
+        "P0",
+        "api",
+        "smoke"
+      ]
+    },
+    {
+      "case_id": "API-CAT-002",
+      "type": "API",
+      "module": "商品与搜索",
+      "file": "tests/api/test_catalog.py",
+      "title": "站点品牌信息",
+      "verify": "返回品牌 name 与 slogan",
+      "priority": "P1",
+      "flags": "-",
+      "params": "",
+      "script": "tests/api/test_catalog.py::TestHome::test_site_brand",
+      "markers": [
+        "P1",
+        "api"
+      ]
+    },
+    {
+      "case_id": "API-CAT-003",
+      "type": "API",
+      "module": "商品与搜索",
+      "file": "tests/api/test_catalog.py",
+      "title": "商品分类列表",
+      "verify": "返回非空列表且含分类 id/name",
+      "priority": "P1",
+      "flags": "-",
+      "params": "",
+      "script": "tests/api/test_catalog.py::TestHome::test_categories",
+      "markers": [
+        "P1",
+        "api"
+      ]
+    },
+    {
+      "case_id": "API-CAT-004",
+      "type": "API",
+      "module": "商品与搜索",
+      "file": "tests/api/test_catalog.py",
+      "title": "商品分页查询",
+      "verify": "分页结构正确，total>0，本页条数不超过 size",
+      "priority": "P0",
+      "flags": "smoke",
+      "params": "",
+      "script": "tests/api/test_catalog.py::TestProducts::test_products_pagination",
+      "markers": [
+        "P0",
+        "api",
+        "smoke"
+      ]
+    },
+    {
+      "case_id": "API-CAT-005",
+      "type": "API",
+      "module": "商品与搜索",
+      "file": "tests/api/test_catalog.py",
+      "title": "商品价格排序",
+      "verify": "price_asc 价格升序，price_desc 价格降序",
+      "priority": "P1",
+      "flags": "-",
+      "params": "sort=price_asc, descending=False",
+      "script": "tests/api/test_catalog.py::TestProducts::test_price_sort[price_asc]",
+      "markers": [
+        "P1",
+        "api",
+        "parametrize"
+      ]
+    },
+    {
+      "case_id": "API-CAT-006",
+      "type": "API",
+      "module": "商品与搜索",
+      "file": "tests/api/test_catalog.py",
+      "title": "商品价格排序",
+      "verify": "price_asc 价格升序，price_desc 价格降序",
+      "priority": "P1",
+      "flags": "-",
+      "params": "sort=price_desc, descending=True",
+      "script": "tests/api/test_catalog.py::TestProducts::test_price_sort[price_desc]",
+      "markers": [
+        "P1",
+        "api",
+        "parametrize"
+      ]
+    },
+    {
+      "case_id": "API-CAT-007",
+      "type": "API",
+      "module": "商品与搜索",
+      "file": "tests/api/test_catalog.py",
+      "title": "商品详情契约",
+      "verify": "返回 spu/skus/favorited；skuId 为字符串，库存为非负整数",
+      "priority": "P0",
+      "flags": "-",
+      "params": "",
+      "script": "tests/api/test_catalog.py::TestProducts::test_product_detail",
+      "markers": [
+        "P0",
+        "api"
+      ]
+    },
+    {
+      "case_id": "API-CAT-008",
+      "type": "API",
+      "module": "商品与搜索",
+      "file": "tests/api/test_catalog.py",
+      "title": "查询不存在的商品",
+      "verify": "业务码 40410，提示商品不存在或未上架",
+      "priority": "P1",
+      "flags": "-",
+      "params": "",
+      "script": "tests/api/test_catalog.py::TestProducts::test_product_not_found",
+      "markers": [
+        "P1",
+        "api"
+      ]
+    },
+    {
+      "case_id": "API-CAT-009",
+      "type": "API",
+      "module": "商品与搜索",
+      "file": "tests/api/test_catalog.py",
+      "title": "负数页码稳定性",
+      "verify": "不返回 5xx，分页结构仍然合法",
+      "priority": "P2",
+      "flags": "-",
+      "params": "",
+      "script": "tests/api/test_catalog.py::TestProducts::test_out_of_range_page_is_stable",
+      "markers": [
+        "P2",
+        "api"
+      ]
+    },
+    {
+      "case_id": "API-CAT-010",
+      "type": "API",
+      "module": "商品与搜索",
+      "file": "tests/api/test_catalog.py",
+      "title": "超大 size 参数稳定性",
+      "verify": "HTTP 200，不返回 5xx",
+      "priority": "P2",
+      "flags": "-",
+      "params": "",
+      "script": "tests/api/test_catalog.py::TestProducts::test_huge_size_is_stable",
+      "markers": [
+        "P2",
+        "api"
+      ]
+    },
+    {
+      "case_id": "API-CAT-011",
+      "type": "API",
+      "module": "商品与搜索",
+      "file": "tests/api/test_catalog.py",
+      "title": "关键字搜索命中商品",
+      "verify": "total>0，结果名称包含关键字",
+      "priority": "P1",
+      "flags": "-",
+      "params": "keyword=iPhone",
+      "script": "tests/api/test_catalog.py::TestSearch::test_search_hit[iPhone]",
+      "markers": [
+        "P1",
+        "api",
+        "parametrize"
+      ]
+    },
+    {
+      "case_id": "API-CAT-012",
+      "type": "API",
+      "module": "商品与搜索",
+      "file": "tests/api/test_catalog.py",
+      "title": "关键字搜索命中商品",
+      "verify": "total>0，结果名称包含关键字",
+      "priority": "P1",
+      "flags": "-",
+      "params": "keyword=MacBook",
+      "script": "tests/api/test_catalog.py::TestSearch::test_search_hit[MacBook]",
+      "markers": [
+        "P1",
+        "api",
+        "parametrize"
+      ]
+    },
+    {
+      "case_id": "API-CAT-013",
+      "type": "API",
+      "module": "商品与搜索",
+      "file": "tests/api/test_catalog.py",
+      "title": "关键字搜索命中商品",
+      "verify": "total>0，结果名称包含关键字",
+      "priority": "P1",
+      "flags": "-",
+      "params": "keyword=戴森",
+      "script": "tests/api/test_catalog.py::TestSearch::test_search_hit[\\u6234\\u68ee]",
+      "markers": [
+        "P1",
+        "api",
+        "parametrize"
+      ]
+    },
+    {
+      "case_id": "API-CAT-014",
+      "type": "API",
+      "module": "商品与搜索",
+      "file": "tests/api/test_catalog.py",
+      "title": "搜索无结果",
+      "verify": "total=0，records 为空列表",
+      "priority": "P1",
+      "flags": "-",
+      "params": "",
+      "script": "tests/api/test_catalog.py::TestSearch::test_search_no_result",
+      "markers": [
+        "P1",
+        "api"
+      ]
+    },
+    {
+      "case_id": "API-CAT-015",
+      "type": "API",
+      "module": "商品与搜索",
+      "file": "tests/api/test_catalog.py",
+      "title": "空关键字搜索",
+      "verify": "返回合法分页结构",
+      "priority": "P2",
+      "flags": "-",
+      "params": "",
+      "script": "tests/api/test_catalog.py::TestSearch::test_search_empty_keyword",
+      "markers": [
+        "P2",
+        "api"
+      ]
+    },
+    {
+      "case_id": "API-CAT-016",
+      "type": "API",
+      "module": "商品与搜索",
+      "file": "tests/api/test_catalog.py",
+      "title": "搜索参数 SQL 注入安全",
+      "verify": "注入串返回空结果，无 5xx，traceId 正常",
+      "priority": "P2",
+      "flags": "security",
+      "params": "",
+      "script": "tests/api/test_catalog.py::TestSearch::test_search_sql_injection_is_safe",
+      "markers": [
+        "P2",
+        "api",
+        "security"
+      ]
+    },
+    {
+      "case_id": "API-CART-001",
+      "type": "API",
+      "module": "购物车",
+      "file": "tests/api/test_cart.py",
+      "title": "加购并读取购物车",
+      "verify": "数量与选中金额正确，条目 selected=true",
+      "priority": "P0",
+      "flags": "smoke",
+      "params": "",
+      "script": "tests/api/test_cart.py::TestCart::test_add_and_read_cart",
+      "markers": [
+        "P0",
+        "api",
+        "smoke"
+      ]
+    },
+    {
+      "case_id": "API-CART-002",
+      "type": "API",
+      "module": "购物车",
+      "file": "tests/api/test_cart.py",
+      "title": "修改购物车商品数量",
+      "verify": "数量更新为 3，购物车回显一致",
+      "priority": "P1",
+      "flags": "-",
+      "params": "",
+      "script": "tests/api/test_cart.py::TestCart::test_update_quantity",
+      "markers": [
+        "P1",
+        "api"
+      ]
+    },
+    {
+      "case_id": "API-CART-003",
+      "type": "API",
+      "module": "购物车",
+      "file": "tests/api/test_cart.py",
+      "title": "取消勾选购物车商品",
+      "verify": "条目 selected=false，selectedAmount=0",
+      "priority": "P1",
+      "flags": "-",
+      "params": "",
+      "script": "tests/api/test_cart.py::TestCart::test_unselect_item",
+      "markers": [
+        "P1",
+        "api"
+      ]
+    },
+    {
+      "case_id": "API-CART-004",
+      "type": "API",
+      "module": "购物车",
+      "file": "tests/api/test_cart.py",
+      "title": "删除购物车商品",
+      "verify": "购物车列表不再包含该条目",
+      "priority": "P1",
+      "flags": "-",
+      "params": "",
+      "script": "tests/api/test_cart.py::TestCart::test_remove_item",
+      "markers": [
+        "P1",
+        "api"
+      ]
+    },
+    {
+      "case_id": "API-CART-005",
+      "type": "API",
+      "module": "购物车",
+      "file": "tests/api/test_cart.py",
+      "title": "清理失效商品",
+      "verify": "操作成功，有效商品保留",
+      "priority": "P1",
+      "flags": "-",
+      "params": "",
+      "script": "tests/api/test_cart.py::TestCart::test_clear_invalid",
+      "markers": [
+        "P1",
+        "api"
+      ]
+    },
+    {
+      "case_id": "API-CART-006",
+      "type": "API",
+      "module": "购物车",
+      "file": "tests/api/test_cart.py",
+      "title": "未登录加购",
+      "verify": "HTTP 401，业务码 40100/40103",
+      "priority": "P1",
+      "flags": "-",
+      "params": "",
+      "script": "tests/api/test_cart.py::TestCart::test_cart_requires_auth",
+      "markers": [
+        "P1",
+        "api"
+      ]
+    },
+    {
+      "case_id": "API-CART-007",
+      "type": "API",
+      "module": "购物车",
+      "file": "tests/api/test_cart.py",
+      "title": "加购不存在的 SKU",
+      "verify": "业务码 40410",
+      "priority": "P2",
+      "flags": "-",
+      "params": "",
+      "script": "tests/api/test_cart.py::TestCart::test_add_unknown_sku",
+      "markers": [
+        "P2",
+        "api"
+      ]
+    },
+    {
+      "case_id": "API-CART-008",
+      "type": "API",
+      "module": "购物车",
+      "file": "tests/api/test_cart.py",
+      "title": "加购数量非法",
+      "verify": "业务码 40000，提示数量须 ≥ 1",
+      "priority": "P2",
+      "flags": "-",
+      "params": "quantity=0",
+      "script": "tests/api/test_cart.py::TestCart::test_add_invalid_quantity[zero]",
+      "markers": [
+        "P2",
+        "api",
+        "parametrize"
+      ]
+    },
+    {
+      "case_id": "API-CART-009",
+      "type": "API",
+      "module": "购物车",
+      "file": "tests/api/test_cart.py",
+      "title": "加购数量非法",
+      "verify": "业务码 40000，提示数量须 ≥ 1",
+      "priority": "P2",
+      "flags": "-",
+      "params": "quantity=-1",
+      "script": "tests/api/test_cart.py::TestCart::test_add_invalid_quantity[negative]",
+      "markers": [
+        "P2",
+        "api",
+        "parametrize"
+      ]
+    },
+    {
+      "case_id": "API-CART-010",
+      "type": "API",
+      "module": "购物车",
+      "file": "tests/api/test_cart.py",
+      "title": "加购数量超过库存",
+      "verify": "业务码 40901，提示库存不足",
+      "priority": "P2",
+      "flags": "-",
+      "params": "",
+      "script": "tests/api/test_cart.py::TestCart::test_add_over_stock",
+      "markers": [
+        "P2",
+        "api"
+      ]
+    },
+    {
+      "case_id": "API-CART-011",
+      "type": "API",
+      "module": "购物车",
+      "file": "tests/api/test_cart.py",
+      "title": "修改不存在的购物车项",
+      "verify": "业务码 40400",
+      "priority": "P2",
+      "flags": "-",
+      "params": "",
+      "script": "tests/api/test_cart.py::TestCart::test_update_missing_cart_item",
+      "markers": [
+        "P2",
+        "api"
+      ]
+    },
+    {
+      "case_id": "API-ADDR-001",
+      "type": "API",
+      "module": "收货地址",
+      "file": "tests/api/test_address.py",
+      "title": "新增地址并查询列表",
+      "verify": "创建成功，列表回显姓名/详细地址，默认地址为 true",
+      "priority": "P0",
+      "flags": "smoke",
+      "params": "",
+      "script": "tests/api/test_address.py::TestAddress::test_create_and_list",
+      "markers": [
+        "P0",
+        "api",
+        "smoke"
+      ]
+    },
+    {
+      "case_id": "API-ADDR-002",
+      "type": "API",
+      "module": "收货地址",
+      "file": "tests/api/test_address.py",
+      "title": "修改收货地址",
+      "verify": "更新详细地址后列表回显新值",
+      "priority": "P1",
+      "flags": "-",
+      "params": "",
+      "script": "tests/api/test_address.py::TestAddress::test_update_address",
+      "markers": [
+        "P1",
+        "api"
+      ]
+    },
+    {
+      "case_id": "API-ADDR-003",
+      "type": "API",
+      "module": "收货地址",
+      "file": "tests/api/test_address.py",
+      "title": "设置默认地址",
+      "verify": "新地址成为唯一默认，原默认地址被取消",
+      "priority": "P1",
+      "flags": "-",
+      "params": "",
+      "script": "tests/api/test_address.py::TestAddress::test_set_default_address",
+      "markers": [
+        "P1",
+        "api"
+      ]
+    },
+    {
+      "case_id": "API-ADDR-004",
+      "type": "API",
+      "module": "收货地址",
+      "file": "tests/api/test_address.py",
+      "title": "地址必填项缺失",
+      "verify": "业务码 40000，提示收货信息不完整",
+      "priority": "P2",
+      "flags": "-",
+      "params": "",
+      "script": "tests/api/test_address.py::TestAddress::test_incomplete_address_rejected",
+      "markers": [
+        "P2",
+        "api"
+      ]
+    },
+    {
+      "case_id": "API-ADDR-005",
+      "type": "API",
+      "module": "收货地址",
+      "file": "tests/api/test_address.py",
+      "title": "删除不存在的地址",
+      "verify": "业务码 40400",
+      "priority": "P2",
+      "flags": "-",
+      "params": "",
+      "script": "tests/api/test_address.py::TestAddress::test_delete_missing_address",
+      "markers": [
+        "P2",
+        "api"
+      ]
+    },
+    {
+      "case_id": "API-ADDR-006",
+      "type": "API",
+      "module": "收货地址",
+      "file": "tests/api/test_address.py",
+      "title": "越权修改他人地址",
+      "verify": "业务码 40400，不能修改非本人地址",
+      "priority": "P2",
+      "flags": "security",
+      "params": "",
+      "script": "tests/api/test_address.py::TestAddress::test_cannot_update_other_users_address",
+      "markers": [
+        "P2",
+        "api",
+        "security"
+      ]
+    },
+    {
+      "case_id": "API-ADDR-007",
+      "type": "API",
+      "module": "收货地址",
+      "file": "tests/api/test_address.py",
+      "title": "越权删除他人地址",
+      "verify": "业务码 40400，不能删除非本人地址",
+      "priority": "P2",
+      "flags": "security",
+      "params": "",
+      "script": "tests/api/test_address.py::TestAddress::test_cannot_delete_other_users_address",
+      "markers": [
+        "P2",
+        "api",
+        "security"
+      ]
+    },
+    {
+      "case_id": "API-ORDER-001",
+      "type": "API",
+      "module": "订单",
+      "file": "tests/api/test_order.py",
+      "title": "购物车提交订单",
+      "verify": "状态 PENDING_PAY，订单号/商品金额/运费/明细正确",
+      "priority": "P0",
+      "flags": "smoke",
+      "params": "",
+      "script": "tests/api/test_order.py::TestSubmitOrder::test_submit_from_cart",
+      "markers": [
+        "P0",
+        "api",
+        "smoke"
+      ]
+    },
+    {
+      "case_id": "API-ORDER-002",
+      "type": "API",
+      "module": "订单",
+      "file": "tests/api/test_order.py",
+      "title": "下单幂等",
+      "verify": "相同 idempotentKey 两次提交返回同一订单",
+      "priority": "P1",
+      "flags": "-",
+      "params": "",
+      "script": "tests/api/test_order.py::TestSubmitOrder::test_submit_is_idempotent",
+      "markers": [
+        "P1",
+        "api"
+      ]
+    },
+    {
+      "case_id": "API-ORDER-003",
+      "type": "API",
+      "module": "订单",
+      "file": "tests/api/test_order.py",
+      "title": "立即购买下单",
+      "verify": "不经过购物车直接创建待支付订单",
+      "priority": "P1",
+      "flags": "-",
+      "params": "",
+      "script": "tests/api/test_order.py::TestSubmitOrder::test_buy_now_without_cart",
+      "markers": [
+        "P1",
+        "api"
+      ]
+    },
+    {
+      "case_id": "API-ORDER-004",
+      "type": "API",
+      "module": "订单",
+      "file": "tests/api/test_order.py",
+      "title": "下单缺少幂等键",
+      "verify": "业务码 40000，提示 idempotentKey 必填",
+      "priority": "P2",
+      "flags": "-",
+      "params": "",
+      "script": "tests/api/test_order.py::TestSubmitOrder::test_missing_idempotent_key",
+      "markers": [
+        "P2",
+        "api"
+      ]
+    },
+    {
+      "case_id": "API-ORDER-005",
+      "type": "API",
+      "module": "订单",
+      "file": "tests/api/test_order.py",
+      "title": "下单地址不存在",
+      "verify": "业务码 40000，提示收货地址无效",
+      "priority": "P2",
+      "flags": "-",
+      "params": "",
+      "script": "tests/api/test_order.py::TestSubmitOrder::test_invalid_address",
+      "markers": [
+        "P2",
+        "api"
+      ]
+    },
+    {
+      "case_id": "API-ORDER-006",
+      "type": "API",
+      "module": "订单",
+      "file": "tests/api/test_order.py",
+      "title": "使用他人地址下单",
+      "verify": "业务码 40000，地址归属校验生效",
+      "priority": "P2",
+      "flags": "security",
+      "params": "",
+      "script": "tests/api/test_order.py::TestSubmitOrder::test_cannot_use_other_users_address",
+      "markers": [
+        "P2",
+        "api",
+        "security"
+      ]
+    },
+    {
+      "case_id": "API-ORDER-007",
+      "type": "API",
+      "module": "订单",
+      "file": "tests/api/test_order.py",
+      "title": "我的订单列表",
+      "verify": "按状态过滤，列表包含新订单",
+      "priority": "P1",
+      "flags": "-",
+      "params": "",
+      "script": "tests/api/test_order.py::TestOrderQuery::test_order_list",
+      "markers": [
+        "P1",
+        "api"
+      ]
+    },
+    {
+      "case_id": "API-ORDER-008",
+      "type": "API",
+      "module": "订单",
+      "file": "tests/api/test_order.py",
+      "title": "订单详情与地址快照",
+      "verify": "返回订单明细与地址快照，shipments 为空",
+      "priority": "P1",
+      "flags": "-",
+      "params": "",
+      "script": "tests/api/test_order.py::TestOrderQuery::test_order_detail_has_items_and_snapshot",
+      "markers": [
+        "P1",
+        "api"
+      ]
+    },
+    {
+      "case_id": "API-ORDER-009",
+      "type": "API",
+      "module": "订单",
+      "file": "tests/api/test_order.py",
+      "title": "查询不存在的订单",
+      "verify": "业务码 40400",
+      "priority": "P2",
+      "flags": "-",
+      "params": "",
+      "script": "tests/api/test_order.py::TestOrderQuery::test_order_not_found",
+      "markers": [
+        "P2",
+        "api"
+      ]
+    },
+    {
+      "case_id": "API-ORDER-010",
+      "type": "API",
+      "module": "订单",
+      "file": "tests/api/test_order.py",
+      "title": "越权读取他人订单",
+      "verify": "业务码 40400",
+      "priority": "P2",
+      "flags": "security",
+      "params": "",
+      "script": "tests/api/test_order.py::TestOrderQuery::test_cannot_read_other_users_order",
+      "markers": [
+        "P2",
+        "api",
+        "security"
+      ]
+    },
+    {
+      "case_id": "API-ORDER-011",
+      "type": "API",
+      "module": "订单",
+      "file": "tests/api/test_order.py",
+      "title": "取消待支付订单",
+      "verify": "状态变为 CLOSED，关闭原因为“用户取消”",
+      "priority": "P1",
+      "flags": "-",
+      "params": "",
+      "script": "tests/api/test_order.py::TestOrderState::test_cancel_pending_order",
+      "markers": [
+        "P1",
+        "api"
+      ]
+    },
+    {
+      "case_id": "API-ORDER-012",
+      "type": "API",
+      "module": "订单",
+      "file": "tests/api/test_order.py",
+      "title": "重复取消订单幂等",
+      "verify": "两次取消均成功，不报错",
+      "priority": "P1",
+      "flags": "-",
+      "params": "",
+      "script": "tests/api/test_order.py::TestOrderState::test_cancel_is_idempotent",
+      "markers": [
+        "P1",
+        "api"
+      ]
+    },
+    {
+      "case_id": "API-ORDER-013",
+      "type": "API",
+      "module": "订单",
+      "file": "tests/api/test_order.py",
+      "title": "未发货订单确认收货",
+      "verify": "业务码 40902",
+      "priority": "P2",
+      "flags": "-",
+      "params": "",
+      "script": "tests/api/test_order.py::TestOrderState::test_confirm_receive_requires_shipped",
+      "markers": [
+        "P2",
+        "api"
+      ]
+    },
+    {
+      "case_id": "API-ORDER-014",
+      "type": "API",
+      "module": "订单",
+      "file": "tests/api/test_order.py",
+      "title": "沙箱支付",
+      "verify": "订单变为 PENDING_SHIP，支付单 PAID，tradeNo 正确",
+      "priority": "P0",
+      "flags": "-",
+      "params": "",
+      "script": "tests/api/test_order.py::TestOrderState::test_sandbox_payment",
+      "markers": [
+        "P0",
+        "api"
+      ]
+    },
+    {
+      "case_id": "API-ORDER-015",
+      "type": "API",
+      "module": "订单",
+      "file": "tests/api/test_order.py",
+      "title": "重复支付与取消已支付订单",
+      "verify": "两次操作均返回 40902",
+      "priority": "P2",
+      "flags": "-",
+      "params": "",
+      "script": "tests/api/test_order.py::TestOrderState::test_pay_twice_and_cancel_paid",
+      "markers": [
+        "P2",
+        "api"
+      ]
+    },
+    {
+      "case_id": "API-ORDER-016",
+      "type": "API",
+      "module": "订单",
+      "file": "tests/api/test_order.py",
+      "title": "商城令牌访问管理端",
+      "verify": "HTTP 401，业务码 40100/40103",
+      "priority": "P2",
+      "flags": "security",
+      "params": "",
+      "script": "tests/api/test_order.py::test_customer_token_cannot_access_admin",
+      "markers": [
+        "api",
+        "security"
+      ]
+    },
+    {
+      "case_id": "API-FAV-001",
+      "type": "API",
+      "module": "收藏与足迹",
+      "file": "tests/api/test_favorites_history.py",
+      "title": "收藏、查询并取消收藏",
+      "verify": "收藏列表包含 spuId，商品详情 favorited 随收藏状态变化",
+      "priority": "P1",
+      "flags": "-",
+      "params": "",
+      "script": "tests/api/test_favorites_history.py::TestFavorites::test_add_list_remove_favorite",
+      "markers": [
+        "P1",
+        "api"
+      ]
+    },
+    {
+      "case_id": "API-FAV-002",
+      "type": "API",
+      "module": "收藏与足迹",
+      "file": "tests/api/test_favorites_history.py",
+      "title": "重复取消收藏幂等",
+      "verify": "不返回 5xx",
+      "priority": "P2",
+      "flags": "-",
+      "params": "",
+      "script": "tests/api/test_favorites_history.py::TestFavorites::test_remove_missing_favorite_is_safe",
+      "markers": [
+        "P2",
+        "api"
+      ]
+    },
+    {
+      "case_id": "API-FAV-003",
+      "type": "API",
+      "module": "收藏与足迹",
+      "file": "tests/api/test_favorites_history.py",
+      "title": "浏览商品写入足迹",
+      "verify": "足迹列表包含刚浏览的 spuId",
+      "priority": "P1",
+      "flags": "-",
+      "params": "",
+      "script": "tests/api/test_favorites_history.py::TestHistory::test_view_product_records_history",
+      "markers": [
+        "P1",
+        "api"
+      ]
+    },
+    {
+      "case_id": "API-FAV-004",
+      "type": "API",
+      "module": "收藏与足迹",
+      "file": "tests/api/test_favorites_history.py",
+      "title": "清空浏览足迹",
+      "verify": "清空后足迹列表为空",
+      "priority": "P1",
+      "flags": "-",
+      "params": "",
+      "script": "tests/api/test_favorites_history.py::TestHistory::test_clear_history",
+      "markers": [
+        "P1",
+        "api"
+      ]
+    },
+    {
+      "case_id": "API-ASR-001",
+      "type": "API",
+      "module": "售后与评价",
+      "file": "tests/api/test_after_sales_reviews.py",
+      "title": "待支付订单申请售后",
+      "verify": "业务码 40902，当前状态不可申请",
+      "priority": "P2",
+      "flags": "-",
+      "params": "",
+      "script": "tests/api/test_after_sales_reviews.py::TestAfterSales::test_apply_rejected_for_pending_pay",
+      "markers": [
+        "P2",
+        "api"
+      ]
+    },
+    {
+      "case_id": "API-ASR-002",
+      "type": "API",
+      "module": "售后与评价",
+      "file": "tests/api/test_after_sales_reviews.py",
+      "title": "售后类型非法",
+      "verify": "业务码 40000，提示 type 无效",
+      "priority": "P2",
+      "flags": "-",
+      "params": "",
+      "script": "tests/api/test_after_sales_reviews.py::TestAfterSales::test_apply_rejects_invalid_type",
+      "markers": [
+        "P2",
+        "api"
+      ]
+    },
+    {
+      "case_id": "API-ASR-003",
+      "type": "API",
+      "module": "售后与评价",
+      "file": "tests/api/test_after_sales_reviews.py",
+      "title": "售后必填字段缺失",
+      "verify": "业务码 40000，提示订单/类型/原因必填",
+      "priority": "P2",
+      "flags": "-",
+      "params": "",
+      "script": "tests/api/test_after_sales_reviews.py::TestAfterSales::test_apply_requires_fields",
+      "markers": [
+        "P2",
+        "api"
+      ]
+    },
+    {
+      "case_id": "API-ASR-004",
+      "type": "API",
+      "module": "售后与评价",
+      "file": "tests/api/test_after_sales_reviews.py",
+      "title": "我的售后分页",
+      "verify": "返回合法分页结构",
+      "priority": "P1",
+      "flags": "-",
+      "params": "",
+      "script": "tests/api/test_after_sales_reviews.py::TestAfterSales::test_my_after_sales_page",
+      "markers": [
+        "P1",
+        "api"
+      ]
+    },
+    {
+      "case_id": "API-ASR-005",
+      "type": "API",
+      "module": "售后与评价",
+      "file": "tests/api/test_after_sales_reviews.py",
+      "title": "未完成订单发表评价",
+      "verify": "业务码 40902，仅已完成订单可评价",
+      "priority": "P2",
+      "flags": "-",
+      "params": "",
+      "script": "tests/api/test_after_sales_reviews.py::TestReviews::test_review_rejected_before_completed",
+      "markers": [
+        "P2",
+        "api"
+      ]
+    },
+    {
+      "case_id": "API-ASR-006",
+      "type": "API",
+      "module": "售后与评价",
+      "file": "tests/api/test_after_sales_reviews.py",
+      "title": "商品评价列表公开可读",
+      "verify": "未登录可访问，返回合法分页",
+      "priority": "P1",
+      "flags": "-",
+      "params": "",
+      "script": "tests/api/test_after_sales_reviews.py::TestReviews::test_product_reviews_public",
+      "markers": [
+        "P1",
+        "api"
+      ]
+    },
+    {
+      "case_id": "API-ADMIN-001",
+      "type": "API",
+      "module": "管理端",
+      "file": "tests/api/test_admin.py",
+      "title": "管理端工作台指标",
+      "verify": "返回在售商品/SKU/低库存/待发货/订单总数，均为数字字符串",
+      "priority": "P0",
+      "flags": "smoke",
+      "params": "",
+      "script": "tests/api/test_admin.py::TestAdminDashboard::test_dashboard_stats",
+      "markers": [
+        "P0",
+        "api",
+        "smoke"
+      ]
+    },
+    {
+      "case_id": "API-ADMIN-002",
+      "type": "API",
+      "module": "管理端",
+      "file": "tests/api/test_admin.py",
+      "title": "管理端商品分页",
+      "verify": "分页结构正确，首行含 id/name/status/stock",
+      "priority": "P0",
+      "flags": "-",
+      "params": "",
+      "script": "tests/api/test_admin.py::TestAdminCatalog::test_product_list",
+      "markers": [
+        "P0",
+        "api"
+      ]
+    },
+    {
+      "case_id": "API-ADMIN-003",
+      "type": "API",
+      "module": "管理端",
+      "file": "tests/api/test_admin.py",
+      "title": "管理端商品详情",
+      "verify": "按列表首条 id 查询成功",
+      "priority": "P1",
+      "flags": "-",
+      "params": "",
+      "script": "tests/api/test_admin.py::TestAdminCatalog::test_product_detail",
+      "markers": [
+        "P1",
+        "api"
+      ]
+    },
+    {
+      "case_id": "API-ADMIN-004",
+      "type": "API",
+      "module": "管理端",
+      "file": "tests/api/test_admin.py",
+      "title": "管理端类目树",
+      "verify": "返回非空树结构",
+      "priority": "P1",
+      "flags": "-",
+      "params": "",
+      "script": "tests/api/test_admin.py::TestAdminCatalog::test_category_tree",
+      "markers": [
+        "P1",
+        "api"
+      ]
+    },
+    {
+      "case_id": "API-ADMIN-005",
+      "type": "API",
+      "module": "管理端",
+      "file": "tests/api/test_admin.py",
+      "title": "管理端品牌分页",
+      "verify": "返回合法分页结构",
+      "priority": "P1",
+      "flags": "-",
+      "params": "",
+      "script": "tests/api/test_admin.py::TestAdminCatalog::test_brands_page",
+      "markers": [
+        "P1",
+        "api"
+      ]
+    },
+    {
+      "case_id": "API-ADMIN-006",
+      "type": "API",
+      "module": "管理端",
+      "file": "tests/api/test_admin.py",
+      "title": "管理端字典分页",
+      "verify": "返回合法分页结构",
+      "priority": "P2",
+      "flags": "-",
+      "params": "",
+      "script": "tests/api/test_admin.py::TestAdminCatalog::test_dicts_page",
+      "markers": [
+        "P2",
+        "api"
+      ]
+    },
+    {
+      "case_id": "API-ADMIN-007",
+      "type": "API",
+      "module": "管理端",
+      "file": "tests/api/test_admin.py",
+      "title": "管理端订单分页",
+      "verify": "返回合法分页结构",
+      "priority": "P0",
+      "flags": "-",
+      "params": "",
+      "script": "tests/api/test_admin.py::TestAdminOrders::test_order_list",
+      "markers": [
+        "P0",
+        "api"
+      ]
+    },
+    {
+      "case_id": "API-ADMIN-008",
+      "type": "API",
+      "module": "管理端",
+      "file": "tests/api/test_admin.py",
+      "title": "管理端订单详情",
+      "verify": "按列表首条 id 查询成功；列表为空时先用隔离会员造单再查询",
+      "priority": "P1",
+      "flags": "-",
+      "params": "",
+      "script": "tests/api/test_admin.py::TestAdminOrders::test_order_detail",
+      "markers": [
+        "P1",
+        "api"
+      ]
+    },
+    {
+      "case_id": "API-ADMIN-009",
+      "type": "API",
+      "module": "管理端",
+      "file": "tests/api/test_admin.py",
+      "title": "管理端会员分页",
+      "verify": "返回合法分页结构",
+      "priority": "P1",
+      "flags": "-",
+      "params": "",
+      "script": "tests/api/test_admin.py::TestAdminMembers::test_customers_page",
+      "markers": [
+        "P1",
+        "api"
+      ]
+    },
+    {
+      "case_id": "API-ADMIN-010",
+      "type": "API",
+      "module": "管理端",
+      "file": "tests/api/test_admin.py",
+      "title": "管理端操作日志分页",
+      "verify": "返回合法分页结构",
+      "priority": "P2",
+      "flags": "-",
+      "params": "",
+      "script": "tests/api/test_admin.py::TestAdminMembers::test_operation_logs",
+      "markers": [
+        "P2",
+        "api"
+      ]
+    },
+    {
+      "case_id": "API-ADMIN-011",
+      "type": "API",
+      "module": "管理端",
+      "file": "tests/api/test_admin.py",
+      "title": "管理端查询不存在商品",
+      "verify": "返回 40400/40410，不返回 5xx",
+      "priority": "P2",
+      "flags": "-",
+      "params": "",
+      "script": "tests/api/test_admin.py::TestAdminMembers::test_missing_product_is_business_error",
+      "markers": [
+        "P2",
+        "api"
+      ]
+    },
+    {
+      "case_id": "API-SEC-001",
+      "type": "API",
+      "module": "安全",
+      "file": "tests/api/test_security.py",
+      "title": "篡改访问令牌",
+      "verify": "HTTP 401，业务码 40100/40103",
+      "priority": "P2",
+      "flags": "security",
+      "params": "",
+      "script": "tests/api/test_security.py::test_tampered_token_rejected",
+      "markers": [
+        "api",
+        "security"
+      ]
+    },
+    {
+      "case_id": "API-SEC-002",
+      "type": "API",
+      "module": "安全",
+      "file": "tests/api/test_security.py",
+      "title": "商城令牌访问管理端",
+      "verify": "HTTP 401，业务码 40100/40103",
+      "priority": "P2",
+      "flags": "security",
+      "params": "",
+      "script": "tests/api/test_security.py::test_customer_token_rejected_by_admin",
+      "markers": [
+        "api",
+        "security"
+      ]
+    },
+    {
+      "case_id": "API-SEC-003",
+      "type": "API",
+      "module": "安全",
+      "file": "tests/api/test_security.py",
+      "title": "登录手机号 SQL 注入",
+      "verify": "HTTP 400，业务码 40000，参数校验拦截",
+      "priority": "P2",
+      "flags": "security",
+      "params": "",
+      "script": "tests/api/test_security.py::test_login_phone_sql_injection",
+      "markers": [
+        "api",
+        "security"
+      ]
+    },
+    {
+      "case_id": "API-SEC-004",
+      "type": "API",
+      "module": "安全",
+      "file": "tests/api/test_security.py",
+      "title": "搜索 XSS 载荷",
+      "verify": "返回空结果，响应不包含原始脚本标签",
+      "priority": "P2",
+      "flags": "security",
+      "params": "",
+      "script": "tests/api/test_security.py::test_search_xss_payload_is_inert",
+      "markers": [
+        "api",
+        "security"
+      ]
+    },
+    {
+      "case_id": "API-SEC-005",
+      "type": "API",
+      "module": "安全",
+      "file": "tests/api/test_security.py",
+      "title": "超大分页参数",
+      "verify": "HTTP 200，不返回 5xx",
+      "priority": "P2",
+      "flags": "security",
+      "params": "",
+      "script": "tests/api/test_security.py::test_oversized_page_does_not_500",
+      "markers": [
+        "api",
+        "security"
+      ]
+    },
+    {
+      "case_id": "API-SEC-006",
+      "type": "API",
+      "module": "安全",
+      "file": "tests/api/test_security.py",
+      "title": "错误响应 traceId",
+      "verify": "traceId 为 32 位十六进制且与响应头一致",
+      "priority": "P2",
+      "flags": "security",
+      "params": "",
+      "script": "tests/api/test_security.py::test_error_response_keeps_trace_id",
+      "markers": [
+        "api",
+        "security"
+      ]
+    },
+    {
+      "case_id": "API-DATA-001",
+      "type": "API",
+      "module": "数据驱动校验",
+      "file": "tests/api/test_data_driven.py",
+      "title": "登录输入参数校验",
+      "verify": "HTTP 400，业务码 40000，提示对应字段错误",
+      "priority": "P1",
+      "flags": "-",
+      "params": "case=phone-too-short",
+      "script": "tests/api/test_data_driven.py::test_login_input_validation[phone-too-short]",
+      "markers": [
+        "P1",
+        "api",
+        "parametrize"
+      ]
+    },
+    {
+      "case_id": "API-DATA-002",
+      "type": "API",
+      "module": "数据驱动校验",
+      "file": "tests/api/test_data_driven.py",
+      "title": "登录输入参数校验",
+      "verify": "HTTP 400，业务码 40000，提示对应字段错误",
+      "priority": "P1",
+      "flags": "-",
+      "params": "case=phone-contains-letter",
+      "script": "tests/api/test_data_driven.py::test_login_input_validation[phone-contains-letter]",
+      "markers": [
+        "P1",
+        "api",
+        "parametrize"
+      ]
+    },
+    {
+      "case_id": "API-DATA-003",
+      "type": "API",
+      "module": "数据驱动校验",
+      "file": "tests/api/test_data_driven.py",
+      "title": "登录输入参数校验",
+      "verify": "HTTP 400，业务码 40000，提示对应字段错误",
+      "priority": "P1",
+      "flags": "-",
+      "params": "case=code-blank",
+      "script": "tests/api/test_data_driven.py::test_login_input_validation[code-blank]",
+      "markers": [
+        "P1",
+        "api",
+        "parametrize"
+      ]
+    },
+    {
+      "case_id": "API-DATA-004",
+      "type": "API",
+      "module": "数据驱动校验",
+      "file": "tests/api/test_data_driven.py",
+      "title": "登录输入参数校验",
+      "verify": "HTTP 400，业务码 40000，提示对应字段错误",
+      "priority": "P1",
+      "flags": "-",
+      "params": "case=client-type-invalid",
+      "script": "tests/api/test_data_driven.py::test_login_input_validation[client-type-invalid]",
+      "markers": [
+        "P1",
+        "api",
+        "parametrize"
+      ]
+    },
+    {
+      "case_id": "API-SMOKE-001",
+      "type": "API",
+      "module": "冒烟",
+      "file": "tests/api/test_smoke.py",
+      "title": "商城商品接口可达",
+      "verify": "商品列表返回非空数据",
+      "priority": "P0",
+      "flags": "smoke",
+      "params": "",
+      "script": "tests/api/test_smoke.py::test_storefront_is_reachable",
+      "markers": [
+        "P0",
+        "api",
+        "smoke"
+      ]
+    },
+    {
+      "case_id": "API-SMOKE-002",
+      "type": "API",
+      "module": "冒烟",
+      "file": "tests/api/test_smoke.py",
+      "title": "会员登录态可用",
+      "verify": "/api/me 返回 NORMAL 状态",
+      "priority": "P0",
+      "flags": "smoke",
+      "params": "",
+      "script": "tests/api/test_smoke.py::test_customer_can_login",
+      "markers": [
+        "P0",
+        "api",
+        "smoke"
+      ]
+    },
+    {
+      "case_id": "API-SMOKE-003",
+      "type": "API",
+      "module": "冒烟",
+      "file": "tests/api/test_smoke.py",
+      "title": "管理员登录态可用",
+      "verify": "/admin/auth/me 返回用户名",
+      "priority": "P0",
+      "flags": "smoke",
+      "params": "",
+      "script": "tests/api/test_smoke.py::test_admin_can_login",
+      "markers": [
+        "P0",
+        "api",
+        "smoke"
+      ]
+    },
+    {
+      "case_id": "UI-BROWSE-001",
+      "type": "UI",
+      "module": "商城浏览",
+      "file": "tests/ui/test_mall_browse.py",
+      "title": "商城首页加载商品",
+      "verify": "商品链接与“热门精选”可见",
+      "priority": "P0",
+      "flags": "smoke",
+      "params": "",
+      "script": "tests/ui/test_mall_browse.py::TestMallBrowse::test_home_loads_products[chromium]",
+      "markers": [
+        "P0",
+        "smoke",
+        "ui"
+      ]
+    },
+    {
+      "case_id": "UI-BROWSE-002",
+      "type": "UI",
+      "module": "商城浏览",
+      "file": "tests/ui/test_mall_browse.py",
+      "title": "商城搜索商品",
+      "verify": "搜索结果包含 iPhone",
+      "priority": "P1",
+      "flags": "-",
+      "params": "",
+      "script": "tests/ui/test_mall_browse.py::TestMallBrowse::test_search_shows_matching_products[chromium]",
+      "markers": [
+        "P1",
+        "ui"
+      ]
+    },
+    {
+      "case_id": "UI-BROWSE-003",
+      "type": "UI",
+      "module": "商城浏览",
+      "file": "tests/ui/test_mall_browse.py",
+      "title": "商城分类页加载",
+      "verify": "分类页标题、商品链接与综合/销量排序可见",
+      "priority": "P2",
+      "flags": "-",
+      "params": "",
+      "script": "tests/ui/test_mall_browse.py::TestMallBrowse::test_category_page_loads[chromium]",
+      "markers": [
+        "P2",
+        "ui"
+      ]
+    },
+    {
+      "case_id": "UI-BROWSE-004",
+      "type": "UI",
+      "module": "商城浏览",
+      "file": "tests/ui/test_mall_browse.py",
+      "title": "搜索无结果显示空态",
+      "verify": "展示“没有找到相关商品”与“为你推荐”",
+      "priority": "P1",
+      "flags": "-",
+      "params": "",
+      "script": "tests/ui/test_mall_browse.py::TestMallBrowse::test_search_no_result_shows_empty_state[chromium]",
+      "markers": [
+        "P1",
+        "ui"
+      ]
+    },
+    {
+      "case_id": "UI-LOGIN-001",
+      "type": "UI",
+      "module": "商城登录",
+      "file": "tests/ui/test_mall_login.py",
+      "title": "商城验证码登录成功",
+      "verify": "登录后顶栏显示“Hi，昵称”",
+      "priority": "P0",
+      "flags": "smoke",
+      "params": "",
+      "script": "tests/ui/test_mall_login.py::TestMallLogin::test_login_success[chromium]",
+      "markers": [
+        "P0",
+        "smoke",
+        "ui"
+      ]
+    },
+    {
+      "case_id": "UI-LOGIN-002",
+      "type": "UI",
+      "module": "商城登录",
+      "file": "tests/ui/test_mall_login.py",
+      "title": "错误验证码内联提示",
+      "verify": "表单下方显示“验证码错误，请重新获取”",
+      "priority": "P1",
+      "flags": "-",
+      "params": "",
+      "script": "tests/ui/test_mall_login.py::TestMallLogin::test_login_wrong_code_shows_inline_error[chromium]",
+      "markers": [
+        "P1",
+        "ui"
+      ]
+    },
+    {
+      "case_id": "UI-LOGIN-003",
+      "type": "UI",
+      "module": "商城登录",
+      "file": "tests/ui/test_mall_login.py",
+      "title": "手机号格式内联提示",
+      "verify": "表单下方显示“请输入正确的手机号”",
+      "priority": "P2",
+      "flags": "-",
+      "params": "",
+      "script": "tests/ui/test_mall_login.py::TestMallLogin::test_login_invalid_phone_shows_inline_error[chromium]",
+      "markers": [
+        "P2",
+        "ui"
+      ]
+    },
+    {
+      "case_id": "UI-CART-001",
+      "type": "UI",
+      "module": "商城购物车与结算",
+      "file": "tests/ui/test_mall_cart_checkout.py",
+      "title": "商品详情页加入购物车",
+      "verify": "购物车出现 iPhone 商品",
+      "priority": "P0",
+      "flags": "-",
+      "params": "",
+      "script": "tests/ui/test_mall_cart_checkout.py::TestMallCart::test_add_to_cart_from_product_detail[chromium]",
+      "markers": [
+        "P0",
+        "ui"
+      ]
+    },
+    {
+      "case_id": "UI-CART-002",
+      "type": "UI",
+      "module": "商城购物车与结算",
+      "file": "tests/ui/test_mall_cart_checkout.py",
+      "title": "未勾选商品去结算",
+      "verify": "提示“请先勾选商品”，停留在购物车页",
+      "priority": "P1",
+      "flags": "-",
+      "params": "",
+      "script": "tests/ui/test_mall_cart_checkout.py::TestMallCart::test_checkout_requires_selected_item[chromium]",
+      "markers": [
+        "P1",
+        "ui"
+      ]
+    },
+    {
+      "case_id": "UI-CART-003",
+      "type": "UI",
+      "module": "商城购物车与结算",
+      "file": "tests/ui/test_mall_cart_checkout.py",
+      "title": "修改购物车商品数量",
+      "verify": "点击数量加号后数量 +1，接口与页面同步",
+      "priority": "P1",
+      "flags": "-",
+      "params": "",
+      "script": "tests/ui/test_mall_cart_checkout.py::TestMallCart::test_update_cart_quantity[chromium]",
+      "markers": [
+        "P1",
+        "ui"
+      ]
+    },
+    {
+      "case_id": "UI-CART-004",
+      "type": "UI",
+      "module": "商城购物车与结算",
+      "file": "tests/ui/test_mall_cart_checkout.py",
+      "title": "删除购物车商品",
+      "verify": "二次确认后购物车清空",
+      "priority": "P1",
+      "flags": "-",
+      "params": "",
+      "script": "tests/ui/test_mall_cart_checkout.py::TestMallCart::test_remove_cart_item[chromium]",
+      "markers": [
+        "P1",
+        "ui"
+      ]
+    },
+    {
+      "case_id": "UI-CART-005",
+      "type": "UI",
+      "module": "商城购物车与结算",
+      "file": "tests/ui/test_mall_cart_checkout.py",
+      "title": "购物车结算并提交订单",
+      "verify": "确认订单页有地址与应付金额，提交后生成待支付或已支付订单",
+      "priority": "P0",
+      "flags": "-",
+      "params": "",
+      "script": "tests/ui/test_mall_cart_checkout.py::TestMallCheckout::test_submit_order_from_cart[chromium]",
+      "markers": [
+        "P0",
+        "ui"
+      ]
+    },
+    {
+      "case_id": "UI-ORDER-001",
+      "type": "UI",
+      "module": "商城订单",
+      "file": "tests/ui/test_mall_orders.py",
+      "title": "订单列表展示待付款订单",
+      "verify": "显示订单号与“待付款”状态",
+      "priority": "P1",
+      "flags": "-",
+      "params": "",
+      "script": "tests/ui/test_mall_orders.py::TestMallOrders::test_order_list_shows_pending_order[chromium]",
+      "markers": [
+        "P1",
+        "ui"
+      ]
+    },
+    {
+      "case_id": "UI-ORDER-002",
+      "type": "UI",
+      "module": "商城订单",
+      "file": "tests/ui/test_mall_orders.py",
+      "title": "订单详情页",
+      "verify": "详情页显示订单号",
+      "priority": "P2",
+      "flags": "-",
+      "params": "",
+      "script": "tests/ui/test_mall_orders.py::TestMallOrders::test_order_detail_page[chromium]",
+      "markers": [
+        "P2",
+        "ui"
+      ]
+    },
+    {
+      "case_id": "UI-ORDER-003",
+      "type": "UI",
+      "module": "商城订单",
+      "file": "tests/ui/test_mall_orders.py",
+      "title": "页面取消待付款订单",
+      "verify": "确认弹窗后订单状态变为 CLOSED",
+      "priority": "P1",
+      "flags": "-",
+      "params": "",
+      "script": "tests/ui/test_mall_orders.py::TestMallOrders::test_cancel_pending_order_from_ui[chromium]",
+      "markers": [
+        "P1",
+        "ui"
+      ]
+    },
+    {
+      "case_id": "UI-ORDER-004",
+      "type": "UI",
+      "module": "商城订单",
+      "file": "tests/ui/test_mall_orders.py",
+      "title": "收银台沙箱支付",
+      "verify": "打开待支付订单后显示支付成功，订单变为 PENDING_SHIP",
+      "priority": "P1",
+      "flags": "-",
+      "params": "",
+      "script": "tests/ui/test_mall_orders.py::TestMallPay::test_pay_page_auto_pays[chromium]",
+      "markers": [
+        "P1",
+        "ui"
+      ]
+    },
+    {
+      "case_id": "UI-ADMIN-001",
+      "type": "UI",
+      "module": "后台控制台",
+      "file": "tests/ui/test_admin_console.py",
+      "title": "管理员登录进入工作台",
+      "verify": "登录后跳转 /dashboard 并显示工作台",
+      "priority": "P0",
+      "flags": "smoke",
+      "params": "",
+      "script": "tests/ui/test_admin_console.py::TestAdminLogin::test_admin_login_lands_on_dashboard[chromium]",
+      "markers": [
+        "P0",
+        "smoke",
+        "ui"
+      ]
+    },
+    {
+      "case_id": "UI-ADMIN-002",
+      "type": "UI",
+      "module": "后台控制台",
+      "file": "tests/ui/test_admin_console.py",
+      "title": "后台工作台指标",
+      "verify": "页面显示在售商品等指标",
+      "priority": "P0",
+      "flags": "-",
+      "params": "",
+      "script": "tests/ui/test_admin_console.py::TestAdminConsole::test_dashboard_loads[chromium]",
+      "markers": [
+        "P0",
+        "ui"
+      ]
+    },
+    {
+      "case_id": "UI-ADMIN-003",
+      "type": "UI",
+      "module": "后台控制台",
+      "file": "tests/ui/test_admin_console.py",
+      "title": "后台商品列表与搜索",
+      "verify": "列表有数据，搜索 iPhone 结果命中",
+      "priority": "P1",
+      "flags": "-",
+      "params": "",
+      "script": "tests/ui/test_admin_console.py::TestAdminConsole::test_product_list_and_search[chromium]",
+      "markers": [
+        "P1",
+        "ui"
+      ]
+    },
+    {
+      "case_id": "UI-ADMIN-004",
+      "type": "UI",
+      "module": "后台控制台",
+      "file": "tests/ui/test_admin_console.py",
+      "title": "后台订单列表",
+      "verify": "表格有数据且标题为订单列表",
+      "priority": "P1",
+      "flags": "-",
+      "params": "",
+      "script": "tests/ui/test_admin_console.py::TestAdminConsole::test_order_list_loads[chromium]",
+      "markers": [
+        "P1",
+        "ui"
+      ]
+    },
+    {
+      "case_id": "UI-ADMIN-005",
+      "type": "UI",
+      "module": "后台控制台",
+      "file": "tests/ui/test_admin_console.py",
+      "title": "后台会员列表",
+      "verify": "会员管理页表格有数据",
+      "priority": "P1",
+      "flags": "-",
+      "params": "",
+      "script": "tests/ui/test_admin_console.py::TestAdminConsole::test_customers_page_loads[chromium]",
+      "markers": [
+        "P1",
+        "ui"
+      ]
+    },
+    {
+      "case_id": "UI-ADMIN-006",
+      "type": "UI",
+      "module": "后台控制台",
+      "file": "tests/ui/test_admin_console.py",
+      "title": "类目与品牌页",
+      "verify": "页面标题正确，无加载失败/系统异常",
+      "priority": "P1",
+      "flags": "-",
+      "params": "path=/categories, title=类目与品牌",
+      "script": "tests/ui/test_admin_console.py::TestAdminConsole::test_admin_pages_load[chromium-categories]",
+      "markers": [
+        "P1",
+        "parametrize",
+        "ui"
+      ]
+    },
+    {
+      "case_id": "UI-ADMIN-007",
+      "type": "UI",
+      "module": "后台控制台",
+      "file": "tests/ui/test_admin_console.py",
+      "title": "新增商品表单加载",
+      "verify": "显示新增商品页与“存为草稿”按钮",
+      "priority": "P2",
+      "flags": "-",
+      "params": "",
+      "script": "tests/ui/test_admin_console.py::TestAdminConsole::test_product_create_form_loads[chromium]",
+      "markers": [
+        "P2",
+        "ui"
+      ]
+    },
+    {
+      "case_id": "UI-ADMIN-008",
+      "type": "UI",
+      "module": "后台控制台",
+      "file": "tests/ui/test_admin_console.py",
+      "title": "库存管理页",
+      "verify": "页面标题正确，无加载失败/系统异常",
+      "priority": "P1",
+      "flags": "-",
+      "params": "path=/inventory, title=库存管理",
+      "script": "tests/ui/test_admin_console.py::TestAdminConsole::test_admin_pages_load[chromium-inventory]",
+      "markers": [
+        "P1",
+        "parametrize",
+        "ui"
+      ]
+    },
+    {
+      "case_id": "UI-ADMIN-009",
+      "type": "UI",
+      "module": "后台控制台",
+      "file": "tests/ui/test_admin_console.py",
+      "title": "出入库单页",
+      "verify": "页面标题正确，无加载失败/系统异常",
+      "priority": "P1",
+      "flags": "-",
+      "params": "path=/in-out, title=出入库单",
+      "script": "tests/ui/test_admin_console.py::TestAdminConsole::test_admin_pages_load[chromium-in-out]",
+      "markers": [
+        "P1",
+        "parametrize",
+        "ui"
+      ]
+    },
+    {
+      "case_id": "UI-ADMIN-010",
+      "type": "UI",
+      "module": "后台控制台",
+      "file": "tests/ui/test_admin_console.py",
+      "title": "售后管理页",
+      "verify": "页面标题正确，无加载失败/系统异常",
+      "priority": "P1",
+      "flags": "-",
+      "params": "path=/aftersales, title=售后管理",
+      "script": "tests/ui/test_admin_console.py::TestAdminConsole::test_admin_pages_load[chromium-aftersales]",
+      "markers": [
+        "P1",
+        "parametrize",
+        "ui"
+      ]
+    },
+    {
+      "case_id": "UI-ADMIN-011",
+      "type": "UI",
+      "module": "后台控制台",
+      "file": "tests/ui/test_admin_console.py",
+      "title": "评价管理页",
+      "verify": "页面标题正确，无加载失败/系统异常",
+      "priority": "P1",
+      "flags": "-",
+      "params": "path=/reviews, title=评价管理",
+      "script": "tests/ui/test_admin_console.py::TestAdminConsole::test_admin_pages_load[chromium-reviews]",
+      "markers": [
+        "P1",
+        "parametrize",
+        "ui"
+      ]
+    },
+    {
+      "case_id": "UI-ADMIN-012",
+      "type": "UI",
+      "module": "后台控制台",
+      "file": "tests/ui/test_admin_console.py",
+      "title": "站点品牌页",
+      "verify": "页面标题正确，无加载失败/系统异常",
+      "priority": "P1",
+      "flags": "-",
+      "params": "path=/site-brand, title=站点品牌",
+      "script": "tests/ui/test_admin_console.py::TestAdminConsole::test_admin_pages_load[chromium-site-brand]",
+      "markers": [
+        "P1",
+        "parametrize",
+        "ui"
+      ]
+    },
+    {
+      "case_id": "UI-ADMIN-013",
+      "type": "UI",
+      "module": "后台控制台",
+      "file": "tests/ui/test_admin_console.py",
+      "title": "首页运营位页",
+      "verify": "页面标题正确，无加载失败/系统异常",
+      "priority": "P1",
+      "flags": "-",
+      "params": "path=/home-slots, title=首页运营位",
+      "script": "tests/ui/test_admin_console.py::TestAdminConsole::test_admin_pages_load[chromium-home-slots]",
+      "markers": [
+        "P1",
+        "parametrize",
+        "ui"
+      ]
+    },
+    {
+      "case_id": "UI-ADMIN-014",
+      "type": "UI",
+      "module": "后台控制台",
+      "file": "tests/ui/test_admin_console.py",
+      "title": "用户管理页",
+      "verify": "页面标题正确，无加载失败/系统异常",
+      "priority": "P1",
+      "flags": "-",
+      "params": "path=/users, title=用户管理",
+      "script": "tests/ui/test_admin_console.py::TestAdminConsole::test_admin_pages_load[chromium-users]",
+      "markers": [
+        "P1",
+        "parametrize",
+        "ui"
+      ]
+    },
+    {
+      "case_id": "UI-ADMIN-015",
+      "type": "UI",
+      "module": "后台控制台",
+      "file": "tests/ui/test_admin_console.py",
+      "title": "角色管理页",
+      "verify": "页面标题正确，无加载失败/系统异常",
+      "priority": "P1",
+      "flags": "-",
+      "params": "path=/roles, title=角色管理",
+      "script": "tests/ui/test_admin_console.py::TestAdminConsole::test_admin_pages_load[chromium-roles]",
+      "markers": [
+        "P1",
+        "parametrize",
+        "ui"
+      ]
+    },
+    {
+      "case_id": "UI-ADMIN-016",
+      "type": "UI",
+      "module": "后台控制台",
+      "file": "tests/ui/test_admin_console.py",
+      "title": "菜单与权限页",
+      "verify": "页面标题正确，无加载失败/系统异常",
+      "priority": "P1",
+      "flags": "-",
+      "params": "path=/menus, title=菜单与权限",
+      "script": "tests/ui/test_admin_console.py::TestAdminConsole::test_admin_pages_load[chromium-menus]",
+      "markers": [
+        "P1",
+        "parametrize",
+        "ui"
+      ]
+    },
+    {
+      "case_id": "UI-ADMIN-017",
+      "type": "UI",
+      "module": "后台控制台",
+      "file": "tests/ui/test_admin_console.py",
+      "title": "部门管理页",
+      "verify": "页面标题正确，无加载失败/系统异常",
+      "priority": "P1",
+      "flags": "-",
+      "params": "path=/depts, title=部门管理",
+      "script": "tests/ui/test_admin_console.py::TestAdminConsole::test_admin_pages_load[chromium-depts]",
+      "markers": [
+        "P1",
+        "parametrize",
+        "ui"
+      ]
+    },
+    {
+      "case_id": "UI-ADMIN-018",
+      "type": "UI",
+      "module": "后台控制台",
+      "file": "tests/ui/test_admin_console.py",
+      "title": "字典管理页",
+      "verify": "页面标题正确，无加载失败/系统异常",
+      "priority": "P1",
+      "flags": "-",
+      "params": "path=/dicts, title=字典管理",
+      "script": "tests/ui/test_admin_console.py::TestAdminConsole::test_admin_pages_load[chromium-dicts]",
+      "markers": [
+        "P1",
+        "parametrize",
+        "ui"
+      ]
+    },
+    {
+      "case_id": "UI-ADMIN-019",
+      "type": "UI",
+      "module": "后台控制台",
+      "file": "tests/ui/test_admin_console.py",
+      "title": "操作日志页",
+      "verify": "页面标题正确，无加载失败/系统异常",
+      "priority": "P1",
+      "flags": "-",
+      "params": "path=/logs, title=操作日志",
+      "script": "tests/ui/test_admin_console.py::TestAdminConsole::test_admin_pages_load[chromium-logs]",
+      "markers": [
+        "P1",
+        "parametrize",
+        "ui"
+      ]
+    },
+    {
+      "case_id": "UI-ADMIN-020",
+      "type": "UI",
+      "module": "后台控制台",
+      "file": "tests/ui/test_admin_console.py",
+      "title": "系统设置页",
+      "verify": "页面标题正确，无加载失败/系统异常",
+      "priority": "P1",
+      "flags": "-",
+      "params": "path=/settings, title=系统设置",
+      "script": "tests/ui/test_admin_console.py::TestAdminConsole::test_admin_pages_load[chromium-settings]",
+      "markers": [
+        "P1",
+        "parametrize",
+        "ui"
+      ]
+    },
+    {
+      "case_id": "E2E-001",
+      "type": "E2E",
+      "module": "端到端购买",
+      "file": "tests/e2e/test_purchase_flow.py",
+      "title": "API 全链路购买",
+      "verify": "登录 → 地址 → 加购 → 下单 → 沙箱支付，订单待发货",
+      "priority": "P0",
+      "flags": "-",
+      "params": "",
+      "script": "tests/e2e/test_purchase_flow.py::test_api_purchase_flow",
+      "markers": [
+        "P0",
+        "api",
+        "e2e"
+      ]
+    },
+    {
+      "case_id": "E2E-002",
+      "type": "E2E",
+      "module": "端到端购买",
+      "file": "tests/e2e/test_purchase_flow.py",
+      "title": "UI 全链路购买",
+      "verify": "加购 → 购物车 → 确认订单 → 提交 → 支付成功",
+      "priority": "P1",
+      "flags": "-",
+      "params": "",
+      "script": "tests/e2e/test_purchase_flow.py::test_ui_purchase_flow[chromium]",
+      "markers": [
+        "P1",
+        "e2e",
+        "ui"
+      ]
+    },
+    {
+      "case_id": "UI-ACCOUNT-001",
+      "type": "UI",
+      "module": "商城个人中心",
+      "file": "tests/ui/test_mall_account.py",
+      "title": "个人中心页面加载",
+      "verify": "显示退出登录、收货地址、我的收藏入口",
+      "priority": "P1",
+      "flags": "-",
+      "params": "",
+      "script": "tests/ui/test_mall_account.py::TestMallProfile::test_profile_page_loads[chromium]",
+      "markers": [
+        "P1",
+        "ui"
+      ]
+    },
+    {
+      "case_id": "UI-ACCOUNT-002",
+      "type": "UI",
+      "module": "商城个人中心",
+      "file": "tests/ui/test_mall_account.py",
+      "title": "设置页加载",
+      "verify": "显示登录手机号与 Web/H5 登录态说明",
+      "priority": "P2",
+      "flags": "-",
+      "params": "",
+      "script": "tests/ui/test_mall_account.py::TestMallProfile::test_settings_page_loads[chromium]",
+      "markers": [
+        "P2",
+        "ui"
+      ]
+    },
+    {
+      "case_id": "UI-ACCOUNT-003",
+      "type": "UI",
+      "module": "商城个人中心",
+      "file": "tests/ui/test_mall_account.py",
+      "title": "我的售后页加载",
+      "verify": "页面标题与空态/列表可见",
+      "priority": "P2",
+      "flags": "-",
+      "params": "",
+      "script": "tests/ui/test_mall_account.py::TestMallProfile::test_after_sales_page_loads[chromium]",
+      "markers": [
+        "P2",
+        "ui"
+      ]
+    },
+    {
+      "case_id": "UI-ACCOUNT-004",
+      "type": "UI",
+      "module": "商城个人中心",
+      "file": "tests/ui/test_mall_account.py",
+      "title": "地址页展示已有地址",
+      "verify": "显示收货人、详细地址与默认标记",
+      "priority": "P1",
+      "flags": "-",
+      "params": "",
+      "script": "tests/ui/test_mall_account.py::TestMallAddress::test_address_page_shows_api_address[chromium]",
+      "markers": [
+        "P1",
+        "ui"
+      ]
+    },
+    {
+      "case_id": "UI-ACCOUNT-005",
+      "type": "UI",
+      "module": "商城个人中心",
+      "file": "tests/ui/test_mall_account.py",
+      "title": "页面新增并删除地址",
+      "verify": "表单保存后列表出现，删除后回到暂无地址",
+      "priority": "P1",
+      "flags": "-",
+      "params": "",
+      "script": "tests/ui/test_mall_account.py::TestMallAddress::test_add_and_delete_address_via_ui[chromium]",
+      "markers": [
+        "P1",
+        "ui"
+      ]
+    },
+    {
+      "case_id": "UI-ACCOUNT-006",
+      "type": "UI",
+      "module": "商城个人中心",
+      "file": "tests/ui/test_mall_account.py",
+      "title": "收藏页取消收藏",
+      "verify": "收藏列表显示商品，确认后回到空态",
+      "priority": "P1",
+      "flags": "-",
+      "params": "",
+      "script": "tests/ui/test_mall_account.py::TestMallFavorites::test_favorites_page_and_remove[chromium]",
+      "markers": [
+        "P1",
+        "ui"
+      ]
+    },
+    {
+      "case_id": "UI-ACCOUNT-007",
+      "type": "UI",
+      "module": "商城个人中心",
+      "file": "tests/ui/test_mall_account.py",
+      "title": "足迹页清空",
+      "verify": "浏览记录显示，确认清空后回到空态",
+      "priority": "P1",
+      "flags": "-",
+      "params": "",
+      "script": "tests/ui/test_mall_account.py::TestMallHistory::test_history_page_and_clear[chromium]",
+      "markers": [
+        "P1",
+        "ui"
+      ]
+    },
+    {
+      "case_id": "UI-ACCOUNT-008",
+      "type": "UI",
+      "module": "商城个人中心",
+      "file": "tests/ui/test_mall_account.py",
+      "title": "活动位页面加载",
+      "verify": "显示活动标题与商品列表",
+      "priority": "P2",
+      "flags": "-",
+      "params": "",
+      "script": "tests/ui/test_mall_account.py::TestMallPromo::test_promo_page_loads[chromium]",
+      "markers": [
+        "P2",
+        "ui"
+      ]
+    },
+    {
+      "case_id": "UI-PRODUCT-001",
+      "type": "UI",
+      "module": "商城商品详情",
+      "file": "tests/ui/test_mall_product.py",
+      "title": "商品详情展示规格",
+      "verify": "商品名称、规格选项与收藏入口可见",
+      "priority": "P1",
+      "flags": "-",
+      "params": "",
+      "script": "tests/ui/test_mall_product.py::TestMallProduct::test_product_detail_shows_skus[chromium]",
+      "markers": [
+        "P1",
+        "ui"
+      ]
+    },
+    {
+      "case_id": "UI-PRODUCT-002",
+      "type": "UI",
+      "module": "商城商品详情",
+      "file": "tests/ui/test_mall_product.py",
+      "title": "商品收藏与取消收藏",
+      "verify": "收藏后显示“已收藏”，再次点击恢复“收藏”",
+      "priority": "P1",
+      "flags": "-",
+      "params": "",
+      "script": "tests/ui/test_mall_product.py::TestMallProduct::test_favorite_toggle[chromium]",
+      "markers": [
+        "P1",
+        "ui"
+      ]
+    }
+  ]
+}
