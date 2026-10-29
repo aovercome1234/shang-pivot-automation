@@ -5,3 +5,4 @@ PyYAML>=6.0
 allure-pytest>=2.13
 playwright>=1.40
 pytest-playwright>=0.4
+pytest-xdist>=3.6

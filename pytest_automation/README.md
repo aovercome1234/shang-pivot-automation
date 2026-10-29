@@ -46,6 +46,19 @@ python3 -m pytest -m smoke    # 冒烟（15 条）
 python3 -m pytest -m e2e      # 端到端（2 条）
 ```
 
+### 并行执行（pytest-xdist）
+
+```bash
+make api-parallel   # 模块级并行：-n 4 --dist loadscope，结果与串行一致
+make api-fast       # 用例级并行：-n 4，最快但存在共享状态竞争
+```
+
+实测（701 条 API 用例，12 核机器）：串行 224s → 模块级并行 157s（1.43x）→ 用例级并行 63s（3.55x）→ `-n 8` 40s（5.58x）。
+用例级并行会把同 SKU 库存、管理端登录失败限流等**共享状态**打散到多个 worker，出现 3 条环境性失败；
+稳定回归请用 `api-parallel`。详见 [`docs/并行执行对比-xdist.md`](docs/并行执行对比-xdist.md)。
+
+并行运行时脚本会设置 `DISABLE_RECORDER=1`、`DISABLE_DB_GUARD=1`，关闭映射与基线指纹落盘（避免多 worker 抢写同一文件）。
+
 ---
 
 ## 2. 目录结构

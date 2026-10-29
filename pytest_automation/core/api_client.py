@@ -10,6 +10,7 @@ from __future__ import annotations
 import json
 import time
 import uuid
+from urllib.parse import urlparse
 
 import requests
 from requests.adapters import HTTPAdapter
@@ -42,6 +43,7 @@ def _attach(resp: requests.Response, elapsed_ms: float) -> None:
     if allure is None:
         return
     req = resp.request
+    path = urlparse(req.url).path or req.url
     req_body = ""
     if req.body:
         try:
@@ -59,13 +61,13 @@ def _attach(resp: requests.Response, elapsed_ms: float) -> None:
     }
     allure.attach(
         f"{req.method} {req.url}\n\nHeaders: {safe_headers}\n\nBody:\n{req_body or '(empty)'}",
-        name="Request",
+        name=f"请求 {req.method} {path}",
         attachment_type=allure.attachment_type.TEXT,
     )
     allure.attach(
         f"Status: {resp.status_code} {resp.reason}\n"
         f"Elapsed: {elapsed_ms:.0f}ms\n\nBody:\n{resp_body or '(empty)'}",
-        name="Response",
+        name=f"响应 {resp.status_code} {req.method} {path}",
         attachment_type=allure.attachment_type.TEXT,
     )
 
@@ -134,6 +136,26 @@ class ApiClient:
             resp.status_code,
             elapsed_ms,
         )
+        try:  # 用例→接口映射 + 每用例请求/响应快照（埋点失败不影响请求）
+            from core import endpoint_recorder
+
+            try:
+                body = resp.json()
+            except ValueError:
+                body = None
+            endpoint_recorder.record(
+                method.upper(),
+                url,
+                resp.status_code,
+                body,
+                request_payload={
+                    "query": kwargs.get("params"),
+                    "body": kwargs.get("json"),
+                    "raw": kwargs.get("data") if not isinstance(kwargs.get("data"), (bytes, bytearray)) else "<binary>",
+                },
+            )
+        except Exception:  # noqa: BLE001
+            pass
         if self._allure_logging:
             _attach(resp, elapsed_ms)
         return resp

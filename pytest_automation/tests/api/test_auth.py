@@ -114,6 +114,20 @@ class TestAdminAuth:
             client.close()
 
     @pytest.mark.P1
+    def test_admin_login_rejects_member_account(self):
+        """非管理员（会员手机号+短信验证码）登录管理端必须被拒。"""
+        client = ApiClient(settings.api_admin_base)
+        try:
+            resp = client.post(
+                "/admin/auth/login",
+                json={"username": "13900000009", "password": settings.sms_code},
+            )
+            body = error(resp)
+            assert body["code"] == 40101, f"非管理员登录返回 {body['code']}"
+        finally:
+            client.close()
+
+    @pytest.mark.P1
     def test_admin_requires_token(self):
         client = ApiClient(settings.api_admin_base)
         try:

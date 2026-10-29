@@ -21,6 +21,8 @@ done
 ALLURE=""
 if [ -x "../api_testcases/node_modules/allure-commandline/bin/allure" ]; then
   ALLURE="node ../api_testcases/node_modules/allure-commandline/bin/allure"
+elif [ -x "../.tools/allure-2.35.1/bin/allure" ]; then
+  ALLURE="../.tools/allure-2.35.1/bin/allure"
 elif command -v allure >/dev/null 2>&1; then
   ALLURE="allure"
 else
@@ -35,8 +37,20 @@ if [ ! -d "$RESULTS" ]; then
   exit 4
 fi
 
+# 保留上一轮报告的历史：Allure 趋势图（Trends）依赖 results/history
+if [ -d "$REPORT/history" ]; then
+  rm -rf "$RESULTS/history"
+  cp -r "$REPORT/history" "$RESULTS/history"
+fi
+
 $ALLURE generate "$RESULTS" -o "$REPORT" --clean
 echo "报告已生成：$(cd "$REPORT" && pwd)/index.html"
+
+# 生成接口视图（独立页面 + Allure 首页悬浮入口）
+PYTHON="python3"
+[ -x ".venv/bin/python" ] && PYTHON=".venv/bin/python"
+$PYTHON scripts/build_api_matrix.py --report-dir "$REPORT" || \
+  echo "[warn] 接口视图生成失败（不影响 Allure 报告）" >&2
 
 if [ "$SERVE" = "1" ]; then
   $ALLURE open "$REPORT"

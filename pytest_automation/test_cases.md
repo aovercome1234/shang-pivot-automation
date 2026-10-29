@@ -3,22 +3,22 @@
 > 本文件由 `scripts/export_cases.py` 从 pytest 实际收集结果生成，请勿手工修改。
 > 用例标题与验证点维护在 `data/case_meta.yaml`；新增/删除用例后重跑导出脚本。
 
-- 生成时间：2026-10-19 17:41:16
-- 用例总数：**145**
+- 生成时间：2026-10-29 10:00:59
+- 用例总数：**750**
 - 数据源：`pytest --collect-only`（与实际执行条目一致）
 
 ## 概览
 
 | 类型 | 条数 |
 |---|---:|
-| API | 97 |
+| API | 702 |
 | UI | 46 |
 | E2E | 2 |
-| **合计** | **145** |
+| **合计** | **750** |
 
-## API 用例（97 条）
+## API 用例（702 条）
 
-### 认证（13 条）
+### 认证（14 条）
 
 | 用例ID | 优先级 | 用例标题 | 验证点 | 参数 | 自动化脚本 |
 |---|---|---|---|---|---|
@@ -33,8 +33,9 @@
 | API-AUTH-009 | P1 | 修改会员昵称 | 返回新昵称并与资料接口一致 | - | `tests/api/test_auth.py::TestCustomerAuth::test_update_profile` |
 | API-AUTH-010 | P0 | 管理员登录并查询当前用户 | username 匹配，返回 roles/permissions/menus | - | `tests/api/test_auth.py::TestAdminAuth::test_admin_login_and_me` |
 | API-AUTH-011 | P1 | 管理员密码错误 | 业务码 40101 | - | `tests/api/test_auth.py::TestAdminAuth::test_admin_wrong_password` |
-| API-AUTH-012 | P1 | 管理端接口未认证 | HTTP 401，业务码 40100/40103 | - | `tests/api/test_auth.py::TestAdminAuth::test_admin_requires_token` |
-| API-AUTH-013 | P2 | 响应 traceId 契约 | body.traceId 为 32 位十六进制且与响应头 X-Trace-Id 一致 | - | `tests/api/test_auth.py::TestAdminAuth::test_response_has_trace_id` |
+| API-AUTH-012 | P1 | 非管理员账号登录管理端被拒 | 会员手机号 + 短信验证码登录管理端 → 40101 | - | `tests/api/test_auth.py::TestAdminAuth::test_admin_login_rejects_member_account` |
+| API-AUTH-013 | P1 | 管理端接口未认证 | HTTP 401，业务码 40100/40103 | - | `tests/api/test_auth.py::TestAdminAuth::test_admin_requires_token` |
+| API-AUTH-014 | P2 | 响应 traceId 契约 | body.traceId 为 32 位十六进制且与响应头 X-Trace-Id 一致 | - | `tests/api/test_auth.py::TestAdminAuth::test_response_has_trace_id` |
 
 ### 商品与搜索（16 条）
 
@@ -170,6 +171,660 @@
 | API-SMOKE-002 | P0 | 会员登录态可用 | /api/me 返回 NORMAL 状态 | - | `tests/api/test_smoke.py::test_customer_can_login` |
 | API-SMOKE-003 | P0 | 管理员登录态可用 | /admin/auth/me 返回用户名 | - | `tests/api/test_smoke.py::test_admin_can_login` |
 
+### 大数据量（6 条）
+
+| 用例ID | 优先级 | 用例标题 | 验证点 | 参数 | 自动化脚本 |
+|---|---|---|---|---|---|
+| API-BULK-001 | P1 | 商品列表一次取 100 条 | 返回 ≤100 条、分页字段自洽、耗时 < 3s | - | `tests/api/test_bulk_data.py::test_product_list_large_page_size` |
+| API-BULK-002 | P1 | 商品列表深翻页返回空集 | page=9999 返回空 records，HTTP 200 无 5xx | - | `tests/api/test_bulk_data.py::test_product_list_page_beyond_last` |
+| API-BULK-003 | P1 | 搜索大分页响应有界 | size=50 返回 ≤50 条且耗时 < 3s | - | `tests/api/test_bulk_data.py::test_search_large_page` |
+| API-BULK-004 | P1 | 批量下单后翻页一致 | 建 6 单后前两页无重复、无丢行、total 覆盖 | - | `tests/api/test_bulk_data.py::test_order_list_pagination_consistency` |
+| API-BULK-005 | P1 | 批量加购 15 个 SKU 金额正确 | 购物车 15 行，选中金额 = 逐行求和，耗时 < 8s | - | `tests/api/test_bulk_data.py::test_cart_bulk_add_skus` |
+| API-BULK-006 | P2 | 管理端订单大分页稳定 | size=100 返回 ≤100 条且耗时 < 3s | - | `tests/api/test_bulk_data.py::test_admin_order_list_large_page` |
+
+### 管理端CRUD往返（5 条）
+
+| 用例ID | 优先级 | 用例标题 | 验证点 | 参数 | 自动化脚本 |
+|---|---|---|---|---|---|
+| API-CRUD-001 | P0 | 品牌创建到删除往返 | 创建 → 列表可见 → 更新生效 → 删除后不可见 | - | `tests/api/test_admin_crud_roundtrip.py::test_brand_crud_roundtrip` |
+| API-CRUD-002 | P0 | 类目创建到删除往返 | 创建 → 列表可见 → 更新生效 → 删除成功 | - | `tests/api/test_admin_crud_roundtrip.py::test_category_crud_roundtrip` |
+| API-CRUD-003 | P0 | 字典创建到删除往返 | 创建 → 列表可见 → 更新生效 → 删除成功 | - | `tests/api/test_admin_crud_roundtrip.py::test_dict_crud_roundtrip` |
+| API-CRUD-004 | P1 | 部门创建到删除往返 | 创建 → 列表可见 → 更新生效 → 删除成功 | - | `tests/api/test_admin_crud_roundtrip.py::test_dept_crud_roundtrip` |
+| API-CRUD-005 | P1 | 仓库创建到删除往返 | 创建 → 列表可见 → 更新生效 → 删除成功 | - | `tests/api/test_admin_crud_roundtrip.py::test_warehouse_crud_roundtrip` |
+
+### 失败留痕演示（2 条）
+
+| 用例ID | 优先级 | 用例标题 | 验证点 | 参数 | 自动化脚本 |
+|---|---|---|---|---|---|
+| API-DEMO-001 | P2 | 演示-业务断言失败留痕 | 失败时附带最后请求/响应、失败依据与 traceId 后端日志 | - | `tests/api/test_failure_evidence_demo.py::test_demo_business_assertion_failure` |
+| API-DEMO-002 | P2 | 演示-执行异常阻断留痕 | KeyError 阻断时附带堆栈、失败依据与后端日志 | - | `tests/api/test_failure_evidence_demo.py::test_demo_broken_exception` |
+
+### 幂等（7 条）
+
+| 用例ID | 优先级 | 用例标题 | 验证点 | 参数 | 自动化脚本 |
+|---|---|---|---|---|---|
+| API-IDEM-001 | P0 | 幂等重放不重复锁定库存 | 同一 idempotentKey 重复提交返回同一订单，库存只锁定一次 | - | `tests/api/test_idempotency.py::test_order_replay_does_not_double_lock_stock` |
+| API-IDEM-002 | P0 | 幂等键不同请求体仍返回原单 | 换地址/换购物车项重放 → 原订单不变，明细仍为 1 行 1 件 | - | `tests/api/test_idempotency.py::test_replay_with_different_payload_returns_first_order` |
+| API-IDEM-003 | P1 | 缺少幂等键下单被拒绝 | 业务码 40000，不允许无幂等键提交订单 | - | `tests/api/test_idempotency.py::test_order_without_idempotent_key_rejected` |
+| API-IDEM-004 | P0 | 重复支付被拒且只入账一次 | 第二次支付 40902，payment 表仅 1 条记录 | - | `tests/api/test_idempotency.py::test_double_payment_rejected_and_single_payment_row` |
+| API-IDEM-005 | P1 | 重复加购同 SKU 合并行 | 购物车仅 1 行且数量为 2，库中无重复行 | - | `tests/api/test_idempotency.py::test_cart_add_same_sku_merges_into_one_item` |
+| API-IDEM-006 | P0 | 重复发货被拒且只有一条运单 | 第二次发货 40902，shipment 表仅 1 条记录 | - | `tests/api/test_idempotency.py::test_admin_ship_twice_blocked_and_single_shipment` |
+| API-IDEM-007 | P2 | 重复删除地址返回不存在 | 第二次删除返回 40400，不出现 5xx | - | `tests/api/test_idempotency.py::test_delete_address_twice_returns_not_found` |
+
+### 水平越权（7 条）
+
+| 用例ID | 优先级 | 用例标题 | 验证点 | 参数 | 自动化脚本 |
+|---|---|---|---|---|---|
+| API-IDOR-001 | P0 | 越权取消他人订单被拒绝 | B 用他人订单号取消 → 40400；原订单仍为 PENDING_PAY | - | `tests/api/test_security_idor.py::test_other_customer_cannot_cancel_order` |
+| API-IDOR-002 | P0 | 越权支付他人订单被拒绝 | B 替他人订单发起沙箱支付 → 40400；订单仍未支付 | - | `tests/api/test_security_idor.py::test_other_customer_cannot_pay_order` |
+| API-IDOR-003 | P0 | 越权修改他人收货地址被拒绝 | B 改 A 的地址 → 40400；地址内容未被篡改 | - | `tests/api/test_security_idor.py::test_other_customer_cannot_update_address` |
+| API-IDOR-004 | P0 | 越权删除他人收货地址被拒绝 | B 删 A 的地址 → 40400；地址仍存在 | - | `tests/api/test_security_idor.py::test_other_customer_cannot_delete_address` |
+| API-IDOR-005 | P1 | 越权设置他人默认地址被拒绝 | B 把 A 的地址设为默认 → 40400 | - | `tests/api/test_security_idor.py::test_other_customer_cannot_set_default_address` |
+| API-IDOR-006 | P0 | 越权修改他人购物车项被拒绝 | B 改 A 的购物车数量 → 40400；数量仍为 1 | - | `tests/api/test_security_idor.py::test_other_customer_cannot_modify_cart_item` |
+| API-IDOR-007 | P1 | 越权删除他人购物车项被拒绝 | B 删 A 的购物车项 → 40400；项仍存在 | - | `tests/api/test_security_idor.py::test_other_customer_cannot_delete_cart_item` |
+
+### 业务不变量（8 条）
+
+| 用例ID | 优先级 | 用例标题 | 验证点 | 参数 | 自动化脚本 |
+|---|---|---|---|---|---|
+| API-INV-001 | P0 | 下单与取消的库存守恒 | 下单 locked+N 且 physical 不变；取消后 locked 复原；available=physical-locked | - | `tests/api/test_invariants.py::test_stock_conservation_on_order_and_cancel` |
+| API-INV-002 | P0 | 订单金额守恒 | 应付=商品总额+运费；明细小计之和=商品总额；小计=单价×数量 | - | `tests/api/test_invariants.py::test_order_amount_conservation` |
+| API-INV-003 | P0 | 待支付订单不可确认收货 | PENDING_PAY 调确认收货 → 40902，状态不变 | - | `tests/api/test_invariants.py::test_confirm_rejected_before_shipment` |
+| API-INV-004 | P0 | 已支付订单不可取消 | PENDING_SHIP 取消 → 40902，状态不变 | - | `tests/api/test_invariants.py::test_cancel_rejected_after_payment` |
+| API-INV-005 | P1 | 重复取消订单保持幂等 | 连续取消两次均成功，订单为 CLOSED，库存不二次释放 | - | `tests/api/test_invariants.py::test_double_cancel_is_idempotent` |
+| API-INV-006 | P1 | 幂等键重放返回同一订单 | 同 idempotentKey 重复提交 → 同一 orderId，库中仅一张单 | - | `tests/api/test_invariants.py::test_idempotent_key_replay_returns_same_order` |
+| API-INV-007 | P1 | 全库库存守恒巡检 | 不存在负库存或超卖（locked > physical）的 SKU | - | `tests/api/test_invariants.py::test_stock_table_invariant_sweep` |
+| API-INV-008 | P1 | 在售 SKU 必须存在库存行 | 每个在售 SKU 都有对应的 commerce.stock 记录 | - | `tests/api/test_invariants.py::test_every_on_sale_sku_has_stock_row` |
+
+### 参数联动（42 条）
+
+| 用例ID | 优先级 | 用例标题 | 验证点 | 参数 | 自动化脚本 |
+|---|---|---|---|---|---|
+| API-LINK-001 | P0 | 登录字段联动校验 | 手机号×验证码×clientType 组合：必填缺失 400、验证码不匹配/超长 40101、枚举非法 400 | payload={'phone': '', 'code': '123456', 'clientType': 'web'}, http=400, code=40000, keyword=None | `tests/api/test_validation_interactions.py::test_login_parameter_interactions[\u624b\u673a\u53f7\u7f3a\u5931-\u9a8c\u8bc1\u7801\u5408\u89c4]` |
+| API-LINK-002 | P0 | 登录字段联动校验 | 手机号×验证码×clientType 组合：必填缺失 400、验证码不匹配/超长 40101、枚举非法 400 | payload={'phone': '   ', 'code': '123456', 'clientType': 'web'}, http=400, code=40000, keyword=None | `tests/api/test_validation_interactions.py::test_login_parameter_interactions[\u624b\u673a\u53f7\u7a7a\u767d-\u9a8c\u8bc1\u7801\u5408\u89c4]` |
+| API-LINK-003 | P0 | 登录字段联动校验 | 手机号×验证码×clientType 组合：必填缺失 400、验证码不匹配/超长 40101、枚举非法 400 | payload={'phone': '13900000009', 'code': '', 'clientType': 'web'}, http=400, code=40000, keyword=None | `tests/api/test_validation_interactions.py::test_login_parameter_interactions[\u624b\u673a\u53f7\u5408\u89c4-\u9a8c\u8bc1\u7801\u7f3a\u5931]` |
+| API-LINK-004 | P0 | 登录字段联动校验 | 手机号×验证码×clientType 组合：必填缺失 400、验证码不匹配/超长 40101、枚举非法 400 | payload={'phone': '13900000009', 'code': '   ', 'clientType': 'web'}, http=400, code=40000, keyword=None | `tests/api/test_validation_interactions.py::test_login_parameter_interactions[\u624b\u673a\u53f7\u5408\u89c4-\u9a8c\u8bc1\u7801\u7a7a\u767d]` |
+| API-LINK-005 | P0 | 登录字段联动校验 | 手机号×验证码×clientType 组合：必填缺失 400、验证码不匹配/超长 40101、枚举非法 400 | payload={'phone': '', 'code': '', 'clientType': 'web'}, http=400, code=40000, keyword=None | `tests/api/test_validation_interactions.py::test_login_parameter_interactions[\u624b\u673a\u53f7\u4e0e\u9a8c\u8bc1\u7801\u5747\u7f3a\u5931]` |
+| API-LINK-006 | P0 | 登录字段联动校验 | 手机号×验证码×clientType 组合：必填缺失 400、验证码不匹配/超长 40101、枚举非法 400 | payload={'phone': '123', 'code': '123456', 'clientType': 'web'}, http=400, code=40000, keyword=手机号格式 | `tests/api/test_validation_interactions.py::test_login_parameter_interactions[\u624b\u673a\u53f7\u683c\u5f0f\u975e\u6cd5-\u9a8c\u8bc1\u7801\u5408\u89c4]` |
+| API-LINK-007 | P0 | 登录字段联动校验 | 手机号×验证码×clientType 组合：必填缺失 400、验证码不匹配/超长 40101、枚举非法 400 | payload={'phone': '13900000009', 'code': '999999', 'clientType': 'web'}, http=200, code=40101, keyword=验证码 | `tests/api/test_validation_interactions.py::test_login_parameter_interactions[\u624b\u673a\u53f7\u5408\u89c4-\u9a8c\u8bc1\u7801\u4e0d\u5339\u914d]` |
+| API-LINK-008 | P0 | 登录字段联动校验 | 手机号×验证码×clientType 组合：必填缺失 400、验证码不匹配/超长 40101、枚举非法 400 | payload={'phone': '13900000009', 'code': '1234567', 'clientType': 'web'}, http=200, code=40101, keyword=验证码 | `tests/api/test_validation_interactions.py::test_login_parameter_interactions[\u624b\u673a\u53f7\u5408\u89c4-\u9a8c\u8bc1\u7801\u8d85\u957f]` |
+| API-LINK-009 | P0 | 登录字段联动校验 | 手机号×验证码×clientType 组合：必填缺失 400、验证码不匹配/超长 40101、枚举非法 400 | payload={'phone': '13900000009', 'code': '123456', 'clientType': 'pc'}, http=400, code=40000, keyword=clientType | `tests/api/test_validation_interactions.py::test_login_parameter_interactions[\u624b\u673a\u53f7\u9a8c\u8bc1\u7801\u5408\u89c4-clientType\u975e\u6cd5]` |
+| API-LINK-010 | P0 | 登录字段联动校验 | 手机号×验证码×clientType 组合：必填缺失 400、验证码不匹配/超长 40101、枚举非法 400 | payload={'phone': '13900000009', 'code': '123456'}, http=400, code=40000, keyword=None | `tests/api/test_validation_interactions.py::test_login_parameter_interactions[\u624b\u673a\u53f7\u9a8c\u8bc1\u7801\u5408\u89c4-clientType\u7f3a\u5931]` |
+| API-LINK-011 | P1 | 登录字段匹配时成功签发令牌 | 已注册手机号 + 正确验证码 + 合法 clientType → 200 + accessToken | - | `tests/api/test_validation_interactions.py::test_login_matching_fields_succeed` |
+| API-LINK-012 | P1 | 管理端登录字段联动 | 用户名/密码逐项缺失 400（精确提示），凭证不匹配 40101 | payload={'username': '', 'password': 'Admin@123'}, http=400, code=40000, keyword=用户名不能为空 | `tests/api/test_validation_interactions.py::test_admin_login_parameter_interactions[\u7528\u6237\u540d\u4e3a\u7a7a-\u5bc6\u7801\u5408\u89c4]` |
+| API-LINK-013 | P1 | 管理端登录字段联动 | 用户名/密码逐项缺失 400（精确提示），凭证不匹配 40101 | payload={'username': 'admin', 'password': ''}, http=400, code=40000, keyword=密码不能为空 | `tests/api/test_validation_interactions.py::test_admin_login_parameter_interactions[\u7528\u6237\u540d\u5408\u89c4-\u5bc6\u7801\u4e3a\u7a7a]` |
+| API-LINK-014 | P1 | 管理端登录字段联动 | 用户名/密码逐项缺失 400（精确提示），凭证不匹配 40101 | payload={'username': '', 'password': ''}, http=400, code=40000, keyword=('用户名不能为空', '密码不能为空') | `tests/api/test_validation_interactions.py::test_admin_login_parameter_interactions[\u7528\u6237\u540d\u4e0e\u5bc6\u7801\u5747\u4e3a\u7a7a]` |
+| API-LINK-015 | P1 | 管理端登录字段联动 | 用户名/密码逐项缺失 400（精确提示），凭证不匹配 40101 | payload={'username': 'admin', 'password': 'wrong-pass'}, http=200, code=40101, keyword=账号或密码错误 | `tests/api/test_validation_interactions.py::test_admin_login_parameter_interactions[\u7528\u6237\u540d\u5408\u89c4-\u5bc6\u7801\u9519\u8bef]` |
+| API-LINK-016 | P1 | 管理端登录字段联动 | 用户名/密码逐项缺失 400（精确提示），凭证不匹配 40101 | payload={'username': 'no-such-user', 'password': 'Admin@123'}, http=200, code=40101, keyword=账号或密码错误 | `tests/api/test_validation_interactions.py::test_admin_login_parameter_interactions[\u7528\u6237\u540d\u4e0d\u5b58\u5728-\u5bc6\u7801\u5408\u89c4]` |
+| API-LINK-017 | P1 | 管理端登录字段联动 | 用户名/密码逐项缺失 400（精确提示），凭证不匹配 40101 | payload={'username': '13900000009', 'password': '123456'}, http=200, code=40101, keyword=账号或密码错误 | `tests/api/test_validation_interactions.py::test_admin_login_parameter_interactions[\u975e\u7ba1\u7406\u5458\u8d26\u53f7\u767b\u5f55\u7ba1\u7406\u7aef\u88ab\u62d2]` |
+| API-LINK-018 | P1 | 地址仅缺一个字段其余合规 | name/phone/province/city/district/detail 逐个缺失 → 400「收货信息不完整」 | missing_field=name | `tests/api/test_validation_interactions.py::test_address_missing_one_field_while_others_valid[name]` |
+| API-LINK-019 | P1 | 地址仅缺一个字段其余合规 | name/phone/province/city/district/detail 逐个缺失 → 400「收货信息不完整」 | missing_field=phone | `tests/api/test_validation_interactions.py::test_address_missing_one_field_while_others_valid[phone]` |
+| API-LINK-020 | P1 | 地址仅缺一个字段其余合规 | name/phone/province/city/district/detail 逐个缺失 → 400「收货信息不完整」 | missing_field=province | `tests/api/test_validation_interactions.py::test_address_missing_one_field_while_others_valid[province]` |
+| API-LINK-021 | P1 | 地址仅缺一个字段其余合规 | name/phone/province/city/district/detail 逐个缺失 → 400「收货信息不完整」 | missing_field=city | `tests/api/test_validation_interactions.py::test_address_missing_one_field_while_others_valid[city]` |
+| API-LINK-022 | P1 | 地址仅缺一个字段其余合规 | name/phone/province/city/district/detail 逐个缺失 → 400「收货信息不完整」 | missing_field=district | `tests/api/test_validation_interactions.py::test_address_missing_one_field_while_others_valid[district]` |
+| API-LINK-023 | P1 | 地址仅缺一个字段其余合规 | name/phone/province/city/district/detail 逐个缺失 → 400「收货信息不完整」 | missing_field=detail | `tests/api/test_validation_interactions.py::test_address_missing_one_field_while_others_valid[detail]` |
+| API-LINK-024 | P2 | 地址全字段缺失 | 空对象 → 400，不得 500 | - | `tests/api/test_validation_interactions.py::test_address_all_fields_missing` |
+| API-LINK-025 | P0 | 加购缺 SKU 但数量合规 | 预期 400（缺陷 D-13：当前 500） | - | `tests/api/test_validation_interactions.py::test_cart_missing_sku_while_quantity_valid` |
+| API-LINK-026 | P0 | 加购缺数量但 SKU 合规 | 预期 400（缺陷 D-15：当前 500） | - | `tests/api/test_validation_interactions.py::test_cart_missing_quantity_while_sku_valid` |
+| API-LINK-027 | P1 | 加购双非法时先报数量 | skuId 不存在 + quantity=0 → 400「数量须 ≥ 1」 | - | `tests/api/test_validation_interactions.py::test_cart_both_invalid_quantity_reported_first` |
+| API-LINK-028 | P1 | 加购 SKU 不存在数量合规 | 40410 商品不可用 | - | `tests/api/test_validation_interactions.py::test_cart_invalid_sku_with_valid_quantity` |
+| API-LINK-029 | P1 | 加购全字段合规成功 | skuId + quantity 合法 → 返回 cartItemId | - | `tests/api/test_validation_interactions.py::test_cart_valid_combination_succeeds` |
+| API-LINK-030 | P0 | 下单缺幂等键且地址非法时先报幂等键 | 判定顺序：400「idempotentKey 必填」 | - | `tests/api/test_validation_interactions.py::test_order_missing_key_reported_before_invalid_address` |
+| API-LINK-031 | P1 | 下单地址非法但商品合规 | 判定顺序：先报 400「收货地址无效」 | - | `tests/api/test_validation_interactions.py::test_order_invalid_address_with_valid_sku` |
+| API-LINK-032 | P1 | 下单既无购物车项也无 SKU | 400「请选择购物车项或立即购买 SKU」 | - | `tests/api/test_validation_interactions.py::test_order_no_items_and_no_sku_rejected` |
+| API-LINK-033 | P1 | 下单商品合规但数量为 0 | 400「数量须 ≥ 1」 | - | `tests/api/test_validation_interactions.py::test_order_valid_sku_but_quantity_zero` |
+| API-LINK-034 | P1 | 下单数量合规但 SKU 不存在 | 40410 商品不可用 | - | `tests/api/test_validation_interactions.py::test_order_valid_quantity_but_unknown_sku` |
+| API-LINK-035 | P1 | 下单全字段合规成功 | 地址 + SKU + 数量 + 幂等键 → PENDING_PAY | - | `tests/api/test_validation_interactions.py::test_order_valid_combination_succeeds` |
+| API-LINK-036 | P1 | 售后双非法时先报必填 | type 非法 + reason 缺失 → 400「订单、类型、原因必填」 | - | `tests/api/test_validation_interactions.py::test_after_sale_required_fields_reported_before_type` |
+| API-LINK-037 | P1 | 售后订单合规但类型非法 | 400「type 无效」 | - | `tests/api/test_validation_interactions.py::test_after_sale_valid_order_but_invalid_type` |
+| API-LINK-038 | P1 | 售后类型合规但原因为空白 | 400「订单、类型、原因必填」 | - | `tests/api/test_validation_interactions.py::test_after_sale_valid_type_but_blank_reason` |
+| API-LINK-039 | P1 | 售后字段合规但订单不存在 | 40400 订单不存在 | - | `tests/api/test_validation_interactions.py::test_after_sale_unknown_order_with_valid_fields` |
+| API-LINK-040 | P0 | 评价订单项合规但缺评分 | 预期 400（缺陷 D-14：当前 500） | - | `tests/api/test_validation_interactions.py::test_review_valid_item_but_missing_rating` |
+| API-LINK-041 | P1 | 评价评分合规但订单项不存在 | 40400 订单项不存在 | - | `tests/api/test_validation_interactions.py::test_review_unknown_item_with_valid_rating` |
+| API-LINK-042 | P1 | 评价订单项与评分合规且内容可省略 | 评价成功（content 可选） | - | `tests/api/test_validation_interactions.py::test_review_valid_combination_without_content` |
+
+### POST /api/orders 接口矩阵（17 条）
+
+| 用例ID | 优先级 | 用例标题 | 验证点 | 参数 | 自动化脚本 |
+|---|---|---|---|---|---|
+| API-OMX-001 | P0 | 【边界值】quantity=0 被拒 | 400「数量须 ≥ 1」 | - | `tests/api/test_endpoint_matrix_orders.py::test_boundary_quantity_lower_than_one` |
+| API-OMX-002 | P0 | 【边界值】quantity=-1 被拒 | 400「数量须 ≥ 1」 | - | `tests/api/test_endpoint_matrix_orders.py::test_boundary_negative_quantity` |
+| API-OMX-003 | P1 | 【边界值】quantity=1 合法下界 | 创建 PENDING_PAY 订单 | - | `tests/api/test_endpoint_matrix_orders.py::test_boundary_quantity_one_accepted` |
+| API-OMX-004 | P1 | 【边界值】quantity=可售库存+1 | 40901 库存不足 | - | `tests/api/test_endpoint_matrix_orders.py::test_boundary_quantity_exceeds_available_stock` |
+| API-OMX-005 | P1 | 【边界值】幂等键为空白串 | 400 必填（空白不等于已提供） | - | `tests/api/test_endpoint_matrix_orders.py::test_boundary_blank_idempotent_key` |
+| API-OMX-006 | P1 | 【参数组合】cartItemIds 与 skuId 并存 | 以购物车项为准，金额按购物车商品计算 | - | `tests/api/test_endpoint_matrix_orders.py::test_combination_cart_items_take_precedence_over_sku` |
+| API-OMX-007 | P0 | 【参数组合】缺幂等键+地址非法 | 判定顺序：先报 idempotentKey | - | `tests/api/test_endpoint_matrix_orders.py::test_combination_missing_key_reported_before_invalid_address` |
+| API-OMX-008 | P1 | 【参数组合】无购物车项且无 skuId | 400「请选择购物车项或立即购买 SKU」 | - | `tests/api/test_endpoint_matrix_orders.py::test_combination_no_items_and_no_sku` |
+| API-OMX-009 | P1 | 【参数组合】SKU 合规+数量 0 | 400 数量 | - | `tests/api/test_endpoint_matrix_orders.py::test_combination_valid_sku_with_zero_quantity` |
+| API-OMX-010 | P0 | 【幂等】同键同参重放 | 同一订单，库存只锁定一次 | - | `tests/api/test_endpoint_matrix_orders.py::test_idempotency_replay_same_payload` |
+| API-OMX-011 | P0 | 【幂等】同键换参重放 | 返回原单，原明细不被篡改 | - | `tests/api/test_endpoint_matrix_orders.py::test_idempotency_replay_with_changed_payload` |
+| API-OMX-012 | P1 | 【大数据量】20 个购物车项合并下单 | 明细 20 行、金额逐项求和、耗时 < 8s | - | `tests/api/test_endpoint_matrix_orders.py::test_bulk_order_with_twenty_cart_items` |
+| API-OMX-013 | P1 | 【大数据量】订单列表 size=100 | 结构稳定、含当前订单、耗时 < 3s | - | `tests/api/test_endpoint_matrix_orders.py::test_bulk_order_list_large_page` |
+| API-OMX-014 | P0 | 【异常】畸形 JSON 请求体 | 应 400（缺陷 D-16：当前 500） | - | `tests/api/test_endpoint_matrix_orders.py::test_exception_malformed_json` |
+| API-OMX-015 | P0 | 【异常】skuId 非数字 | 应 400（缺陷 D-17：当前 500） | - | `tests/api/test_endpoint_matrix_orders.py::test_exception_non_numeric_sku_id` |
+| API-OMX-016 | P1 | 【异常】500 个伪造购物车项 | 400，不得 5xx | - | `tests/api/test_endpoint_matrix_orders.py::test_exception_huge_cart_item_ids` |
+| API-OMX-017 | P1 | 【异常】未认证下单 | 401 未认证 | - | `tests/api/test_endpoint_matrix_orders.py::test_exception_unauthenticated` |
+
+### 全接口巡检（487 条）
+
+| 用例ID | 优先级 | 用例标题 | 验证点 | 参数 | 自动化脚本 |
+|---|---|---|---|---|---|
+| API-SWEEP-001 | P2 | test_endpoint_sweep[security_anonymous\uff5cGET /admin/after-sales] |  | case_index=0 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_anonymous\uff5cGET /admin/after-sales]` |
+| API-SWEEP-002 | P2 | test_endpoint_sweep[security_role\uff5cGET /admin/after-sales] |  | case_index=1 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_role\uff5cGET /admin/after-sales]` |
+| API-SWEEP-003 | P2 | test_endpoint_sweep[list_boundary\uff5cGET /admin/after-sales] |  | case_index=2 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[list_boundary\uff5cGET /admin/after-sales]` |
+| API-SWEEP-004 | P2 | test_endpoint_sweep[positive_list\uff5cGET /admin/after-sales] |  | case_index=3 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[positive_list\uff5cGET /admin/after-sales]` |
+| API-SWEEP-005 | P2 | test_endpoint_sweep[bulk_page\uff5cGET /admin/after-sales] |  | case_index=4 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[bulk_page\uff5cGET /admin/after-sales]` |
+| API-SWEEP-006 | P2 | test_endpoint_sweep[security_anonymous\uff5cGET /admin/after-sales/{id}] |  | case_index=5 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_anonymous\uff5cGET /admin/after-sales/{id}]` |
+| API-SWEEP-007 | P2 | test_endpoint_sweep[security_role\uff5cGET /admin/after-sales/{id}] |  | case_index=6 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_role\uff5cGET /admin/after-sales/{id}]` |
+| API-SWEEP-008 | P2 | test_endpoint_sweep[path_param_type\uff5cGET /admin/after-sales/{id}] |  | case_index=7 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cGET /admin/after-sales/{id}]` |
+| API-SWEEP-009 | P2 | test_endpoint_sweep[detail_not_found\uff5cGET /admin/after-sales/{id}] |  | case_index=8 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[detail_not_found\uff5cGET /admin/after-sales/{id}]` |
+| API-SWEEP-010 | P2 | test_endpoint_sweep[positive_detail\uff5cGET /admin/after-sales/{id}] |  | case_index=9 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[positive_detail\uff5cGET /admin/after-sales/{id}]` |
+| API-SWEEP-011 | P2 | test_endpoint_sweep[security_anonymous\uff5cPOST /admin/after-sales/{id}/audit] |  | case_index=10 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_anonymous\uff5cPOST /admin/after-sales/{id}/audit]` |
+| API-SWEEP-012 | P2 | test_endpoint_sweep[security_role\uff5cPOST /admin/after-sales/{id}/audit] |  | case_index=11 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_role\uff5cPOST /admin/after-sales/{id}/audit]` |
+| API-SWEEP-013 | P2 | test_endpoint_sweep[path_param_type\uff5cPOST /admin/after-sales/{id}/audit] |  | case_index=12 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cPOST /admin/after-sales/{id}/audit]` |
+| API-SWEEP-014 | P2 | test_endpoint_sweep[malformed_json\uff5cPOST /admin/after-sales/{id}/audit] |  | case_index=13 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[malformed_json\uff5cPOST /admin/after-sales/{id}/audit]` |
+| API-SWEEP-015 | P2 | test_endpoint_sweep[empty_body\uff5cPOST /admin/after-sales/{id}/audit] |  | case_index=14 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[empty_body\uff5cPOST /admin/after-sales/{id}/audit]` |
+| API-SWEEP-016 | P2 | test_endpoint_sweep[security_anonymous\uff5cGET /admin/attributes] |  | case_index=15 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_anonymous\uff5cGET /admin/attributes]` |
+| API-SWEEP-017 | P2 | test_endpoint_sweep[security_role\uff5cGET /admin/attributes] |  | case_index=16 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_role\uff5cGET /admin/attributes]` |
+| API-SWEEP-018 | P2 | test_endpoint_sweep[list_boundary\uff5cGET /admin/attributes] |  | case_index=17 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[list_boundary\uff5cGET /admin/attributes]` |
+| API-SWEEP-019 | P2 | test_endpoint_sweep[positive_list\uff5cGET /admin/attributes] |  | case_index=18 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[positive_list\uff5cGET /admin/attributes]` |
+| API-SWEEP-020 | P2 | test_endpoint_sweep[bulk_page\uff5cGET /admin/attributes] |  | case_index=19 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[bulk_page\uff5cGET /admin/attributes]` |
+| API-SWEEP-021 | P2 | test_endpoint_sweep[security_anonymous\uff5cPOST /admin/attributes] |  | case_index=20 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_anonymous\uff5cPOST /admin/attributes]` |
+| API-SWEEP-022 | P2 | test_endpoint_sweep[security_role\uff5cPOST /admin/attributes] |  | case_index=21 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_role\uff5cPOST /admin/attributes]` |
+| API-SWEEP-023 | P2 | test_endpoint_sweep[malformed_json\uff5cPOST /admin/attributes] |  | case_index=22 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[malformed_json\uff5cPOST /admin/attributes]` |
+| API-SWEEP-024 | P2 | test_endpoint_sweep[empty_body\uff5cPOST /admin/attributes] |  | case_index=23 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[empty_body\uff5cPOST /admin/attributes]` |
+| API-SWEEP-025 | P2 | test_endpoint_sweep[security_anonymous\uff5cDELETE /admin/attributes/{id}] |  | case_index=24 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_anonymous\uff5cDELETE /admin/attributes/{id}]` |
+| API-SWEEP-026 | P2 | test_endpoint_sweep[security_role\uff5cDELETE /admin/attributes/{id}] |  | case_index=25 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_role\uff5cDELETE /admin/attributes/{id}]` |
+| API-SWEEP-027 | P2 | test_endpoint_sweep[path_param_type\uff5cDELETE /admin/attributes/{id}] |  | case_index=26 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cDELETE /admin/attributes/{id}]` |
+| API-SWEEP-028 | P2 | test_endpoint_sweep[security_anonymous\uff5cPUT /admin/attributes/{id}] |  | case_index=27 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_anonymous\uff5cPUT /admin/attributes/{id}]` |
+| API-SWEEP-029 | P2 | test_endpoint_sweep[security_role\uff5cPUT /admin/attributes/{id}] |  | case_index=28 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_role\uff5cPUT /admin/attributes/{id}]` |
+| API-SWEEP-030 | P2 | test_endpoint_sweep[path_param_type\uff5cPUT /admin/attributes/{id}] |  | case_index=29 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cPUT /admin/attributes/{id}]` |
+| API-SWEEP-031 | P2 | test_endpoint_sweep[malformed_json\uff5cPOST /admin/auth/login] |  | case_index=30 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[malformed_json\uff5cPOST /admin/auth/login]` |
+| API-SWEEP-032 | P2 | test_endpoint_sweep[empty_body\uff5cPOST /admin/auth/login] |  | case_index=31 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[empty_body\uff5cPOST /admin/auth/login]` |
+| API-SWEEP-033 | P2 | test_endpoint_sweep[security_anonymous\uff5cPOST /admin/auth/logout] |  | case_index=32 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_anonymous\uff5cPOST /admin/auth/logout]` |
+| API-SWEEP-034 | P2 | test_endpoint_sweep[security_role\uff5cPOST /admin/auth/logout] |  | case_index=33 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_role\uff5cPOST /admin/auth/logout]` |
+| API-SWEEP-035 | P2 | test_endpoint_sweep[security_anonymous\uff5cGET /admin/auth/me] |  | case_index=34 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_anonymous\uff5cGET /admin/auth/me]` |
+| API-SWEEP-036 | P2 | test_endpoint_sweep[security_role\uff5cGET /admin/auth/me] |  | case_index=35 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_role\uff5cGET /admin/auth/me]` |
+| API-SWEEP-037 | P2 | test_endpoint_sweep[list_boundary\uff5cGET /admin/auth/me] |  | case_index=36 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[list_boundary\uff5cGET /admin/auth/me]` |
+| API-SWEEP-038 | P2 | test_endpoint_sweep[positive_list\uff5cGET /admin/auth/me] |  | case_index=37 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[positive_list\uff5cGET /admin/auth/me]` |
+| API-SWEEP-039 | P2 | test_endpoint_sweep[bulk_page\uff5cGET /admin/auth/me] |  | case_index=38 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[bulk_page\uff5cGET /admin/auth/me]` |
+| API-SWEEP-040 | P2 | test_endpoint_sweep[malformed_json\uff5cPOST /admin/auth/refresh] |  | case_index=39 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[malformed_json\uff5cPOST /admin/auth/refresh]` |
+| API-SWEEP-041 | P2 | test_endpoint_sweep[empty_body\uff5cPOST /admin/auth/refresh] |  | case_index=40 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[empty_body\uff5cPOST /admin/auth/refresh]` |
+| API-SWEEP-042 | P2 | test_endpoint_sweep[security_anonymous\uff5cGET /admin/brands] |  | case_index=41 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_anonymous\uff5cGET /admin/brands]` |
+| API-SWEEP-043 | P2 | test_endpoint_sweep[security_role\uff5cGET /admin/brands] |  | case_index=42 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_role\uff5cGET /admin/brands]` |
+| API-SWEEP-044 | P2 | test_endpoint_sweep[list_boundary\uff5cGET /admin/brands] |  | case_index=43 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[list_boundary\uff5cGET /admin/brands]` |
+| API-SWEEP-045 | P2 | test_endpoint_sweep[positive_list\uff5cGET /admin/brands] |  | case_index=44 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[positive_list\uff5cGET /admin/brands]` |
+| API-SWEEP-046 | P2 | test_endpoint_sweep[bulk_page\uff5cGET /admin/brands] |  | case_index=45 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[bulk_page\uff5cGET /admin/brands]` |
+| API-SWEEP-047 | P2 | test_endpoint_sweep[security_anonymous\uff5cPOST /admin/brands] |  | case_index=46 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_anonymous\uff5cPOST /admin/brands]` |
+| API-SWEEP-048 | P2 | test_endpoint_sweep[security_role\uff5cPOST /admin/brands] |  | case_index=47 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_role\uff5cPOST /admin/brands]` |
+| API-SWEEP-049 | P2 | test_endpoint_sweep[malformed_json\uff5cPOST /admin/brands] |  | case_index=48 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[malformed_json\uff5cPOST /admin/brands]` |
+| API-SWEEP-050 | P2 | test_endpoint_sweep[empty_body\uff5cPOST /admin/brands] |  | case_index=49 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[empty_body\uff5cPOST /admin/brands]` |
+| API-SWEEP-051 | P2 | test_endpoint_sweep[security_anonymous\uff5cDELETE /admin/brands/{id}] |  | case_index=50 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_anonymous\uff5cDELETE /admin/brands/{id}]` |
+| API-SWEEP-052 | P2 | test_endpoint_sweep[security_role\uff5cDELETE /admin/brands/{id}] |  | case_index=51 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_role\uff5cDELETE /admin/brands/{id}]` |
+| API-SWEEP-053 | P2 | test_endpoint_sweep[path_param_type\uff5cDELETE /admin/brands/{id}] |  | case_index=52 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cDELETE /admin/brands/{id}]` |
+| API-SWEEP-054 | P2 | test_endpoint_sweep[security_anonymous\uff5cPUT /admin/brands/{id}] |  | case_index=53 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_anonymous\uff5cPUT /admin/brands/{id}]` |
+| API-SWEEP-055 | P2 | test_endpoint_sweep[security_role\uff5cPUT /admin/brands/{id}] |  | case_index=54 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_role\uff5cPUT /admin/brands/{id}]` |
+| API-SWEEP-056 | P2 | test_endpoint_sweep[path_param_type\uff5cPUT /admin/brands/{id}] |  | case_index=55 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cPUT /admin/brands/{id}]` |
+| API-SWEEP-057 | P2 | test_endpoint_sweep[security_anonymous\uff5cGET /admin/categories] |  | case_index=56 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_anonymous\uff5cGET /admin/categories]` |
+| API-SWEEP-058 | P2 | test_endpoint_sweep[security_role\uff5cGET /admin/categories] |  | case_index=57 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_role\uff5cGET /admin/categories]` |
+| API-SWEEP-059 | P2 | test_endpoint_sweep[list_boundary\uff5cGET /admin/categories] |  | case_index=58 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[list_boundary\uff5cGET /admin/categories]` |
+| API-SWEEP-060 | P2 | test_endpoint_sweep[positive_list\uff5cGET /admin/categories] |  | case_index=59 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[positive_list\uff5cGET /admin/categories]` |
+| API-SWEEP-061 | P2 | test_endpoint_sweep[bulk_page\uff5cGET /admin/categories] |  | case_index=60 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[bulk_page\uff5cGET /admin/categories]` |
+| API-SWEEP-062 | P2 | test_endpoint_sweep[security_anonymous\uff5cPOST /admin/categories] |  | case_index=61 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_anonymous\uff5cPOST /admin/categories]` |
+| API-SWEEP-063 | P2 | test_endpoint_sweep[security_role\uff5cPOST /admin/categories] |  | case_index=62 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_role\uff5cPOST /admin/categories]` |
+| API-SWEEP-064 | P2 | test_endpoint_sweep[malformed_json\uff5cPOST /admin/categories] |  | case_index=63 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[malformed_json\uff5cPOST /admin/categories]` |
+| API-SWEEP-065 | P2 | test_endpoint_sweep[empty_body\uff5cPOST /admin/categories] |  | case_index=64 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[empty_body\uff5cPOST /admin/categories]` |
+| API-SWEEP-066 | P2 | test_endpoint_sweep[security_anonymous\uff5cGET /admin/categories/tree] |  | case_index=65 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_anonymous\uff5cGET /admin/categories/tree]` |
+| API-SWEEP-067 | P2 | test_endpoint_sweep[security_role\uff5cGET /admin/categories/tree] |  | case_index=66 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_role\uff5cGET /admin/categories/tree]` |
+| API-SWEEP-068 | P2 | test_endpoint_sweep[list_boundary\uff5cGET /admin/categories/tree] |  | case_index=67 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[list_boundary\uff5cGET /admin/categories/tree]` |
+| API-SWEEP-069 | P2 | test_endpoint_sweep[positive_list\uff5cGET /admin/categories/tree] |  | case_index=68 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[positive_list\uff5cGET /admin/categories/tree]` |
+| API-SWEEP-070 | P2 | test_endpoint_sweep[bulk_page\uff5cGET /admin/categories/tree] |  | case_index=69 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[bulk_page\uff5cGET /admin/categories/tree]` |
+| API-SWEEP-071 | P2 | test_endpoint_sweep[security_anonymous\uff5cDELETE /admin/categories/{id}] |  | case_index=70 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_anonymous\uff5cDELETE /admin/categories/{id}]` |
+| API-SWEEP-072 | P2 | test_endpoint_sweep[security_role\uff5cDELETE /admin/categories/{id}] |  | case_index=71 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_role\uff5cDELETE /admin/categories/{id}]` |
+| API-SWEEP-073 | P2 | test_endpoint_sweep[path_param_type\uff5cDELETE /admin/categories/{id}] |  | case_index=72 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cDELETE /admin/categories/{id}]` |
+| API-SWEEP-074 | P2 | test_endpoint_sweep[security_anonymous\uff5cPUT /admin/categories/{id}] |  | case_index=73 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_anonymous\uff5cPUT /admin/categories/{id}]` |
+| API-SWEEP-075 | P2 | test_endpoint_sweep[security_role\uff5cPUT /admin/categories/{id}] |  | case_index=74 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_role\uff5cPUT /admin/categories/{id}]` |
+| API-SWEEP-076 | P2 | test_endpoint_sweep[path_param_type\uff5cPUT /admin/categories/{id}] |  | case_index=75 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cPUT /admin/categories/{id}]` |
+| API-SWEEP-077 | P2 | test_endpoint_sweep[security_anonymous\uff5cGET /admin/customers] |  | case_index=76 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_anonymous\uff5cGET /admin/customers]` |
+| API-SWEEP-078 | P2 | test_endpoint_sweep[security_role\uff5cGET /admin/customers] |  | case_index=77 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_role\uff5cGET /admin/customers]` |
+| API-SWEEP-079 | P2 | test_endpoint_sweep[list_boundary\uff5cGET /admin/customers] |  | case_index=78 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[list_boundary\uff5cGET /admin/customers]` |
+| API-SWEEP-080 | P2 | test_endpoint_sweep[positive_list\uff5cGET /admin/customers] |  | case_index=79 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[positive_list\uff5cGET /admin/customers]` |
+| API-SWEEP-081 | P2 | test_endpoint_sweep[bulk_page\uff5cGET /admin/customers] |  | case_index=80 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[bulk_page\uff5cGET /admin/customers]` |
+| API-SWEEP-082 | P2 | test_endpoint_sweep[security_anonymous\uff5cGET /admin/customers/{id}] |  | case_index=81 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_anonymous\uff5cGET /admin/customers/{id}]` |
+| API-SWEEP-083 | P2 | test_endpoint_sweep[security_role\uff5cGET /admin/customers/{id}] |  | case_index=82 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_role\uff5cGET /admin/customers/{id}]` |
+| API-SWEEP-084 | P2 | test_endpoint_sweep[path_param_type\uff5cGET /admin/customers/{id}] |  | case_index=83 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cGET /admin/customers/{id}]` |
+| API-SWEEP-085 | P2 | test_endpoint_sweep[detail_not_found\uff5cGET /admin/customers/{id}] |  | case_index=84 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[detail_not_found\uff5cGET /admin/customers/{id}]` |
+| API-SWEEP-086 | P2 | test_endpoint_sweep[positive_detail\uff5cGET /admin/customers/{id}] |  | case_index=85 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[positive_detail\uff5cGET /admin/customers/{id}]` |
+| API-SWEEP-087 | P2 | test_endpoint_sweep[security_anonymous\uff5cPUT /admin/customers/{id}/status] |  | case_index=86 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_anonymous\uff5cPUT /admin/customers/{id}/status]` |
+| API-SWEEP-088 | P2 | test_endpoint_sweep[security_role\uff5cPUT /admin/customers/{id}/status] |  | case_index=87 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_role\uff5cPUT /admin/customers/{id}/status]` |
+| API-SWEEP-089 | P2 | test_endpoint_sweep[path_param_type\uff5cPUT /admin/customers/{id}/status] |  | case_index=88 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cPUT /admin/customers/{id}/status]` |
+| API-SWEEP-090 | P2 | test_endpoint_sweep[security_anonymous\uff5cGET /admin/dashboard/stats] |  | case_index=89 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_anonymous\uff5cGET /admin/dashboard/stats]` |
+| API-SWEEP-091 | P2 | test_endpoint_sweep[security_role\uff5cGET /admin/dashboard/stats] |  | case_index=90 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_role\uff5cGET /admin/dashboard/stats]` |
+| API-SWEEP-092 | P2 | test_endpoint_sweep[list_boundary\uff5cGET /admin/dashboard/stats] |  | case_index=91 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[list_boundary\uff5cGET /admin/dashboard/stats]` |
+| API-SWEEP-093 | P2 | test_endpoint_sweep[positive_list\uff5cGET /admin/dashboard/stats] |  | case_index=92 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[positive_list\uff5cGET /admin/dashboard/stats]` |
+| API-SWEEP-094 | P2 | test_endpoint_sweep[bulk_page\uff5cGET /admin/dashboard/stats] |  | case_index=93 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[bulk_page\uff5cGET /admin/dashboard/stats]` |
+| API-SWEEP-095 | P2 | test_endpoint_sweep[security_anonymous\uff5cGET /admin/depts] |  | case_index=94 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_anonymous\uff5cGET /admin/depts]` |
+| API-SWEEP-096 | P2 | test_endpoint_sweep[security_role\uff5cGET /admin/depts] |  | case_index=95 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_role\uff5cGET /admin/depts]` |
+| API-SWEEP-097 | P2 | test_endpoint_sweep[list_boundary\uff5cGET /admin/depts] |  | case_index=96 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[list_boundary\uff5cGET /admin/depts]` |
+| API-SWEEP-098 | P2 | test_endpoint_sweep[positive_list\uff5cGET /admin/depts] |  | case_index=97 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[positive_list\uff5cGET /admin/depts]` |
+| API-SWEEP-099 | P2 | test_endpoint_sweep[bulk_page\uff5cGET /admin/depts] |  | case_index=98 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[bulk_page\uff5cGET /admin/depts]` |
+| API-SWEEP-100 | P2 | test_endpoint_sweep[security_anonymous\uff5cPOST /admin/depts] |  | case_index=99 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_anonymous\uff5cPOST /admin/depts]` |
+| API-SWEEP-101 | P2 | test_endpoint_sweep[security_role\uff5cPOST /admin/depts] |  | case_index=100 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_role\uff5cPOST /admin/depts]` |
+| API-SWEEP-102 | P2 | test_endpoint_sweep[malformed_json\uff5cPOST /admin/depts] |  | case_index=101 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[malformed_json\uff5cPOST /admin/depts]` |
+| API-SWEEP-103 | P2 | test_endpoint_sweep[empty_body\uff5cPOST /admin/depts] |  | case_index=102 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[empty_body\uff5cPOST /admin/depts]` |
+| API-SWEEP-104 | P2 | test_endpoint_sweep[security_anonymous\uff5cGET /admin/depts/tree] |  | case_index=103 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_anonymous\uff5cGET /admin/depts/tree]` |
+| API-SWEEP-105 | P2 | test_endpoint_sweep[security_role\uff5cGET /admin/depts/tree] |  | case_index=104 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_role\uff5cGET /admin/depts/tree]` |
+| API-SWEEP-106 | P2 | test_endpoint_sweep[list_boundary\uff5cGET /admin/depts/tree] |  | case_index=105 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[list_boundary\uff5cGET /admin/depts/tree]` |
+| API-SWEEP-107 | P2 | test_endpoint_sweep[positive_list\uff5cGET /admin/depts/tree] |  | case_index=106 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[positive_list\uff5cGET /admin/depts/tree]` |
+| API-SWEEP-108 | P2 | test_endpoint_sweep[bulk_page\uff5cGET /admin/depts/tree] |  | case_index=107 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[bulk_page\uff5cGET /admin/depts/tree]` |
+| API-SWEEP-109 | P2 | test_endpoint_sweep[security_anonymous\uff5cDELETE /admin/depts/{id}] |  | case_index=108 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_anonymous\uff5cDELETE /admin/depts/{id}]` |
+| API-SWEEP-110 | P2 | test_endpoint_sweep[security_role\uff5cDELETE /admin/depts/{id}] |  | case_index=109 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_role\uff5cDELETE /admin/depts/{id}]` |
+| API-SWEEP-111 | P2 | test_endpoint_sweep[path_param_type\uff5cDELETE /admin/depts/{id}] |  | case_index=110 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cDELETE /admin/depts/{id}]` |
+| API-SWEEP-112 | P2 | test_endpoint_sweep[security_anonymous\uff5cPUT /admin/depts/{id}] |  | case_index=111 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_anonymous\uff5cPUT /admin/depts/{id}]` |
+| API-SWEEP-113 | P2 | test_endpoint_sweep[security_role\uff5cPUT /admin/depts/{id}] |  | case_index=112 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_role\uff5cPUT /admin/depts/{id}]` |
+| API-SWEEP-114 | P2 | test_endpoint_sweep[path_param_type\uff5cPUT /admin/depts/{id}] |  | case_index=113 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cPUT /admin/depts/{id}]` |
+| API-SWEEP-115 | P2 | test_endpoint_sweep[security_anonymous\uff5cGET /admin/dict-items] |  | case_index=114 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_anonymous\uff5cGET /admin/dict-items]` |
+| API-SWEEP-116 | P2 | test_endpoint_sweep[security_role\uff5cGET /admin/dict-items] |  | case_index=115 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_role\uff5cGET /admin/dict-items]` |
+| API-SWEEP-117 | P2 | test_endpoint_sweep[list_boundary\uff5cGET /admin/dict-items] |  | case_index=116 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[list_boundary\uff5cGET /admin/dict-items]` |
+| API-SWEEP-118 | P2 | test_endpoint_sweep[security_anonymous\uff5cPOST /admin/dict-items] |  | case_index=117 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_anonymous\uff5cPOST /admin/dict-items]` |
+| API-SWEEP-119 | P2 | test_endpoint_sweep[security_role\uff5cPOST /admin/dict-items] |  | case_index=118 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_role\uff5cPOST /admin/dict-items]` |
+| API-SWEEP-120 | P2 | test_endpoint_sweep[malformed_json\uff5cPOST /admin/dict-items] |  | case_index=119 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[malformed_json\uff5cPOST /admin/dict-items]` |
+| API-SWEEP-121 | P2 | test_endpoint_sweep[empty_body\uff5cPOST /admin/dict-items] |  | case_index=120 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[empty_body\uff5cPOST /admin/dict-items]` |
+| API-SWEEP-122 | P2 | test_endpoint_sweep[security_anonymous\uff5cGET /admin/dict-items/by-code] |  | case_index=121 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_anonymous\uff5cGET /admin/dict-items/by-code]` |
+| API-SWEEP-123 | P2 | test_endpoint_sweep[security_role\uff5cGET /admin/dict-items/by-code] |  | case_index=122 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_role\uff5cGET /admin/dict-items/by-code]` |
+| API-SWEEP-124 | P2 | test_endpoint_sweep[list_boundary\uff5cGET /admin/dict-items/by-code] |  | case_index=123 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[list_boundary\uff5cGET /admin/dict-items/by-code]` |
+| API-SWEEP-125 | P2 | test_endpoint_sweep[security_anonymous\uff5cDELETE /admin/dict-items/{id}] |  | case_index=124 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_anonymous\uff5cDELETE /admin/dict-items/{id}]` |
+| API-SWEEP-126 | P2 | test_endpoint_sweep[security_role\uff5cDELETE /admin/dict-items/{id}] |  | case_index=125 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_role\uff5cDELETE /admin/dict-items/{id}]` |
+| API-SWEEP-127 | P2 | test_endpoint_sweep[path_param_type\uff5cDELETE /admin/dict-items/{id}] |  | case_index=126 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cDELETE /admin/dict-items/{id}]` |
+| API-SWEEP-128 | P2 | test_endpoint_sweep[security_anonymous\uff5cPUT /admin/dict-items/{id}] |  | case_index=127 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_anonymous\uff5cPUT /admin/dict-items/{id}]` |
+| API-SWEEP-129 | P2 | test_endpoint_sweep[security_role\uff5cPUT /admin/dict-items/{id}] |  | case_index=128 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_role\uff5cPUT /admin/dict-items/{id}]` |
+| API-SWEEP-130 | P2 | test_endpoint_sweep[path_param_type\uff5cPUT /admin/dict-items/{id}] |  | case_index=129 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cPUT /admin/dict-items/{id}]` |
+| API-SWEEP-131 | P2 | test_endpoint_sweep[security_anonymous\uff5cGET /admin/dicts] |  | case_index=130 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_anonymous\uff5cGET /admin/dicts]` |
+| API-SWEEP-132 | P2 | test_endpoint_sweep[security_role\uff5cGET /admin/dicts] |  | case_index=131 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_role\uff5cGET /admin/dicts]` |
+| API-SWEEP-133 | P2 | test_endpoint_sweep[list_boundary\uff5cGET /admin/dicts] |  | case_index=132 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[list_boundary\uff5cGET /admin/dicts]` |
+| API-SWEEP-134 | P2 | test_endpoint_sweep[positive_list\uff5cGET /admin/dicts] |  | case_index=133 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[positive_list\uff5cGET /admin/dicts]` |
+| API-SWEEP-135 | P2 | test_endpoint_sweep[bulk_page\uff5cGET /admin/dicts] |  | case_index=134 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[bulk_page\uff5cGET /admin/dicts]` |
+| API-SWEEP-136 | P2 | test_endpoint_sweep[security_anonymous\uff5cPOST /admin/dicts] |  | case_index=135 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_anonymous\uff5cPOST /admin/dicts]` |
+| API-SWEEP-137 | P2 | test_endpoint_sweep[security_role\uff5cPOST /admin/dicts] |  | case_index=136 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_role\uff5cPOST /admin/dicts]` |
+| API-SWEEP-138 | P2 | test_endpoint_sweep[malformed_json\uff5cPOST /admin/dicts] |  | case_index=137 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[malformed_json\uff5cPOST /admin/dicts]` |
+| API-SWEEP-139 | P2 | test_endpoint_sweep[empty_body\uff5cPOST /admin/dicts] |  | case_index=138 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[empty_body\uff5cPOST /admin/dicts]` |
+| API-SWEEP-140 | P2 | test_endpoint_sweep[security_anonymous\uff5cDELETE /admin/dicts/{id}] |  | case_index=139 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_anonymous\uff5cDELETE /admin/dicts/{id}]` |
+| API-SWEEP-141 | P2 | test_endpoint_sweep[security_role\uff5cDELETE /admin/dicts/{id}] |  | case_index=140 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_role\uff5cDELETE /admin/dicts/{id}]` |
+| API-SWEEP-142 | P2 | test_endpoint_sweep[path_param_type\uff5cDELETE /admin/dicts/{id}] |  | case_index=141 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cDELETE /admin/dicts/{id}]` |
+| API-SWEEP-143 | P2 | test_endpoint_sweep[security_anonymous\uff5cPUT /admin/dicts/{id}] |  | case_index=142 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_anonymous\uff5cPUT /admin/dicts/{id}]` |
+| API-SWEEP-144 | P2 | test_endpoint_sweep[security_role\uff5cPUT /admin/dicts/{id}] |  | case_index=143 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_role\uff5cPUT /admin/dicts/{id}]` |
+| API-SWEEP-145 | P2 | test_endpoint_sweep[path_param_type\uff5cPUT /admin/dicts/{id}] |  | case_index=144 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cPUT /admin/dicts/{id}]` |
+| API-SWEEP-146 | P2 | test_endpoint_sweep[security_anonymous\uff5cPOST /admin/files/confirm] |  | case_index=145 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_anonymous\uff5cPOST /admin/files/confirm]` |
+| API-SWEEP-147 | P2 | test_endpoint_sweep[security_role\uff5cPOST /admin/files/confirm] |  | case_index=146 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_role\uff5cPOST /admin/files/confirm]` |
+| API-SWEEP-148 | P2 | test_endpoint_sweep[malformed_json\uff5cPOST /admin/files/confirm] |  | case_index=147 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[malformed_json\uff5cPOST /admin/files/confirm]` |
+| API-SWEEP-149 | P2 | test_endpoint_sweep[empty_body\uff5cPOST /admin/files/confirm] |  | case_index=148 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[empty_body\uff5cPOST /admin/files/confirm]` |
+| API-SWEEP-150 | P2 | test_endpoint_sweep[security_anonymous\uff5cPOST /admin/files/presign] |  | case_index=149 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_anonymous\uff5cPOST /admin/files/presign]` |
+| API-SWEEP-151 | P2 | test_endpoint_sweep[security_role\uff5cPOST /admin/files/presign] |  | case_index=150 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_role\uff5cPOST /admin/files/presign]` |
+| API-SWEEP-152 | P2 | test_endpoint_sweep[security_anonymous\uff5cPOST /admin/files/upload] |  | case_index=151 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_anonymous\uff5cPOST /admin/files/upload]` |
+| API-SWEEP-153 | P2 | test_endpoint_sweep[security_role\uff5cPOST /admin/files/upload] |  | case_index=152 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_role\uff5cPOST /admin/files/upload]` |
+| API-SWEEP-154 | P2 | test_endpoint_sweep[list_boundary\uff5cGET /admin/files/view] |  | case_index=153 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[list_boundary\uff5cGET /admin/files/view]` |
+| API-SWEEP-155 | P2 | test_endpoint_sweep[security_anonymous\uff5cGET /admin/home/slots] |  | case_index=154 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_anonymous\uff5cGET /admin/home/slots]` |
+| API-SWEEP-156 | P2 | test_endpoint_sweep[security_role\uff5cGET /admin/home/slots] |  | case_index=155 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_role\uff5cGET /admin/home/slots]` |
+| API-SWEEP-157 | P2 | test_endpoint_sweep[list_boundary\uff5cGET /admin/home/slots] |  | case_index=156 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[list_boundary\uff5cGET /admin/home/slots]` |
+| API-SWEEP-158 | P2 | test_endpoint_sweep[positive_list\uff5cGET /admin/home/slots] |  | case_index=157 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[positive_list\uff5cGET /admin/home/slots]` |
+| API-SWEEP-159 | P2 | test_endpoint_sweep[bulk_page\uff5cGET /admin/home/slots] |  | case_index=158 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[bulk_page\uff5cGET /admin/home/slots]` |
+| API-SWEEP-160 | P2 | test_endpoint_sweep[security_anonymous\uff5cGET /admin/home/slots/{code}] |  | case_index=159 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_anonymous\uff5cGET /admin/home/slots/{code}]` |
+| API-SWEEP-161 | P2 | test_endpoint_sweep[security_role\uff5cGET /admin/home/slots/{code}] |  | case_index=160 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_role\uff5cGET /admin/home/slots/{code}]` |
+| API-SWEEP-162 | P2 | test_endpoint_sweep[path_param_type\uff5cGET /admin/home/slots/{code}] |  | case_index=161 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cGET /admin/home/slots/{code}]` |
+| API-SWEEP-163 | P2 | test_endpoint_sweep[detail_not_found\uff5cGET /admin/home/slots/{code}] |  | case_index=162 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[detail_not_found\uff5cGET /admin/home/slots/{code}]` |
+| API-SWEEP-164 | P2 | test_endpoint_sweep[positive_detail\uff5cGET /admin/home/slots/{code}] |  | case_index=163 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[positive_detail\uff5cGET /admin/home/slots/{code}]` |
+| API-SWEEP-165 | P2 | test_endpoint_sweep[security_anonymous\uff5cPUT /admin/home/slots/{code}] |  | case_index=164 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_anonymous\uff5cPUT /admin/home/slots/{code}]` |
+| API-SWEEP-166 | P2 | test_endpoint_sweep[security_role\uff5cPUT /admin/home/slots/{code}] |  | case_index=165 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_role\uff5cPUT /admin/home/slots/{code}]` |
+| API-SWEEP-167 | P2 | test_endpoint_sweep[path_param_type\uff5cPUT /admin/home/slots/{code}] |  | case_index=166 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cPUT /admin/home/slots/{code}]` |
+| API-SWEEP-168 | P2 | test_endpoint_sweep[malformed_json\uff5cPUT /admin/home/slots/{code}] |  | case_index=167 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[malformed_json\uff5cPUT /admin/home/slots/{code}]` |
+| API-SWEEP-169 | P2 | test_endpoint_sweep[empty_body\uff5cPUT /admin/home/slots/{code}] |  | case_index=168 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[empty_body\uff5cPUT /admin/home/slots/{code}]` |
+| API-SWEEP-170 | P2 | test_endpoint_sweep[security_anonymous\uff5cGET /admin/in-out] |  | case_index=169 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_anonymous\uff5cGET /admin/in-out]` |
+| API-SWEEP-171 | P2 | test_endpoint_sweep[security_role\uff5cGET /admin/in-out] |  | case_index=170 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_role\uff5cGET /admin/in-out]` |
+| API-SWEEP-172 | P2 | test_endpoint_sweep[list_boundary\uff5cGET /admin/in-out] |  | case_index=171 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[list_boundary\uff5cGET /admin/in-out]` |
+| API-SWEEP-173 | P2 | test_endpoint_sweep[positive_list\uff5cGET /admin/in-out] |  | case_index=172 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[positive_list\uff5cGET /admin/in-out]` |
+| API-SWEEP-174 | P2 | test_endpoint_sweep[bulk_page\uff5cGET /admin/in-out] |  | case_index=173 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[bulk_page\uff5cGET /admin/in-out]` |
+| API-SWEEP-175 | P2 | test_endpoint_sweep[security_anonymous\uff5cPOST /admin/in-out] |  | case_index=174 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_anonymous\uff5cPOST /admin/in-out]` |
+| API-SWEEP-176 | P2 | test_endpoint_sweep[security_role\uff5cPOST /admin/in-out] |  | case_index=175 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_role\uff5cPOST /admin/in-out]` |
+| API-SWEEP-177 | P2 | test_endpoint_sweep[security_anonymous\uff5cGET /admin/operation-logs] |  | case_index=176 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_anonymous\uff5cGET /admin/operation-logs]` |
+| API-SWEEP-178 | P2 | test_endpoint_sweep[security_role\uff5cGET /admin/operation-logs] |  | case_index=177 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_role\uff5cGET /admin/operation-logs]` |
+| API-SWEEP-179 | P2 | test_endpoint_sweep[list_boundary\uff5cGET /admin/operation-logs] |  | case_index=178 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[list_boundary\uff5cGET /admin/operation-logs]` |
+| API-SWEEP-180 | P2 | test_endpoint_sweep[positive_list\uff5cGET /admin/operation-logs] |  | case_index=179 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[positive_list\uff5cGET /admin/operation-logs]` |
+| API-SWEEP-181 | P2 | test_endpoint_sweep[bulk_page\uff5cGET /admin/operation-logs] |  | case_index=180 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[bulk_page\uff5cGET /admin/operation-logs]` |
+| API-SWEEP-182 | P2 | test_endpoint_sweep[security_anonymous\uff5cGET /admin/operation-logs/export] |  | case_index=181 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_anonymous\uff5cGET /admin/operation-logs/export]` |
+| API-SWEEP-183 | P2 | test_endpoint_sweep[security_role\uff5cGET /admin/operation-logs/export] |  | case_index=182 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_role\uff5cGET /admin/operation-logs/export]` |
+| API-SWEEP-184 | P2 | test_endpoint_sweep[list_boundary\uff5cGET /admin/operation-logs/export] |  | case_index=183 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[list_boundary\uff5cGET /admin/operation-logs/export]` |
+| API-SWEEP-185 | P2 | test_endpoint_sweep[security_anonymous\uff5cGET /admin/operation-logs/{id}] |  | case_index=184 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_anonymous\uff5cGET /admin/operation-logs/{id}]` |
+| API-SWEEP-186 | P2 | test_endpoint_sweep[security_role\uff5cGET /admin/operation-logs/{id}] |  | case_index=185 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_role\uff5cGET /admin/operation-logs/{id}]` |
+| API-SWEEP-187 | P2 | test_endpoint_sweep[path_param_type\uff5cGET /admin/operation-logs/{id}] |  | case_index=186 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cGET /admin/operation-logs/{id}]` |
+| API-SWEEP-188 | P2 | test_endpoint_sweep[detail_not_found\uff5cGET /admin/operation-logs/{id}] |  | case_index=187 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[detail_not_found\uff5cGET /admin/operation-logs/{id}]` |
+| API-SWEEP-189 | P2 | test_endpoint_sweep[positive_detail\uff5cGET /admin/operation-logs/{id}] |  | case_index=188 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[positive_detail\uff5cGET /admin/operation-logs/{id}]` |
+| API-SWEEP-190 | P2 | test_endpoint_sweep[security_anonymous\uff5cGET /admin/orders] |  | case_index=189 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_anonymous\uff5cGET /admin/orders]` |
+| API-SWEEP-191 | P2 | test_endpoint_sweep[security_role\uff5cGET /admin/orders] |  | case_index=190 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_role\uff5cGET /admin/orders]` |
+| API-SWEEP-192 | P2 | test_endpoint_sweep[list_boundary\uff5cGET /admin/orders] |  | case_index=191 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[list_boundary\uff5cGET /admin/orders]` |
+| API-SWEEP-193 | P2 | test_endpoint_sweep[positive_list\uff5cGET /admin/orders] |  | case_index=192 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[positive_list\uff5cGET /admin/orders]` |
+| API-SWEEP-194 | P2 | test_endpoint_sweep[bulk_page\uff5cGET /admin/orders] |  | case_index=193 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[bulk_page\uff5cGET /admin/orders]` |
+| API-SWEEP-195 | P2 | test_endpoint_sweep[security_anonymous\uff5cGET /admin/orders/export] |  | case_index=194 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_anonymous\uff5cGET /admin/orders/export]` |
+| API-SWEEP-196 | P2 | test_endpoint_sweep[security_role\uff5cGET /admin/orders/export] |  | case_index=195 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_role\uff5cGET /admin/orders/export]` |
+| API-SWEEP-197 | P2 | test_endpoint_sweep[list_boundary\uff5cGET /admin/orders/export] |  | case_index=196 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[list_boundary\uff5cGET /admin/orders/export]` |
+| API-SWEEP-198 | P2 | test_endpoint_sweep[security_anonymous\uff5cGET /admin/orders/{id}] |  | case_index=197 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_anonymous\uff5cGET /admin/orders/{id}]` |
+| API-SWEEP-199 | P2 | test_endpoint_sweep[security_role\uff5cGET /admin/orders/{id}] |  | case_index=198 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_role\uff5cGET /admin/orders/{id}]` |
+| API-SWEEP-200 | P2 | test_endpoint_sweep[path_param_type\uff5cGET /admin/orders/{id}] |  | case_index=199 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cGET /admin/orders/{id}]` |
+| API-SWEEP-201 | P2 | test_endpoint_sweep[detail_not_found\uff5cGET /admin/orders/{id}] |  | case_index=200 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[detail_not_found\uff5cGET /admin/orders/{id}]` |
+| API-SWEEP-202 | P2 | test_endpoint_sweep[positive_detail\uff5cGET /admin/orders/{id}] |  | case_index=201 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[positive_detail\uff5cGET /admin/orders/{id}]` |
+| API-SWEEP-203 | P2 | test_endpoint_sweep[security_anonymous\uff5cPOST /admin/orders/{id}/ship] |  | case_index=202 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_anonymous\uff5cPOST /admin/orders/{id}/ship]` |
+| API-SWEEP-204 | P2 | test_endpoint_sweep[security_role\uff5cPOST /admin/orders/{id}/ship] |  | case_index=203 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_role\uff5cPOST /admin/orders/{id}/ship]` |
+| API-SWEEP-205 | P2 | test_endpoint_sweep[path_param_type\uff5cPOST /admin/orders/{id}/ship] |  | case_index=204 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cPOST /admin/orders/{id}/ship]` |
+| API-SWEEP-206 | P2 | test_endpoint_sweep[malformed_json\uff5cPOST /admin/orders/{id}/ship] |  | case_index=205 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[malformed_json\uff5cPOST /admin/orders/{id}/ship]` |
+| API-SWEEP-207 | P2 | test_endpoint_sweep[empty_body\uff5cPOST /admin/orders/{id}/ship] |  | case_index=206 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[empty_body\uff5cPOST /admin/orders/{id}/ship]` |
+| API-SWEEP-208 | P2 | test_endpoint_sweep[security_anonymous\uff5cGET /admin/permissions] |  | case_index=207 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_anonymous\uff5cGET /admin/permissions]` |
+| API-SWEEP-209 | P2 | test_endpoint_sweep[security_role\uff5cGET /admin/permissions] |  | case_index=208 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_role\uff5cGET /admin/permissions]` |
+| API-SWEEP-210 | P2 | test_endpoint_sweep[list_boundary\uff5cGET /admin/permissions] |  | case_index=209 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[list_boundary\uff5cGET /admin/permissions]` |
+| API-SWEEP-211 | P2 | test_endpoint_sweep[positive_list\uff5cGET /admin/permissions] |  | case_index=210 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[positive_list\uff5cGET /admin/permissions]` |
+| API-SWEEP-212 | P2 | test_endpoint_sweep[bulk_page\uff5cGET /admin/permissions] |  | case_index=211 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[bulk_page\uff5cGET /admin/permissions]` |
+| API-SWEEP-213 | P2 | test_endpoint_sweep[security_anonymous\uff5cPOST /admin/permissions] |  | case_index=212 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_anonymous\uff5cPOST /admin/permissions]` |
+| API-SWEEP-214 | P2 | test_endpoint_sweep[security_role\uff5cPOST /admin/permissions] |  | case_index=213 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_role\uff5cPOST /admin/permissions]` |
+| API-SWEEP-215 | P2 | test_endpoint_sweep[malformed_json\uff5cPOST /admin/permissions] |  | case_index=214 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[malformed_json\uff5cPOST /admin/permissions]` |
+| API-SWEEP-216 | P2 | test_endpoint_sweep[empty_body\uff5cPOST /admin/permissions] |  | case_index=215 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[empty_body\uff5cPOST /admin/permissions]` |
+| API-SWEEP-217 | P2 | test_endpoint_sweep[security_anonymous\uff5cGET /admin/permissions/tree] |  | case_index=216 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_anonymous\uff5cGET /admin/permissions/tree]` |
+| API-SWEEP-218 | P2 | test_endpoint_sweep[security_role\uff5cGET /admin/permissions/tree] |  | case_index=217 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_role\uff5cGET /admin/permissions/tree]` |
+| API-SWEEP-219 | P2 | test_endpoint_sweep[list_boundary\uff5cGET /admin/permissions/tree] |  | case_index=218 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[list_boundary\uff5cGET /admin/permissions/tree]` |
+| API-SWEEP-220 | P2 | test_endpoint_sweep[positive_list\uff5cGET /admin/permissions/tree] |  | case_index=219 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[positive_list\uff5cGET /admin/permissions/tree]` |
+| API-SWEEP-221 | P2 | test_endpoint_sweep[bulk_page\uff5cGET /admin/permissions/tree] |  | case_index=220 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[bulk_page\uff5cGET /admin/permissions/tree]` |
+| API-SWEEP-222 | P2 | test_endpoint_sweep[security_anonymous\uff5cDELETE /admin/permissions/{id}] |  | case_index=221 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_anonymous\uff5cDELETE /admin/permissions/{id}]` |
+| API-SWEEP-223 | P2 | test_endpoint_sweep[security_role\uff5cDELETE /admin/permissions/{id}] |  | case_index=222 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_role\uff5cDELETE /admin/permissions/{id}]` |
+| API-SWEEP-224 | P2 | test_endpoint_sweep[path_param_type\uff5cDELETE /admin/permissions/{id}] |  | case_index=223 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cDELETE /admin/permissions/{id}]` |
+| API-SWEEP-225 | P2 | test_endpoint_sweep[security_anonymous\uff5cPUT /admin/permissions/{id}] |  | case_index=224 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_anonymous\uff5cPUT /admin/permissions/{id}]` |
+| API-SWEEP-226 | P2 | test_endpoint_sweep[security_role\uff5cPUT /admin/permissions/{id}] |  | case_index=225 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_role\uff5cPUT /admin/permissions/{id}]` |
+| API-SWEEP-227 | P2 | test_endpoint_sweep[path_param_type\uff5cPUT /admin/permissions/{id}] |  | case_index=226 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cPUT /admin/permissions/{id}]` |
+| API-SWEEP-228 | P2 | test_endpoint_sweep[security_anonymous\uff5cGET /admin/products] |  | case_index=227 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_anonymous\uff5cGET /admin/products]` |
+| API-SWEEP-229 | P2 | test_endpoint_sweep[security_role\uff5cGET /admin/products] |  | case_index=228 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_role\uff5cGET /admin/products]` |
+| API-SWEEP-230 | P2 | test_endpoint_sweep[list_boundary\uff5cGET /admin/products] |  | case_index=229 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[list_boundary\uff5cGET /admin/products]` |
+| API-SWEEP-231 | P2 | test_endpoint_sweep[positive_list\uff5cGET /admin/products] |  | case_index=230 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[positive_list\uff5cGET /admin/products]` |
+| API-SWEEP-232 | P2 | test_endpoint_sweep[bulk_page\uff5cGET /admin/products] |  | case_index=231 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[bulk_page\uff5cGET /admin/products]` |
+| API-SWEEP-233 | P2 | test_endpoint_sweep[security_anonymous\uff5cPOST /admin/products] |  | case_index=232 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_anonymous\uff5cPOST /admin/products]` |
+| API-SWEEP-234 | P2 | test_endpoint_sweep[security_role\uff5cPOST /admin/products] |  | case_index=233 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_role\uff5cPOST /admin/products]` |
+| API-SWEEP-235 | P2 | test_endpoint_sweep[malformed_json\uff5cPOST /admin/products] |  | case_index=234 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[malformed_json\uff5cPOST /admin/products]` |
+| API-SWEEP-236 | P2 | test_endpoint_sweep[empty_body\uff5cPOST /admin/products] |  | case_index=235 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[empty_body\uff5cPOST /admin/products]` |
+| API-SWEEP-237 | P2 | test_endpoint_sweep[security_anonymous\uff5cPUT /admin/products/batch-off] |  | case_index=236 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_anonymous\uff5cPUT /admin/products/batch-off]` |
+| API-SWEEP-238 | P2 | test_endpoint_sweep[security_role\uff5cPUT /admin/products/batch-off] |  | case_index=237 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_role\uff5cPUT /admin/products/batch-off]` |
+| API-SWEEP-239 | P2 | test_endpoint_sweep[security_anonymous\uff5cDELETE /admin/products/{id}] |  | case_index=238 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_anonymous\uff5cDELETE /admin/products/{id}]` |
+| API-SWEEP-240 | P2 | test_endpoint_sweep[security_role\uff5cDELETE /admin/products/{id}] |  | case_index=239 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_role\uff5cDELETE /admin/products/{id}]` |
+| API-SWEEP-241 | P2 | test_endpoint_sweep[path_param_type\uff5cDELETE /admin/products/{id}] |  | case_index=240 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cDELETE /admin/products/{id}]` |
+| API-SWEEP-242 | P2 | test_endpoint_sweep[security_anonymous\uff5cGET /admin/products/{id}] |  | case_index=241 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_anonymous\uff5cGET /admin/products/{id}]` |
+| API-SWEEP-243 | P2 | test_endpoint_sweep[security_role\uff5cGET /admin/products/{id}] |  | case_index=242 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_role\uff5cGET /admin/products/{id}]` |
+| API-SWEEP-244 | P2 | test_endpoint_sweep[path_param_type\uff5cGET /admin/products/{id}] |  | case_index=243 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cGET /admin/products/{id}]` |
+| API-SWEEP-245 | P2 | test_endpoint_sweep[detail_not_found\uff5cGET /admin/products/{id}] |  | case_index=244 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[detail_not_found\uff5cGET /admin/products/{id}]` |
+| API-SWEEP-246 | P2 | test_endpoint_sweep[positive_detail\uff5cGET /admin/products/{id}] |  | case_index=245 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[positive_detail\uff5cGET /admin/products/{id}]` |
+| API-SWEEP-247 | P2 | test_endpoint_sweep[security_anonymous\uff5cPUT /admin/products/{id}] |  | case_index=246 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_anonymous\uff5cPUT /admin/products/{id}]` |
+| API-SWEEP-248 | P2 | test_endpoint_sweep[security_role\uff5cPUT /admin/products/{id}] |  | case_index=247 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_role\uff5cPUT /admin/products/{id}]` |
+| API-SWEEP-249 | P2 | test_endpoint_sweep[path_param_type\uff5cPUT /admin/products/{id}] |  | case_index=248 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cPUT /admin/products/{id}]` |
+| API-SWEEP-250 | P2 | test_endpoint_sweep[malformed_json\uff5cPUT /admin/products/{id}] |  | case_index=249 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[malformed_json\uff5cPUT /admin/products/{id}]` |
+| API-SWEEP-251 | P2 | test_endpoint_sweep[empty_body\uff5cPUT /admin/products/{id}] |  | case_index=250 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[empty_body\uff5cPUT /admin/products/{id}]` |
+| API-SWEEP-252 | P2 | test_endpoint_sweep[security_anonymous\uff5cPUT /admin/products/{id}/off] |  | case_index=251 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_anonymous\uff5cPUT /admin/products/{id}/off]` |
+| API-SWEEP-253 | P2 | test_endpoint_sweep[security_role\uff5cPUT /admin/products/{id}/off] |  | case_index=252 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_role\uff5cPUT /admin/products/{id}/off]` |
+| API-SWEEP-254 | P2 | test_endpoint_sweep[path_param_type\uff5cPUT /admin/products/{id}/off] |  | case_index=253 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cPUT /admin/products/{id}/off]` |
+| API-SWEEP-255 | P2 | test_endpoint_sweep[security_anonymous\uff5cPUT /admin/products/{id}/on] |  | case_index=254 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_anonymous\uff5cPUT /admin/products/{id}/on]` |
+| API-SWEEP-256 | P2 | test_endpoint_sweep[security_role\uff5cPUT /admin/products/{id}/on] |  | case_index=255 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_role\uff5cPUT /admin/products/{id}/on]` |
+| API-SWEEP-257 | P2 | test_endpoint_sweep[path_param_type\uff5cPUT /admin/products/{id}/on] |  | case_index=256 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cPUT /admin/products/{id}/on]` |
+| API-SWEEP-258 | P2 | test_endpoint_sweep[security_anonymous\uff5cGET /admin/reviews] |  | case_index=257 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_anonymous\uff5cGET /admin/reviews]` |
+| API-SWEEP-259 | P2 | test_endpoint_sweep[security_role\uff5cGET /admin/reviews] |  | case_index=258 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_role\uff5cGET /admin/reviews]` |
+| API-SWEEP-260 | P2 | test_endpoint_sweep[list_boundary\uff5cGET /admin/reviews] |  | case_index=259 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[list_boundary\uff5cGET /admin/reviews]` |
+| API-SWEEP-261 | P2 | test_endpoint_sweep[positive_list\uff5cGET /admin/reviews] |  | case_index=260 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[positive_list\uff5cGET /admin/reviews]` |
+| API-SWEEP-262 | P2 | test_endpoint_sweep[bulk_page\uff5cGET /admin/reviews] |  | case_index=261 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[bulk_page\uff5cGET /admin/reviews]` |
+| API-SWEEP-263 | P2 | test_endpoint_sweep[security_anonymous\uff5cPUT /admin/reviews/{id}/status] |  | case_index=262 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_anonymous\uff5cPUT /admin/reviews/{id}/status]` |
+| API-SWEEP-264 | P2 | test_endpoint_sweep[security_role\uff5cPUT /admin/reviews/{id}/status] |  | case_index=263 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_role\uff5cPUT /admin/reviews/{id}/status]` |
+| API-SWEEP-265 | P2 | test_endpoint_sweep[path_param_type\uff5cPUT /admin/reviews/{id}/status] |  | case_index=264 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cPUT /admin/reviews/{id}/status]` |
+| API-SWEEP-266 | P2 | test_endpoint_sweep[security_anonymous\uff5cGET /admin/roles] |  | case_index=265 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_anonymous\uff5cGET /admin/roles]` |
+| API-SWEEP-267 | P2 | test_endpoint_sweep[security_role\uff5cGET /admin/roles] |  | case_index=266 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_role\uff5cGET /admin/roles]` |
+| API-SWEEP-268 | P2 | test_endpoint_sweep[list_boundary\uff5cGET /admin/roles] |  | case_index=267 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[list_boundary\uff5cGET /admin/roles]` |
+| API-SWEEP-269 | P2 | test_endpoint_sweep[positive_list\uff5cGET /admin/roles] |  | case_index=268 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[positive_list\uff5cGET /admin/roles]` |
+| API-SWEEP-270 | P2 | test_endpoint_sweep[bulk_page\uff5cGET /admin/roles] |  | case_index=269 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[bulk_page\uff5cGET /admin/roles]` |
+| API-SWEEP-271 | P2 | test_endpoint_sweep[security_anonymous\uff5cPOST /admin/roles] |  | case_index=270 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_anonymous\uff5cPOST /admin/roles]` |
+| API-SWEEP-272 | P2 | test_endpoint_sweep[security_role\uff5cPOST /admin/roles] |  | case_index=271 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_role\uff5cPOST /admin/roles]` |
+| API-SWEEP-273 | P2 | test_endpoint_sweep[security_anonymous\uff5cGET /admin/roles/all] |  | case_index=272 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_anonymous\uff5cGET /admin/roles/all]` |
+| API-SWEEP-274 | P2 | test_endpoint_sweep[security_role\uff5cGET /admin/roles/all] |  | case_index=273 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_role\uff5cGET /admin/roles/all]` |
+| API-SWEEP-275 | P2 | test_endpoint_sweep[list_boundary\uff5cGET /admin/roles/all] |  | case_index=274 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[list_boundary\uff5cGET /admin/roles/all]` |
+| API-SWEEP-276 | P2 | test_endpoint_sweep[positive_list\uff5cGET /admin/roles/all] |  | case_index=275 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[positive_list\uff5cGET /admin/roles/all]` |
+| API-SWEEP-277 | P2 | test_endpoint_sweep[bulk_page\uff5cGET /admin/roles/all] |  | case_index=276 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[bulk_page\uff5cGET /admin/roles/all]` |
+| API-SWEEP-278 | P2 | test_endpoint_sweep[security_anonymous\uff5cDELETE /admin/roles/{id}] |  | case_index=277 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_anonymous\uff5cDELETE /admin/roles/{id}]` |
+| API-SWEEP-279 | P2 | test_endpoint_sweep[security_role\uff5cDELETE /admin/roles/{id}] |  | case_index=278 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_role\uff5cDELETE /admin/roles/{id}]` |
+| API-SWEEP-280 | P2 | test_endpoint_sweep[path_param_type\uff5cDELETE /admin/roles/{id}] |  | case_index=279 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cDELETE /admin/roles/{id}]` |
+| API-SWEEP-281 | P2 | test_endpoint_sweep[security_anonymous\uff5cPUT /admin/roles/{id}] |  | case_index=280 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_anonymous\uff5cPUT /admin/roles/{id}]` |
+| API-SWEEP-282 | P2 | test_endpoint_sweep[security_role\uff5cPUT /admin/roles/{id}] |  | case_index=281 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_role\uff5cPUT /admin/roles/{id}]` |
+| API-SWEEP-283 | P2 | test_endpoint_sweep[path_param_type\uff5cPUT /admin/roles/{id}] |  | case_index=282 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cPUT /admin/roles/{id}]` |
+| API-SWEEP-284 | P2 | test_endpoint_sweep[security_anonymous\uff5cGET /admin/site/brand] |  | case_index=283 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_anonymous\uff5cGET /admin/site/brand]` |
+| API-SWEEP-285 | P2 | test_endpoint_sweep[security_role\uff5cGET /admin/site/brand] |  | case_index=284 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_role\uff5cGET /admin/site/brand]` |
+| API-SWEEP-286 | P2 | test_endpoint_sweep[list_boundary\uff5cGET /admin/site/brand] |  | case_index=285 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[list_boundary\uff5cGET /admin/site/brand]` |
+| API-SWEEP-287 | P2 | test_endpoint_sweep[positive_list\uff5cGET /admin/site/brand] |  | case_index=286 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[positive_list\uff5cGET /admin/site/brand]` |
+| API-SWEEP-288 | P2 | test_endpoint_sweep[bulk_page\uff5cGET /admin/site/brand] |  | case_index=287 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[bulk_page\uff5cGET /admin/site/brand]` |
+| API-SWEEP-289 | P2 | test_endpoint_sweep[security_anonymous\uff5cPUT /admin/site/brand] |  | case_index=288 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_anonymous\uff5cPUT /admin/site/brand]` |
+| API-SWEEP-290 | P2 | test_endpoint_sweep[security_role\uff5cPUT /admin/site/brand] |  | case_index=289 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_role\uff5cPUT /admin/site/brand]` |
+| API-SWEEP-291 | P2 | test_endpoint_sweep[security_anonymous\uff5cGET /admin/stocks] |  | case_index=290 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_anonymous\uff5cGET /admin/stocks]` |
+| API-SWEEP-292 | P2 | test_endpoint_sweep[security_role\uff5cGET /admin/stocks] |  | case_index=291 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_role\uff5cGET /admin/stocks]` |
+| API-SWEEP-293 | P2 | test_endpoint_sweep[list_boundary\uff5cGET /admin/stocks] |  | case_index=292 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[list_boundary\uff5cGET /admin/stocks]` |
+| API-SWEEP-294 | P2 | test_endpoint_sweep[positive_list\uff5cGET /admin/stocks] |  | case_index=293 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[positive_list\uff5cGET /admin/stocks]` |
+| API-SWEEP-295 | P2 | test_endpoint_sweep[bulk_page\uff5cGET /admin/stocks] |  | case_index=294 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[bulk_page\uff5cGET /admin/stocks]` |
+| API-SWEEP-296 | P2 | test_endpoint_sweep[security_anonymous\uff5cPUT /admin/stocks/adjust] |  | case_index=295 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_anonymous\uff5cPUT /admin/stocks/adjust]` |
+| API-SWEEP-297 | P2 | test_endpoint_sweep[security_role\uff5cPUT /admin/stocks/adjust] |  | case_index=296 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_role\uff5cPUT /admin/stocks/adjust]` |
+| API-SWEEP-298 | P2 | test_endpoint_sweep[security_anonymous\uff5cGET /admin/system-configs] |  | case_index=297 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_anonymous\uff5cGET /admin/system-configs]` |
+| API-SWEEP-299 | P2 | test_endpoint_sweep[security_role\uff5cGET /admin/system-configs] |  | case_index=298 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_role\uff5cGET /admin/system-configs]` |
+| API-SWEEP-300 | P2 | test_endpoint_sweep[list_boundary\uff5cGET /admin/system-configs] |  | case_index=299 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[list_boundary\uff5cGET /admin/system-configs]` |
+| API-SWEEP-301 | P2 | test_endpoint_sweep[positive_list\uff5cGET /admin/system-configs] |  | case_index=300 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[positive_list\uff5cGET /admin/system-configs]` |
+| API-SWEEP-302 | P2 | test_endpoint_sweep[bulk_page\uff5cGET /admin/system-configs] |  | case_index=301 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[bulk_page\uff5cGET /admin/system-configs]` |
+| API-SWEEP-303 | P2 | test_endpoint_sweep[security_anonymous\uff5cPUT /admin/system-configs/{id}] |  | case_index=302 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_anonymous\uff5cPUT /admin/system-configs/{id}]` |
+| API-SWEEP-304 | P2 | test_endpoint_sweep[security_role\uff5cPUT /admin/system-configs/{id}] |  | case_index=303 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_role\uff5cPUT /admin/system-configs/{id}]` |
+| API-SWEEP-305 | P2 | test_endpoint_sweep[path_param_type\uff5cPUT /admin/system-configs/{id}] |  | case_index=304 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cPUT /admin/system-configs/{id}]` |
+| API-SWEEP-306 | P2 | test_endpoint_sweep[security_anonymous\uff5cGET /admin/users] |  | case_index=305 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_anonymous\uff5cGET /admin/users]` |
+| API-SWEEP-307 | P2 | test_endpoint_sweep[security_role\uff5cGET /admin/users] |  | case_index=306 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_role\uff5cGET /admin/users]` |
+| API-SWEEP-308 | P2 | test_endpoint_sweep[list_boundary\uff5cGET /admin/users] |  | case_index=307 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[list_boundary\uff5cGET /admin/users]` |
+| API-SWEEP-309 | P2 | test_endpoint_sweep[positive_list\uff5cGET /admin/users] |  | case_index=308 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[positive_list\uff5cGET /admin/users]` |
+| API-SWEEP-310 | P2 | test_endpoint_sweep[bulk_page\uff5cGET /admin/users] |  | case_index=309 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[bulk_page\uff5cGET /admin/users]` |
+| API-SWEEP-311 | P2 | test_endpoint_sweep[security_anonymous\uff5cPOST /admin/users] |  | case_index=310 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_anonymous\uff5cPOST /admin/users]` |
+| API-SWEEP-312 | P2 | test_endpoint_sweep[security_role\uff5cPOST /admin/users] |  | case_index=311 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_role\uff5cPOST /admin/users]` |
+| API-SWEEP-313 | P2 | test_endpoint_sweep[security_anonymous\uff5cDELETE /admin/users/{id}] |  | case_index=312 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_anonymous\uff5cDELETE /admin/users/{id}]` |
+| API-SWEEP-314 | P2 | test_endpoint_sweep[security_role\uff5cDELETE /admin/users/{id}] |  | case_index=313 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_role\uff5cDELETE /admin/users/{id}]` |
+| API-SWEEP-315 | P2 | test_endpoint_sweep[path_param_type\uff5cDELETE /admin/users/{id}] |  | case_index=314 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cDELETE /admin/users/{id}]` |
+| API-SWEEP-316 | P2 | test_endpoint_sweep[security_anonymous\uff5cGET /admin/users/{id}] |  | case_index=315 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_anonymous\uff5cGET /admin/users/{id}]` |
+| API-SWEEP-317 | P2 | test_endpoint_sweep[security_role\uff5cGET /admin/users/{id}] |  | case_index=316 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_role\uff5cGET /admin/users/{id}]` |
+| API-SWEEP-318 | P2 | test_endpoint_sweep[path_param_type\uff5cGET /admin/users/{id}] |  | case_index=317 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cGET /admin/users/{id}]` |
+| API-SWEEP-319 | P2 | test_endpoint_sweep[detail_not_found\uff5cGET /admin/users/{id}] |  | case_index=318 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[detail_not_found\uff5cGET /admin/users/{id}]` |
+| API-SWEEP-320 | P2 | test_endpoint_sweep[positive_detail\uff5cGET /admin/users/{id}] |  | case_index=319 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[positive_detail\uff5cGET /admin/users/{id}]` |
+| API-SWEEP-321 | P2 | test_endpoint_sweep[security_anonymous\uff5cPUT /admin/users/{id}] |  | case_index=320 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_anonymous\uff5cPUT /admin/users/{id}]` |
+| API-SWEEP-322 | P2 | test_endpoint_sweep[security_role\uff5cPUT /admin/users/{id}] |  | case_index=321 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_role\uff5cPUT /admin/users/{id}]` |
+| API-SWEEP-323 | P2 | test_endpoint_sweep[path_param_type\uff5cPUT /admin/users/{id}] |  | case_index=322 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cPUT /admin/users/{id}]` |
+| API-SWEEP-324 | P2 | test_endpoint_sweep[security_anonymous\uff5cPUT /admin/users/{id}/password] |  | case_index=323 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_anonymous\uff5cPUT /admin/users/{id}/password]` |
+| API-SWEEP-325 | P2 | test_endpoint_sweep[security_role\uff5cPUT /admin/users/{id}/password] |  | case_index=324 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_role\uff5cPUT /admin/users/{id}/password]` |
+| API-SWEEP-326 | P2 | test_endpoint_sweep[path_param_type\uff5cPUT /admin/users/{id}/password] |  | case_index=325 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cPUT /admin/users/{id}/password]` |
+| API-SWEEP-327 | P2 | test_endpoint_sweep[security_anonymous\uff5cPUT /admin/users/{id}/status] |  | case_index=326 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_anonymous\uff5cPUT /admin/users/{id}/status]` |
+| API-SWEEP-328 | P2 | test_endpoint_sweep[security_role\uff5cPUT /admin/users/{id}/status] |  | case_index=327 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_role\uff5cPUT /admin/users/{id}/status]` |
+| API-SWEEP-329 | P2 | test_endpoint_sweep[path_param_type\uff5cPUT /admin/users/{id}/status] |  | case_index=328 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cPUT /admin/users/{id}/status]` |
+| API-SWEEP-330 | P2 | test_endpoint_sweep[security_anonymous\uff5cGET /admin/warehouses] |  | case_index=329 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_anonymous\uff5cGET /admin/warehouses]` |
+| API-SWEEP-331 | P2 | test_endpoint_sweep[security_role\uff5cGET /admin/warehouses] |  | case_index=330 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_role\uff5cGET /admin/warehouses]` |
+| API-SWEEP-332 | P2 | test_endpoint_sweep[list_boundary\uff5cGET /admin/warehouses] |  | case_index=331 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[list_boundary\uff5cGET /admin/warehouses]` |
+| API-SWEEP-333 | P2 | test_endpoint_sweep[positive_list\uff5cGET /admin/warehouses] |  | case_index=332 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[positive_list\uff5cGET /admin/warehouses]` |
+| API-SWEEP-334 | P2 | test_endpoint_sweep[bulk_page\uff5cGET /admin/warehouses] |  | case_index=333 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[bulk_page\uff5cGET /admin/warehouses]` |
+| API-SWEEP-335 | P2 | test_endpoint_sweep[security_anonymous\uff5cPOST /admin/warehouses] |  | case_index=334 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_anonymous\uff5cPOST /admin/warehouses]` |
+| API-SWEEP-336 | P2 | test_endpoint_sweep[security_role\uff5cPOST /admin/warehouses] |  | case_index=335 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_role\uff5cPOST /admin/warehouses]` |
+| API-SWEEP-337 | P2 | test_endpoint_sweep[malformed_json\uff5cPOST /admin/warehouses] |  | case_index=336 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[malformed_json\uff5cPOST /admin/warehouses]` |
+| API-SWEEP-338 | P2 | test_endpoint_sweep[empty_body\uff5cPOST /admin/warehouses] |  | case_index=337 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[empty_body\uff5cPOST /admin/warehouses]` |
+| API-SWEEP-339 | P2 | test_endpoint_sweep[security_anonymous\uff5cPUT /admin/warehouses/{id}] |  | case_index=338 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_anonymous\uff5cPUT /admin/warehouses/{id}]` |
+| API-SWEEP-340 | P2 | test_endpoint_sweep[security_role\uff5cPUT /admin/warehouses/{id}] |  | case_index=339 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_role\uff5cPUT /admin/warehouses/{id}]` |
+| API-SWEEP-341 | P2 | test_endpoint_sweep[path_param_type\uff5cPUT /admin/warehouses/{id}] |  | case_index=340 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cPUT /admin/warehouses/{id}]` |
+| API-SWEEP-342 | P2 | test_endpoint_sweep[security_anonymous\uff5cGET /api/addresses] |  | case_index=341 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_anonymous\uff5cGET /api/addresses]` |
+| API-SWEEP-343 | P2 | test_endpoint_sweep[security_role\uff5cGET /api/addresses] |  | case_index=342 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_role\uff5cGET /api/addresses]` |
+| API-SWEEP-344 | P2 | test_endpoint_sweep[list_boundary\uff5cGET /api/addresses] |  | case_index=343 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[list_boundary\uff5cGET /api/addresses]` |
+| API-SWEEP-345 | P2 | test_endpoint_sweep[positive_list\uff5cGET /api/addresses] |  | case_index=344 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[positive_list\uff5cGET /api/addresses]` |
+| API-SWEEP-346 | P2 | test_endpoint_sweep[bulk_page\uff5cGET /api/addresses] |  | case_index=345 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[bulk_page\uff5cGET /api/addresses]` |
+| API-SWEEP-347 | P2 | test_endpoint_sweep[security_anonymous\uff5cPOST /api/addresses] |  | case_index=346 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_anonymous\uff5cPOST /api/addresses]` |
+| API-SWEEP-348 | P2 | test_endpoint_sweep[security_role\uff5cPOST /api/addresses] |  | case_index=347 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_role\uff5cPOST /api/addresses]` |
+| API-SWEEP-349 | P2 | test_endpoint_sweep[security_anonymous\uff5cDELETE /api/addresses/{id}] |  | case_index=348 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_anonymous\uff5cDELETE /api/addresses/{id}]` |
+| API-SWEEP-350 | P2 | test_endpoint_sweep[security_role\uff5cDELETE /api/addresses/{id}] |  | case_index=349 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_role\uff5cDELETE /api/addresses/{id}]` |
+| API-SWEEP-351 | P2 | test_endpoint_sweep[path_param_type\uff5cDELETE /api/addresses/{id}] |  | case_index=350 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cDELETE /api/addresses/{id}]` |
+| API-SWEEP-352 | P2 | test_endpoint_sweep[security_anonymous\uff5cPUT /api/addresses/{id}] |  | case_index=351 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_anonymous\uff5cPUT /api/addresses/{id}]` |
+| API-SWEEP-353 | P2 | test_endpoint_sweep[security_role\uff5cPUT /api/addresses/{id}] |  | case_index=352 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_role\uff5cPUT /api/addresses/{id}]` |
+| API-SWEEP-354 | P2 | test_endpoint_sweep[path_param_type\uff5cPUT /api/addresses/{id}] |  | case_index=353 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cPUT /api/addresses/{id}]` |
+| API-SWEEP-355 | P2 | test_endpoint_sweep[malformed_json\uff5cPUT /api/addresses/{id}] |  | case_index=354 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[malformed_json\uff5cPUT /api/addresses/{id}]` |
+| API-SWEEP-356 | P2 | test_endpoint_sweep[empty_body\uff5cPUT /api/addresses/{id}] |  | case_index=355 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[empty_body\uff5cPUT /api/addresses/{id}]` |
+| API-SWEEP-357 | P2 | test_endpoint_sweep[security_anonymous\uff5cPUT /api/addresses/{id}/default] |  | case_index=356 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_anonymous\uff5cPUT /api/addresses/{id}/default]` |
+| API-SWEEP-358 | P2 | test_endpoint_sweep[security_role\uff5cPUT /api/addresses/{id}/default] |  | case_index=357 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_role\uff5cPUT /api/addresses/{id}/default]` |
+| API-SWEEP-359 | P2 | test_endpoint_sweep[path_param_type\uff5cPUT /api/addresses/{id}/default] |  | case_index=358 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cPUT /api/addresses/{id}/default]` |
+| API-SWEEP-360 | P2 | test_endpoint_sweep[security_anonymous\uff5cGET /api/after-sales] |  | case_index=359 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_anonymous\uff5cGET /api/after-sales]` |
+| API-SWEEP-361 | P2 | test_endpoint_sweep[security_role\uff5cGET /api/after-sales] |  | case_index=360 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_role\uff5cGET /api/after-sales]` |
+| API-SWEEP-362 | P2 | test_endpoint_sweep[list_boundary\uff5cGET /api/after-sales] |  | case_index=361 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[list_boundary\uff5cGET /api/after-sales]` |
+| API-SWEEP-363 | P2 | test_endpoint_sweep[positive_list\uff5cGET /api/after-sales] |  | case_index=362 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[positive_list\uff5cGET /api/after-sales]` |
+| API-SWEEP-364 | P2 | test_endpoint_sweep[bulk_page\uff5cGET /api/after-sales] |  | case_index=363 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[bulk_page\uff5cGET /api/after-sales]` |
+| API-SWEEP-365 | P2 | test_endpoint_sweep[security_anonymous\uff5cPOST /api/after-sales] |  | case_index=364 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_anonymous\uff5cPOST /api/after-sales]` |
+| API-SWEEP-366 | P2 | test_endpoint_sweep[security_role\uff5cPOST /api/after-sales] |  | case_index=365 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_role\uff5cPOST /api/after-sales]` |
+| API-SWEEP-367 | P2 | test_endpoint_sweep[malformed_json\uff5cPOST /api/after-sales] |  | case_index=366 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[malformed_json\uff5cPOST /api/after-sales]` |
+| API-SWEEP-368 | P2 | test_endpoint_sweep[empty_body\uff5cPOST /api/after-sales] |  | case_index=367 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[empty_body\uff5cPOST /api/after-sales]` |
+| API-SWEEP-369 | P2 | test_endpoint_sweep[security_anonymous\uff5cGET /api/after-sales/{id}] |  | case_index=368 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_anonymous\uff5cGET /api/after-sales/{id}]` |
+| API-SWEEP-370 | P2 | test_endpoint_sweep[security_role\uff5cGET /api/after-sales/{id}] |  | case_index=369 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_role\uff5cGET /api/after-sales/{id}]` |
+| API-SWEEP-371 | P2 | test_endpoint_sweep[path_param_type\uff5cGET /api/after-sales/{id}] |  | case_index=370 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cGET /api/after-sales/{id}]` |
+| API-SWEEP-372 | P2 | test_endpoint_sweep[detail_not_found\uff5cGET /api/after-sales/{id}] |  | case_index=371 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[detail_not_found\uff5cGET /api/after-sales/{id}]` |
+| API-SWEEP-373 | P2 | test_endpoint_sweep[positive_detail\uff5cGET /api/after-sales/{id}] |  | case_index=372 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[positive_detail\uff5cGET /api/after-sales/{id}]` |
+| API-SWEEP-374 | P2 | test_endpoint_sweep[malformed_json\uff5cPOST /api/auth/login] |  | case_index=373 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[malformed_json\uff5cPOST /api/auth/login]` |
+| API-SWEEP-375 | P2 | test_endpoint_sweep[empty_body\uff5cPOST /api/auth/login] |  | case_index=374 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[empty_body\uff5cPOST /api/auth/login]` |
+| API-SWEEP-376 | P2 | test_endpoint_sweep[empty_body\uff5cPOST /api/auth/logout] |  | case_index=375 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[empty_body\uff5cPOST /api/auth/logout]` |
+| API-SWEEP-377 | P2 | test_endpoint_sweep[malformed_json\uff5cPOST /api/auth/phone] |  | case_index=376 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[malformed_json\uff5cPOST /api/auth/phone]` |
+| API-SWEEP-378 | P2 | test_endpoint_sweep[empty_body\uff5cPOST /api/auth/phone] |  | case_index=377 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[empty_body\uff5cPOST /api/auth/phone]` |
+| API-SWEEP-379 | P2 | test_endpoint_sweep[malformed_json\uff5cPOST /api/auth/refresh] |  | case_index=378 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[malformed_json\uff5cPOST /api/auth/refresh]` |
+| API-SWEEP-380 | P2 | test_endpoint_sweep[empty_body\uff5cPOST /api/auth/refresh] |  | case_index=379 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[empty_body\uff5cPOST /api/auth/refresh]` |
+| API-SWEEP-381 | P2 | test_endpoint_sweep[malformed_json\uff5cPOST /api/auth/sms/send] |  | case_index=380 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[malformed_json\uff5cPOST /api/auth/sms/send]` |
+| API-SWEEP-382 | P2 | test_endpoint_sweep[empty_body\uff5cPOST /api/auth/sms/send] |  | case_index=381 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[empty_body\uff5cPOST /api/auth/sms/send]` |
+| API-SWEEP-383 | P2 | test_endpoint_sweep[security_anonymous\uff5cGET /api/cart] |  | case_index=382 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_anonymous\uff5cGET /api/cart]` |
+| API-SWEEP-384 | P2 | test_endpoint_sweep[security_role\uff5cGET /api/cart] |  | case_index=383 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_role\uff5cGET /api/cart]` |
+| API-SWEEP-385 | P2 | test_endpoint_sweep[list_boundary\uff5cGET /api/cart] |  | case_index=384 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[list_boundary\uff5cGET /api/cart]` |
+| API-SWEEP-386 | P2 | test_endpoint_sweep[positive_list\uff5cGET /api/cart] |  | case_index=385 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[positive_list\uff5cGET /api/cart]` |
+| API-SWEEP-387 | P2 | test_endpoint_sweep[bulk_page\uff5cGET /api/cart] |  | case_index=386 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[bulk_page\uff5cGET /api/cart]` |
+| API-SWEEP-388 | P2 | test_endpoint_sweep[security_anonymous\uff5cPOST /api/cart/clear-invalid] |  | case_index=387 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_anonymous\uff5cPOST /api/cart/clear-invalid]` |
+| API-SWEEP-389 | P2 | test_endpoint_sweep[security_role\uff5cPOST /api/cart/clear-invalid] |  | case_index=388 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_role\uff5cPOST /api/cart/clear-invalid]` |
+| API-SWEEP-390 | P2 | test_endpoint_sweep[security_anonymous\uff5cPOST /api/cart/items] |  | case_index=389 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_anonymous\uff5cPOST /api/cart/items]` |
+| API-SWEEP-391 | P2 | test_endpoint_sweep[security_role\uff5cPOST /api/cart/items] |  | case_index=390 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_role\uff5cPOST /api/cart/items]` |
+| API-SWEEP-392 | P2 | test_endpoint_sweep[security_anonymous\uff5cDELETE /api/cart/items/{id}] |  | case_index=391 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_anonymous\uff5cDELETE /api/cart/items/{id}]` |
+| API-SWEEP-393 | P2 | test_endpoint_sweep[security_role\uff5cDELETE /api/cart/items/{id}] |  | case_index=392 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_role\uff5cDELETE /api/cart/items/{id}]` |
+| API-SWEEP-394 | P2 | test_endpoint_sweep[path_param_type\uff5cDELETE /api/cart/items/{id}] |  | case_index=393 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cDELETE /api/cart/items/{id}]` |
+| API-SWEEP-395 | P2 | test_endpoint_sweep[security_anonymous\uff5cPUT /api/cart/items/{id}] |  | case_index=394 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_anonymous\uff5cPUT /api/cart/items/{id}]` |
+| API-SWEEP-396 | P2 | test_endpoint_sweep[security_role\uff5cPUT /api/cart/items/{id}] |  | case_index=395 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_role\uff5cPUT /api/cart/items/{id}]` |
+| API-SWEEP-397 | P2 | test_endpoint_sweep[path_param_type\uff5cPUT /api/cart/items/{id}] |  | case_index=396 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cPUT /api/cart/items/{id}]` |
+| API-SWEEP-398 | P2 | test_endpoint_sweep[list_boundary\uff5cGET /api/categories] |  | case_index=397 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[list_boundary\uff5cGET /api/categories]` |
+| API-SWEEP-399 | P2 | test_endpoint_sweep[positive_list\uff5cGET /api/categories] |  | case_index=398 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[positive_list\uff5cGET /api/categories]` |
+| API-SWEEP-400 | P2 | test_endpoint_sweep[bulk_page\uff5cGET /api/categories] |  | case_index=399 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[bulk_page\uff5cGET /api/categories]` |
+| API-SWEEP-401 | P2 | test_endpoint_sweep[security_anonymous\uff5cGET /api/favorites] |  | case_index=400 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_anonymous\uff5cGET /api/favorites]` |
+| API-SWEEP-402 | P2 | test_endpoint_sweep[security_role\uff5cGET /api/favorites] |  | case_index=401 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_role\uff5cGET /api/favorites]` |
+| API-SWEEP-403 | P2 | test_endpoint_sweep[list_boundary\uff5cGET /api/favorites] |  | case_index=402 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[list_boundary\uff5cGET /api/favorites]` |
+| API-SWEEP-404 | P2 | test_endpoint_sweep[positive_list\uff5cGET /api/favorites] |  | case_index=403 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[positive_list\uff5cGET /api/favorites]` |
+| API-SWEEP-405 | P2 | test_endpoint_sweep[bulk_page\uff5cGET /api/favorites] |  | case_index=404 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[bulk_page\uff5cGET /api/favorites]` |
+| API-SWEEP-406 | P2 | test_endpoint_sweep[security_anonymous\uff5cDELETE /api/favorites/{spuId}] |  | case_index=405 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_anonymous\uff5cDELETE /api/favorites/{spuId}]` |
+| API-SWEEP-407 | P2 | test_endpoint_sweep[security_role\uff5cDELETE /api/favorites/{spuId}] |  | case_index=406 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_role\uff5cDELETE /api/favorites/{spuId}]` |
+| API-SWEEP-408 | P2 | test_endpoint_sweep[path_param_type\uff5cDELETE /api/favorites/{spuId}] |  | case_index=407 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cDELETE /api/favorites/{spuId}]` |
+| API-SWEEP-409 | P2 | test_endpoint_sweep[security_anonymous\uff5cPOST /api/favorites/{spuId}] |  | case_index=408 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_anonymous\uff5cPOST /api/favorites/{spuId}]` |
+| API-SWEEP-410 | P2 | test_endpoint_sweep[security_role\uff5cPOST /api/favorites/{spuId}] |  | case_index=409 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_role\uff5cPOST /api/favorites/{spuId}]` |
+| API-SWEEP-411 | P2 | test_endpoint_sweep[path_param_type\uff5cPOST /api/favorites/{spuId}] |  | case_index=410 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cPOST /api/favorites/{spuId}]` |
+| API-SWEEP-412 | P2 | test_endpoint_sweep[security_anonymous\uff5cPOST /api/files/confirm] |  | case_index=411 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_anonymous\uff5cPOST /api/files/confirm]` |
+| API-SWEEP-413 | P2 | test_endpoint_sweep[security_role\uff5cPOST /api/files/confirm] |  | case_index=412 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_role\uff5cPOST /api/files/confirm]` |
+| API-SWEEP-414 | P2 | test_endpoint_sweep[malformed_json\uff5cPOST /api/files/confirm] |  | case_index=413 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[malformed_json\uff5cPOST /api/files/confirm]` |
+| API-SWEEP-415 | P2 | test_endpoint_sweep[empty_body\uff5cPOST /api/files/confirm] |  | case_index=414 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[empty_body\uff5cPOST /api/files/confirm]` |
+| API-SWEEP-416 | P2 | test_endpoint_sweep[security_anonymous\uff5cPOST /api/files/presign] |  | case_index=415 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_anonymous\uff5cPOST /api/files/presign]` |
+| API-SWEEP-417 | P2 | test_endpoint_sweep[security_role\uff5cPOST /api/files/presign] |  | case_index=416 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_role\uff5cPOST /api/files/presign]` |
+| API-SWEEP-418 | P2 | test_endpoint_sweep[security_anonymous\uff5cPOST /api/files/upload] |  | case_index=417 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_anonymous\uff5cPOST /api/files/upload]` |
+| API-SWEEP-419 | P2 | test_endpoint_sweep[security_role\uff5cPOST /api/files/upload] |  | case_index=418 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_role\uff5cPOST /api/files/upload]` |
+| API-SWEEP-420 | P2 | test_endpoint_sweep[list_boundary\uff5cGET /api/files/view] |  | case_index=419 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[list_boundary\uff5cGET /api/files/view]` |
+| API-SWEEP-421 | P2 | test_endpoint_sweep[security_anonymous\uff5cDELETE /api/history] |  | case_index=420 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_anonymous\uff5cDELETE /api/history]` |
+| API-SWEEP-422 | P2 | test_endpoint_sweep[security_role\uff5cDELETE /api/history] |  | case_index=421 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_role\uff5cDELETE /api/history]` |
+| API-SWEEP-423 | P2 | test_endpoint_sweep[security_anonymous\uff5cGET /api/history] |  | case_index=422 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_anonymous\uff5cGET /api/history]` |
+| API-SWEEP-424 | P2 | test_endpoint_sweep[security_role\uff5cGET /api/history] |  | case_index=423 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_role\uff5cGET /api/history]` |
+| API-SWEEP-425 | P2 | test_endpoint_sweep[list_boundary\uff5cGET /api/history] |  | case_index=424 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[list_boundary\uff5cGET /api/history]` |
+| API-SWEEP-426 | P2 | test_endpoint_sweep[positive_list\uff5cGET /api/history] |  | case_index=425 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[positive_list\uff5cGET /api/history]` |
+| API-SWEEP-427 | P2 | test_endpoint_sweep[bulk_page\uff5cGET /api/history] |  | case_index=426 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[bulk_page\uff5cGET /api/history]` |
+| API-SWEEP-428 | P2 | test_endpoint_sweep[list_boundary\uff5cGET /api/home] |  | case_index=427 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[list_boundary\uff5cGET /api/home]` |
+| API-SWEEP-429 | P2 | test_endpoint_sweep[positive_list\uff5cGET /api/home] |  | case_index=428 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[positive_list\uff5cGET /api/home]` |
+| API-SWEEP-430 | P2 | test_endpoint_sweep[bulk_page\uff5cGET /api/home] |  | case_index=429 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[bulk_page\uff5cGET /api/home]` |
+| API-SWEEP-431 | P2 | test_endpoint_sweep[security_anonymous\uff5cGET /api/me] |  | case_index=430 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_anonymous\uff5cGET /api/me]` |
+| API-SWEEP-432 | P2 | test_endpoint_sweep[security_role\uff5cGET /api/me] |  | case_index=431 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_role\uff5cGET /api/me]` |
+| API-SWEEP-433 | P2 | test_endpoint_sweep[list_boundary\uff5cGET /api/me] |  | case_index=432 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[list_boundary\uff5cGET /api/me]` |
+| API-SWEEP-434 | P2 | test_endpoint_sweep[positive_list\uff5cGET /api/me] |  | case_index=433 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[positive_list\uff5cGET /api/me]` |
+| API-SWEEP-435 | P2 | test_endpoint_sweep[bulk_page\uff5cGET /api/me] |  | case_index=434 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[bulk_page\uff5cGET /api/me]` |
+| API-SWEEP-436 | P2 | test_endpoint_sweep[security_anonymous\uff5cPUT /api/me] |  | case_index=435 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_anonymous\uff5cPUT /api/me]` |
+| API-SWEEP-437 | P2 | test_endpoint_sweep[security_role\uff5cPUT /api/me] |  | case_index=436 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_role\uff5cPUT /api/me]` |
+| API-SWEEP-438 | P2 | test_endpoint_sweep[security_anonymous\uff5cGET /api/orders] |  | case_index=437 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_anonymous\uff5cGET /api/orders]` |
+| API-SWEEP-439 | P2 | test_endpoint_sweep[security_role\uff5cGET /api/orders] |  | case_index=438 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_role\uff5cGET /api/orders]` |
+| API-SWEEP-440 | P2 | test_endpoint_sweep[list_boundary\uff5cGET /api/orders] |  | case_index=439 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[list_boundary\uff5cGET /api/orders]` |
+| API-SWEEP-441 | P2 | test_endpoint_sweep[positive_list\uff5cGET /api/orders] |  | case_index=440 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[positive_list\uff5cGET /api/orders]` |
+| API-SWEEP-442 | P2 | test_endpoint_sweep[bulk_page\uff5cGET /api/orders] |  | case_index=441 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[bulk_page\uff5cGET /api/orders]` |
+| API-SWEEP-443 | P2 | test_endpoint_sweep[security_anonymous\uff5cPOST /api/orders] |  | case_index=442 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_anonymous\uff5cPOST /api/orders]` |
+| API-SWEEP-444 | P2 | test_endpoint_sweep[security_role\uff5cPOST /api/orders] |  | case_index=443 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_role\uff5cPOST /api/orders]` |
+| API-SWEEP-445 | P2 | test_endpoint_sweep[malformed_json\uff5cPOST /api/orders] |  | case_index=444 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[malformed_json\uff5cPOST /api/orders]` |
+| API-SWEEP-446 | P2 | test_endpoint_sweep[empty_body\uff5cPOST /api/orders] |  | case_index=445 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[empty_body\uff5cPOST /api/orders]` |
+| API-SWEEP-447 | P2 | test_endpoint_sweep[security_anonymous\uff5cGET /api/orders/{id}] |  | case_index=446 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_anonymous\uff5cGET /api/orders/{id}]` |
+| API-SWEEP-448 | P2 | test_endpoint_sweep[security_role\uff5cGET /api/orders/{id}] |  | case_index=447 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_role\uff5cGET /api/orders/{id}]` |
+| API-SWEEP-449 | P2 | test_endpoint_sweep[path_param_type\uff5cGET /api/orders/{id}] |  | case_index=448 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cGET /api/orders/{id}]` |
+| API-SWEEP-450 | P2 | test_endpoint_sweep[detail_not_found\uff5cGET /api/orders/{id}] |  | case_index=449 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[detail_not_found\uff5cGET /api/orders/{id}]` |
+| API-SWEEP-451 | P2 | test_endpoint_sweep[positive_detail\uff5cGET /api/orders/{id}] |  | case_index=450 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[positive_detail\uff5cGET /api/orders/{id}]` |
+| API-SWEEP-452 | P2 | test_endpoint_sweep[security_anonymous\uff5cPOST /api/orders/{id}/cancel] |  | case_index=451 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_anonymous\uff5cPOST /api/orders/{id}/cancel]` |
+| API-SWEEP-453 | P2 | test_endpoint_sweep[security_role\uff5cPOST /api/orders/{id}/cancel] |  | case_index=452 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_role\uff5cPOST /api/orders/{id}/cancel]` |
+| API-SWEEP-454 | P2 | test_endpoint_sweep[path_param_type\uff5cPOST /api/orders/{id}/cancel] |  | case_index=453 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cPOST /api/orders/{id}/cancel]` |
+| API-SWEEP-455 | P2 | test_endpoint_sweep[security_anonymous\uff5cPOST /api/orders/{id}/confirm] |  | case_index=454 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_anonymous\uff5cPOST /api/orders/{id}/confirm]` |
+| API-SWEEP-456 | P2 | test_endpoint_sweep[security_role\uff5cPOST /api/orders/{id}/confirm] |  | case_index=455 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_role\uff5cPOST /api/orders/{id}/confirm]` |
+| API-SWEEP-457 | P2 | test_endpoint_sweep[path_param_type\uff5cPOST /api/orders/{id}/confirm] |  | case_index=456 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cPOST /api/orders/{id}/confirm]` |
+| API-SWEEP-458 | P2 | test_endpoint_sweep[security_anonymous\uff5cGET /api/orders/{id}/logistics] |  | case_index=457 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_anonymous\uff5cGET /api/orders/{id}/logistics]` |
+| API-SWEEP-459 | P2 | test_endpoint_sweep[security_role\uff5cGET /api/orders/{id}/logistics] |  | case_index=458 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_role\uff5cGET /api/orders/{id}/logistics]` |
+| API-SWEEP-460 | P2 | test_endpoint_sweep[path_param_type\uff5cGET /api/orders/{id}/logistics] |  | case_index=459 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cGET /api/orders/{id}/logistics]` |
+| API-SWEEP-461 | P2 | test_endpoint_sweep[detail_not_found\uff5cGET /api/orders/{id}/logistics] |  | case_index=460 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[detail_not_found\uff5cGET /api/orders/{id}/logistics]` |
+| API-SWEEP-462 | P2 | test_endpoint_sweep[positive_detail\uff5cGET /api/orders/{id}/logistics] |  | case_index=461 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[positive_detail\uff5cGET /api/orders/{id}/logistics]` |
+| API-SWEEP-463 | P2 | test_endpoint_sweep[security_anonymous\uff5cPOST /api/payment/sandbox] |  | case_index=462 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_anonymous\uff5cPOST /api/payment/sandbox]` |
+| API-SWEEP-464 | P2 | test_endpoint_sweep[security_role\uff5cPOST /api/payment/sandbox] |  | case_index=463 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_role\uff5cPOST /api/payment/sandbox]` |
+| API-SWEEP-465 | P2 | test_endpoint_sweep[security_anonymous\uff5cGET /api/payment/{orderId}/status] |  | case_index=464 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_anonymous\uff5cGET /api/payment/{orderId}/status]` |
+| API-SWEEP-466 | P2 | test_endpoint_sweep[security_role\uff5cGET /api/payment/{orderId}/status] |  | case_index=465 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_role\uff5cGET /api/payment/{orderId}/status]` |
+| API-SWEEP-467 | P2 | test_endpoint_sweep[path_param_type\uff5cGET /api/payment/{orderId}/status] |  | case_index=466 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cGET /api/payment/{orderId}/status]` |
+| API-SWEEP-468 | P2 | test_endpoint_sweep[detail_not_found\uff5cGET /api/payment/{orderId}/status] |  | case_index=467 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[detail_not_found\uff5cGET /api/payment/{orderId}/status]` |
+| API-SWEEP-469 | P2 | test_endpoint_sweep[list_boundary\uff5cGET /api/products] |  | case_index=468 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[list_boundary\uff5cGET /api/products]` |
+| API-SWEEP-470 | P2 | test_endpoint_sweep[positive_list\uff5cGET /api/products] |  | case_index=469 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[positive_list\uff5cGET /api/products]` |
+| API-SWEEP-471 | P2 | test_endpoint_sweep[bulk_page\uff5cGET /api/products] |  | case_index=470 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[bulk_page\uff5cGET /api/products]` |
+| API-SWEEP-472 | P2 | test_endpoint_sweep[path_param_type\uff5cGET /api/products/{spuId}] |  | case_index=471 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cGET /api/products/{spuId}]` |
+| API-SWEEP-473 | P2 | test_endpoint_sweep[detail_not_found\uff5cGET /api/products/{spuId}] |  | case_index=472 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[detail_not_found\uff5cGET /api/products/{spuId}]` |
+| API-SWEEP-474 | P2 | test_endpoint_sweep[positive_detail\uff5cGET /api/products/{spuId}] |  | case_index=473 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[positive_detail\uff5cGET /api/products/{spuId}]` |
+| API-SWEEP-475 | P2 | test_endpoint_sweep[path_param_type\uff5cGET /api/products/{spuId}/reviews] |  | case_index=474 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cGET /api/products/{spuId}/reviews]` |
+| API-SWEEP-476 | P2 | test_endpoint_sweep[detail_not_found\uff5cGET /api/products/{spuId}/reviews] |  | case_index=475 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[detail_not_found\uff5cGET /api/products/{spuId}/reviews]` |
+| API-SWEEP-477 | P2 | test_endpoint_sweep[positive_detail\uff5cGET /api/products/{spuId}/reviews] |  | case_index=476 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[positive_detail\uff5cGET /api/products/{spuId}/reviews]` |
+| API-SWEEP-478 | P2 | test_endpoint_sweep[security_anonymous\uff5cPOST /api/reviews] |  | case_index=477 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_anonymous\uff5cPOST /api/reviews]` |
+| API-SWEEP-479 | P2 | test_endpoint_sweep[security_role\uff5cPOST /api/reviews] |  | case_index=478 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[security_role\uff5cPOST /api/reviews]` |
+| API-SWEEP-480 | P2 | test_endpoint_sweep[list_boundary\uff5cGET /api/search] |  | case_index=479 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[list_boundary\uff5cGET /api/search]` |
+| API-SWEEP-481 | P2 | test_endpoint_sweep[positive_list\uff5cGET /api/search] |  | case_index=480 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[positive_list\uff5cGET /api/search]` |
+| API-SWEEP-482 | P2 | test_endpoint_sweep[bulk_page\uff5cGET /api/search] |  | case_index=481 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[bulk_page\uff5cGET /api/search]` |
+| API-SWEEP-483 | P2 | test_endpoint_sweep[list_boundary\uff5cGET /api/site/brand] |  | case_index=482 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[list_boundary\uff5cGET /api/site/brand]` |
+| API-SWEEP-484 | P2 | test_endpoint_sweep[positive_list\uff5cGET /api/site/brand] |  | case_index=483 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[positive_list\uff5cGET /api/site/brand]` |
+| API-SWEEP-485 | P2 | test_endpoint_sweep[bulk_page\uff5cGET /api/site/brand] |  | case_index=484 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[bulk_page\uff5cGET /api/site/brand]` |
+| API-SWEEP-486 | P2 | test_endpoint_sweep[positive_login\uff5cPOST /admin/auth/login] |  | case_index=485 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[positive_login\uff5cPOST /admin/auth/login]` |
+| API-SWEEP-487 | P2 | test_endpoint_sweep[positive_login\uff5cPOST /api/auth/login] |  | case_index=486 | `tests/api/test_endpoint_sweep.py::test_endpoint_sweep[positive_login\uff5cPOST /api/auth/login]` |
+
+### 校验边界（23 条）
+
+| 用例ID | 优先级 | 用例标题 | 验证点 | 参数 | 自动化脚本 |
+|---|---|---|---|---|---|
+| API-VAL-001 | P1 | 手机号 10 位（长度不足）被拒 | 等价类-非法：HTTP 400 + 40000 | - | `tests/api/test_validation.py::test_login_phone_10_digits_rejected` |
+| API-VAL-002 | P1 | 手机号 12 位（超长）被拒 | 边界值 11+1：HTTP 400 + 40000 | - | `tests/api/test_validation.py::test_login_phone_12_digits_rejected` |
+| API-VAL-003 | P2 | 验证码 5/7 位按凭证错误处理 | 边界值：返回 40101，不得 5xx | - | `tests/api/test_validation.py::test_login_code_length_boundary_handled` |
+| API-VAL-004 | P2 | 管理端密码 200 字符不触发 5xx | 边界值：返回 40101 凭证错误 | - | `tests/api/test_validation.py::test_admin_password_200_chars_not_5xx` |
+| API-VAL-005 | P1 | 收货人姓名 64 字符（列宽上限）可保存 | 边界值-合法：保存成功且长度保持 64 | - | `tests/api/test_validation.py::test_address_name_64_chars_accepted` |
+| API-VAL-006 | P0 | 收货人姓名 65 字符（超列宽）应被拒 | 边界值-非法：预期 400（缺陷 D-06：实际 500） | - | `tests/api/test_validation.py::test_address_name_65_chars_rejected` |
+| API-VAL-007 | P1 | 详细地址 255 字符（列宽上限）可保存 | 边界值-合法：保存成功 | - | `tests/api/test_validation.py::test_address_detail_255_chars_accepted` |
+| API-VAL-008 | P0 | 详细地址 256 字符（超列宽）应被拒 | 边界值-非法：预期 400（缺陷 D-07：实际 500） | - | `tests/api/test_validation.py::test_address_detail_256_chars_rejected` |
+| API-VAL-009 | P1 | 收货人手机号非数字应被拒 | 等价类-非法格式：预期 400（缺陷 D-08：当前被接受） | - | `tests/api/test_validation.py::test_address_phone_invalid_format_rejected` |
+| API-VAL-010 | P2 | 收货人姓名全空白应被拒 | 等价类-非空：400「收货信息不完整」 | - | `tests/api/test_validation.py::test_address_whitespace_only_name_rejected` |
+| API-VAL-011 | P2 | 分页零值/负值不报 5xx | 边界值：page=0/-1、size=0 均返回列表结构 | - | `tests/api/test_validation.py::test_pagination_zero_and_negative_tolerated` |
+| API-VAL-012 | P2 | 分页超大 size 不报 5xx | 边界值：size=1000 返回不超过总记录数 | - | `tests/api/test_validation.py::test_pagination_oversize_tolerated` |
+| API-VAL-013 | P1 | 空购物车项下单被拒 | 等价类-非法：400 | - | `tests/api/test_validation.py::test_order_empty_cart_items_rejected` |
+| API-VAL-014 | P1 | 立即购买数量 0 被拒 | 边界值：400「数量须 ≥ 1」 | - | `tests/api/test_validation.py::test_order_buy_now_quantity_zero_rejected` |
+| API-VAL-015 | P1 | 立即购买超库存被拒 | 边界值：40901 库存不足 | - | `tests/api/test_validation.py::test_order_buy_now_over_stock_rejected` |
+| API-VAL-016 | P1 | 售后必填项缺失被拒 | 必填性：orderId/type/reason 缺一 → 400 | - | `tests/api/test_validation.py::test_after_sale_missing_fields_rejected` |
+| API-VAL-017 | P1 | 售后类型枚举外取值被拒 | 等价类-非法：400「type 无效」 | - | `tests/api/test_validation.py::test_after_sale_type_enum_rejected` |
+| API-VAL-018 | P1 | 售后原因 512 字符（列宽上限）可提交 | 边界值-合法：提交成功 | - | `tests/api/test_validation.py::test_after_sale_reason_512_accepted` |
+| API-VAL-019 | P0 | 售后原因 513 字符（超列宽）应被拒 | 边界值-非法：预期 400（缺陷 D-10：实际 500） | - | `tests/api/test_validation.py::test_after_sale_reason_513_rejected` |
+| API-VAL-020 | P1 | 评价必填项缺失应被拒 | 必填性：预期 400（缺陷 D-09：当前 500/空指针） | - | `tests/api/test_validation.py::test_review_missing_fields_rejected` |
+| API-VAL-021 | P0 | 评价评分 6（超出 1–5）应被拒 | 边界值-非法：预期 400（缺陷 D-11：当前落库成功） | - | `tests/api/test_validation.py::test_review_rating_out_of_range_rejected` |
+| API-VAL-022 | P1 | 评价评分非数字应被拒 | 等价类-非法类型：预期 400（缺陷 D-12：当前 500） | - | `tests/api/test_validation.py::test_review_rating_non_numeric_rejected` |
+| API-VAL-023 | P2 | test_unsupported_method_returns_405 | 异常：对不存在的 HTTP 方法（DELETE 仓库）应 405，不得 500。（缺陷 D-22） | - | `tests/api/test_validation.py::test_unsupported_method_returns_405` |
+
 ## UI 用例（46 条）
 
 ### 商城浏览（4 条）
@@ -218,20 +873,20 @@
 | UI-ADMIN-004 | P1 | 后台订单列表 | 表格有数据且标题为订单列表 | - | `tests/ui/test_admin_console.py::TestAdminConsole::test_order_list_loads[chromium]` |
 | UI-ADMIN-005 | P1 | 后台会员列表 | 会员管理页表格有数据 | - | `tests/ui/test_admin_console.py::TestAdminConsole::test_customers_page_loads[chromium]` |
 | UI-ADMIN-006 | P1 | 类目与品牌页 | 页面标题正确，无加载失败/系统异常 | path=/categories, title=类目与品牌 | `tests/ui/test_admin_console.py::TestAdminConsole::test_admin_pages_load[chromium-categories]` |
-| UI-ADMIN-007 | P2 | 新增商品表单加载 | 显示新增商品页与“存为草稿”按钮 | - | `tests/ui/test_admin_console.py::TestAdminConsole::test_product_create_form_loads[chromium]` |
-| UI-ADMIN-008 | P1 | 库存管理页 | 页面标题正确，无加载失败/系统异常 | path=/inventory, title=库存管理 | `tests/ui/test_admin_console.py::TestAdminConsole::test_admin_pages_load[chromium-inventory]` |
-| UI-ADMIN-009 | P1 | 出入库单页 | 页面标题正确，无加载失败/系统异常 | path=/in-out, title=出入库单 | `tests/ui/test_admin_console.py::TestAdminConsole::test_admin_pages_load[chromium-in-out]` |
-| UI-ADMIN-010 | P1 | 售后管理页 | 页面标题正确，无加载失败/系统异常 | path=/aftersales, title=售后管理 | `tests/ui/test_admin_console.py::TestAdminConsole::test_admin_pages_load[chromium-aftersales]` |
-| UI-ADMIN-011 | P1 | 评价管理页 | 页面标题正确，无加载失败/系统异常 | path=/reviews, title=评价管理 | `tests/ui/test_admin_console.py::TestAdminConsole::test_admin_pages_load[chromium-reviews]` |
-| UI-ADMIN-012 | P1 | 站点品牌页 | 页面标题正确，无加载失败/系统异常 | path=/site-brand, title=站点品牌 | `tests/ui/test_admin_console.py::TestAdminConsole::test_admin_pages_load[chromium-site-brand]` |
-| UI-ADMIN-013 | P1 | 首页运营位页 | 页面标题正确，无加载失败/系统异常 | path=/home-slots, title=首页运营位 | `tests/ui/test_admin_console.py::TestAdminConsole::test_admin_pages_load[chromium-home-slots]` |
-| UI-ADMIN-014 | P1 | 用户管理页 | 页面标题正确，无加载失败/系统异常 | path=/users, title=用户管理 | `tests/ui/test_admin_console.py::TestAdminConsole::test_admin_pages_load[chromium-users]` |
-| UI-ADMIN-015 | P1 | 角色管理页 | 页面标题正确，无加载失败/系统异常 | path=/roles, title=角色管理 | `tests/ui/test_admin_console.py::TestAdminConsole::test_admin_pages_load[chromium-roles]` |
-| UI-ADMIN-016 | P1 | 菜单与权限页 | 页面标题正确，无加载失败/系统异常 | path=/menus, title=菜单与权限 | `tests/ui/test_admin_console.py::TestAdminConsole::test_admin_pages_load[chromium-menus]` |
-| UI-ADMIN-017 | P1 | 部门管理页 | 页面标题正确，无加载失败/系统异常 | path=/depts, title=部门管理 | `tests/ui/test_admin_console.py::TestAdminConsole::test_admin_pages_load[chromium-depts]` |
-| UI-ADMIN-018 | P1 | 字典管理页 | 页面标题正确，无加载失败/系统异常 | path=/dicts, title=字典管理 | `tests/ui/test_admin_console.py::TestAdminConsole::test_admin_pages_load[chromium-dicts]` |
-| UI-ADMIN-019 | P1 | 操作日志页 | 页面标题正确，无加载失败/系统异常 | path=/logs, title=操作日志 | `tests/ui/test_admin_console.py::TestAdminConsole::test_admin_pages_load[chromium-logs]` |
-| UI-ADMIN-020 | P1 | 系统设置页 | 页面标题正确，无加载失败/系统异常 | path=/settings, title=系统设置 | `tests/ui/test_admin_console.py::TestAdminConsole::test_admin_pages_load[chromium-settings]` |
+| UI-ADMIN-007 | P1 | 库存管理页 | 页面标题正确，无加载失败/系统异常 | path=/inventory, title=库存管理 | `tests/ui/test_admin_console.py::TestAdminConsole::test_admin_pages_load[chromium-inventory]` |
+| UI-ADMIN-008 | P1 | 出入库单页 | 页面标题正确，无加载失败/系统异常 | path=/in-out, title=出入库单 | `tests/ui/test_admin_console.py::TestAdminConsole::test_admin_pages_load[chromium-in-out]` |
+| UI-ADMIN-009 | P1 | 售后管理页 | 页面标题正确，无加载失败/系统异常 | path=/aftersales, title=售后管理 | `tests/ui/test_admin_console.py::TestAdminConsole::test_admin_pages_load[chromium-aftersales]` |
+| UI-ADMIN-010 | P1 | 评价管理页 | 页面标题正确，无加载失败/系统异常 | path=/reviews, title=评价管理 | `tests/ui/test_admin_console.py::TestAdminConsole::test_admin_pages_load[chromium-reviews]` |
+| UI-ADMIN-011 | P1 | 站点品牌页 | 页面标题正确，无加载失败/系统异常 | path=/site-brand, title=站点品牌 | `tests/ui/test_admin_console.py::TestAdminConsole::test_admin_pages_load[chromium-site-brand]` |
+| UI-ADMIN-012 | P1 | 首页运营位页 | 页面标题正确，无加载失败/系统异常 | path=/home-slots, title=首页运营位 | `tests/ui/test_admin_console.py::TestAdminConsole::test_admin_pages_load[chromium-home-slots]` |
+| UI-ADMIN-013 | P1 | 用户管理页 | 页面标题正确，无加载失败/系统异常 | path=/users, title=用户管理 | `tests/ui/test_admin_console.py::TestAdminConsole::test_admin_pages_load[chromium-users]` |
+| UI-ADMIN-014 | P1 | 角色管理页 | 页面标题正确，无加载失败/系统异常 | path=/roles, title=角色管理 | `tests/ui/test_admin_console.py::TestAdminConsole::test_admin_pages_load[chromium-roles]` |
+| UI-ADMIN-015 | P1 | 菜单与权限页 | 页面标题正确，无加载失败/系统异常 | path=/menus, title=菜单与权限 | `tests/ui/test_admin_console.py::TestAdminConsole::test_admin_pages_load[chromium-menus]` |
+| UI-ADMIN-016 | P1 | 部门管理页 | 页面标题正确，无加载失败/系统异常 | path=/depts, title=部门管理 | `tests/ui/test_admin_console.py::TestAdminConsole::test_admin_pages_load[chromium-depts]` |
+| UI-ADMIN-017 | P1 | 字典管理页 | 页面标题正确，无加载失败/系统异常 | path=/dicts, title=字典管理 | `tests/ui/test_admin_console.py::TestAdminConsole::test_admin_pages_load[chromium-dicts]` |
+| UI-ADMIN-018 | P1 | 操作日志页 | 页面标题正确，无加载失败/系统异常 | path=/logs, title=操作日志 | `tests/ui/test_admin_console.py::TestAdminConsole::test_admin_pages_load[chromium-logs]` |
+| UI-ADMIN-019 | P1 | 系统设置页 | 页面标题正确，无加载失败/系统异常 | path=/settings, title=系统设置 | `tests/ui/test_admin_console.py::TestAdminConsole::test_admin_pages_load[chromium-settings]` |
+| UI-ADMIN-020 | P2 | 新增商品表单加载 | 显示新增商品页与“存为草稿”按钮 | - | `tests/ui/test_admin_console.py::TestAdminConsole::test_product_create_form_loads[chromium]` |
 
 ### 商城个人中心（8 条）
 
