@@ -109,6 +109,7 @@ def test_order_list_pagination_consistency(customer, db_ready):
 
 
 @pytest.mark.P1
+@pytest.mark.serial
 def test_cart_bulk_add_skus(customer, db_ready):
     """批量加购 15 个不同 SKU：行数正确、选中金额等于逐行求和。"""
     skus = db.query(

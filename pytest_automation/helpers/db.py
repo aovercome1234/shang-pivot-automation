@@ -97,10 +97,22 @@ def stock_log_count(sku_id: str) -> int:
     return int(row["n"]) if row else 0
 
 
-def pick_on_sale_sku(min_available: int = 2) -> dict | None:
-    """从库中挑一个在售、可售库存充足的 SKU（DB 驱动的用例数据源）。"""
+def pick_on_sale_sku(min_available: int = 2, shard: bool | None = None) -> dict | None:
+    """从库中挑一个在售、可售库存充足的 SKU（DB 驱动的用例数据源）。
+
+    并行执行时按 worker 分片（sku_id % worker_count == worker_index），
+    保证不同 worker 操作互不重叠的库存行；串行或 PARALLEL_SHARDING=0 时行为不变。
+    """
+    from helpers import parallel
+
+    use_shard = parallel.should_shard() if shard is None else shard
+    shard_sql = ""
+    params: list = [min_available]
+    if use_shard:
+        shard_sql = " AND mod(s.sku_id, %s) = %s"
+        params += [parallel.worker_count(), parallel.worker_index()]
     return query_one(
-        """
+        f"""
         SELECT s.sku_id, s.physical_stock, s.locked_stock,
                s.physical_stock - s.locked_stock AS available_stock,
                k.price, k.spu_id
@@ -110,10 +122,25 @@ def pick_on_sale_sku(min_available: int = 2) -> dict | None:
          WHERE s.deleted = FALSE
            AND p.status = 'ON' AND k.status = 'ENABLED'
            AND s.physical_stock - s.locked_stock >= %s
+           {shard_sql}
          ORDER BY s.sku_id
          LIMIT 1
         """,
-        (min_available,),
+        tuple(params),
+    )
+
+
+def sku_detail(sku_id: str) -> dict | None:
+    """按 SKU 返回接口用例需要的字段（价格/SPU/可售库存）。"""
+    return query_one(
+        """
+        SELECT k.id AS sku_id, k.spu_id, k.price, k.title,
+               s.physical_stock - s.locked_stock AS available_stock
+          FROM commerce.sku k
+          JOIN commerce.stock s ON s.sku_id = k.id AND s.deleted = FALSE
+         WHERE k.id = %s AND k.deleted = FALSE
+        """,
+        (str(sku_id),),
     )
 
 

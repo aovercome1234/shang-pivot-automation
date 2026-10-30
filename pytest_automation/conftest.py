@@ -1,9 +1,12 @@
 """pytest 全局入口：插件加载、Allure 标签、失败截图、结果文件。"""
 from __future__ import annotations
 
+import datetime
+import hashlib
 import json
 import os
 import re
+import subprocess
 import sys
 from pathlib import Path
 
@@ -97,6 +100,27 @@ def _load_stable_ids() -> dict[str, str]:
     return _stable_ids
 
 
+_primary_endpoint_cache: dict[str, str] | None = None
+
+
+def _primary_endpoints() -> dict[str, str]:
+    """nodeid → 主体接口（运行期映射文件里的首个调用端点）。"""
+    global _primary_endpoint_cache
+    if _primary_endpoint_cache is not None:
+        return _primary_endpoint_cache
+    _primary_endpoint_cache = {}
+    try:
+        path = Path(__file__).parent / "artifacts" / "case_endpoint_map.json"
+        if path.exists():
+            data = json.loads(path.read_text(encoding="utf-8"))
+            for nodeid, endpoints in (data.get("tests") or {}).items():
+                if endpoints:
+                    _primary_endpoint_cache[nodeid] = endpoints[0]
+    except Exception as exc:  # noqa: BLE001
+        print(f"[xdist] 主体接口映射加载失败：{exc}")
+    return _primary_endpoint_cache
+
+
 def pytest_collection_modifyitems(config, items):
     """给每条用例分配稳定编号（如 API-ADDR-001）。
 
@@ -105,6 +129,7 @@ def pytest_collection_modifyitems(config, items):
     """
     modules = _case_meta().get("modules") or {}
     stable = _load_stable_ids()
+    primary = _primary_endpoints()
     counters: dict[str, int] = {}
     for item in items:
         known = stable.get(item.nodeid)
@@ -125,6 +150,13 @@ def pytest_collection_modifyitems(config, items):
         group = "E2E" if case_type == "E2E" else f"{case_type}-{prefix}"
         counters[group] = counters.get(group, 0) + 1
         _case_ids[item.nodeid] = f"{group}-{counters[group]:03d}"
+
+        # 每接口独立并发：同一接口的用例固定落在同一个 xdist worker（顺序执行），
+        # 不同接口之间并行；serial lane 不参与分组（第二阶段串行）。
+        markers = {m.name for m in item.iter_markers()}
+        if "serial" not in markers:
+            endpoint = primary.get(item.nodeid) or item.nodeid.split("::")[0]
+            item.add_marker(pytest.mark.xdist_group(name=f"ep::{endpoint}"))
 
 
 def _git_commit() -> str:
@@ -204,6 +236,7 @@ def _allure_categories(out: Path) -> None:
 
 def pytest_configure(config):
     config._automation_results = []
+    config._run_started_at = datetime.datetime.now().isoformat(timespec="seconds")
 
 
 def pytest_sessionstart(session):
@@ -413,11 +446,26 @@ def _attach_failure_evidence(item, report) -> None:
             str(report.longrepr)[:4000],
         ]
         trace_ids: list[str] = []
+        http_status = None
+        error_trace = ""
+        clients = []
         for value in item.funcargs.values():
+            if isinstance(value, dict):
+                clients.extend(value.values())
+            elif isinstance(value, (list, tuple)):
+                clients.extend(value)
+            else:
+                clients.append(value)
+        for value in clients:
             client = getattr(value, "client", value)
             resp = getattr(client, "last_response", None)
+            for tid in getattr(client, "trace_ids", []) or []:
+                if tid not in trace_ids:
+                    trace_ids.append(str(tid))
             if resp is None:
                 continue
+            if resp.status_code >= 500 or http_status is None:
+                http_status = resp.status_code
             try:
                 body = resp.json()
             except ValueError:
@@ -434,8 +482,22 @@ def _attach_failure_evidence(item, report) -> None:
             if trace_id and trace_id not in trace_ids:
                 trace_ids.append(str(trace_id))
                 lines.append(f"traceId：{trace_id}")
+            if trace_id and resp.status_code >= 500 and not error_trace:
+                error_trace = str(trace_id)
+        # 复用型 client 会带历史 traceId；只留最近几条，避免逐个扫描日志
+        trace_ids = trace_ids[-5:]
         if trace_ids:
             lines += ["", "后端日志：见同用例下「后端日志（按 traceId）」附件"]
+        if http_status and int(http_status) >= 500 and trace_ids:
+            from helpers.diagnose import trace_excerpt
+
+            excerpt = trace_excerpt(error_trace or trace_ids[-1])
+            if excerpt:
+                allure.attach(
+                    excerpt,
+                    name="后端日志（500）",
+                    attachment_type=allure.attachment_type.TEXT,
+                )
         allure.attach(
             "\n".join(lines),
             name="失败依据",
@@ -506,6 +568,40 @@ def pytest_runtest_makereport(item, call):
             print(f"[ui] 失败截图写入失败：{exc}")
 
 
+def _git_meta() -> dict:
+    repo = Path(__file__).resolve().parents[1]
+
+    def run(args):
+        try:
+            return subprocess.run(args, cwd=repo, capture_output=True, text=True, timeout=5).stdout.strip()
+        except Exception:  # noqa: BLE001
+            return ""
+
+    dirty = bool(run(["git", "status", "--porcelain"]))
+    return {
+        "commit": run(["git", "rev-parse", "--short", "HEAD"]) or "-",
+        "branch": run(["git", "rev-parse", "--abbrev-ref", "HEAD"]) or "-",
+        "dirty": dirty,
+    }
+
+
+def _case_library_hash() -> str:
+    path = Path(__file__).parent / "test_cases.json"
+    try:
+        return hashlib.sha256(path.read_bytes()).hexdigest()[:16]
+    except OSError:
+        return "-"
+
+
+def _baseline_label() -> str:
+    root = Path(__file__).resolve().parents[1] / "api_testcases" / "baselines"
+    try:
+        dirs = sorted([p.name for p in root.iterdir() if p.is_dir()])
+        return dirs[-1] if dirs else "-"
+    except OSError:
+        return "-"
+
+
 def pytest_sessionfinish(session, exitstatus):
     from config.settings import settings
 
@@ -513,21 +609,59 @@ def pytest_sessionfinish(session, exitstatus):
     if session.config.option.collectonly:
         return
 
+    worker = os.getenv("PYTEST_XDIST_WORKER", "master")
+    suffix = "" if worker == "master" else f".{worker}"
+    run_id = os.getenv("RUN_ID") or datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
+    git = _git_meta()
+    raw_results = getattr(session.config, "_automation_results", [])
+    # pytest-rerunfailures 会为同一 nodeid 追加多次 call 记录；保留最后一次结果
+    by_nodeid = {}
+    for item in raw_results:
+        by_nodeid[item["nodeid"]] = item
+    results = list(by_nodeid.values())
+    counts = {"passed": 0, "failed": 0, "skipped": 0}
+    for item in results:
+        if item.get("outcome") in counts:
+            counts[item["outcome"]] += 1
     payload = {
         "exit_status": int(exitstatus),
+        "run_id": run_id,
+        "git": git,
+        "case_library_hash": _case_library_hash(),
+        "baseline": _baseline_label(),
         "env": settings.env,
         "mall_api": settings.api_mall_base,
         "admin_api": settings.api_admin_base,
-        "results": getattr(session.config, "_automation_results", []),
+        "worker": worker,
+        "results": results,
     }
-    output = settings.artifacts_dir / "results.json"
+    output = settings.artifacts_dir / f"results{suffix}.json"
     output.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
 
-    try:  # 用例→接口映射（供接口矩阵页按接口聚合测试点）
+    manifest = {
+        "run_id": run_id,
+        "worker": worker,
+        "started_at": getattr(session.config, "_run_started_at", ""),
+        "finished_at": datetime.datetime.now().isoformat(timespec="seconds"),
+        "git": git,
+        "env": settings.env,
+        "case_library_hash": _case_library_hash(),
+        "baseline": _baseline_label(),
+        "results_file": output.name,
+        "counts": counts,
+        "total": len(results),
+    }
+    (settings.artifacts_dir / f"run-manifest{suffix}.json").write_text(
+        json.dumps(manifest, ensure_ascii=False, indent=2), encoding="utf-8"
+    )
+
+    try:  # 用例→接口映射（每个 worker 独立落盘，发布前由合并脚本汇总）
         if os.getenv("DISABLE_RECORDER") == "1":
             return
         from core import endpoint_recorder
 
-        endpoint_recorder.save(settings.artifacts_dir / "case_endpoint_map.json")
+        endpoint_recorder.save(
+            settings.artifacts_dir / f"case_endpoint_map{suffix}.json"
+        )
     except Exception as exc:  # noqa: BLE001
         print(f"[recorder] 映射保存失败：{exc}")

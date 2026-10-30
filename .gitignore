@@ -76,3 +76,5 @@ temp/
 .agents/
 # 可观测平台的运行记录（告警日志等）
 observability/records/
+
+.zcode/

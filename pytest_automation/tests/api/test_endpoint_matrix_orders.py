@@ -219,6 +219,7 @@ def test_idempotency_replay_with_changed_payload(customer, address, on_sale_sku)
 # ================= 维度四：大数据量 =================
 
 @pytest.mark.P1
+@pytest.mark.serial
 def test_bulk_order_with_twenty_cart_items(customer, address, db_ready):
     """【大数据量】20 个购物车项合并下单：明细 20 行、金额等于逐项求和。"""
     skus = db.query(

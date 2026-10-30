@@ -92,6 +92,39 @@
     <div class="drawer-body" id="drawer-body"></div>
   </aside>
 
+  <div class="drawer-mask" id="chain-mask" hidden></div>
+  <aside class="drawer chain-drawer" id="chain-drawer" hidden aria-label="接口调用链路">
+    <div class="drawer-head">
+      <div>
+        <div class="drawer-kicker">接口调用链路</div>
+        <h2 id="chain-drawer-title"></h2>
+        <div class="muted" id="chain-drawer-sub"></div>
+      </div>
+      <button class="close-btn" id="chain-drawer-close" type="button" aria-label="关闭">×</button>
+    </div>
+    <div class="drawer-body" id="chain-body"></div>
+  </aside>
+
+  <div class="drawer-mask" id="log-mask" hidden></div>
+  <aside class="drawer log-drawer" id="log-drawer" hidden aria-label="500 错误日志">
+    <div class="drawer-head">
+      <div>
+        <div class="drawer-kicker">500 错误日志</div>
+        <h2 id="log-drawer-title"></h2>
+        <div class="muted" id="log-drawer-sub"></div>
+      </div>
+      <button class="close-btn" id="log-drawer-close" type="button" aria-label="关闭">×</button>
+    </div>
+    <div class="drawer-body">
+      <div class="log-toolbar">
+        <span class="muted">数据源：Allure 报告中的后端日志附件</span>
+        <span class="grow"></span>
+        <button class="detail-btn" id="log-copy" type="button">复制日志</button>
+      </div>
+      <pre id="log-body" class="log-pre"></pre>
+    </div>
+  </aside>
+
   <script src="assets/app.js"></script>
 </body>
 </html>

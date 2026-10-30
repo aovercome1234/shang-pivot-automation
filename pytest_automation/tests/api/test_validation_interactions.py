@@ -168,6 +168,7 @@ ADMIN_LOGIN_CASES = [
 
 
 @pytest.mark.P1
+@pytest.mark.serial
 @pytest.mark.parametrize("payload, http, code, keyword", ADMIN_LOGIN_CASES)
 def test_admin_login_parameter_interactions(anonymous, payload, http, code, keyword):
     """管理端登录：必填联动与凭证不匹配均需精确报错，不能 5xx。"""

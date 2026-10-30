@@ -44,6 +44,14 @@ if [ -d "$REPORT/history" ]; then
 fi
 
 $ALLURE generate "$RESULTS" -o "$REPORT" --clean
+if [ -d "artifacts/jacoco/html" ]; then
+  mkdir -p "$REPORT/jacoco"
+  rm -rf "$REPORT/jacoco/html"
+  cp -r "artifacts/jacoco/html" "$REPORT/jacoco/html"
+  mkdir -p "$REPORT/ext/jacoco"
+  rm -rf "$REPORT/ext/jacoco/html"
+  cp -r "artifacts/jacoco/html" "$REPORT/ext/jacoco/html"
+fi
 echo "报告已生成：$(cd "$REPORT" && pwd)/index.html"
 
 # 生成接口视图（独立页面 + Allure 首页悬浮入口）
@@ -51,6 +59,17 @@ PYTHON="python3"
 [ -x ".venv/bin/python" ] && PYTHON=".venv/bin/python"
 $PYTHON scripts/build_api_matrix.py --report-dir "$REPORT" || \
   echo "[warn] 接口视图生成失败（不影响 Allure 报告）" >&2
+$PYTHON scripts/build_ui_matrix.py --report-dir "$REPORT" || \
+  echo "[warn] UI 浏览器矩阵生成失败（不影响 Allure 报告）" >&2
+$PYTHON scripts/build_coverage_matrix.py || \
+  echo "[warn] 覆盖率矩阵生成失败（不影响 Allure 报告）" >&2
+$PYTHON scripts/build_defects.py --report-dir "$REPORT" || \
+  echo "[warn] 缺陷单生成失败（不影响 Allure 报告）" >&2
+$PYTHON scripts/build_benchmark_page.py --report-dir "$REPORT" || \
+  echo "[warn] 并行对比页生成失败（不影响 Allure 报告）" >&2
+$PYTHON scripts/archive_run.py || echo "[warn] 运行归档失败" >&2
+$PYTHON scripts/case_history.py || echo "[warn] 历史 diff 失败" >&2
+$PYTHON scripts/build_knowledge_index.py || echo "[warn] 知识库索引失败" >&2
 
 if [ "$SERVE" = "1" ]; then
   $ALLURE open "$REPORT"

@@ -9,6 +9,7 @@ import pytest
 
 from core.assertions import ok
 from helpers import db
+from helpers.db_contract import verify_deleted, verify_write
 
 pytestmark = [pytest.mark.api, pytest.mark.regression]
 
@@ -43,17 +44,15 @@ def test_brand_crud_roundtrip(admin, category_id):
     records = _list_records(admin, "/admin/brands")
     assert brand_id in {str(row["id"]) for row in records}, "新建品牌未出现在列表"
 
-    ok(
-        admin.put(
-            f"/admin/brands/{brand_id}",
-            json={"name": name + "-改", "categoryId": category_id, "status": "ENABLED"},
-        )
-    )
+    update_payload = {"name": name + "-改", "categoryId": category_id, "status": "ENABLED"}
+    ok(admin.put(f"/admin/brands/{brand_id}", json=update_payload))
+    verify_write("PUT /admin/brands/{id}", update_payload, path={"id": brand_id})
     records = _list_records(admin, "/admin/brands")
     updated = next(row for row in records if str(row["id"]) == brand_id)
     assert updated["name"].endswith("-改"), "品牌更新未生效"
 
     ok(admin.delete(f"/admin/brands/{brand_id}"))
+    verify_deleted("DELETE /admin/brands/{id}", path={"id": brand_id})
     records = _list_records(admin, "/admin/brands")
     assert brand_id not in {str(row["id"]) for row in records}, "品牌删除未生效"
 
@@ -68,12 +67,15 @@ def test_category_crud_roundtrip(admin):
     records = _list_records(admin, "/admin/categories")
     assert category in {str(row["id"]) for row in records}, "新建类目未出现在列表"
 
-    ok(admin.put(f"/admin/categories/{category}", json={"name": name + "-改", "parentId": "0"}))
+    update_payload = {"name": name + "-改", "parentId": "0"}
+    ok(admin.put(f"/admin/categories/{category}", json=update_payload))
+    verify_write("PUT /admin/categories/{id}", update_payload, path={"id": category})
     records = _list_records(admin, "/admin/categories")
     updated = next(row for row in records if str(row["id"]) == category)
     assert updated["name"].endswith("-改"), "类目更新未生效"
 
     ok(admin.delete(f"/admin/categories/{category}"))
+    verify_deleted("DELETE /admin/categories/{id}", path={"id": category})
 
 
 @pytest.mark.P0
@@ -88,12 +90,15 @@ def test_dict_crud_roundtrip(admin):
     records = _list_records(admin, "/admin/dicts")
     assert dict_id in {str(row["id"]) for row in records}, "新建字典未出现在列表"
 
-    ok(admin.put(f"/admin/dicts/{dict_id}", json={"code": code, "name": "自动化字典-改"}))
+    update_payload = {"code": code, "name": "自动化字典-改"}
+    ok(admin.put(f"/admin/dicts/{dict_id}", json=update_payload))
+    verify_write("PUT /admin/dicts/{id}", update_payload, path={"id": dict_id})
     records = _list_records(admin, "/admin/dicts")
     updated = next(row for row in records if str(row["id"]) == dict_id)
     assert updated["name"].endswith("-改"), "字典更新未生效"
 
     ok(admin.delete(f"/admin/dicts/{dict_id}"))
+    verify_deleted("DELETE /admin/dicts/{id}", path={"id": dict_id})
 
 
 @pytest.mark.P1
@@ -106,12 +111,15 @@ def test_dept_crud_roundtrip(admin):
     records = _list_records(admin, "/admin/depts")
     assert dept_id in {str(row["id"]) for row in records}, "新建部门未出现在列表"
 
-    ok(admin.put(f"/admin/depts/{dept_id}", json={"name": name + "-改", "parentId": "0"}))
+    update_payload = {"name": name + "-改", "parentId": "0"}
+    ok(admin.put(f"/admin/depts/{dept_id}", json=update_payload))
+    verify_write("PUT /admin/depts/{id}", update_payload, path={"id": dept_id})
     records = _list_records(admin, "/admin/depts")
     updated = next(row for row in records if str(row["id"]) == dept_id)
     assert updated["name"].endswith("-改"), "部门更新未生效"
 
     ok(admin.delete(f"/admin/depts/{dept_id}"))
+    verify_deleted("DELETE /admin/depts/{id}", path={"id": dept_id})
 
 
 @pytest.mark.P1
@@ -124,7 +132,9 @@ def test_warehouse_crud_roundtrip(admin):
     records = _list_records(admin, "/admin/warehouses")
     assert warehouse_id in {str(row["id"]) for row in records}, "新建仓库未出现在列表"
 
-    ok(admin.put(f"/admin/warehouses/{warehouse_id}", json={"name": name + "-改"}))
+    update_payload = {"name": name + "-改"}
+    ok(admin.put(f"/admin/warehouses/{warehouse_id}", json=update_payload))
+    verify_write("PUT /admin/warehouses/{id}", update_payload, path={"id": warehouse_id})
     records = _list_records(admin, "/admin/warehouses")
     updated = next(row for row in records if str(row["id"]) == warehouse_id)
     assert updated["name"].endswith("-改"), "仓库更新未生效"

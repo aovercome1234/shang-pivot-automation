@@ -107,6 +107,7 @@ def test_login_code_length_boundary_handled(anonymous):
 
 
 @pytest.mark.P2
+@pytest.mark.serial
 def test_admin_password_200_chars_not_5xx(anonymous):
     """边界值：管理端密码超长（200 字符）→ 40101 凭证错误，不得 5xx。"""
     resp = anonymous.post(

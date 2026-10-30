@@ -23,12 +23,14 @@ import argparse
 import json
 import re
 import shutil
+import sys
 from urllib.parse import quote
 from collections import OrderedDict
 from datetime import datetime
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT))
 REPO = ROOT.parent
 MODEL = REPO / "api_testcases" / "artifacts" / "endpoint-model.json"
 OPENAPI = REPO / "docs" / "openapi-v3-api-docs.json"
@@ -266,6 +268,45 @@ def load_results() -> dict[str, dict]:
         if previous and previous.get("start", 0) > start:
             continue
         severity = labels.get("severity") or ""
+        logs = []
+        evidence = ""
+        for attachment in data.get("attachments") or []:
+            name = attachment.get("name") or ""
+            source = attachment.get("source") or ""
+            if not source or ("后端日志" not in name and name != "失败依据"):
+                continue
+            log_file = ALLURE_DIR / source
+            if not log_file.exists():
+                continue
+            try:
+                text = log_file.read_text(encoding="utf-8", errors="replace")
+            except OSError:
+                continue
+            if name == "失败依据":
+                evidence = text
+            else:
+                logs.append({"name": name, "text": text})
+        failure = {}
+        blocks = re.findall(
+            r"最后请求：(\w+) (\S+)\n响应状态：HTTP (\d+)\n响应体：(.*)",
+            evidence,
+        )
+        if blocks:
+            method, path, status, body_text = next(
+                (block for block in blocks if int(block[2]) >= 500), blocks[-1]
+            )
+            try:
+                body = json.loads(body_text)
+            except Exception:  # noqa: BLE001
+                body = {}
+            failure = {
+                "method": method,
+                "path": path,
+                "status": int(status),
+                "body": body,
+                "traceId": body.get("traceId") if isinstance(body, dict) else None,
+                "bizCode": body.get("code") if isinstance(body, dict) else None,
+            }
         results[key] = {
             "name": data.get("name") or "",
             "status": data.get("status") or "unknown",
@@ -274,6 +315,8 @@ def load_results() -> dict[str, dict]:
             "start": start,
             "durationMs": max(0, (data.get("stop") or start) - start),
             "priority": _SEVERITY_TO_PRIORITY.get(severity, ""),
+            "logs": logs,
+            "failure": failure,
         }
     return results
 
@@ -328,6 +371,36 @@ def classify_dimension(name: str, file: str) -> str:
     return "功能正向"
 
 
+PRIMARY_DIMENSION_FILES = {
+    "test_redis_state.py": "Redis校验",
+    "test_mq_order_events.py": "MQ校验",
+    "test_write_persistence.py": "DB校验",
+    "test_admin_crud_roundtrip.py": "DB校验",
+}
+DB_DIMENSION_FILES = {
+    "test_write_persistence.py",
+    "test_admin_crud_roundtrip.py",
+    "test_invariants.py",
+}
+METHOD_DIMENSION_FILES = {
+    # 契约矩阵按端点方法逐项调用，是测试点级别的“请求方式”验证；
+    # 巡检/普通功能用例的方法一致性仍由覆盖率页的 methodChecked 统计，避免全量打标。
+    "test_endpoint_matrix_orders.py",
+}
+
+
+def classify_dimensions(file: str, primary: str) -> tuple[str, list[str]]:
+    """返回（主分类，全部分类）。主分类用于饼图/排序，全部分类用于多标签统计。"""
+    stem = Path(file).name
+    primary = PRIMARY_DIMENSION_FILES.get(stem, primary)
+    dimensions = [primary]
+    if stem in DB_DIMENSION_FILES and "DB校验" not in dimensions:
+        dimensions.append("DB校验")
+    if stem in METHOD_DIMENSION_FILES:
+        dimensions.append("请求方式校验")
+    return primary, dimensions
+
+
 def _case_name(name: str) -> str:
     """去掉参数后缀中的路径噪声，保留用例编号与标题。"""
     return re.sub(r"\s+", " ", name).strip()
@@ -379,6 +452,19 @@ def build_data(report_dir: Path) -> dict:
             return verify_meta.get(f"{parts[0]}::{parts[-1]}") or ""
         return ""
 
+    def _detail_for(details: dict, method: str, path: str) -> dict:
+        direct = details.get(f"{method} {path}")
+        if direct:
+            return direct
+        for key, value in details.items():
+            key_method, _, template = key.partition(" ")
+            if key_method != method:
+                continue
+            pattern = "^" + re.sub(r"\{[^}]+\}", "[^/]+", template) + "$"
+            if re.match(pattern, path):
+                return value
+        return {}
+
     def _case_id_of(name: str) -> str:
         match = re.match(r"^((?:API|UI|E2E)-[A-Z]+-\d+)", name)
         return match.group(1) if match else ""
@@ -390,11 +476,74 @@ def build_data(report_dir: Path) -> dict:
             continue
         file = nodeid.split("::")[0]
         dimension = classify_dimension(result["name"], file)
+        dimension, dimensions = classify_dimensions(file, dimension)
         per_test_details = details_map.get(nodeid) or {}
         testcase_id = testcase_ids.get(result["name"])
         for ep in eps:
             detail = per_test_details.get(ep) or {}
             priority = "P2" if dimension == "异常" else (result.get("priority") or "")
+            backend_log = ""
+            backend_log_source = ""
+            response_detail = detail.get("response") or {}
+            body = response_detail.get("body")
+            failure = result.get("failure") or {}
+            trace_id = (failure.get("traceId") if failure else None) or (
+                body.get("traceId") if isinstance(body, dict) else None
+            )
+            biz_code = (failure.get("bizCode") if failure else None) or (
+                body.get("code") if isinstance(body, dict) else None
+            )
+            http_status = int(failure.get("status") or response_detail.get("status") or 0)
+            failure_request = {}
+            if failure:
+                failure_request = _detail_for(
+                    per_test_details, failure.get("method") or "", failure.get("path") or ""
+                ).get("request") or {}
+            if result["status"] in ("failed", "broken"):
+                # 优先用 Allure 附件里的后端日志（与 Allure 页面同源）
+                attachment_logs = result.get("logs") or []
+                chosen = next((item for item in attachment_logs if "500" in item["name"]), None)
+                if chosen and not ("Unhandled error" in chosen["text"] or "Exception" in chosen["text"]):
+                    chosen = None
+                usable = [
+                    item for item in attachment_logs
+                    if not item["text"].lstrip().startswith("未找到 traceId=")
+                ]
+                errors = [
+                    item for item in usable
+                    if "Unhandled error" in item["text"] or "Exception" in item["text"]
+                ]
+                if chosen is None and errors:
+                    chosen = max(errors, key=lambda item: len(item["text"]))
+                elif chosen is None and trace_id:
+                    chosen = next(
+                        (item for item in usable if str(trace_id) in item["text"]),
+                        None,
+                    )
+                if chosen is None:
+                    chosen = max(usable, key=lambda item: len(item["text"]), default=None)
+                if chosen and trace_id and not (
+                    "Unhandled error" in chosen["text"] or "Exception" in chosen["text"]
+                ):
+                    try:
+                        from helpers.diagnose import trace_excerpt
+
+                        direct = trace_excerpt(str(trace_id))
+                    except Exception:  # noqa: BLE001
+                        direct = ""
+                    if "Unhandled error" in direct or "Exception" in direct:
+                        chosen = {"name": "后端日志（运行时回退）", "text": direct}
+                if chosen:
+                    backend_log = chosen["text"]
+                    backend_log_source = "allure:" + chosen["name"]
+                elif trace_id and http_status >= 500:
+                    try:
+                        from helpers.diagnose import trace_excerpt
+
+                        backend_log = trace_excerpt(str(trace_id))[:12000]
+                        backend_log_source = "backend-log"
+                    except Exception:  # noqa: BLE001
+                        backend_log = ""
             tests_by_endpoint.setdefault(ep, []).append(
                 {
                     "name": _case_name(result["name"]),
@@ -408,7 +557,20 @@ def build_data(report_dir: Path) -> dict:
                     "durationMs": result.get("durationMs") or 0,
                     "verify": _verify_of(nodeid),
                     "request": detail.get("request") or {},
-                    "response": detail.get("response") or {},
+                    "response": response_detail,
+                    "backendLog": backend_log,
+                    "backendLogSource": backend_log_source,
+                    "httpStatus": http_status,
+                    "bizCode": biz_code,
+                    "traceId": trace_id or "",
+                    "failureMethod": failure.get("method", ""),
+                    "failurePath": failure.get("path", ""),
+                    "failureResponse": (
+                        {"status": failure.get("status"), "body": failure.get("body")}
+                        if failure else {}
+                    ),
+                    "failureRequest": failure_request,
+                    "dimensions": dimensions,
                     "testCaseId": testcase_id or "",
                     "link": (
                         "../index.html#/suites/" + suite_links[testcase_id] + "/"
@@ -455,10 +617,11 @@ def build_data(report_dir: Path) -> dict:
                                   if t["dimension"] in DIMENSION_ORDER else 99, t["name"]))
         group_stats = OrderedDict()
         for test in tests:
-            group = group_stats.setdefault(test["dimension"], {"total": 0, "failed": 0})
-            group["total"] += 1
-            if test["status"] in ("failed", "broken"):
-                group["failed"] += 1
+            for dim in test.get("dimensions") or [test["dimension"]]:
+                group = group_stats.setdefault(dim, {"total": 0, "failed": 0})
+                group["total"] += 1
+                if test["status"] in ("failed", "broken"):
+                    group["failed"] += 1
         interfaces.append(
             {
                 "id": key,
@@ -485,18 +648,35 @@ def build_data(report_dir: Path) -> dict:
         key=lambda item: (risk_order.get(item["risk"], 9), item["path"], item["method"])
     )
     dimension_stats: dict[str, dict] = {}
-    seen_nodes: set[str] = set()
+    primary_stats: dict[str, dict] = {}
+    seen_node_dims: set[tuple[str, str]] = set()
+    seen_primary: set[str] = set()
     for tests in tests_by_endpoint.values():
         for test in tests:
-            if test["nodeid"] in seen_nodes:
+            status = test["status"]
+            for dim in test.get("dimensions") or [test["dimension"]]:
+                key = (test["nodeid"], dim)
+                if key in seen_node_dims:
+                    continue
+                seen_node_dims.add(key)
+                bucket = dimension_stats.setdefault(
+                    dim, {"dimension": dim, "total": 0, "passed": 0,
+                          "failed": 0, "skipped": 0, "broken": 0}
+                )
+                bucket["total"] += 1
+                if status in bucket:
+                    bucket[status] += 1
+                elif status == "unknown":
+                    bucket["skipped"] += 1
+            primary = test["dimension"]
+            if test["nodeid"] in seen_primary:
                 continue
-            seen_nodes.add(test["nodeid"])
-            bucket = dimension_stats.setdefault(
-                test["dimension"], {"dimension": test["dimension"], "total": 0,
-                                    "passed": 0, "failed": 0, "skipped": 0, "broken": 0}
+            seen_primary.add(test["nodeid"])
+            bucket = primary_stats.setdefault(
+                primary, {"dimension": primary, "total": 0, "passed": 0,
+                          "failed": 0, "skipped": 0, "broken": 0}
             )
             bucket["total"] += 1
-            status = test["status"]
             if status in bucket:
                 bucket[status] += 1
             elif status == "unknown":
@@ -504,6 +684,10 @@ def build_data(report_dir: Path) -> dict:
 
     ordered_dims = sorted(
         dimension_stats.values(),
+        key=lambda d: (DIMENSION_ORDER.index(d["dimension"]) if d["dimension"] in DIMENSION_ORDER else 99),
+    )
+    ordered_primary = sorted(
+        primary_stats.values(),
         key=lambda d: (DIMENSION_ORDER.index(d["dimension"]) if d["dimension"] in DIMENSION_ORDER else 99),
     )
 
@@ -551,8 +735,130 @@ def build_data(report_dir: Path) -> dict:
         },
         "unattributedTests": unattributed,
         "dimensionStats": ordered_dims,
+        "primaryDimensionStats": ordered_primary,
+        "multiDimension": True,
         "interfaces": interfaces,
     }
+
+
+# ---------------- 并行对比数据 ----------------
+
+def _primary_method_map() -> dict[str, str]:
+    """nodeid → 主体接口的 HTTP 方法（用于「方法耗时构成」辅助统计）。"""
+    mapping_file = ROOT / "artifacts" / "case_endpoint_map.json"
+    result: dict[str, str] = {}
+    try:
+        data = json.loads(mapping_file.read_text(encoding="utf-8"))
+        for nodeid, endpoints in (data.get("tests") or {}).items():
+            if endpoints:
+                result[nodeid] = endpoints[0].split(" ", 1)[0]
+    except Exception:  # noqa: BLE001
+        pass
+    return result
+
+
+def _run_counts(run_dir: Path) -> dict:
+    """从 results.json 去重统计通过/失败/跳过（重跑取最后一次）。"""
+    files = sorted(run_dir.glob("results*.json"))
+    if not files:
+        return {}
+    latest: dict[str, str] = {}
+    for file in files:
+        try:
+            payload = json.loads(file.read_text(encoding="utf-8"))
+        except Exception:  # noqa: BLE001
+            continue
+        for record in payload.get("results") or []:
+            latest[record.get("nodeid", "")] = record.get("outcome", "")
+    counts = {"passed": 0, "failed": 0, "skipped": 0}
+    for outcome in latest.values():
+        if outcome in counts:
+            counts[outcome] += 1
+    return counts
+
+
+def _method_mix(run_dir: Path, methods: dict[str, str]) -> dict:
+    """按主体接口方法汇总用例耗时（辅助口径：单测 duration 求和，非墙钟）。"""
+    results_file = run_dir / "results.json"
+    if not results_file.exists() or not methods:
+        return {}
+    try:
+        payload = json.loads(results_file.read_text(encoding="utf-8"))
+    except Exception:  # noqa: BLE001
+        return {}
+    latest: dict[str, dict] = {}
+    for record in payload.get("results") or []:
+        latest[record.get("nodeid", "")] = record
+    mix: dict[str, dict] = {}
+    for nodeid, record in latest.items():
+        method = methods.get(nodeid)
+        if not method:
+            continue
+        bucket = mix.setdefault(method, {"count": 0, "seconds": 0.0})
+        bucket["count"] += 1
+        bucket["seconds"] += float(record.get("duration_seconds") or 0)
+    for bucket in mix.values():
+        bucket["seconds"] = round(bucket["seconds"], 2)
+    return mix
+
+
+def build_benchmark_data() -> dict:
+    """汇总 API / UI 两层的串行与并行基准，以及 API 方法耗时构成。"""
+    root = ROOT / "artifacts" / "parallel"
+    methods = _primary_method_map()
+    layers: dict[str, dict] = {"api": {"runs": []}, "ui": {"runs": []}}
+    for folder in sorted(root.glob("*")):
+        summary_file = folder / "run-summary.json"
+        if not summary_file.exists():
+            continue
+        try:
+            item = {"dir": folder.name, **json.loads(summary_file.read_text(encoding="utf-8"))}
+        except Exception:  # noqa: BLE001
+            continue
+        item.setdefault("layer", "api")
+        item.setdefault("mode", "serial" if item.get("workers") == 1 else "parallel")
+        if item["layer"] not in layers:
+            continue
+        computed = _run_counts(folder)
+        if computed:
+            item.update(computed)
+        if item["mode"] == "serial":
+            layers[item["layer"]]["serial"] = item
+        else:
+            layers[item["layer"]]["runs"].append(item)
+
+    for name, layer in layers.items():
+        runs = sorted(layer.get("runs") or [], key=lambda r: r["dir"])
+        if name == "api":
+            # 正式口径：每个接口独立并发（--dist loadgroup）；worksteal 仅作历史参考
+            grouped = [r for r in runs if r.get("dist") == "loadgroup"]
+            runs = grouped or runs
+        layer["runs"] = runs[-6:]
+        layer["referenceRuns"] = [
+            r for r in sorted(layer.get("runs") or [], key=lambda x: x["dir"])
+            if name == "api" and r.get("dist") != "loadgroup"
+        ]
+        totals = sorted(int(r.get("total_seconds") or 0) for r in layer["runs"] if r.get("total_seconds"))
+        layer["median_seconds"] = totals[len(totals) // 2] if totals else None
+        serial = layer.get("serial") or {}
+        serial_total = int(serial.get("total_seconds") or 0)
+        layer["speedup"] = (
+            round(serial_total / layer["median_seconds"], 2)
+            if serial_total and layer.get("median_seconds") else None
+        )
+
+    api = layers["api"]
+    serial_dir = api.get("serial", {}).get("dir")
+    if serial_dir:
+        api["methodMix"] = {"serial": _method_mix(root / serial_dir, methods)}
+    parallel_runs = [r for r in api["runs"] if r.get("total_seconds")]
+    if parallel_runs:
+        median_run = min(parallel_runs, key=lambda r: abs(int(r["total_seconds"]) - (api.get("median_seconds") or 0)))
+        api["methodMix"] = api.get("methodMix") or {}
+        api["methodMix"]["parallel"] = _method_mix(root / median_run["dir"], methods)
+        api["methodMix"]["parallelRun"] = median_run["dir"]
+
+    return {"generatedAt": datetime.now().strftime("%Y-%m-%d %H:%M:%S"), "layers": layers}
 
 
 # ---------------- 落盘与入口注入 ----------------
@@ -626,6 +932,14 @@ def main() -> None:
     (ext / "data" / "api-matrix.json").write_text(
         json.dumps(data, ensure_ascii=False, indent=1), encoding="utf-8"
     )
+    (ext / "data" / "benchmark.json").write_text(
+        json.dumps(build_benchmark_data(), ensure_ascii=False, indent=1), encoding="utf-8"
+    )
+    enhancements_file = ROOT / "data" / "report_enhancements.json"
+    if enhancements_file.exists():
+        (ext / "data" / "enhancements.json").write_text(
+            enhancements_file.read_text(encoding="utf-8"), encoding="utf-8"
+        )
     # 两级导航：大类（接口 / UI …）→ 视图（列表 / 统计 …）
     groups = [
         {
@@ -634,13 +948,17 @@ def main() -> None:
             "views": [
                 {"id": "list", "title": "接口列表", "type": "api", "data": "data/api-matrix.json"},
                 {"id": "stats", "title": "分类统计", "type": "stats", "data": "data/api-matrix.json"},
+                {"id": "benchmark", "title": "并行对比", "type": "benchmark", "data": "data/benchmark.json"},
+                {"id": "coverage", "title": "覆盖率", "type": "coverage", "data": "data/coverage.json"},
+                {"id": "defects", "title": "缺陷", "type": "defects", "data": "data/defects.json"},
+                {"id": "history", "title": "用例历史", "type": "history", "data": "data/history.json"},
             ],
         },
         {
             "id": "ui",
             "title": "UI 自动化",
             "views": [
-                {"id": "overview", "title": "结果总览", "type": "placeholder", "data": ""},
+                {"id": "overview", "title": "浏览器矩阵", "type": "ui", "data": "data/ui.json"},
             ],
         },
     ]

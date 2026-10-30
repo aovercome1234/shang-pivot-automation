@@ -6,3 +6,6 @@ allure-pytest>=2.13
 playwright>=1.40
 pytest-playwright>=0.4
 pytest-xdist>=3.6
+
+redis>=5.0
+pika>=1.3

@@ -24,6 +24,19 @@ spring:
       keepalive-time: 30000
       idle-timeout: 60000
 
+  rabbitmq:
+    host: ${RABBITMQ_HOST:localhost}
+    port: ${RABBITMQ_PORT:5672}
+    username: ${RABBITMQ_USERNAME:guest}
+    password: ${RABBITMQ_PASSWORD:guest}
+    listener:
+      simple:
+        retry:
+          enabled: true
+          max-attempts: 3
+          initial-interval: 500ms
+          multiplier: 2
+        default-requeue-rejected: false
   data:
     redis:
       database: ${REDIS_DATABASE:0}

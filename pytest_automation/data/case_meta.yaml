@@ -22,6 +22,9 @@ modules:
   tests/api/test_failure_evidence_demo.py: {name: 失败留痕演示, prefix: DEMO}
   tests/api/test_data_driven.py: {name: 数据驱动校验, prefix: DATA}
   tests/api/test_smoke.py: {name: 冒烟, prefix: SMOKE}
+  tests/api/test_write_persistence.py: {name: 写接口落库, prefix: WDB}
+  tests/api/test_mq_order_events.py: {name: 中间件-MQ, prefix: MQ}
+  tests/api/test_redis_state.py: {name: 中间件-Redis, prefix: CACHE}
   tests/ui/test_mall_browse.py: {name: 商城浏览, prefix: BROWSE}
   tests/ui/test_mall_product.py: {name: 商城商品详情, prefix: PRODUCT}
   tests/ui/test_mall_account.py: {name: 商城个人中心, prefix: ACCOUNT}
@@ -739,6 +742,14 @@ cases:
     title: 【异常】未认证下单
     verify: 401 未认证
 
+  # ---------- API: 全接口巡检（参数化，标题在用例内动态生成） ----------
+  "tests/api/test_endpoint_sweep.py::test_endpoint_sweep":
+    title: 全接口巡检
+    verify: 对 135 个端点执行安全/逆向/边界/异常检查；单条用例标题由参数中的 check 与路径动态生成
+  "tests/api/test_validation.py::test_unsupported_method_returns_405":
+    title: 不支持的 HTTP 方法应返回 405
+    verify: DELETE /admin/warehouses/{id}（未定义）应 405，不得 500
+
   # ---------- API: 管理端 CRUD 正向往返 ----------
   "tests/api/test_admin_crud_roundtrip.py::test_brand_crud_roundtrip":
     title: 品牌创建到删除往返
@@ -763,6 +774,96 @@ cases:
   "tests/api/test_failure_evidence_demo.py::test_demo_broken_exception":
     title: 演示-执行异常阻断留痕
     verify: KeyError 阻断时附带堆栈、失败依据与后端日志
+
+  # ---------- API: 写接口落库（请求 → DB） ----------
+  "tests/api/test_write_persistence.py::test_address_create_and_update_persisted":
+    title: 地址创建与更新落库
+    verify: 响应 ID 定位行，字段与请求一致；更新后 DB 生效
+  "tests/api/test_write_persistence.py::test_cart_item_persisted":
+    title: 加购落库
+    verify: cart_item 行存在，sku/数量/会员一致
+  "tests/api/test_write_persistence.py::test_order_submit_persisted":
+    title: 下单落库
+    verify: order/order_item/库存扣减与响应一致
+  "tests/api/test_write_persistence.py::test_payment_persisted":
+    title: 沙箱支付落库
+    verify: payment 行 PAID，订单转待发货
+  "tests/api/test_write_persistence.py::test_shipment_persisted":
+    title: 发货落库
+    verify: shipment 行与订单状态一致
+  "tests/api/test_write_persistence.py::test_review_persisted":
+    title: 评价落库
+    verify: review 行评分/内容与请求一致
+  "tests/api/test_write_persistence.py::test_after_sale_persisted":
+    title: 售后申请落库
+    verify: after_sale 行类型/原因与请求一致
+  "tests/api/test_write_persistence.py::test_admin_brand_persisted":
+    title: 品牌创建落库
+    verify: brand 行名称/状态与请求一致
+  "tests/api/test_write_persistence.py::test_admin_category_persisted":
+    title: 分类创建落库
+    verify: category 行层级/名称与请求一致
+  "tests/api/test_write_persistence.py::test_admin_dict_persisted":
+    title: 字典创建落库
+    verify: dict 行编码/名称与请求一致
+  "tests/api/test_write_persistence.py::test_admin_dept_persisted":
+    title: 部门创建落库
+    verify: dept 行名称/父级与请求一致
+  "tests/api/test_write_persistence.py::test_admin_warehouse_persisted":
+    title: 仓库创建落库
+    verify: warehouse 行名称/地址与请求一致
+
+  # ---------- API: 组件校验补充 ----------
+  "tests/api/test_redis_state.py::test_customer_refresh_blacklists_old_refresh":
+    title: 会员刷新令牌旧值入黑名单
+    verify: 刷新后旧 refresh jti 写入 jwt:blacklist
+  "tests/api/test_redis_state.py::test_admin_logout_blacklists_token":
+    title: 管理端退出令牌入黑名单
+    verify: 退出后旧 access token 立即 401，黑名单键存在
+  "tests/api/test_redis_state.py::test_admin_refresh_blacklists_old_refresh":
+    title: 管理端刷新吊销旧 refresh
+    verify: 刷新后旧 refresh 进入黑名单
+  "tests/api/test_redis_state.py::test_phone_alias_consumes_sms_code":
+    title: 手机号别名登录消费验证码
+    verify: /api/auth/phone 登录成功后 sms:phone 键删除
+  "tests/api/test_write_persistence.py::test_customer_status_persisted":
+    title: 会员冻结状态落库
+    verify: PUT /admin/customers/{id}/status 后 customer.status 与请求一致
+  "tests/api/test_write_persistence.py::test_admin_permission_crud_persisted":
+    title: 权限创建/更新/删除落库
+    verify: permission 行字段与请求一致，删除后 deleted=true
+  "tests/api/test_write_persistence.py::test_order_confirm_persisted":
+    title: 订单确认收货落库
+    verify: 订单状态 COMPLETED 且 received_at 非空
+
+  # ---------- API: 中间件（MQ / Redis） ----------
+  "tests/api/test_redis_state.py::test_code_and_cooldown_ttl":
+    title: 验证码缓存与冷却 TTL
+    verify: code 5 分钟、cooldown 60 秒；登录成功后验证码立即失效
+  "tests/api/test_redis_state.py::test_cooldown_rejects_second_send":
+    title: 60 秒内重复发送被拒
+    verify: 返回 400「发送过于频繁」，不刷新验证码
+  "tests/api/test_redis_state.py::test_five_failures_lock_account":
+    title: 连续 5 次登录失败锁定
+    verify: 第 6 次返回 40104，锁定键 TTL ≤15 分钟
+  "tests/api/test_redis_state.py::test_success_clears_fail_counter":
+    title: 登录成功清零失败计数
+    verify: 失败 1 次后成功登录，login:fail 键被删除
+  "tests/api/test_redis_state.py::test_logout_blacklists_access_token":
+    title: 退出登录令牌进入黑名单
+    verify: 原 access token 立即 401，jwt:blacklist:* 带 TTL
+  "tests/api/test_redis_state.py::test_blacklist_expires":
+    title: 黑名单键带过期时间
+    verify: 不做永久封禁，TTL >0
+  "tests/api/test_mq_order_events.py::test_payment_publishes_and_consumes":
+    title: 支付成功事件落库
+    verify: 事务提交后投递 ORDER_PAID，消费者写入 order_event_log，payload 与订单一致
+  "tests/api/test_mq_order_events.py::test_duplicate_delivery_is_idempotent":
+    title: 重复事件幂等
+    verify: 同订单同事件重复投递只保留一行
+  "tests/api/test_mq_order_events.py::test_invalid_event_goes_to_dlq":
+    title: 非法事件进入死信队列
+    verify: 重试 3 次后进入 DLQ，主队列不阻塞
 
   # ---------- E2E ----------
   "tests/e2e/test_purchase_flow.py::test_api_purchase_flow":

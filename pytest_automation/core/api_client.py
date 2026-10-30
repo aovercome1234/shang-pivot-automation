@@ -86,6 +86,7 @@ class ApiClient:
         self.timeout = timeout or settings.timeout
         self._allure_logging = allure_logging and allure is not None
         self.last_response = None
+        self.trace_ids: list[str] = []
         self.token = token
 
         self.session = requests.Session()
@@ -143,6 +144,14 @@ class ApiClient:
                 body = resp.json()
             except ValueError:
                 body = None
+            trace_candidate = None
+            if isinstance(body, dict):
+                trace_candidate = body.get("traceId")
+            trace_candidate = trace_candidate or resp.headers.get("X-Trace-Id")
+            if trace_candidate and trace_candidate not in self.trace_ids:
+                self.trace_ids.append(str(trace_candidate))
+                # 模块/会话级 client 会被大量用例复用，只保留最近的 traceId 避免无界增长
+                del self.trace_ids[:-10]
             endpoint_recorder.record(
                 method.upper(),
                 url,

@@ -109,13 +109,44 @@ def flags_of(markers: list) -> str:
     return "/".join(flags) if flags else "-"
 
 
+REGISTRY = ROOT / "data" / "case_registry.json"
+
+
+def content_hash(case: dict) -> str:
+    import hashlib
+
+    payload = "\x1f".join(
+        str(case.get(key) or "")
+        for key in ("title", "verify", "params", "priority", "file")
+    )
+    return hashlib.sha256(payload.encode("utf-8")).hexdigest()[:16]
+
+
+def load_registry() -> dict:
+    if REGISTRY.exists():
+        try:
+            data = json.loads(REGISTRY.read_text(encoding="utf-8"))
+            return data.get("cases") or {}
+        except Exception:  # noqa: BLE001
+            pass
+    return {}
+
+
 def build_cases() -> list:
     meta = load_meta()
     modules = meta["modules"]
     titles = meta["cases"]
+    registry = load_registry()
+    today = __import__("datetime").date.today().isoformat()
+    next_seq: dict[str, int] = {}
+    for entry in registry.values():
+        case_id = entry.get("case_id") or ""
+        group, _, seq = case_id.rpartition("-")
+        if group and seq.isdigit():
+            next_seq[group] = max(next_seq.get(group, 0), int(seq))
 
     cases = []
-    counters = {}
+    seen: set[str] = set()
     for raw in records:
         module_conf = modules.get(raw["file"], {"name": raw["file"], "prefix": "MISC"})
         prefix = module_conf["prefix"]
@@ -123,8 +154,15 @@ def build_cases() -> list:
             group = "E2E"
         else:
             group = f"{raw['type']}-{prefix}"
-        counters[group] = counters.get(group, 0) + 1
-        case_id = f"{group}-{counters[group]:03d}"
+        nodeid = raw["nodeid"]
+        entry = registry.get(nodeid)
+        if entry and entry.get("case_id"):
+            case_id = entry["case_id"]  # 旧号优先，永不重排
+            first_seen = entry.get("first_seen") or today
+        else:
+            next_seq[group] = next_seq.get(group, 0) + 1
+            case_id = f"{group}-{next_seq[group]:03d}"
+            first_seen = today
 
         key = f"{raw['file']}::{raw['function_name']}"
         meta_case = titles.get(key)
@@ -140,21 +178,51 @@ def build_cases() -> list:
                 title = param_titles[str(value)]
                 break
 
-        cases.append(
-            {
-                "case_id": case_id,
-                "type": raw["type"],
-                "module": module_conf["name"],
-                "file": raw["file"],
-                "title": title,
-                "verify": meta_case["verify"],
-                "priority": priority_of(raw["markers"]),
-                "flags": flags_of(raw["markers"]),
-                "params": param_text(raw["params"]),
-                "script": raw["nodeid"],
-                "markers": raw["markers"],
-            }
-        )
+        case = {
+            "case_id": case_id,
+            "type": raw["type"],
+            "module": module_conf["name"],
+            "file": raw["file"],
+            "title": title,
+            "verify": meta_case["verify"],
+            "priority": priority_of(raw["markers"]),
+            "flags": flags_of(raw["markers"]),
+            "params": param_text(raw["params"]),
+            "script": nodeid,
+            "markers": raw["markers"],
+        }
+        case["content_hash"] = content_hash(case)
+        case["title_hash"] = __import__("hashlib").sha256(
+            (title or "").encode("utf-8")
+        ).hexdigest()[:16]
+        case["first_seen"] = first_seen
+        case["last_seen"] = today
+        case["status"] = "active"
+        cases.append(case)
+        seen.add(nodeid)
+
+    # 保留 retired 用例（本次未收集到），不删除历史编号
+    for nodeid, entry in registry.items():
+        if nodeid in seen:
+            continue
+        entry = dict(entry)
+        entry["status"] = "retired"
+        registry[nodeid] = entry
+    for case in cases:
+        registry[case["script"]] = {
+            key: case[key]
+            for key in ("case_id", "title", "file", "priority", "content_hash",
+                        "title_hash", "first_seen", "last_seen", "status")
+        }
+    REGISTRY.parent.mkdir(parents=True, exist_ok=True)
+    REGISTRY.write_text(
+        json.dumps(
+            {"generated_at": __import__("datetime").datetime.now().isoformat(timespec="seconds"),
+             "total": len(registry), "cases": registry},
+            ensure_ascii=False, indent=2,
+        ) + "\n",
+        encoding="utf-8",
+    )
     return cases
 
 

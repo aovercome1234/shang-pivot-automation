@@ -1,60 +1,64 @@
-# pytest-xdist 并行执行对比
+# 并行执行方案与基准（pytest-xdist）
 
-> 环境：macOS 12 核 / Python 3.13 / 后端 `localhost:8086`（单实例）/ PostgreSQL 16 本地容器。
-> 方法：每轮开始前用基线快照恢复数据库；除 `-n` 与 `--dist` 外参数完全一致（`-m api -q --alluredir`，含 `--reruns 1`）。
+> 环境：macOS 12 核 / Python 3.13 / 后端单实例 `localhost:8086` / PostgreSQL 16 + Redis 7（本地容器）。
+> 每轮前恢复数据库基线并清理 `login:fail:*`；正式对比采用「分组墙钟」：API 与 UI 两层分别跑串行与并行各若干轮，取中位数。
 
-## 1. 结果总览
+## 1. 正式口径
 
-| 模式 | 命令 | 墙钟耗时 | 相对串行 | 通过 | 失败 | 跳过 |
-|---|---|---|---|---|---|---|
-| 串行基线 | `pytest -m api` | **224.45s** | 1.00x | 605 | 93 | 3 |
-| 模块级并行 | `pytest -m api -n 4 --dist loadscope` | **156.92s** | **1.43x** | 605 | 93 | 3 |
-| 用例级并行 | `pytest -m api -n 4` | **63.27s** | **3.55x** | 603 | 95 | 3 |
-| 用例级并行（8 worker） | `pytest -m api -n 8` | **40.22s** | **5.58x** | 602 | 96 | 3 |
+| 层 | 串行 | 并行 | 并发粒度 |
+|---|---|---|---|
+| API | `pytest -m api`（1 进程） | 两阶段 `-n 4 --dist loadgroup` + serial lane | **每个接口独立并发**：同一接口的用例固定在同一 worker 顺序执行，不同接口之间并行 |
+| UI | `pytest -m ui`（1 进程） | `-n 3 --dist loadscope` | 每 worker 独立浏览器；会员账号由 `customer` 夹具随机注册，天然隔离 |
 
-## 2. 为什么提速不是线性的
+方法维度（GET/POST/PUT/DELETE）**不做单独并发运行**，只在报告中以「耗时构成」辅助展示。
 
-1. **巡检模块是长尾**：`test_endpoint_sweep.py` 有 487 条用例，`--dist loadscope` 会把整个模块压到一个 worker，
-   因此模块级并行只有 1.43x；改成用例级分发（默认 `load`）后变成 3.55x。
-2. **失败用例的两次执行**：当前 93 条失败会各自重跑一次，这部分时间并行下仍存在（96 次 rerun）。
-3. **后端单实例 + 数据库瓶颈**：登录、建单、库存更新都是写操作，worker 再多也受后端吞吐限制；`-n 8` 相对 `-n 4`
-   只再快 1.57x（63s → 40s），且 user 时间上升（131s），说明是 I/O 争用而非 CPU。
-4. **xdist 启动与收集开销**：每个 worker 独立收集 701 条用例，纯开销约 3~6s。
+## 2. 基准结果
 
-## 3. 并行暴露的共享状态问题（重要）
+| 层 | 串行 | 并行中位数 | 加速比 | 结果一致性 |
+|---|---|---|---|---|
+| API（701 条） | **271s**（4分31秒） | **84s**（1分24秒，3 轮：95/80/84） | **3.23x** | 3/3 轮与串行完全一致（605 通过 / 93 失败 / 3 跳过） |
+| UI（47 条） | **174s**（2分54秒） | **83s**（1分23秒，2 轮：83/80） | **2.10x** | 2/2 轮 47 条全部通过 |
 
-用例级并行比串行多出 3 条失败，均非产品缺陷，而是**测试间共享状态竞争**：
+API 方法耗时构成（辅助口径：单测耗时求和，非墙钟；并行取中位数轮）：
 
-| 用例 | 失败原因 | 根因 |
-|---|---|---|
-| `test_boundary_quantity_exceeds_available_stock` / `test_idempotency_replay_same_payload` / `test_stock_conservation_on_order_and_cancel` | 库存锁定断言不满足 | 多个 worker 同时对同一 SKU 下单/取消，`physical/locked` 读数被交叉修改 |
-| `test_admin_login_parameter_interactions[非管理员…]` / `test_admin_login_rejects_member_account` | 业务码 40104「登录失败次数过多，请15分钟后再试」 | 管理端登录失败次数限流是全局状态，多个 worker 同时打失败登录触发限流 |
+| 方法 | 用例数 | 串行耗时和 | 并行耗时和 | 串行占比 |
+|---|---|---|---|---|
+| GET | 330 | 7.94s | 8.49s | 55.4% |
+| POST | 226 | 4.54s | 5.10s | 31.7% |
+| PUT | 83 | 0.70s | 0.73s | 4.9% |
+| DELETE | 58 | 1.14s | 1.15s | 8.0% |
 
-模块级并行（`loadscope`）结果与串行完全一致（93 失败），因为库存/登录相关用例被归入同一 worker 顺序执行。
+> 两列「耗时和」接近是预期：并行缩短的是整轮墙钟，不改变单条用例耗时。
 
-## 4. 建议
+## 3. 实现要点
 
-- **日常回归 / CI 门禁**：`make api-parallel`（`-n 4 --dist loadscope`）——稳定、结果与串行一致，约 1.4x；
-- **本地快速反馈**：`make api-fast`（`-n 4`）——约 3.5x，接受上述 3 条竞争导致的重跑/偶发失败；
-- 若要在用例级并行下彻底消除竞争，需要：
-  1. 库存敏感用例按 worker 分配独立 SKU（或串行标记）；
-  2. 登录失败类用例单独串行执行（限流窗口 15 分钟）；
-  3. 或将它们放到第二阶段单 worker 执行（两段式流水线）。
+| 机制 | 说明 |
+|---|---|
+| 每接口分组 | `conftest` 在收集期为非 serial 用例动态添加 `xdist_group=ep::<主体接口>`，`--dist loadgroup` 保证同接口用例同 worker 顺序执行 |
+| 库存分片 | `pick_on_sale_sku` / `pick_sku` 按 `sku_id % worker_count == worker_index` 选 SKU，避免跨 worker 抢同一库存行 |
+| serial lane | 15/20 SKU 批量、管理端登录失败类用例打 `@pytest.mark.serial`，第二阶段串行执行（3~5s） |
+| UI 隔离 | `logged_in_mall_page` 使用随机会员 token；admin 每 worker 登录一次；截图/trace 按 nodeid 隔离 |
+| 产物合并 | 每 worker 的映射/结果按后缀落盘，`merge_parallel_artifacts.py` 合并为与串行同 schema |
+| 发布 | `publish_parallel.py` 保留 UI 结果后重建 Allure 与接口视图，契约检查通过 |
 
-## 5. 复现命令
+## 4. 分组并发的代价
+
+`--dist worksteal`（不保证同接口同 worker）最快可到 66s，但无法满足「每接口独立并发、互不影响」；
+`--dist loadgroup` 以 84s（3.23x）换取接口级隔离。若只追求速度、接受同接口跨 worker，可用 `DIST=worksteal`。
+
+## 5. 复现
 
 ```bash
-# 串行
-TEST_ENV=dev ADMIN_PASSWORD='***' python3 -m pytest -m api -q --alluredir=/tmp/allure-serial --clean-alluredir
+# API：串行基准
+ADMIN_PASSWORD='***' bash scripts/benchmark_serial_api.sh
 
-# 稳定并行
-TEST_ENV=dev ADMIN_PASSWORD='***' DISABLE_RECORDER=1 DISABLE_DB_GUARD=1 \
-  python3 -m pytest -m api -q -n 4 --dist loadscope --alluredir=/tmp/allure-par --clean-alluredir
+# API：两阶段并行（默认 loadgroup）
+ADMIN_PASSWORD='***' bash scripts/run_parallel.sh --workers 4
 
-# 极限并行
-TEST_ENV=dev ADMIN_PASSWORD='***' DISABLE_RECORDER=1 DISABLE_DB_GUARD=1 \
-  python3 -m pytest -m api -q -n 8 --alluredir=/tmp/allure-par8 --clean-alluredir
+# UI：串行 / 并行
+ADMIN_PASSWORD='***' bash scripts/benchmark_ui.sh --mode serial
+ADMIN_PASSWORD='***' bash scripts/benchmark_ui.sh --mode parallel --workers 3
+
+# 报告页面：接口自动化 → 并行对比
+bash scripts/allure_report.sh
 ```
-
-> 并行时通过 `DISABLE_RECORDER=1`、`DISABLE_DB_GUARD=1` 关闭「用例→接口映射」与「基线指纹」落盘，
-> 避免多个 worker 争写同一文件；映射与指纹仍由串行全量运行维护。

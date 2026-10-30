@@ -21,3 +21,12 @@ artifacts/
 .idea/
 .vscode/
 .DS_Store
+
+# JaCoCo/Allure 等本地工具（自动下载）
+.tools/
+
+# ZCode 会话计划
+.zcode/
+
+# pytest 临时目录（并行浏览器各一份）
+.pytest_tmp*/

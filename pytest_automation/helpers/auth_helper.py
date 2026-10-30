@@ -72,8 +72,22 @@ def new_customer(phone: str = None) -> SimpleNamespace:
 
 
 def pick_sku(client: ApiClient, spu_id: str = "101") -> dict:
-    """选一个在售、有库存的 SKU；固定商品不存在时回退到商品列表。"""
+    """选一个在售、有库存的 SKU；并行时按 worker 分片（避免跨 worker 抢同一库存行）。"""
     with _step("选取在售且有库存的 SKU"):
+        from helpers import parallel
+
+        if parallel.should_shard():
+            from helpers import db
+
+            row = db.pick_on_sale_sku(min_available=1)
+            if row:
+                return {
+                    "spu_id": str(row["spu_id"]),
+                    "sku_id": str(row["sku_id"]),
+                    "price": float(row["price"]),
+                    "stock": int(row["available_stock"]),
+                    "title": f"SKU {row['sku_id']}",
+                }
         return _pick_sku(client, spu_id)
 
 

@@ -101,6 +101,7 @@ class TestAdminAuth:
         assert data.get("menus") is not None
 
     @pytest.mark.P1
+    @pytest.mark.serial
     def test_admin_wrong_password(self):
         client = ApiClient(settings.api_admin_base)
         try:
@@ -114,6 +115,7 @@ class TestAdminAuth:
             client.close()
 
     @pytest.mark.P1
+    @pytest.mark.serial
     def test_admin_login_rejects_member_account(self):
         """非管理员（会员手机号+短信验证码）登录管理端必须被拒。"""
         client = ApiClient(settings.api_admin_base)

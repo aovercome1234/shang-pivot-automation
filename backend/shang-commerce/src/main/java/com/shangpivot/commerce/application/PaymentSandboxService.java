@@ -9,9 +9,12 @@ import com.shangpivot.commerce.mapper.OrderItemMapper;
 import com.shangpivot.commerce.mapper.OrderMapper;
 import com.shangpivot.commerce.mapper.PaymentMapper;
 import com.shangpivot.commerce.mapper.SpuMapper;
+import com.shangpivot.commerce.mq.OrderPaidEvent;
+import com.shangpivot.commerce.mq.OrderPaidEventPublisher;
 import com.shangpivot.common.exception.BizException;
 import com.shangpivot.common.result.ErrorCode;
 import com.shangpivot.common.security.SecurityContexts;
+import com.shangpivot.common.util.TraceIdUtil;
 import com.shangpivot.identity.api.CustomerQueryApi;
 import com.shangpivot.identity.api.SystemConfigApi;
 import lombok.RequiredArgsConstructor;
@@ -38,6 +41,7 @@ public class PaymentSandboxService {
     private final SpuMapper spuMapper;
     private final CustomerQueryApi customerQueryApi;
     private final SystemConfigApi systemConfigApi;
+    private final OrderPaidEventPublisher orderPaidEventPublisher;
 
     @Transactional
     public Map<String, Object> pay(Long orderId) {
@@ -90,6 +94,8 @@ public class PaymentSandboxService {
         m.put("status", "PENDING_SHIP");
         m.put("paidAt", paidAt);
         m.put("tradeNo", payment.getTradeNo());
+        orderPaidEventPublisher.publish(
+                new OrderPaidEvent(orderId, order.getPayAmount(), paidAt, TraceIdUtil.get()));
         log.info("Sandbox payment ok orderId={}", orderId);
         return m;
     }

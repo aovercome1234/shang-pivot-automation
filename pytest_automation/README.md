@@ -46,18 +46,21 @@ python3 -m pytest -m smoke    # 冒烟（15 条）
 python3 -m pytest -m e2e      # 端到端（2 条）
 ```
 
-### 并行执行（pytest-xdist）
+### 并行执行（pytest-xdist，两阶段）
 
 ```bash
-make api-parallel   # 模块级并行：-n 4 --dist loadscope，结果与串行一致
-make api-fast       # 用例级并行：-n 4，最快但存在共享状态竞争
+make api-parallel        # 两阶段并行：库存分片 + serial lane + 产物合并，结果与串行一致（推荐）
+make api-parallel-publish# 同上，并把并行结果发布到 Allure/接口视图（保留 UI 结果）
+make api-fast            # 朴素并行 -n 4：最快但存在共享状态竞争，仅用于本地快速反馈
 ```
 
-实测（701 条 API 用例，12 核机器）：串行 224s → 模块级并行 157s（1.43x）→ 用例级并行 63s（3.55x）→ `-n 8` 40s（5.58x）。
-用例级并行会把同 SKU 库存、管理端登录失败限流等**共享状态**打散到多个 worker，出现 3 条环境性失败；
-稳定回归请用 `api-parallel`。详见 [`docs/并行执行对比-xdist.md`](docs/并行执行对比-xdist.md)。
-
-并行运行时脚本会设置 `DISABLE_RECORDER=1`、`DISABLE_DB_GUARD=1`，关闭映射与基线指纹落盘（避免多 worker 抢写同一文件）。
+实测（701 条 API + 47 条 UI，12 核）：API 串行 271s → 并行中位数 **84s（3.23x）**，
+UI 串行 174s → 并行中位数 **83s（2.10x）**；结果集合与串行完全一致。
+API 并行默认 `--dist loadgroup`（每个接口独立并发），`DIST=worksteal` 可换取更快但放弃接口级隔离。
+`serial` 标记覆盖批量库存（15/20 SKU）与登录失败限流类用例，第二阶段串行执行；
+并行时库存按 worker 分片，脚本会清理 Redis 登录失败计数并合并各 worker 产物。对比结果可在报告站点的
+「接口自动化 → 并行对比」子 tab 查看（或 `/benchmark.html`）。详见
+[`docs/并行执行对比-xdist.md`](docs/并行执行对比-xdist.md)。
 
 ---
 
