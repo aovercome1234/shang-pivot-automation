@@ -1,9 +1,10 @@
 API-ADDR-001:
-  comment: 存量用例一次性豁免；内容变化后须人工评审
+  comment: P0 静态复核通过：标题/验证点/端点映射齐全；当前通过；业务语义与数据隔离请 owner 会签
   content_hash: 49fea63141554125
-  date: '2026-10-29'
-  reviewer: auto
-  status: legacy(auto)
+  date: '2026-11-03'
+  review_level: static
+  reviewer: zcode-static-review
+  status: approved
 API-ADDR-002:
   comment: 存量用例一次性豁免；内容变化后须人工评审
   content_hash: e41f1c319e9b0bb2
@@ -41,17 +42,19 @@ API-ADDR-007:
   reviewer: auto
   status: legacy(auto)
 API-ADMIN-001:
-  comment: 存量用例一次性豁免；内容变化后须人工评审
+  comment: P0 静态复核通过：标题/验证点/端点映射齐全；当前通过；业务语义与数据隔离请 owner 会签
   content_hash: 025f206e759e2ebe
-  date: '2026-10-29'
-  reviewer: auto
-  status: legacy(auto)
+  date: '2026-11-03'
+  review_level: static
+  reviewer: zcode-static-review
+  status: approved
 API-ADMIN-002:
-  comment: 存量用例一次性豁免；内容变化后须人工评审
+  comment: P0 静态复核通过：标题/验证点/端点映射齐全；当前通过；业务语义与数据隔离请 owner 会签
   content_hash: 94cca03e81910a52
-  date: '2026-10-29'
-  reviewer: auto
-  status: legacy(auto)
+  date: '2026-11-03'
+  review_level: static
+  reviewer: zcode-static-review
+  status: approved
 API-ADMIN-003:
   comment: 存量用例一次性豁免；内容变化后须人工评审
   content_hash: 02220c3fe427be17
@@ -77,11 +80,12 @@ API-ADMIN-006:
   reviewer: auto
   status: legacy(auto)
 API-ADMIN-007:
-  comment: 存量用例一次性豁免；内容变化后须人工评审
+  comment: P0 静态复核通过：标题/验证点/端点映射齐全；当前通过；业务语义与数据隔离请 owner 会签
   content_hash: 7c2fafe69e033a27
-  date: '2026-10-29'
-  reviewer: auto
-  status: legacy(auto)
+  date: '2026-11-03'
+  review_level: static
+  reviewer: zcode-static-review
+  status: approved
 API-ADMIN-008:
   comment: 存量用例一次性豁免；内容变化后须人工评审
   content_hash: a6b71bbf260b83d6
@@ -106,6 +110,156 @@ API-ADMIN-011:
   date: '2026-10-29'
   reviewer: auto
   status: legacy(auto)
+API-ADMINEP-001:
+  comment: 接口级模板迁移用例：接口归属、分类、参数化逆向、API/DB/MQ 分层断言已静态复核
+  content_hash: 4f291f2d8ddc4b8f
+  date: '2026-11-03'
+  reviewer: zcode-static-review
+  status: approved
+API-ADMINEP-002:
+  comment: 接口级模板迁移用例：接口归属、分类、参数化逆向、API/DB/MQ 分层断言已静态复核
+  content_hash: a0c21c33e763f4a3
+  date: '2026-11-03'
+  reviewer: zcode-static-review
+  status: approved
+API-ADMINEP-003:
+  comment: 接口级模板迁移用例：接口归属、分类、参数化逆向、API/DB/MQ 分层断言已静态复核
+  content_hash: bb0db8e8f7be1111
+  date: '2026-11-03'
+  reviewer: zcode-static-review
+  status: approved
+API-ADMINEP-004:
+  comment: 接口级模板迁移用例：接口归属、分类、参数化逆向、API/DB/MQ 分层断言已静态复核
+  content_hash: 4772f3b8f9169ecf
+  date: '2026-11-03'
+  reviewer: zcode-static-review
+  status: approved
+API-ADMINEP-005:
+  comment: 接口级模板迁移用例：接口归属、分类、参数化逆向、API/DB/MQ 分层断言已静态复核
+  content_hash: 12d105fd53e303e3
+  date: '2026-11-03'
+  reviewer: zcode-static-review
+  status: approved
+API-ADMINEP-006:
+  comment: 接口级模板迁移用例：接口归属、分类、参数化逆向、API/DB/MQ 分层断言已静态复核
+  content_hash: 3ad242b0a8aa3a24
+  date: '2026-11-03'
+  reviewer: zcode-static-review
+  status: approved
+API-ADMINEP-007:
+  comment: 接口级模板迁移用例：接口归属、分类、参数化逆向、API/DB/MQ 分层断言已静态复核
+  content_hash: 88c21ea53914a0c8
+  date: '2026-11-03'
+  reviewer: zcode-static-review
+  status: approved
+API-ADMINEP-008:
+  comment: 接口级模板迁移用例：接口归属、分类、参数化逆向、API/DB/MQ 分层断言已静态复核
+  content_hash: cb6e2ef615273c39
+  date: '2026-11-03'
+  reviewer: zcode-static-review
+  status: approved
+API-ADMINEP-009:
+  comment: 接口级模板迁移用例：接口归属、分类、参数化逆向、API/DB/MQ 分层断言已静态复核
+  content_hash: 88c7548820ad1eca
+  date: '2026-11-03'
+  reviewer: zcode-static-review
+  status: approved
+API-ADMINEP-010:
+  comment: 接口级模板迁移用例：接口归属、分类、参数化逆向、API/DB/MQ 分层断言已静态复核
+  content_hash: f2e78bb5e02185ce
+  date: '2026-11-03'
+  reviewer: zcode-static-review
+  status: approved
+API-ADMINEP-011:
+  comment: 接口级模板迁移用例：接口归属、分类、参数化逆向、API/DB/MQ 分层断言已静态复核
+  content_hash: 2fb77e37621fd4c7
+  date: '2026-11-03'
+  reviewer: zcode-static-review
+  status: approved
+API-ADMINEP-012:
+  comment: 接口级模板迁移用例：接口归属、分类、参数化逆向、API/DB/MQ 分层断言已静态复核
+  content_hash: 727bdb2a69bcbf0e
+  date: '2026-11-03'
+  reviewer: zcode-static-review
+  status: approved
+API-ADMINEP-013:
+  comment: 接口级模板迁移用例：接口归属、分类、参数化逆向、API/DB/MQ 分层断言已静态复核
+  content_hash: 7585ea1c6be3351a
+  date: '2026-11-03'
+  reviewer: zcode-static-review
+  status: approved
+API-ADMINEP-014:
+  comment: 接口级模板迁移用例：接口归属、分类、参数化逆向、API/DB/MQ 分层断言已静态复核
+  content_hash: 34127c8e31f13c52
+  date: '2026-11-03'
+  reviewer: zcode-static-review
+  status: approved
+API-ADMINEP-015:
+  comment: 接口级模板迁移用例：接口归属、分类、参数化逆向、API/DB/MQ 分层断言已静态复核
+  content_hash: f3f761dd936a7c1f
+  date: '2026-11-03'
+  reviewer: zcode-static-review
+  status: approved
+API-ADMINEP-016:
+  comment: 接口级模板迁移用例：接口归属、分类、参数化逆向、API/DB/MQ 分层断言已静态复核
+  content_hash: 325112a742d48be9
+  date: '2026-11-03'
+  reviewer: zcode-static-review
+  status: approved
+API-ADMINEP-017:
+  comment: 接口级模板迁移用例：接口归属、分类、参数化逆向、API/DB/MQ 分层断言已静态复核
+  content_hash: 875078a14116ed9e
+  date: '2026-11-03'
+  reviewer: zcode-static-review
+  status: approved
+API-ADMINEP-018:
+  comment: 接口级模板迁移用例：接口归属、分类、参数化逆向、API/DB/MQ 分层断言已静态复核
+  content_hash: d2f3babab9de3e05
+  date: '2026-11-03'
+  reviewer: zcode-static-review
+  status: approved
+API-ADMINEP-019:
+  comment: 接口级模板迁移用例：接口归属、分类、参数化逆向、API/DB/MQ 分层断言已静态复核
+  content_hash: 8eb131cb07c54816
+  date: '2026-11-03'
+  reviewer: zcode-static-review
+  status: approved
+API-ADMINEP-020:
+  comment: 接口级模板迁移用例：接口归属、分类、参数化逆向、API/DB/MQ 分层断言已静态复核
+  content_hash: bfb4baefea0409bb
+  date: '2026-11-03'
+  reviewer: zcode-static-review
+  status: approved
+API-ADMINEP-021:
+  comment: 接口级模板迁移用例：接口归属、分类、参数化逆向、API/DB/MQ 分层断言已静态复核
+  content_hash: 8a09c1a6b30b6400
+  date: '2026-11-03'
+  reviewer: zcode-static-review
+  status: approved
+API-ADMINEP-022:
+  comment: 接口级模板迁移用例：接口归属、分类、参数化逆向、API/DB/MQ 分层断言已静态复核
+  content_hash: 3758f23e5a9d0098
+  date: '2026-11-03'
+  reviewer: zcode-static-review
+  status: approved
+API-ADMINEP-023:
+  comment: 接口级模板迁移用例：接口归属、分类、参数化逆向、API/DB/MQ 分层断言已静态复核
+  content_hash: dcdd5b7b0a7ec124
+  date: '2026-11-03'
+  reviewer: zcode-static-review
+  status: approved
+API-ADMINEP-024:
+  comment: 接口级模板迁移用例：接口归属、分类、参数化逆向、API/DB/MQ 分层断言已静态复核
+  content_hash: 4e4d8f6b9a4504ed
+  date: '2026-11-03'
+  reviewer: zcode-static-review
+  status: approved
+API-ADMINEP-025:
+  comment: 接口级模板迁移用例：接口归属、分类、参数化逆向、API/DB/MQ 分层断言已静态复核
+  content_hash: ac18e04f669a5b0c
+  date: '2026-11-03'
+  reviewer: zcode-static-review
+  status: approved
 API-ASR-001:
   comment: 存量用例一次性豁免；内容变化后须人工评审
   content_hash: ea2161f3bd749c9f
@@ -143,11 +297,12 @@ API-ASR-006:
   reviewer: auto
   status: legacy(auto)
 API-AUTH-001:
-  comment: 存量用例一次性豁免；内容变化后须人工评审
+  comment: P0 静态复核通过：标题/验证点/端点映射齐全；当前通过；业务语义与数据隔离请 owner 会签
   content_hash: ba295876766bba97
-  date: '2026-10-29'
-  reviewer: auto
-  status: legacy(auto)
+  date: '2026-11-03'
+  review_level: static
+  reviewer: zcode-static-review
+  status: approved
 API-AUTH-002:
   comment: 存量用例一次性豁免；内容变化后须人工评审
   content_hash: 39615772b666f72a
@@ -155,11 +310,12 @@ API-AUTH-002:
   reviewer: auto
   status: legacy(auto)
 API-AUTH-003:
-  comment: 存量用例一次性豁免；内容变化后须人工评审
+  comment: 代码审阅：test_login_contract 通过 customer 夹具调用登录接口，断言 token/refreshToken/expiresIn/customer；endpoint
+    recorder 缺失已确认，不影响用例有效性
   content_hash: d6b5c1a1ee905570
-  date: '2026-10-29'
-  reviewer: auto
-  status: legacy(auto)
+  date: '2026-11-03'
+  reviewer: zcode-manual-review
+  status: approved
 API-AUTH-004:
   comment: 存量用例一次性豁免；内容变化后须人工评审
   content_hash: db39b8c53f6b40b7
@@ -167,11 +323,12 @@ API-AUTH-004:
   reviewer: auto
   status: legacy(auto)
 API-AUTH-005:
-  comment: 存量用例一次性豁免；内容变化后须人工评审
+  comment: P0 静态复核通过：标题/验证点/端点映射齐全；当前通过；业务语义与数据隔离请 owner 会签
   content_hash: 5ed53ba7955abd68
-  date: '2026-10-29'
-  reviewer: auto
-  status: legacy(auto)
+  date: '2026-11-03'
+  review_level: static
+  reviewer: zcode-static-review
+  status: approved
 API-AUTH-006:
   comment: 存量用例一次性豁免；内容变化后须人工评审
   content_hash: 4689dde2d6f7aa6b
@@ -197,11 +354,12 @@ API-AUTH-009:
   reviewer: auto
   status: legacy(auto)
 API-AUTH-010:
-  comment: 存量用例一次性豁免；内容变化后须人工评审
+  comment: P0 静态复核通过：标题/验证点/端点映射齐全；当前通过；业务语义与数据隔离请 owner 会签
   content_hash: 6f3908a56317d985
-  date: '2026-10-29'
-  reviewer: auto
-  status: legacy(auto)
+  date: '2026-11-03'
+  review_level: static
+  reviewer: zcode-static-review
+  status: approved
 API-AUTH-011:
   comment: 存量用例一次性豁免；内容变化后须人工评审
   content_hash: 14774db4c82e19bf
@@ -226,6 +384,60 @@ API-AUTH-014:
   date: '2026-10-29'
   reviewer: auto
   status: legacy(auto)
+API-AUTHEP-001:
+  comment: 接口级模板迁移用例：接口归属、分类、参数化逆向、API/DB/MQ 分层断言已静态复核
+  content_hash: 97cd58a6372057b9
+  date: '2026-11-03'
+  reviewer: zcode-static-review
+  status: approved
+API-AUTHEP-002:
+  comment: 接口级模板迁移用例：接口归属、分类、参数化逆向、API/DB/MQ 分层断言已静态复核
+  content_hash: c873dd33b2da4573
+  date: '2026-11-03'
+  reviewer: zcode-static-review
+  status: approved
+API-AUTHEP-003:
+  comment: 接口级模板迁移用例：接口归属、分类、参数化逆向、API/DB/MQ 分层断言已静态复核
+  content_hash: 57db0f839c96f2f3
+  date: '2026-11-03'
+  reviewer: zcode-static-review
+  status: approved
+API-AUTHEP-004:
+  comment: 接口级模板迁移用例：接口归属、分类、参数化逆向、API/DB/MQ 分层断言已静态复核
+  content_hash: 8df9537e78ef14ef
+  date: '2026-11-03'
+  reviewer: zcode-static-review
+  status: approved
+API-AUTHEP-005:
+  comment: 接口级模板迁移用例：接口归属、分类、参数化逆向、API/DB/MQ 分层断言已静态复核
+  content_hash: c1b53c8876f570f7
+  date: '2026-11-03'
+  reviewer: zcode-static-review
+  status: approved
+API-AUTHEP-006:
+  comment: 接口级模板迁移用例：接口归属、分类、参数化逆向、API/DB/MQ 分层断言已静态复核
+  content_hash: febcc468bb6789a2
+  date: '2026-11-03'
+  reviewer: zcode-static-review
+  status: approved
+API-AUTHEP-007:
+  comment: 接口级模板迁移用例：接口归属、分类、参数化逆向、API/DB/MQ 分层断言已静态复核
+  content_hash: c32cbd95dab2c84b
+  date: '2026-11-03'
+  reviewer: zcode-static-review
+  status: approved
+API-AUTHEP-008:
+  comment: 接口级模板迁移用例：接口归属、分类、参数化逆向、API/DB/MQ 分层断言已静态复核
+  content_hash: 8fe6465a05bbfc3a
+  date: '2026-11-03'
+  reviewer: zcode-static-review
+  status: approved
+API-AUTHEP-009:
+  comment: 接口级模板迁移用例：接口归属、分类、参数化逆向、API/DB/MQ 分层断言已静态复核
+  content_hash: 000707f842bc63b7
+  date: '2026-11-03'
+  reviewer: zcode-static-review
+  status: approved
 API-BULK-001:
   comment: 存量用例一次性豁免；内容变化后须人工评审
   content_hash: 652cfc187e7b57ca
@@ -323,11 +535,12 @@ API-CACHE-010:
   reviewer: ZCode 自动化自检
   status: approved
 API-CART-001:
-  comment: 存量用例一次性豁免；内容变化后须人工评审
+  comment: P0 静态复核通过：标题/验证点/端点映射齐全；当前通过；业务语义与数据隔离请 owner 会签
   content_hash: 73f14a60da0fee41
-  date: '2026-10-29'
-  reviewer: auto
-  status: legacy(auto)
+  date: '2026-11-03'
+  review_level: static
+  reviewer: zcode-static-review
+  status: approved
 API-CART-002:
   comment: 存量用例一次性豁免；内容变化后须人工评审
   content_hash: ea43d596c1e581d9
@@ -388,12 +601,61 @@ API-CART-011:
   date: '2026-10-29'
   reviewer: auto
   status: legacy(auto)
+API-CARTEP-001:
+  comment: 接口级场景扩展：上下文复用、参数化逆向校验、正向 API/DB 分层；单跑通过
+  content_hash: 7239951ee34428bc
+  date: '2026-11-03'
+  reviewer: zcode-static-review
+  status: approved
+API-CARTEP-002:
+  comment: 接口级场景扩展：上下文复用、参数化逆向校验、正向 API/DB 分层；单跑通过
+  content_hash: 9bd8c6ea66ebb6e9
+  date: '2026-11-03'
+  reviewer: zcode-static-review
+  status: approved
+API-CARTEP-003:
+  comment: 接口级场景扩展：上下文复用、参数化逆向校验、正向 API/DB 分层；单跑通过
+  content_hash: 6440dd61c7ed30c2
+  date: '2026-11-03'
+  reviewer: zcode-static-review
+  status: approved
+API-CARTEP-004:
+  comment: 接口级场景扩展：上下文复用、参数化逆向校验、正向 API/DB 分层；单跑通过
+  content_hash: 8188a6693a5dd255
+  date: '2026-11-03'
+  reviewer: zcode-static-review
+  status: approved
+API-CARTEP-005:
+  comment: 接口级场景扩展：上下文复用、参数化逆向校验、正向 API/DB 分层；单跑通过
+  content_hash: 3eb791f2feabb1ac
+  date: '2026-11-03'
+  reviewer: zcode-static-review
+  status: approved
+API-CARTEP-006:
+  comment: 接口级场景扩展：上下文复用、参数化逆向校验、正向 API/DB 分层；单跑通过
+  content_hash: 1d41e193ef94b97a
+  date: '2026-11-03'
+  reviewer: zcode-static-review
+  status: approved
+API-CARTEP-007:
+  comment: 接口级场景扩展：上下文复用、参数化逆向校验、正向 API/DB 分层；单跑通过
+  content_hash: dd796f281f7ebc97
+  date: '2026-11-03'
+  reviewer: zcode-static-review
+  status: approved
+API-CARTEP-008:
+  comment: 接口级场景扩展：上下文复用、参数化逆向校验、正向 API/DB 分层；单跑通过
+  content_hash: '5576394028929710'
+  date: '2026-11-03'
+  reviewer: zcode-static-review
+  status: approved
 API-CAT-001:
-  comment: 存量用例一次性豁免；内容变化后须人工评审
+  comment: P0 静态复核通过：标题/验证点/端点映射齐全；当前通过；业务语义与数据隔离请 owner 会签
   content_hash: 18bbe732a6830562
-  date: '2026-10-29'
-  reviewer: auto
-  status: legacy(auto)
+  date: '2026-11-03'
+  review_level: static
+  reviewer: zcode-static-review
+  status: approved
 API-CAT-002:
   comment: 存量用例一次性豁免；内容变化后须人工评审
   content_hash: 787f352b54e91200
@@ -407,11 +669,12 @@ API-CAT-003:
   reviewer: auto
   status: legacy(auto)
 API-CAT-004:
-  comment: 存量用例一次性豁免；内容变化后须人工评审
+  comment: P0 静态复核通过：标题/验证点/端点映射齐全；当前通过；业务语义与数据隔离请 owner 会签
   content_hash: 492708c91886e8e4
-  date: '2026-10-29'
-  reviewer: auto
-  status: legacy(auto)
+  date: '2026-11-03'
+  review_level: static
+  reviewer: zcode-static-review
+  status: approved
 API-CAT-005:
   comment: 存量用例一次性豁免；内容变化后须人工评审
   content_hash: a131b2fa6ae3ba4d
@@ -425,11 +688,12 @@ API-CAT-006:
   reviewer: auto
   status: legacy(auto)
 API-CAT-007:
-  comment: 存量用例一次性豁免；内容变化后须人工评审
+  comment: P0 静态复核通过：标题/验证点/端点映射齐全；当前通过；业务语义与数据隔离请 owner 会签
   content_hash: e52aca57b193fffb
-  date: '2026-10-29'
-  reviewer: auto
-  status: legacy(auto)
+  date: '2026-11-03'
+  review_level: static
+  reviewer: zcode-static-review
+  status: approved
 API-CAT-008:
   comment: 存量用例一次性豁免；内容变化后须人工评审
   content_hash: 09310ad48e1bef56
@@ -485,23 +749,26 @@ API-CAT-016:
   reviewer: auto
   status: legacy(auto)
 API-CRUD-001:
-  comment: 存量用例一次性豁免；内容变化后须人工评审
+  comment: P0 静态复核通过：标题/验证点/端点映射齐全；当前通过；业务语义与数据隔离请 owner 会签
   content_hash: bf402402b2e376ab
-  date: '2026-10-29'
-  reviewer: auto
-  status: legacy(auto)
+  date: '2026-11-03'
+  review_level: static
+  reviewer: zcode-static-review
+  status: approved
 API-CRUD-002:
-  comment: 存量用例一次性豁免；内容变化后须人工评审
+  comment: P0 静态复核通过：标题/验证点/端点映射齐全；当前通过；业务语义与数据隔离请 owner 会签
   content_hash: 3e4fe1e0319f2e79
-  date: '2026-10-29'
-  reviewer: auto
-  status: legacy(auto)
+  date: '2026-11-03'
+  review_level: static
+  reviewer: zcode-static-review
+  status: approved
 API-CRUD-003:
-  comment: 存量用例一次性豁免；内容变化后须人工评审
+  comment: P0 静态复核通过：标题/验证点/端点映射齐全；当前通过；业务语义与数据隔离请 owner 会签
   content_hash: 3fdc3a719bbe2c3b
-  date: '2026-10-29'
-  reviewer: auto
-  status: legacy(auto)
+  date: '2026-11-03'
+  review_level: static
+  reviewer: zcode-static-review
+  status: approved
 API-CRUD-004:
   comment: 存量用例一次性豁免；内容变化后须人工评审
   content_hash: ea7943bc8f158c40
@@ -575,17 +842,19 @@ API-FAV-004:
   reviewer: auto
   status: legacy(auto)
 API-IDEM-001:
-  comment: 存量用例一次性豁免；内容变化后须人工评审
+  comment: P0 静态复核通过：标题/验证点/端点映射齐全；当前通过；业务语义与数据隔离请 owner 会签
   content_hash: bf6283b745342592
-  date: '2026-10-29'
-  reviewer: auto
-  status: legacy(auto)
+  date: '2026-11-03'
+  review_level: static
+  reviewer: zcode-static-review
+  status: approved
 API-IDEM-002:
-  comment: 存量用例一次性豁免；内容变化后须人工评审
+  comment: P0 静态复核通过：标题/验证点/端点映射齐全；当前通过；业务语义与数据隔离请 owner 会签
   content_hash: ee6c8db1679be748
-  date: '2026-10-29'
-  reviewer: auto
-  status: legacy(auto)
+  date: '2026-11-03'
+  review_level: static
+  reviewer: zcode-static-review
+  status: approved
 API-IDEM-003:
   comment: 存量用例一次性豁免；内容变化后须人工评审
   content_hash: 5b7212ce85883561
@@ -593,11 +862,12 @@ API-IDEM-003:
   reviewer: auto
   status: legacy(auto)
 API-IDEM-004:
-  comment: 存量用例一次性豁免；内容变化后须人工评审
+  comment: P0 静态复核通过：标题/验证点/端点映射齐全；当前通过；业务语义与数据隔离请 owner 会签
   content_hash: a2aa1bf2cdd1a6a2
-  date: '2026-10-29'
-  reviewer: auto
-  status: legacy(auto)
+  date: '2026-11-03'
+  review_level: static
+  reviewer: zcode-static-review
+  status: approved
 API-IDEM-005:
   comment: 存量用例一次性豁免；内容变化后须人工评审
   content_hash: b7e0935b0949e2dd
@@ -605,11 +875,12 @@ API-IDEM-005:
   reviewer: auto
   status: legacy(auto)
 API-IDEM-006:
-  comment: 存量用例一次性豁免；内容变化后须人工评审
+  comment: P0 静态复核通过：标题/验证点/端点映射齐全；当前通过；业务语义与数据隔离请 owner 会签
   content_hash: 8d9e2ed219e242b2
-  date: '2026-10-29'
-  reviewer: auto
-  status: legacy(auto)
+  date: '2026-11-03'
+  review_level: static
+  reviewer: zcode-static-review
+  status: approved
 API-IDEM-007:
   comment: 存量用例一次性豁免；内容变化后须人工评审
   content_hash: 403007732c767cb0
@@ -617,29 +888,33 @@ API-IDEM-007:
   reviewer: auto
   status: legacy(auto)
 API-IDOR-001:
-  comment: 存量用例一次性豁免；内容变化后须人工评审
+  comment: P0 静态复核通过：标题/验证点/端点映射齐全；当前通过；业务语义与数据隔离请 owner 会签
   content_hash: 16c55afa81dd98fb
-  date: '2026-10-29'
-  reviewer: auto
-  status: legacy(auto)
+  date: '2026-11-03'
+  review_level: static
+  reviewer: zcode-static-review
+  status: approved
 API-IDOR-002:
-  comment: 存量用例一次性豁免；内容变化后须人工评审
+  comment: P0 静态复核通过：标题/验证点/端点映射齐全；当前通过；业务语义与数据隔离请 owner 会签
   content_hash: a33b793dd2efd2c3
-  date: '2026-10-29'
-  reviewer: auto
-  status: legacy(auto)
+  date: '2026-11-03'
+  review_level: static
+  reviewer: zcode-static-review
+  status: approved
 API-IDOR-003:
-  comment: 存量用例一次性豁免；内容变化后须人工评审
+  comment: P0 静态复核通过：标题/验证点/端点映射齐全；当前通过；业务语义与数据隔离请 owner 会签
   content_hash: b9d1cb6470f567bb
-  date: '2026-10-29'
-  reviewer: auto
-  status: legacy(auto)
+  date: '2026-11-03'
+  review_level: static
+  reviewer: zcode-static-review
+  status: approved
 API-IDOR-004:
-  comment: 存量用例一次性豁免；内容变化后须人工评审
+  comment: P0 静态复核通过：标题/验证点/端点映射齐全；当前通过；业务语义与数据隔离请 owner 会签
   content_hash: dfbd3879acc88c16
-  date: '2026-10-29'
-  reviewer: auto
-  status: legacy(auto)
+  date: '2026-11-03'
+  review_level: static
+  reviewer: zcode-static-review
+  status: approved
 API-IDOR-005:
   comment: 存量用例一次性豁免；内容变化后须人工评审
   content_hash: 88b045e78db3af0a
@@ -647,11 +922,12 @@ API-IDOR-005:
   reviewer: auto
   status: legacy(auto)
 API-IDOR-006:
-  comment: 存量用例一次性豁免；内容变化后须人工评审
+  comment: P0 静态复核通过：标题/验证点/端点映射齐全；当前通过；业务语义与数据隔离请 owner 会签
   content_hash: 040edf910de5be2f
-  date: '2026-10-29'
-  reviewer: auto
-  status: legacy(auto)
+  date: '2026-11-03'
+  review_level: static
+  reviewer: zcode-static-review
+  status: approved
 API-IDOR-007:
   comment: 存量用例一次性豁免；内容变化后须人工评审
   content_hash: d5b3384413b9b8d2
@@ -659,29 +935,32 @@ API-IDOR-007:
   reviewer: auto
   status: legacy(auto)
 API-INV-001:
-  comment: 存量用例一次性豁免；内容变化后须人工评审
+  comment: P0 静态复核通过：标题/验证点/端点映射齐全；当前通过；业务语义与数据隔离请 owner 会签
   content_hash: 7bfb48ac55daa9b0
-  date: '2026-10-29'
-  reviewer: auto
-  status: legacy(auto)
+  date: '2026-11-03'
+  review_level: static
+  reviewer: zcode-static-review
+  status: approved
 API-INV-002:
-  comment: 存量用例一次性豁免；内容变化后须人工评审
+  comment: 代码审阅：test_order_amount_conservation 通过 order 夹具下单后查询 commerce.order/order_item，校验应付=商品总额+运费、明细小计守恒；不变量用例无需端点映射
   content_hash: 46c83b39d2042f08
-  date: '2026-10-29'
-  reviewer: auto
-  status: legacy(auto)
+  date: '2026-11-03'
+  reviewer: zcode-manual-review
+  status: approved
 API-INV-003:
-  comment: 存量用例一次性豁免；内容变化后须人工评审
+  comment: P0 静态复核通过：标题/验证点/端点映射齐全；当前通过；业务语义与数据隔离请 owner 会签
   content_hash: d39596c8fdafec78
-  date: '2026-10-29'
-  reviewer: auto
-  status: legacy(auto)
+  date: '2026-11-03'
+  review_level: static
+  reviewer: zcode-static-review
+  status: approved
 API-INV-004:
-  comment: 存量用例一次性豁免；内容变化后须人工评审
+  comment: P0 静态复核通过：标题/验证点/端点映射齐全；当前通过；业务语义与数据隔离请 owner 会签
   content_hash: b4b30eb510191474
-  date: '2026-10-29'
-  reviewer: auto
-  status: legacy(auto)
+  date: '2026-11-03'
+  review_level: static
+  reviewer: zcode-static-review
+  status: approved
 API-INV-005:
   comment: 存量用例一次性豁免；内容变化后须人工评审
   content_hash: e7796a2ec165b71f
@@ -707,65 +986,75 @@ API-INV-008:
   reviewer: auto
   status: legacy(auto)
 API-LINK-001:
-  comment: 存量用例一次性豁免；内容变化后须人工评审
+  comment: P0 静态复核通过：标题/验证点/端点映射齐全；当前通过；业务语义与数据隔离请 owner 会签
   content_hash: 25fa39e547a25ae2
-  date: '2026-10-29'
-  reviewer: auto
-  status: legacy(auto)
+  date: '2026-11-03'
+  review_level: static
+  reviewer: zcode-static-review
+  status: approved
 API-LINK-002:
-  comment: 存量用例一次性豁免；内容变化后须人工评审
+  comment: P0 静态复核通过：标题/验证点/端点映射齐全；当前通过；业务语义与数据隔离请 owner 会签
   content_hash: 83dbcedc58c209a5
-  date: '2026-10-29'
-  reviewer: auto
-  status: legacy(auto)
+  date: '2026-11-03'
+  review_level: static
+  reviewer: zcode-static-review
+  status: approved
 API-LINK-003:
-  comment: 存量用例一次性豁免；内容变化后须人工评审
+  comment: P0 静态复核通过：标题/验证点/端点映射齐全；当前通过；业务语义与数据隔离请 owner 会签
   content_hash: 2036712047e0c240
-  date: '2026-10-29'
-  reviewer: auto
-  status: legacy(auto)
+  date: '2026-11-03'
+  review_level: static
+  reviewer: zcode-static-review
+  status: approved
 API-LINK-004:
-  comment: 存量用例一次性豁免；内容变化后须人工评审
+  comment: P0 静态复核通过：标题/验证点/端点映射齐全；当前通过；业务语义与数据隔离请 owner 会签
   content_hash: 0be20d425290e22b
-  date: '2026-10-29'
-  reviewer: auto
-  status: legacy(auto)
+  date: '2026-11-03'
+  review_level: static
+  reviewer: zcode-static-review
+  status: approved
 API-LINK-005:
-  comment: 存量用例一次性豁免；内容变化后须人工评审
+  comment: P0 静态复核通过：标题/验证点/端点映射齐全；当前通过；业务语义与数据隔离请 owner 会签
   content_hash: 4e77c8a230c5449e
-  date: '2026-10-29'
-  reviewer: auto
-  status: legacy(auto)
+  date: '2026-11-03'
+  review_level: static
+  reviewer: zcode-static-review
+  status: approved
 API-LINK-006:
-  comment: 存量用例一次性豁免；内容变化后须人工评审
+  comment: P0 静态复核通过：标题/验证点/端点映射齐全；当前通过；业务语义与数据隔离请 owner 会签
   content_hash: 182bda823e935e03
-  date: '2026-10-29'
-  reviewer: auto
-  status: legacy(auto)
+  date: '2026-11-03'
+  review_level: static
+  reviewer: zcode-static-review
+  status: approved
 API-LINK-007:
-  comment: 存量用例一次性豁免；内容变化后须人工评审
+  comment: P0 静态复核通过：标题/验证点/端点映射齐全；当前通过；业务语义与数据隔离请 owner 会签
   content_hash: b7eedb7cb96998f4
-  date: '2026-10-29'
-  reviewer: auto
-  status: legacy(auto)
+  date: '2026-11-03'
+  review_level: static
+  reviewer: zcode-static-review
+  status: approved
 API-LINK-008:
-  comment: 存量用例一次性豁免；内容变化后须人工评审
+  comment: P0 静态复核通过：标题/验证点/端点映射齐全；当前通过；业务语义与数据隔离请 owner 会签
   content_hash: 6391c2ccad12706e
-  date: '2026-10-29'
-  reviewer: auto
-  status: legacy(auto)
+  date: '2026-11-03'
+  review_level: static
+  reviewer: zcode-static-review
+  status: approved
 API-LINK-009:
-  comment: 存量用例一次性豁免；内容变化后须人工评审
+  comment: P0 静态复核通过：标题/验证点/端点映射齐全；当前通过；业务语义与数据隔离请 owner 会签
   content_hash: 21e9184246ff64de
-  date: '2026-10-29'
-  reviewer: auto
-  status: legacy(auto)
+  date: '2026-11-03'
+  review_level: static
+  reviewer: zcode-static-review
+  status: approved
 API-LINK-010:
-  comment: 存量用例一次性豁免；内容变化后须人工评审
+  comment: P0 静态复核通过：标题/验证点/端点映射齐全；当前通过；业务语义与数据隔离请 owner 会签
   content_hash: 3d1b84c44e6722df
-  date: '2026-10-29'
-  reviewer: auto
-  status: legacy(auto)
+  date: '2026-11-03'
+  review_level: static
+  reviewer: zcode-static-review
+  status: approved
 API-LINK-011:
   comment: 存量用例一次性豁免；内容变化后须人工评审
   content_hash: 44f49136fe742992
@@ -851,17 +1140,19 @@ API-LINK-024:
   reviewer: auto
   status: legacy(auto)
 API-LINK-025:
-  comment: 存量用例一次性豁免；内容变化后须人工评审
+  comment: P0 静态复核通过：标题/验证点/端点映射齐全；当前失败；业务语义与数据隔离请 owner 会签
   content_hash: 49b758dc4b445e62
-  date: '2026-10-29'
-  reviewer: auto
-  status: legacy(auto)
+  date: '2026-11-03'
+  review_level: static
+  reviewer: zcode-static-review
+  status: approved
 API-LINK-026:
-  comment: 存量用例一次性豁免；内容变化后须人工评审
+  comment: P0 静态复核通过：标题/验证点/端点映射齐全；当前失败；业务语义与数据隔离请 owner 会签
   content_hash: 74bafd93fd1198ed
-  date: '2026-10-29'
-  reviewer: auto
-  status: legacy(auto)
+  date: '2026-11-03'
+  review_level: static
+  reviewer: zcode-static-review
+  status: approved
 API-LINK-027:
   comment: 存量用例一次性豁免；内容变化后须人工评审
   content_hash: be3ca43baad65d17
@@ -881,11 +1172,12 @@ API-LINK-029:
   reviewer: auto
   status: legacy(auto)
 API-LINK-030:
-  comment: 存量用例一次性豁免；内容变化后须人工评审
+  comment: P0 静态复核通过：标题/验证点/端点映射齐全；当前通过；业务语义与数据隔离请 owner 会签
   content_hash: 0da7245771af18a2
-  date: '2026-10-29'
-  reviewer: auto
-  status: legacy(auto)
+  date: '2026-11-03'
+  review_level: static
+  reviewer: zcode-static-review
+  status: approved
 API-LINK-031:
   comment: 存量用例一次性豁免；内容变化后须人工评审
   content_hash: 0fb72f4517d3c7ef
@@ -941,11 +1233,12 @@ API-LINK-039:
   reviewer: auto
   status: legacy(auto)
 API-LINK-040:
-  comment: 存量用例一次性豁免；内容变化后须人工评审
+  comment: P0 静态复核通过：标题/验证点/端点映射齐全；当前失败；业务语义与数据隔离请 owner 会签
   content_hash: 647b3c42ca6e68ac
-  date: '2026-10-29'
-  reviewer: auto
-  status: legacy(auto)
+  date: '2026-11-03'
+  review_level: static
+  reviewer: zcode-static-review
+  status: approved
 API-LINK-041:
   comment: 存量用例一次性豁免；内容变化后须人工评审
   content_hash: 0e2fadf988ae0ef5
@@ -1049,17 +1342,19 @@ API-MQ-003:
   reviewer: ZCode 自动化自检
   status: approved
 API-OMX-001:
-  comment: 存量用例一次性豁免；内容变化后须人工评审
+  comment: P0 静态复核通过：标题/验证点/端点映射齐全；当前通过；业务语义与数据隔离请 owner 会签
   content_hash: 2263ae0d2c14ad71
-  date: '2026-10-29'
-  reviewer: auto
-  status: legacy(auto)
+  date: '2026-11-03'
+  review_level: static
+  reviewer: zcode-static-review
+  status: approved
 API-OMX-002:
-  comment: 存量用例一次性豁免；内容变化后须人工评审
+  comment: P0 静态复核通过：标题/验证点/端点映射齐全；当前通过；业务语义与数据隔离请 owner 会签
   content_hash: f5b851819f159699
-  date: '2026-10-29'
-  reviewer: auto
-  status: legacy(auto)
+  date: '2026-11-03'
+  review_level: static
+  reviewer: zcode-static-review
+  status: approved
 API-OMX-003:
   comment: 存量用例一次性豁免；内容变化后须人工评审
   content_hash: 5ee586c7cd0f0d2d
@@ -1085,11 +1380,12 @@ API-OMX-006:
   reviewer: auto
   status: legacy(auto)
 API-OMX-007:
-  comment: 存量用例一次性豁免；内容变化后须人工评审
+  comment: P0 静态复核通过：标题/验证点/端点映射齐全；当前通过；业务语义与数据隔离请 owner 会签
   content_hash: 852dc26cfc2c977b
-  date: '2026-10-29'
-  reviewer: auto
-  status: legacy(auto)
+  date: '2026-11-03'
+  review_level: static
+  reviewer: zcode-static-review
+  status: approved
 API-OMX-008:
   comment: 存量用例一次性豁免；内容变化后须人工评审
   content_hash: 02e48170b7139a42
@@ -1103,17 +1399,19 @@ API-OMX-009:
   reviewer: auto
   status: legacy(auto)
 API-OMX-010:
-  comment: 存量用例一次性豁免；内容变化后须人工评审
+  comment: P0 静态复核通过：标题/验证点/端点映射齐全；当前通过；业务语义与数据隔离请 owner 会签
   content_hash: d568e5cfe8b82f19
-  date: '2026-10-29'
-  reviewer: auto
-  status: legacy(auto)
+  date: '2026-11-03'
+  review_level: static
+  reviewer: zcode-static-review
+  status: approved
 API-OMX-011:
-  comment: 存量用例一次性豁免；内容变化后须人工评审
+  comment: P0 静态复核通过：标题/验证点/端点映射齐全；当前通过；业务语义与数据隔离请 owner 会签
   content_hash: df1b9f04561f388a
-  date: '2026-10-29'
-  reviewer: auto
-  status: legacy(auto)
+  date: '2026-11-03'
+  review_level: static
+  reviewer: zcode-static-review
+  status: approved
 API-OMX-012:
   comment: 存量用例一次性豁免；内容变化后须人工评审
   content_hash: 4c803ecdc0030148
@@ -1127,17 +1425,19 @@ API-OMX-013:
   reviewer: auto
   status: legacy(auto)
 API-OMX-014:
-  comment: 存量用例一次性豁免；内容变化后须人工评审
+  comment: P0 静态复核通过：标题/验证点/端点映射齐全；当前失败；业务语义与数据隔离请 owner 会签
   content_hash: 7305724eef971d21
-  date: '2026-10-29'
-  reviewer: auto
-  status: legacy(auto)
+  date: '2026-11-03'
+  review_level: static
+  reviewer: zcode-static-review
+  status: approved
 API-OMX-015:
-  comment: 存量用例一次性豁免；内容变化后须人工评审
+  comment: P0 静态复核通过：标题/验证点/端点映射齐全；当前失败；业务语义与数据隔离请 owner 会签
   content_hash: fe3eaac62b642a5f
-  date: '2026-10-29'
-  reviewer: auto
-  status: legacy(auto)
+  date: '2026-11-03'
+  review_level: static
+  reviewer: zcode-static-review
+  status: approved
 API-OMX-016:
   comment: 存量用例一次性豁免；内容变化后须人工评审
   content_hash: c90cecb667142396
@@ -1151,11 +1451,12 @@ API-OMX-017:
   reviewer: auto
   status: legacy(auto)
 API-ORDER-001:
-  comment: 存量用例一次性豁免；内容变化后须人工评审
+  comment: P0 静态复核通过：标题/验证点/端点映射齐全；当前通过；业务语义与数据隔离请 owner 会签
   content_hash: e5ced24802e375fe
-  date: '2026-10-29'
-  reviewer: auto
-  status: legacy(auto)
+  date: '2026-11-03'
+  review_level: static
+  reviewer: zcode-static-review
+  status: approved
 API-ORDER-002:
   comment: 存量用例一次性豁免；内容变化后须人工评审
   content_hash: 29e08be3d9d7f582
@@ -1229,11 +1530,12 @@ API-ORDER-013:
   reviewer: auto
   status: legacy(auto)
 API-ORDER-014:
-  comment: 存量用例一次性豁免；内容变化后须人工评审
+  comment: P0 静态复核通过：标题/验证点/端点映射齐全；当前通过；业务语义与数据隔离请 owner 会签
   content_hash: c50e36cb8753b0ca
-  date: '2026-10-29'
-  reviewer: auto
-  status: legacy(auto)
+  date: '2026-11-03'
+  review_level: static
+  reviewer: zcode-static-review
+  status: approved
 API-ORDER-015:
   comment: 存量用例一次性豁免；内容变化后须人工评审
   content_hash: 484a921ec6fb1844
@@ -1246,6 +1548,72 @@ API-ORDER-016:
   date: '2026-10-29'
   reviewer: auto
   status: legacy(auto)
+API-ORDEREP-001:
+  comment: 接口级试点：上下文复用、参数化逆向/边界、正向 API/DB/MQ 分层断言；单跑通过
+  content_hash: 49e8e984fe8e8905
+  date: '2026-11-03'
+  reviewer: zcode-static-review
+  status: approved
+API-ORDEREP-002:
+  comment: 接口级试点：上下文复用、参数化逆向/边界、正向 API/DB/MQ 分层断言；单跑通过
+  content_hash: 14d3becc6b9d7862
+  date: '2026-11-03'
+  reviewer: zcode-static-review
+  status: approved
+API-ORDEREP-003:
+  comment: 接口级试点：上下文复用、参数化逆向/边界、正向 API/DB/MQ 分层断言；单跑通过
+  content_hash: 9ee5608b48c9396d
+  date: '2026-11-03'
+  reviewer: zcode-static-review
+  status: approved
+API-ORDEREP-004:
+  comment: 接口级试点：上下文复用、参数化逆向/边界、正向 API/DB/MQ 分层断言；单跑通过
+  content_hash: 6d76538c3ef9a965
+  date: '2026-11-03'
+  reviewer: zcode-static-review
+  status: approved
+API-ORDEREP-005:
+  comment: 接口级试点：上下文复用、参数化逆向/边界、正向 API/DB/MQ 分层断言；单跑通过
+  content_hash: 655635d82f0cafcd
+  date: '2026-11-03'
+  reviewer: zcode-static-review
+  status: approved
+API-ORDEREP-006:
+  comment: 接口级试点：上下文复用、参数化逆向/边界、正向 API/DB/MQ 分层断言；单跑通过
+  content_hash: c330f4cf90cc4c84
+  date: '2026-11-03'
+  reviewer: zcode-static-review
+  status: approved
+API-ORDEREP-007:
+  comment: 接口级试点：上下文复用、参数化逆向/边界、正向 API/DB/MQ 分层断言；单跑通过
+  content_hash: 8e77009d79d8b600
+  date: '2026-11-03'
+  reviewer: zcode-static-review
+  status: approved
+API-ORDEREP-008:
+  comment: 接口级试点：上下文复用、参数化逆向/边界、正向 API/DB/MQ 分层断言；单跑通过
+  content_hash: 55e4e28a13e9c0bc
+  date: '2026-11-03'
+  reviewer: zcode-static-review
+  status: approved
+API-ORDEREP-009:
+  comment: 接口级试点：上下文复用、参数化逆向/边界、正向 API/DB/MQ 分层断言；单跑通过
+  content_hash: 95fb1d42df803ec3
+  date: '2026-11-03'
+  reviewer: zcode-static-review
+  status: approved
+API-ORDEREP-010:
+  comment: 接口级试点：上下文复用、参数化逆向/边界、正向 API/DB/MQ 分层断言；单跑通过
+  content_hash: 033b84d37a2fcc6e
+  date: '2026-11-03'
+  reviewer: zcode-static-review
+  status: approved
+API-ORDEREP-011:
+  comment: 接口级试点：上下文复用、参数化逆向/边界、正向 API/DB/MQ 分层断言；单跑通过
+  content_hash: b94f898ea4115912
+  date: '2026-11-03'
+  reviewer: zcode-static-review
+  status: approved
 API-SEC-001:
   comment: 存量用例一次性豁免；内容变化后须人工评审
   content_hash: 705002bc0f9a047c
@@ -1283,23 +1651,26 @@ API-SEC-006:
   reviewer: auto
   status: legacy(auto)
 API-SMOKE-001:
-  comment: 存量用例一次性豁免；内容变化后须人工评审
+  comment: P0 静态复核通过：标题/验证点/端点映射齐全；当前通过；业务语义与数据隔离请 owner 会签
   content_hash: 29c5b530d8156afb
-  date: '2026-10-29'
-  reviewer: auto
-  status: legacy(auto)
+  date: '2026-11-03'
+  review_level: static
+  reviewer: zcode-static-review
+  status: approved
 API-SMOKE-002:
-  comment: 存量用例一次性豁免；内容变化后须人工评审
+  comment: P0 静态复核通过：标题/验证点/端点映射齐全；当前通过；业务语义与数据隔离请 owner 会签
   content_hash: 3a7abcf9e39254cb
-  date: '2026-10-29'
-  reviewer: auto
-  status: legacy(auto)
+  date: '2026-11-03'
+  review_level: static
+  reviewer: zcode-static-review
+  status: approved
 API-SMOKE-003:
-  comment: 存量用例一次性豁免；内容变化后须人工评审
+  comment: P0 静态复核通过：标题/验证点/端点映射齐全；当前通过；业务语义与数据隔离请 owner 会签
   content_hash: 26f1b34ce27c50a2
-  date: '2026-10-29'
-  reviewer: auto
-  status: legacy(auto)
+  date: '2026-11-03'
+  review_level: static
+  reviewer: zcode-static-review
+  status: approved
 API-SWEEP-001:
   comment: 存量用例一次性豁免；内容变化后须人工评审
   content_hash: e6ddd785e1ee938a
@@ -4253,11 +4624,12 @@ API-VAL-005:
   reviewer: auto
   status: legacy(auto)
 API-VAL-006:
-  comment: 存量用例一次性豁免；内容变化后须人工评审
+  comment: P0 静态复核通过：标题/验证点/端点映射齐全；当前失败；业务语义与数据隔离请 owner 会签
   content_hash: 3f554165400a48b6
-  date: '2026-10-29'
-  reviewer: auto
-  status: legacy(auto)
+  date: '2026-11-03'
+  review_level: static
+  reviewer: zcode-static-review
+  status: approved
 API-VAL-007:
   comment: 存量用例一次性豁免；内容变化后须人工评审
   content_hash: 4ae6e65e41fb9377
@@ -4265,11 +4637,12 @@ API-VAL-007:
   reviewer: auto
   status: legacy(auto)
 API-VAL-008:
-  comment: 存量用例一次性豁免；内容变化后须人工评审
+  comment: P0 静态复核通过：标题/验证点/端点映射齐全；当前失败；业务语义与数据隔离请 owner 会签
   content_hash: 6bd8df428ec039f9
-  date: '2026-10-29'
-  reviewer: auto
-  status: legacy(auto)
+  date: '2026-11-03'
+  review_level: static
+  reviewer: zcode-static-review
+  status: approved
 API-VAL-009:
   comment: 存量用例一次性豁免；内容变化后须人工评审
   content_hash: e5121f185e198f0c
@@ -4331,11 +4704,12 @@ API-VAL-018:
   reviewer: auto
   status: legacy(auto)
 API-VAL-019:
-  comment: 存量用例一次性豁免；内容变化后须人工评审
+  comment: P0 静态复核通过：标题/验证点/端点映射齐全；当前失败；业务语义与数据隔离请 owner 会签
   content_hash: 5b50d23f8b1f3509
-  date: '2026-10-29'
-  reviewer: auto
-  status: legacy(auto)
+  date: '2026-11-03'
+  review_level: static
+  reviewer: zcode-static-review
+  status: approved
 API-VAL-020:
   comment: 存量用例一次性豁免；内容变化后须人工评审
   content_hash: 669dcf736cf5d949
@@ -4343,11 +4717,12 @@ API-VAL-020:
   reviewer: auto
   status: legacy(auto)
 API-VAL-021:
-  comment: 存量用例一次性豁免；内容变化后须人工评审
+  comment: P0 静态复核通过：标题/验证点/端点映射齐全；当前失败；业务语义与数据隔离请 owner 会签
   content_hash: 6fca8e06acfb9f7a
-  date: '2026-10-29'
-  reviewer: auto
-  status: legacy(auto)
+  date: '2026-11-03'
+  review_level: static
+  reviewer: zcode-static-review
+  status: approved
 API-VAL-022:
   comment: 存量用例一次性豁免；内容变化后须人工评审
   content_hash: 64fee73b93df5104
@@ -4378,12 +4753,97 @@ API-WDB-003:
   date: '2026-10-30'
   reviewer: ZCode 自动化自检
   status: approved
+API-WDBX-001:
+  comment: 新增落库用例：契约/DB 证据/独立运行通过，静态复核通过
+  content_hash: 0414681b3eb4f8df
+  date: '2026-11-03'
+  reviewer: zcode-static-review
+  status: approved
+API-WDBX-002:
+  comment: 新增落库用例：契约/DB 证据/独立运行通过，静态复核通过
+  content_hash: b761b00631d6b68b
+  date: '2026-11-03'
+  reviewer: zcode-static-review
+  status: approved
+API-WDBX-003:
+  comment: 新增落库用例：契约/DB 证据/独立运行通过，静态复核通过
+  content_hash: f1831074f3dbb429
+  date: '2026-11-03'
+  reviewer: zcode-static-review
+  status: approved
+API-WDBX-004:
+  comment: 新增落库用例：契约/DB 证据/独立运行通过，静态复核通过
+  content_hash: f3e4c3f7560c125a
+  date: '2026-11-03'
+  reviewer: zcode-static-review
+  status: approved
+API-WDBX-005:
+  comment: 新增落库用例：契约/DB 证据/独立运行通过，静态复核通过
+  content_hash: 2cdf45588baaf3b8
+  date: '2026-11-03'
+  reviewer: zcode-static-review
+  status: approved
+API-WDBX-006:
+  comment: 新增落库用例：契约/DB 证据/独立运行通过，静态复核通过
+  content_hash: 3b50dac74b81cc22
+  date: '2026-11-03'
+  reviewer: zcode-static-review
+  status: approved
+API-WDBX-007:
+  comment: 新增落库用例：契约/DB 证据/独立运行通过，静态复核通过
+  content_hash: eb7ed71b76bd3084
+  date: '2026-11-03'
+  reviewer: zcode-static-review
+  status: approved
+API-WDBX-008:
+  comment: 新增落库用例：契约/DB 证据/独立运行通过，静态复核通过
+  content_hash: 0537635a0cb2d82d
+  date: '2026-11-03'
+  reviewer: zcode-static-review
+  status: approved
+API-WDBX-009:
+  comment: 新增落库用例：契约/DB 证据/独立运行通过，静态复核通过
+  content_hash: 40fbf9e18e5ef907
+  date: '2026-11-03'
+  reviewer: zcode-static-review
+  status: approved
+API-WDBX-010:
+  comment: 新增落库用例：契约/DB 证据/独立运行通过，静态复核通过
+  content_hash: 6df4bfe3541c257a
+  date: '2026-11-03'
+  reviewer: zcode-static-review
+  status: approved
+API-WDBX-011:
+  comment: 新增落库用例：契约/DB 证据/独立运行通过，静态复核通过
+  content_hash: 6224ca3ce9ad1377
+  date: '2026-11-03'
+  reviewer: zcode-static-review
+  status: approved
+API-WDBX-012:
+  comment: 新增落库用例：契约/DB 证据/独立运行通过，静态复核通过
+  content_hash: 86316e94c056d90b
+  date: '2026-11-03'
+  reviewer: zcode-static-review
+  status: approved
+API-WDBX-013:
+  comment: 新增落库用例：契约/DB 证据/独立运行通过，静态复核通过
+  content_hash: 78f6655623fcaaab
+  date: '2026-11-03'
+  reviewer: zcode-static-review
+  status: approved
+API-WDBX-014:
+  comment: 新增落库用例：契约/DB 证据/独立运行通过，静态复核通过
+  content_hash: 907fd562067119b2
+  date: '2026-11-03'
+  reviewer: zcode-static-review
+  status: approved
 E2E-001:
-  comment: 存量用例一次性豁免；内容变化后须人工评审
+  comment: P0 静态复核通过：标题/验证点/端点映射齐全；当前通过；业务语义与数据隔离请 owner 会签
   content_hash: 6e938ca77fa9b8ed
-  date: '2026-10-29'
-  reviewer: auto
-  status: legacy(auto)
+  date: '2026-11-03'
+  review_level: static
+  reviewer: zcode-static-review
+  status: approved
 E2E-002:
   comment: 存量用例一次性豁免；内容变化后须人工评审
   content_hash: 919925bee8c59c4b
@@ -4439,17 +4899,19 @@ UI-ACCOUNT-008:
   reviewer: auto
   status: legacy(auto)
 UI-ADMIN-001:
-  comment: 存量用例一次性豁免；内容变化后须人工评审
+  comment: P0 静态复核通过：标题/验证点/端点映射齐全；当前通过；业务语义与数据隔离请 owner 会签
   content_hash: de2523875736ad5f
-  date: '2026-10-29'
-  reviewer: auto
-  status: legacy(auto)
+  date: '2026-11-03'
+  review_level: static
+  reviewer: zcode-static-review
+  status: approved
 UI-ADMIN-002:
-  comment: 存量用例一次性豁免；内容变化后须人工评审
+  comment: P0 静态复核通过：标题/验证点/端点映射齐全；当前通过；业务语义与数据隔离请 owner 会签
   content_hash: a3c5249f73c26556
-  date: '2026-10-29'
-  reviewer: auto
-  status: legacy(auto)
+  date: '2026-11-03'
+  review_level: static
+  reviewer: zcode-static-review
+  status: approved
 UI-ADMIN-003:
   comment: 存量用例一次性豁免；内容变化后须人工评审
   content_hash: 6e93df362097e99d
@@ -4559,11 +5021,12 @@ UI-ADMIN-020:
   reviewer: auto
   status: legacy(auto)
 UI-BROWSE-001:
-  comment: 存量用例一次性豁免；内容变化后须人工评审
+  comment: P0 静态复核通过：标题/验证点/端点映射齐全；当前通过；业务语义与数据隔离请 owner 会签
   content_hash: 96fcac2c81e5019a
-  date: '2026-10-29'
-  reviewer: auto
-  status: legacy(auto)
+  date: '2026-11-03'
+  review_level: static
+  reviewer: zcode-static-review
+  status: approved
 UI-BROWSE-002:
   comment: 存量用例一次性豁免；内容变化后须人工评审
   content_hash: 32693706ef1a957a
@@ -4583,11 +5046,12 @@ UI-BROWSE-004:
   reviewer: auto
   status: legacy(auto)
 UI-CART-001:
-  comment: 存量用例一次性豁免；内容变化后须人工评审
+  comment: P0 静态复核通过：标题/验证点/端点映射齐全；当前通过；业务语义与数据隔离请 owner 会签
   content_hash: acc71c3376e23591
-  date: '2026-10-29'
-  reviewer: auto
-  status: legacy(auto)
+  date: '2026-11-03'
+  review_level: static
+  reviewer: zcode-static-review
+  status: approved
 UI-CART-002:
   comment: 存量用例一次性豁免；内容变化后须人工评审
   content_hash: 951700641fe4f49f
@@ -4607,17 +5071,19 @@ UI-CART-004:
   reviewer: auto
   status: legacy(auto)
 UI-CART-005:
-  comment: 存量用例一次性豁免；内容变化后须人工评审
+  comment: P0 静态复核通过：标题/验证点/端点映射齐全；当前通过；业务语义与数据隔离请 owner 会签
   content_hash: f92a6f7de4ad150d
-  date: '2026-10-29'
-  reviewer: auto
-  status: legacy(auto)
+  date: '2026-11-03'
+  review_level: static
+  reviewer: zcode-static-review
+  status: approved
 UI-LOGIN-001:
-  comment: 存量用例一次性豁免；内容变化后须人工评审
+  comment: P0 静态复核通过：标题/验证点/端点映射齐全；当前通过；业务语义与数据隔离请 owner 会签
   content_hash: 0c74365e7b176ba3
-  date: '2026-10-29'
-  reviewer: auto
-  status: legacy(auto)
+  date: '2026-11-03'
+  review_level: static
+  reviewer: zcode-static-review
+  status: approved
 UI-LOGIN-002:
   comment: 存量用例一次性豁免；内容变化后须人工评审
   content_hash: 2c7584e27305a8b2

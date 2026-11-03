@@ -107,6 +107,7 @@ def test_order_submit_persisted(customer, address, on_sale_sku_fixture):
     )
     data = submit_order(customer.client, payload)
     order_id = str(data["orderId"])
+    verify_write("POST /api/orders", payload, response=order_id)
 
     row = db.order_row(order_id)
     assert row["idempotent_key"] == payload["idempotentKey"]

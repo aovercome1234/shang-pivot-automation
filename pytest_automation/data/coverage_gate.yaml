@@ -1,0 +1,16 @@
+# 覆盖率门禁：先 ratchet（不允许比上一轮更差），再逐步提高绝对目标。
+# 修改阈值必须走 PR，并在变更记录中说明原因与到期日。
+version: 1
+static:
+  interface_rate_min: 100.0          # 135/135，不允许漏接口
+  chain_rate_min: 100.0              # 静态链路节点完整
+  chain_method_rate_min: 49.5        # 当前 230/465；补一批后上调
+  method_rate_delta_min_pp: -1.0     # 相对上一轮最多允许 -1pp
+  write_db_rate_min: 100.0           # 68/68，不允许写接口回退
+  write_db_delta_min_pp: -1.0
+runtime:
+  line_rate_delta_min_pp: -1.0       # 相对上一轮最多允许 -1pp
+  new_java_line_rate_min: 70.0       # 第二阶段：JaCoCo + git diff 新增行
+  new_java_line_rate_enabled: false  # 当前未生成 diff 覆盖，先关闭
+  require_in_nightly: true           # nightly 传 --require-runtime
+  max_age_days: 14                   # 运行时数据过期视为不可用

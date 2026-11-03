@@ -1,0 +1,485 @@
+# 业务分类体系：Allure Suites = 业务域 → 业务模块；验证维度只作为标签，不再单独成为套件。
+#
+# 匹配优先级（高 → 低）：
+# 1) function_overrides：明确的跨域用例（如“会员 token 不得访问管理端”）
+# 2) endpoint_rules：按用例实际调用的接口选择优先级最高的业务动作
+# 3) keyword_rules：无接口映射时，按测试函数名/类名兜底
+# 4) file_rules：按测试文件兜底
+# 5) default
+#
+# endpoint_rules.priority 用于多接口用例选“测试主体”：
+# 例如下单用例会先调地址/购物车，再调订单；订单优先级更高，因此归入“订单与支付”。
+
+default:
+  domain: 平台治理
+  module: 未分类
+  dimension: 功能
+
+function_overrides:
+  "tests/api/test_security.py::test_tampered_token_rejected":
+    domain: 会员中心
+    module: 登录与令牌
+  "tests/api/test_security.py::test_customer_token_rejected_by_admin":
+    domain: 平台治理
+    module: 身份与权限
+  "tests/api/test_order.py::test_customer_token_cannot_access_admin":
+    domain: 平台治理
+    module: 身份与权限
+  "tests/api/test_auth.py::TestAdminAuth::test_admin_requires_token":
+    domain: 平台治理
+    module: 身份与权限
+  "tests/api/test_failure_evidence_demo.py::test_demo_business_assertion_failure":
+    domain: 平台治理
+    module: 测试基础设施
+  "tests/api/test_failure_evidence_demo.py::test_demo_broken_exception":
+    domain: 平台治理
+    module: 测试基础设施
+
+endpoint_rules:
+  # ---------- 会员中心 ----------
+  - path: /api/auth
+    domain: 会员中心
+    module: 登录与令牌
+    priority: 92
+  - path: /api/me
+    domain: 会员中心
+    module: 会员资料
+    priority: 85
+  - path: /api/addresses
+    domain: 会员中心
+    module: 收货地址
+    priority: 70
+  - path: /api/favorites
+    domain: 会员中心
+    module: 收藏与足迹
+    priority: 75
+  - path: /api/history
+    domain: 会员中心
+    module: 收藏与足迹
+    priority: 75
+  - path: /admin/customers
+    domain: 会员中心
+    module: 会员资料
+    priority: 65
+
+  # ---------- 商品中心 ----------
+  - path: /api/products/{spuId}/reviews
+    domain: 售后与评价
+    module: 评价管理
+    priority: 99
+  - path: /api/products
+    domain: 商品中心
+    module: 商品与搜索
+    priority: 60
+  - path: /api/search
+    domain: 商品中心
+    module: 商品与搜索
+    priority: 60
+  - path: /api/categories
+    domain: 商品中心
+    module: 商品与搜索
+    priority: 55
+  - path: /api/home
+    domain: 商品中心
+    module: 商品与搜索
+    priority: 55
+  - path: /api/site
+    domain: 商品中心
+    module: 商品与搜索
+    priority: 55
+  - path: /admin/products
+    domain: 商品中心
+    module: 商品管理
+    priority: 60
+  - path: /admin/brands
+    domain: 商品中心
+    module: 商品管理
+    priority: 60
+  - path: /admin/categories
+    domain: 商品中心
+    module: 商品管理
+    priority: 60
+  - path: /admin/attributes
+    domain: 商品中心
+    module: 商品管理
+    priority: 60
+  - path: /admin/home
+    domain: 商品中心
+    module: 商品管理
+    priority: 60
+  - path: /admin/site
+    domain: 商品中心
+    module: 商品管理
+    priority: 60
+
+  # ---------- 交易中心 ----------
+  - path: /api/after-sales
+    domain: 售后与评价
+    module: 售后服务
+    priority: 100
+  - path: /admin/after-sales
+    domain: 售后与评价
+    module: 售后服务
+    priority: 100
+  - path: /api/reviews
+    domain: 售后与评价
+    module: 评价管理
+    priority: 99
+  - path: /admin/reviews
+    domain: 售后与评价
+    module: 评价管理
+    priority: 98
+  - path: /api/orders/{id}/confirm
+    domain: 交易中心
+    module: 订单与支付
+    priority: 97
+  - path: /admin/orders/{id}/ship
+    domain: 交易中心
+    module: 库存与履约
+    priority: 96
+  - path: /api/orders
+    domain: 交易中心
+    module: 订单与支付
+    priority: 90
+  - path: /api/payment
+    domain: 交易中心
+    module: 订单与支付
+    priority: 88
+  - path: /admin/orders
+    domain: 交易中心
+    module: 订单与支付
+    priority: 89
+  - path: /api/cart
+    domain: 交易中心
+    module: 购物车
+    priority: 80
+  - path: /admin/stocks
+    domain: 交易中心
+    module: 库存与履约
+    priority: 85
+  - path: /admin/in-out
+    domain: 交易中心
+    module: 库存与履约
+    priority: 85
+  - path: /admin/warehouses
+    domain: 交易中心
+    module: 库存与履约
+    priority: 85
+
+  # ---------- 平台治理 ----------
+  - path: /admin/auth
+    domain: 平台治理
+    module: 身份与权限
+    priority: 92
+  - path: /admin/users
+    domain: 平台治理
+    module: 身份与权限
+    priority: 60
+  - path: /admin/roles
+    domain: 平台治理
+    module: 身份与权限
+    priority: 60
+  - path: /admin/permissions
+    domain: 平台治理
+    module: 身份与权限
+    priority: 60
+  - path: /admin/depts
+    domain: 平台治理
+    module: 身份与权限
+    priority: 60
+  - path: /admin/dicts
+    domain: 平台治理
+    module: 配置与审计
+    priority: 60
+  - path: /admin/dict-items
+    domain: 平台治理
+    module: 配置与审计
+    priority: 60
+  - path: /admin/system-configs
+    domain: 平台治理
+    module: 配置与审计
+    priority: 60
+  - path: /admin/operation-logs
+    domain: 平台治理
+    module: 配置与审计
+    priority: 60
+  - path: /admin/dashboard
+    domain: 平台治理
+    module: 配置与审计
+    priority: 60
+  - path: /admin/files
+    domain: 平台治理
+    module: 文件服务
+    priority: 50
+  - path: /api/files
+    domain: 平台治理
+    module: 文件服务
+    priority: 50
+  - path: /admin
+    domain: 平台治理
+    module: 管理端基础
+    priority: 30
+
+file_rules:
+  tests/api/test_auth.py: {domain: 会员中心, module: 登录与令牌}
+  tests/api/test_catalog.py: {domain: 商品中心, module: 商品与搜索}
+  tests/api/test_cart.py: {domain: 交易中心, module: 购物车}
+  tests/api/test_address.py: {domain: 会员中心, module: 收货地址}
+  tests/api/test_order.py: {domain: 交易中心, module: 订单与支付}
+  tests/api/test_favorites_history.py: {domain: 会员中心, module: 收藏与足迹}
+  tests/api/test_after_sales_reviews.py: {domain: 售后与评价, module: 售后服务}
+  tests/api/test_admin.py: {domain: 平台治理, module: 管理端基础}
+  tests/api/test_security.py: {domain: 平台治理, module: 安全与权限}
+  tests/api/test_security_idor.py: {domain: 平台治理, module: 安全与权限}
+  tests/api/test_invariants.py: {domain: 交易中心, module: 订单与支付}
+  tests/api/test_idempotency.py: {domain: 交易中心, module: 订单与支付}
+  tests/api/test_bulk_data.py: {domain: 商品中心, module: 商品与搜索}
+  tests/api/test_validation.py: {domain: 平台治理, module: 接口校验}
+  tests/api/test_validation_interactions.py: {domain: 平台治理, module: 参数联动}
+  tests/api/test_endpoint_matrix_orders.py: {domain: 交易中心, module: 订单与支付}
+  tests/api/endpoints/test_orders.py: {domain: 交易中心, module: 订单与支付}
+  tests/api/test_endpoint_sweep.py: {domain: 平台治理, module: 全接口巡检}
+  tests/api/test_admin_crud_roundtrip.py: {domain: 平台治理, module: 管理端基础}
+  tests/api/test_failure_evidence_demo.py: {domain: 平台治理, module: 测试基础设施}
+  tests/api/test_data_driven.py: {domain: 会员中心, module: 登录与令牌}
+  tests/api/test_smoke.py: {domain: 商品中心, module: 商品与搜索}
+  tests/api/test_write_persistence.py: {domain: 平台治理, module: 落库校验}
+  tests/api/test_mq_order_events.py: {domain: 交易中心, module: 订单与支付}
+  tests/api/test_redis_state.py: {domain: 会员中心, module: 登录与令牌}
+  tests/ui/test_mall_browse.py: {domain: 商品中心, module: 商品浏览}
+  tests/ui/test_mall_product.py: {domain: 商品中心, module: 商品详情}
+  tests/ui/test_mall_account.py: {domain: 会员中心, module: 个人中心}
+  tests/ui/test_mall_login.py: {domain: 会员中心, module: 登录与令牌}
+  tests/ui/test_mall_cart_checkout.py: {domain: 交易中心, module: 购物车与结算}
+  tests/ui/test_mall_orders.py: {domain: 交易中心, module: 订单与支付}
+  tests/ui/test_admin_console.py: {domain: 平台治理, module: 后台控制台}
+  tests/e2e/test_purchase_flow.py: {domain: 交易中心, module: 购买主链路}
+
+# 无接口映射时的兜底；顺序敏感，先匹配到的生效。
+keyword_rules:
+  - match: "admin_login"
+    domain: 平台治理
+    module: 身份与权限
+  - match: "admin_requires_token"
+    domain: 平台治理
+    module: 身份与权限
+  - match: "customer_token"
+    domain: 平台治理
+    module: 身份与权限
+  - match: "tampered_token"
+    domain: 会员中心
+    module: 登录与令牌
+  - match: "after_sale"
+    domain: 售后与评价
+    module: 售后服务
+  - match: "review"
+    domain: 售后与评价
+    module: 评价管理
+  - match: "address"
+    domain: 会员中心
+    module: 收货地址
+  - match: "favorite"
+    domain: 会员中心
+    module: 收藏与足迹
+  - match: "history"
+    domain: 会员中心
+    module: 收藏与足迹
+  - match: "cart"
+    domain: 交易中心
+    module: 购物车
+  - match: "ship"
+    domain: 交易中心
+    module: 库存与履约
+  - match: "stock"
+    domain: 交易中心
+    module: 库存与履约
+  - match: "warehouse"
+    domain: 交易中心
+    module: 库存与履约
+  - match: "in_out"
+    domain: 交易中心
+    module: 库存与履约
+  - match: "order"
+    domain: 交易中心
+    module: 订单与支付
+  - match: "payment"
+    domain: 交易中心
+    module: 订单与支付
+  - match: "search"
+    domain: 商品中心
+    module: 商品与搜索
+  - match: "product"
+    domain: 商品中心
+    module: 商品与搜索
+  - match: "brand"
+    domain: 商品中心
+    module: 商品与搜索
+  - match: "category"
+    domain: 商品中心
+    module: 商品与搜索
+  - match: "dict"
+    domain: 平台治理
+    module: 配置与审计
+  - match: "dept"
+    domain: 平台治理
+    module: 身份与权限
+  - match: "permission"
+    domain: 平台治理
+    module: 身份与权限
+  - match: "role"
+    domain: 平台治理
+    module: 身份与权限
+  - match: "operation_log"
+    domain: 平台治理
+    module: 配置与审计
+  - match: "login"
+    domain: 会员中心
+    module: 登录与令牌
+  - match: "sms"
+    domain: 会员中心
+    module: 登录与令牌
+  - match: "password"
+    domain: 会员中心
+    module: 登录与令牌
+  - match: "token"
+    domain: 会员中心
+    module: 登录与令牌
+  - match: "mq"
+    domain: 交易中心
+    module: 订单与支付
+  - match: "dlq"
+    domain: 交易中心
+    module: 订单与支付
+  - match: "event"
+    domain: 交易中心
+    module: 订单与支付
+  - match: "redis"
+    domain: 会员中心
+    module: 登录与令牌
+  - match: "cache"
+    domain: 会员中心
+    module: 登录与令牌
+  - match: "demo"
+    domain: 平台治理
+    module: 测试基础设施
+  - match: "purchase"
+    domain: 交易中心
+    module: 购买主链路
+  - match: "browse"
+    domain: 商品中心
+    module: 商品浏览
+  - match: "admin"
+    domain: 平台治理
+    module: 管理端基础
+
+# 验证维度：不进入套件树，作为 Allure tag / 描述展示。
+dimension_files:
+  tests/api/test_mq_order_events.py: 消息队列
+  tests/api/test_redis_state.py: 缓存一致性
+  tests/api/test_write_persistence.py: 数据库落库
+  tests/api/test_bulk_data.py: 大数据量
+  tests/api/test_validation_interactions.py: 参数联动
+  tests/api/test_validation.py: 边界与校验
+  tests/api/test_idempotency.py: 幂等
+  tests/api/test_security_idor.py: 越权
+  tests/api/test_security.py: 安全
+  tests/api/test_invariants.py: 数据一致性
+  tests/api/test_admin_crud_roundtrip.py: CRUD 往返
+  tests/api/test_data_driven.py: 数据驱动
+  tests/api/test_smoke.py: 冒烟
+  tests/api/test_failure_evidence_demo.py: 失败留痕
+  tests/api/test_endpoint_sweep.py: 接口巡检
+  tests/api/test_endpoint_matrix_orders.py: 接口矩阵
+  tests/ui: UI 功能
+  tests/e2e: 端到端
+
+dimension_overrides:
+  "tests/api/test_validation.py::test_unsupported_method_returns_405": 请求方式
+  "tests/api/endpoints/test_orders.py::TestCreateOrderEndpoint::test_validation_points": 参数校验
+  "tests/api/endpoints/test_orders.py::TestCreateOrderEndpoint::test_boundary_quantity_one": 边界值
+  "tests/api/endpoints/test_orders.py::TestCreateOrderEndpoint::test_positive_api_db_mq": 功能正向
+  "tests/api/endpoints/test_orders.py::TestCreateOrderEndpoint::test_idempotency_replay": 幂等
+  "tests/api/endpoints/test_orders.py::TestCreateOrderEndpoint::test_foreign_address_rejected": 越权
+  "tests/api/endpoints/test_orders.py::TestCreateOrderEndpoint::test_bulk_twenty_items": 大数据量
+  "tests/api/endpoints/test_orders.py::TestCreateOrderEndpoint::test_unauthenticated_rejected": 安全
+  "tests/api/endpoints/test_cart_address.py::TestCreateCartItem::test_cart_validation_points": 参数校验
+  "tests/api/endpoints/test_cart_address.py::TestCreateCartItem::test_cart_positive_api_db": 功能正向
+  "tests/api/endpoints/test_cart_address.py::TestCreateCartItem::test_cart_same_sku_merges": 功能正向
+  "tests/api/endpoints/test_cart_address.py::TestCreateAddress::test_address_validation_points": 参数校验
+  "tests/api/endpoints/test_cart_address.py::TestCreateAddress::test_address_positive_api_db_and_default": 功能正向
+  # 认证 / 支付 / 售后 / 评价接口级场景
+  "tests/api/endpoints/test_auth_payment_after_sales.py::TestCustomerAuth::test_sms_login_api_redis_db": 缓存一致性
+  "tests/api/endpoints/test_auth_payment_after_sales.py::TestCustomerAuth::test_auth_validation_points": 参数校验
+  "tests/api/endpoints/test_auth_payment_after_sales.py::TestPaymentSandbox::test_payment_api_db_mq": 功能正向
+  "tests/api/endpoints/test_auth_payment_after_sales.py::TestPaymentSandbox::test_payment_twice_single_row": 幂等
+  "tests/api/endpoints/test_auth_payment_after_sales.py::TestAfterSale::test_apply_and_audit_api_db": 功能正向
+  "tests/api/endpoints/test_auth_payment_after_sales.py::TestAfterSale::test_after_sale_validation_points": 参数校验
+  "tests/api/endpoints/test_auth_payment_after_sales.py::TestReview::test_create_and_hide_api_db": 功能正向
+
+  # 管理端 CRUD 接口级场景
+  "tests/api/endpoints/test_admin_crud.py::TestAdminBrandCrud::test_brand_create_validation": 参数校验
+  "tests/api/endpoints/test_admin_crud.py::TestAdminBrandCrud::test_brand_create_api_db": 功能正向
+  "tests/api/endpoints/test_admin_crud.py::TestAdminBrandCrud::test_brand_update_api_db": 功能正向
+  "tests/api/endpoints/test_admin_crud.py::TestAdminBrandCrud::test_brand_delete_api_db": 功能正向
+  "tests/api/endpoints/test_admin_crud.py::TestAdminCategoryCrud::test_category_create_validation": 参数校验
+  "tests/api/endpoints/test_admin_crud.py::TestAdminCategoryCrud::test_category_create_api_db": 功能正向
+  "tests/api/endpoints/test_admin_crud.py::TestAdminCategoryCrud::test_category_update_api_db": 功能正向
+  "tests/api/endpoints/test_admin_crud.py::TestAdminCategoryCrud::test_category_delete_api_db": 功能正向
+  "tests/api/endpoints/test_admin_crud.py::TestAdminDictCrud::test_dict_create_validation": 参数校验
+  "tests/api/endpoints/test_admin_crud.py::TestAdminDictCrud::test_dict_duplicate_code_conflict": 异常
+  "tests/api/endpoints/test_admin_crud.py::TestAdminDictCrud::test_dict_create_api_db": 功能正向
+  "tests/api/endpoints/test_admin_crud.py::TestAdminDictCrud::test_dict_update_api_db": 功能正向
+  "tests/api/endpoints/test_admin_crud.py::TestAdminDictCrud::test_dict_delete_api_db": 功能正向
+  "tests/api/endpoints/test_admin_crud.py::TestAdminDeptCrud::test_dept_create_validation": 参数校验
+  "tests/api/endpoints/test_admin_crud.py::TestAdminDeptCrud::test_dept_create_api_db": 功能正向
+  "tests/api/endpoints/test_admin_crud.py::TestAdminDeptCrud::test_dept_update_api_db": 功能正向
+  "tests/api/endpoints/test_admin_crud.py::TestAdminDeptCrud::test_dept_delete_api_db": 功能正向
+  "tests/api/endpoints/test_admin_crud.py::TestAdminWarehouseCrud::test_warehouse_create_validation": 参数校验
+  "tests/api/endpoints/test_admin_crud.py::TestAdminWarehouseCrud::test_warehouse_create_api_db": 功能正向
+  "tests/api/endpoints/test_admin_crud.py::TestAdminWarehouseCrud::test_warehouse_update_api_db": 功能正向
+  "tests/api/test_customer_token_rejected_by_admin": 安全
+  "tests/api/test_order.py::test_customer_token_cannot_access_admin": 安全
+
+# 仅用于接口矩阵/巡检等单文件含多验证维度的场景；文件维度优先于关键字。
+dimension_function_rules:
+  - match: "bulk"
+    dimension: 大数据量
+  - match: "large_page"
+    dimension: 大数据量
+  - match: "pagination"
+    dimension: 大数据量
+  - match: "huge"
+    dimension: 大数据量
+  - match: "boundary"
+    dimension: 边界值
+  - match: "combination"
+    dimension: 参数组合
+  - match: "idempot"
+    dimension: 幂等
+  - match: "exception"
+    dimension: 异常
+  - match: "malformed"
+    dimension: 异常
+
+# endpoint_sweep 参数 id 以“检查类型｜METHOD /path”开头，按检查类型打维度标签。
+dimension_check_rules:
+  - match: "security"
+    dimension: 安全
+  - match: "bulk"
+    dimension: 大数据量
+  - match: "boundary"
+    dimension: 边界值
+  - match: "malformed"
+    dimension: 参数校验
+  - match: "empty"
+    dimension: 参数校验
+  - match: "missing"
+    dimension: 参数校验
+  - match: "type"
+    dimension: 参数校验
+  - match: "invalid"
+    dimension: 参数校验
+  - match: "method"
+    dimension: 请求方式
+  - match: "positive"
+    dimension: 功能正向

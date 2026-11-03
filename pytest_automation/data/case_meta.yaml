@@ -23,6 +23,11 @@ modules:
   tests/api/test_data_driven.py: {name: 数据驱动校验, prefix: DATA}
   tests/api/test_smoke.py: {name: 冒烟, prefix: SMOKE}
   tests/api/test_write_persistence.py: {name: 写接口落库, prefix: WDB}
+  tests/api/test_write_persistence_extended.py: {name: 写接口落库扩展, prefix: WDBX}
+  tests/api/endpoints/test_orders.py: {name: 订单接口场景, prefix: ORDEREP}
+  tests/api/endpoints/test_cart_address.py: {name: 购物车与地址接口场景, prefix: CARTEP}
+  tests/api/endpoints/test_auth_payment_after_sales.py: {name: 认证支付售后评价接口场景, prefix: AUTHEP}
+  tests/api/endpoints/test_admin_crud.py: {name: 管理端 CRUD 接口场景, prefix: ADMINEP}
   tests/api/test_mq_order_events.py: {name: 中间件-MQ, prefix: MQ}
   tests/api/test_redis_state.py: {name: 中间件-Redis, prefix: CACHE}
   tests/ui/test_mall_browse.py: {name: 商城浏览, prefix: BROWSE}
@@ -835,6 +840,175 @@ cases:
   "tests/api/test_write_persistence.py::test_order_confirm_persisted":
     title: 订单确认收货落库
     verify: 订单状态 COMPLETED 且 received_at 非空
+
+  # ---------- API: 写接口落库扩展（35 个缺口） ----------
+  "tests/api/test_write_persistence_extended.py::test_product_create_and_update_persisted":
+    title: 商品创建与更新落库
+    verify: spu 的类目/名称/副标题/主图/详情与请求一致，更新后再次比对
+  "tests/api/test_write_persistence_extended.py::test_product_on_off_and_batch_off_persisted":
+    title: 商品上下架与批量下架落库
+    verify: on/off/batch-off 后 commerce.spu.status 分别为 ON/OFF，批量下架命中当前商品
+  "tests/api/test_write_persistence_extended.py::test_product_delete_persisted":
+    title: 商品删除落库
+    verify: 草稿商品删除后 spu.deleted=true
+  "tests/api/test_write_persistence_extended.py::test_role_crud_persisted":
+    title: 角色 CRUD 落库
+    verify: identity.role 的 code/name/data_scope/status/remark 与请求一致，删除后 deleted=true
+  "tests/api/test_write_persistence_extended.py::test_admin_user_crud_password_status_persisted":
+    title: 管理端用户 CRUD/状态/密码落库
+    verify: admin_user 字段与请求一致；状态切换生效；重置密码后 password 哈希变化；删除后 deleted=true
+  "tests/api/test_write_persistence_extended.py::test_attribute_crud_persisted":
+    title: 属性 CRUD 落库
+    verify: attribute 的类目/名称/类型/options/sort 与请求一致，删除后 deleted=true
+  "tests/api/test_write_persistence_extended.py::test_dict_item_crud_persisted":
+    title: 字典项 CRUD 落库
+    verify: dict_item 的 dict_id/label/value/sort/status 与请求一致，删除后 deleted=true
+  "tests/api/test_write_persistence_extended.py::test_system_config_update_persisted":
+    title: 系统配置更新落库
+    verify: system_config.config_value 与 remark 更新后与请求一致
+  "tests/api/test_write_persistence_extended.py::test_file_confirm_persisted":
+    title: 文件确认上传登记落库
+    verify: admin/C 端 confirm 后 file_object 的 objectKey/contentType/size/bizType/visibility 一致
+  "tests/api/test_write_persistence_extended.py::test_file_upload_persisted":
+    title: 文件直传登记落库
+    verify: admin/C 端上传后 file_object 的 objectKey/contentType/size/bizType 非空且与上传一致
+  "tests/api/test_write_persistence_extended.py::test_home_slot_and_site_brand_persisted":
+    title: 运营位与站点品牌更新落库
+    verify: home_slot 的 title/status/sort 与 site_brand 的 name/slogan 与请求一致
+  "tests/api/test_write_persistence_extended.py::test_stock_adjust_and_in_out_persisted":
+    title: 库存调整与出入库落库
+    verify: stock.physical_stock 按 changeQty 变化；in_out_order 与 in_out_item 数量落库
+  "tests/api/test_write_persistence_extended.py::test_cart_clear_invalid_keeps_valid_row_persisted":
+    title: 清理失效购物车保留有效项
+    verify: clear-invalid 后有效 cart_item 仍存在
+  "tests/api/test_write_persistence_extended.py::test_favorites_history_profile_persisted":
+    title: 收藏/足迹/会员资料落库
+    verify: favorite 与 browse_history 按 customer+spu 定位；删除后消失；customer.nickname 更新
+
+  # ---------- API: 接口级场景试点（POST /api/orders） ----------
+  "tests/api/endpoints/test_orders.py::test_validation_points":
+    title: 下单逆向与边界测试点分组
+    verify: 同一接口上下文参数化校验缺失幂等键/空白键/数量 0/负数/无明细，均返回 400，且不产生订单
+  "tests/api/endpoints/test_orders.py::test_boundary_quantity_one":
+    title: 下单数量下界 1
+    verify: quantity=1 创建待支付订单，DB 行状态 PENDING_PAY
+  "tests/api/endpoints/test_orders.py::test_positive_api_db_mq":
+    title: 下单支付正向多层链路
+    verify: 一次下单+支付，API 响应、DB 订单/明细、MQ ORDER_PAID 事件三层一致，traceId 贯通
+  "tests/api/endpoints/test_orders.py::test_idempotency_replay":
+    title: 下单幂等重放
+    verify: 同幂等键重放返回同一订单，库存只锁定一次
+  "tests/api/endpoints/test_orders.py::test_foreign_address_rejected":
+    title: 使用他人地址下单被拒
+    verify: 越权使用他人收货地址返回 400，不创建订单
+  "tests/api/endpoints/test_orders.py::test_bulk_twenty_items":
+    title: 20 个购物车项合并下单
+    verify: 订单明细 20 行，订单金额等于逐项金额之和
+  "tests/api/endpoints/test_orders.py::test_unauthenticated_rejected":
+    title: 未认证下单
+    verify: 匿名请求返回 401，不产生订单
+
+  # ---------- API: 接口级场景扩展（购物车 / 地址） ----------
+  "tests/api/endpoints/test_cart_address.py::test_cart_validation_points":
+    title: 加购逆向与边界测试点分组
+    verify: 同一购物车接口上下文参数化校验数量 0/负数，返回业务码 40000，且不产生购物车项
+  "tests/api/endpoints/test_cart_address.py::test_cart_positive_api_db":
+    title: 加购正向 API/DB 分层
+    verify: 加入购物车响应数量正确，commerce.cart_item 中 SKU/数量与请求一致
+  "tests/api/endpoints/test_cart_address.py::test_cart_same_sku_merges":
+    title: 同 SKU 重复加购合并
+    verify: 两次加购返回同一 cartItemId，DB 数量合并为 3
+  "tests/api/endpoints/test_cart_address.py::test_address_validation_points":
+    title: 地址逆向与边界测试点分组
+    verify: 必填项缺失/手机号非法等地址测试点统一归口，返回 40000 且不落库
+  "tests/api/endpoints/test_cart_address.py::test_address_positive_api_db_and_default":
+    title: 地址创建/默认 API/DB 分层
+    verify: 创建地址响应 ID，DB 回显姓名/详细地址/is_default；设置默认后 DB 同步
+
+  # ---------- API: 接口级场景扩展（认证 / 支付 / 售后 / 评价） ----------
+  "tests/api/endpoints/test_auth_payment_after_sales.py::test_sms_login_api_redis_db":
+    title: 短信验证码登录 API/Redis/DB 分层
+    verify: 发送验证码写入 Redis 且 TTL 有效；登录成功创建会员、消费验证码，DB 状态 NORMAL
+  "tests/api/endpoints/test_auth_payment_after_sales.py::test_auth_validation_points":
+    title: 登录逆向校验测试点分组
+    verify: 手机号格式错误与 clientType 非法均返回 40000，不签发令牌
+  "tests/api/endpoints/test_auth_payment_after_sales.py::test_payment_api_db_mq":
+    title: 沙箱支付 API/DB/MQ 分层
+    verify: 支付响应 PENDING_SHIP，DB payment/order 状态一致，MQ 收到 ORDER_PAID 事件
+  "tests/api/endpoints/test_auth_payment_after_sales.py::test_payment_twice_single_row":
+    title: 重复支付幂等
+    verify: 同一订单二次支付返回 40902，commerce.payment 仅一行
+  "tests/api/endpoints/test_auth_payment_after_sales.py::test_apply_and_audit_api_db":
+    title: 售后申请与审核 API/DB 分层
+    verify: 售后创建后 DB 状态 PENDING_AUDIT，审核通过后变更为 COMPLETED
+  "tests/api/endpoints/test_auth_payment_after_sales.py::test_after_sale_validation_points":
+    title: 售后逆向校验测试点分组
+    verify: 缺少订单与非法售后类型均返回 40000，不创建售后单
+  "tests/api/endpoints/test_auth_payment_after_sales.py::test_create_and_hide_api_db":
+    title: 评价创建与隐藏 API/DB 分层
+    verify: 评价创建后 DB rating=5，管理端隐藏后 DB status=HIDDEN
+
+  # ---------- API: 接口级场景扩展（管理端 CRUD） ----------
+  "tests/api/endpoints/test_admin_crud.py::test_brand_create_validation":
+    title: 品牌创建逆向校验测试点分组
+    verify: 缺名称/缺类目均返回 40000，且不产生品牌行
+  "tests/api/endpoints/test_admin_crud.py::test_brand_create_api_db":
+    title: 品牌创建 API/DB 分层
+    verify: 响应 ID 可定位 commerce.brand，类目与名称一致，默认 ENABLED
+  "tests/api/endpoints/test_admin_crud.py::test_brand_update_api_db":
+    title: 品牌更新 API/DB 分层
+    verify: 更新名称与 DISABLED 状态后 DB 同步
+  "tests/api/endpoints/test_admin_crud.py::test_brand_delete_api_db":
+    title: 品牌删除落库校验
+    verify: 删除后 commerce.brand 软删 deleted=true
+  "tests/api/endpoints/test_admin_crud.py::test_category_create_validation":
+    title: 类目创建逆向校验测试点分组
+    verify: 空对象与空白名称均返回 40000
+  "tests/api/endpoints/test_admin_crud.py::test_category_create_api_db":
+    title: 类目创建 API/DB 分层
+    verify: 一级类目 parent_id=0、level=1、默认 ENABLED
+  "tests/api/endpoints/test_admin_crud.py::test_category_update_api_db":
+    title: 类目更新 API/DB 分层
+    verify: 名称与 DISABLED 状态更新后 DB 同步
+  "tests/api/endpoints/test_admin_crud.py::test_category_delete_api_db":
+    title: 类目删除落库校验
+    verify: 删除后 commerce.category 软删 deleted=true
+  "tests/api/endpoints/test_admin_crud.py::test_dict_create_validation":
+    title: 字典创建逆向校验测试点分组
+    verify: 缺编码/缺名称均返回 40000
+  "tests/api/endpoints/test_admin_crud.py::test_dict_duplicate_code_conflict":
+    title: 字典编码唯一性冲突
+    verify: 重复编码返回 40900 且提示已存在
+  "tests/api/endpoints/test_admin_crud.py::test_dict_create_api_db":
+    title: 字典创建 API/DB 分层
+    verify: 响应 ID 可定位 identity.dict，编码与名称一致
+  "tests/api/endpoints/test_admin_crud.py::test_dict_update_api_db":
+    title: 字典更新 API/DB 分层
+    verify: 字典名称与备注更新后 DB 同步
+  "tests/api/endpoints/test_admin_crud.py::test_dict_delete_api_db":
+    title: 字典删除落库校验
+    verify: 删除后 identity.dict 软删 deleted=true
+  "tests/api/endpoints/test_admin_crud.py::test_dept_create_validation":
+    title: 部门创建逆向校验测试点分组
+    verify: 空对象与空白名称均返回 40000
+  "tests/api/endpoints/test_admin_crud.py::test_dept_create_api_db":
+    title: 部门创建 API/DB 分层
+    verify: 部门 parent_id=0 且默认 ENABLED
+  "tests/api/endpoints/test_admin_crud.py::test_dept_update_api_db":
+    title: 部门更新 API/DB 分层
+    verify: 名称/排序/DISABLED 状态更新后 DB 同步
+  "tests/api/endpoints/test_admin_crud.py::test_dept_delete_api_db":
+    title: 部门删除落库校验
+    verify: 删除后 identity.dept 软删 deleted=true
+  "tests/api/endpoints/test_admin_crud.py::test_warehouse_create_validation":
+    title: 仓库创建逆向校验测试点分组
+    verify: 空对象与空白名称均返回 40000
+  "tests/api/endpoints/test_admin_crud.py::test_warehouse_create_api_db":
+    title: 仓库创建 API/DB 分层
+    verify: 响应 ID 可定位 commerce.warehouse，默认 ENABLED
+  "tests/api/endpoints/test_admin_crud.py::test_warehouse_update_api_db":
+    title: 仓库更新 API/DB 分层
+    verify: 名称与 DISABLED 状态更新后 DB 同步
 
   # ---------- API: 中间件（MQ / Redis） ----------
   "tests/api/test_redis_state.py::test_code_and_cooldown_ttl":

@@ -34,6 +34,7 @@ class TestMallBrowse:
         mall_page.locator("h1.page-title").filter(has_text="分类").wait_for(
             state="visible", timeout=15000
         )
+        home.wait_products()
         assert mall_page.locator("a[href^='/product/']").count() > 0
         assert "综合" in home.text() and "销量" in home.text()
 

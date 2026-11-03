@@ -12,6 +12,8 @@ from pathlib import Path
 
 import pytest
 
+from core.business_taxonomy import category_for_dimension, classify as classify_business
+
 pytest_plugins = [
     "fixtures.api_fixtures",
     "fixtures.ui_fixtures",
@@ -307,10 +309,11 @@ def _unescape_param_id(value: str) -> str:
 
 
 def _apply_allure_labels(item) -> None:
-    """Allure 展示信息：中文标题/验证点 + 业务分组（epic/feature/story）+ 严重级别。
+    """Allure 展示信息：业务域/业务模块 + 验证维度 + 中文标题/验证点 + 严重级别。
 
-    必须在 call 阶段注入（夹具阶段设置会被 allure-pytest 的测试初始化覆盖）。
-    数据源：data/case_meta.yaml；未登记的新用例退回「文件名 + 函数名美化」。
+    套件树固定为「接口自动化 → 业务域 → 业务模块」；MQ、Redis、数据库、大数据量、
+    参数联动等验证维度只作为标签，不再把套件树拆散。分类规则见
+    data/business_taxonomy.yaml，运行时按实际接口调用优先归入业务主体。
     """
     if allure is None:
         return
@@ -326,17 +329,30 @@ def _apply_allure_labels(item) -> None:
     if case_id:
         title = f"{case_id} {title}"
     module_name = module.get("name") or Path(item.nodeid).stem
+    classification = classify_business(item.nodeid)
 
-    allure.dynamic.epic(_ENV_LABELS["epic"])
+    allure.dynamic.epic(classification.domain)
     allure.dynamic.parent_suite(layer)
-    allure.dynamic.suite(module_name)
-    allure.dynamic.feature(module_name)
+    allure.dynamic.suite(classification.domain)
+    allure.dynamic.sub_suite(classification.module)
+    allure.dynamic.feature(classification.module)
     allure.dynamic.story(title)
     allure.dynamic.title(title)
+    description = [
+        f"**业务模块**：{classification.domain} / {classification.module}",
+        f"**验证维度**：{classification.dimension}",
+    ]
     if case.get("verify"):
-        allure.dynamic.description(f"**验证点**：{case['verify']}")
+        description.append(f"**验证点**：{case['verify']}")
+    allure.dynamic.description("\n\n".join(description))
     allure.dynamic.tag(layer)
-    allure.dynamic.tag(module_name)
+    allure.dynamic.tag(classification.domain)
+    allure.dynamic.tag(f"验证维度：{classification.dimension}")
+    allure.dynamic.tag(f"测试分类：{category_for_dimension(classification.dimension)}")
+    allure.dynamic.label("test_category", category_for_dimension(classification.dimension))
+    allure.dynamic.label("business_domain", classification.domain)
+    allure.dynamic.label("business_module", classification.module)
+    allure.dynamic.label("test_dimension", classification.dimension)
     # 精确关联：Allure 的 fullName 会丢失参数/类名，用标签保留 pytest nodeid
     allure.dynamic.label("pytest_nodeid", item.nodeid)
 

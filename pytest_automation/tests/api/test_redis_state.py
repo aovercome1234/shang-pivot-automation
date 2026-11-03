@@ -5,11 +5,17 @@
 """
 from __future__ import annotations
 
+import json
 import os
 import time
 import uuid
 
 import pytest
+
+try:
+    import allure  # type: ignore
+except ImportError:  # pragma: no cover
+    allure = None
 
 from core.assertions import error, ok
 from helpers.auth_helper import login_admin, new_customer
@@ -35,11 +41,83 @@ def _client():
     return client
 
 
+class RecordingRedis:
+    """记录用例实际执行的 Redis 命令与返回值，供三方组件页面核验。"""
+
+    def __init__(self, client):
+        self._client = client
+
+    def __getattr__(self, name):
+        attr = getattr(self._client, name)
+        if name not in ("get", "ttl", "keys", "scan_iter", "delete", "set",
+                        "type", "exists", "incr", "expire"):
+            return attr
+
+        def wrapper(*args, **kwargs):
+            key = args[0] if args else kwargs.get("name") or kwargs.get("key") or ""
+            context = allure.step(f"Redis {name.upper()} {key}") if allure else None
+            if context:
+                with context:
+                    result = attr(*args, **kwargs)
+                    if name == "scan_iter":
+                        result = list(result)
+                    value = None
+                    ttl = None
+                    if name == "get":
+                        value = result
+                    elif name == "ttl":
+                        ttl = result
+                    elif name == "set":
+                        value = args[1] if len(args) > 1 else kwargs.get("value")
+                        ttl = kwargs.get("ex")
+                    elif name in ("keys", "scan_iter"):
+                        value = list(result)
+                    else:
+                        value = result
+                    if allure:
+                        allure.attach(
+                            json.dumps({"command": name.upper(), "key": str(key),
+                                        "value": value, "ttl": ttl},
+                                       ensure_ascii=False, default=str)[:12000],
+                            name="Redis 命令与返回值",
+                            attachment_type=allure.attachment_type.JSON,
+                        )
+            else:
+                result = attr(*args, **kwargs)
+                if name == "scan_iter":
+                    result = list(result)
+                value = None
+                ttl = None
+                if name == "get":
+                    value = result
+                elif name == "ttl":
+                    ttl = result
+                elif name == "set":
+                    value = args[1] if len(args) > 1 else kwargs.get("value")
+                    ttl = kwargs.get("ex")
+                elif name in ("keys", "scan_iter"):
+                    value = list(result)
+                else:
+                    value = result
+            from helpers import evidence
+
+            evidence.record("redis", {
+                "command": name.upper(),
+                "key": str(key),
+                "value": value,
+                "ttl": ttl,
+            })
+            return result
+
+        return wrapper
+
+
 @pytest.fixture(scope="module")
 def cache():
-    client = _client()
+    raw = _client()
+    client = RecordingRedis(raw)
     yield client
-    client.close()
+    raw.close()
 
 
 class TestSmsCode:
@@ -92,6 +170,7 @@ class TestAdminLockout:
                 assert body["code"] == 40101, f"第 {index + 1} 次应为密码错误"
             locked = error(admin.post("/admin/auth/login", json=payload), code=40104)
             assert "15" in locked["msg"] or "锁定" in locked["msg"]
+            assert cache.get(key) == "5", "连续 5 次失败后计数应为 5"
             ttl = cache.ttl(key)
             assert 0 < ttl <= 15 * 60, f"锁定 TTL 应 ≤15 分钟，实际 {ttl}"
         finally:

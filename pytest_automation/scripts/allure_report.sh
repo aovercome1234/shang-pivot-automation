@@ -59,15 +59,27 @@ PYTHON="python3"
 [ -x ".venv/bin/python" ] && PYTHON=".venv/bin/python"
 $PYTHON scripts/build_api_matrix.py --report-dir "$REPORT" || \
   echo "[warn] 接口视图生成失败（不影响 Allure 报告）" >&2
+# Suites：业务模块下再按接口聚合（Allure 原生树支持任意深度；端点模板来自上一步产物）
+$PYTHON scripts/group_suites_by_endpoint.py --report-dir "$REPORT" || \
+  echo "[warn] 接口聚合分组失败（不影响 Allure 报告）" >&2
 $PYTHON scripts/build_ui_matrix.py --report-dir "$REPORT" || \
   echo "[warn] UI 浏览器矩阵生成失败（不影响 Allure 报告）" >&2
+$PYTHON scripts/build_write_contracts.py || \
+  echo "[warn] 写接口契约生成失败（覆盖率可能使用旧契约）" >&2
 $PYTHON scripts/build_coverage_matrix.py || \
   echo "[warn] 覆盖率矩阵生成失败（不影响 Allure 报告）" >&2
 $PYTHON scripts/build_defects.py --report-dir "$REPORT" || \
   echo "[warn] 缺陷单生成失败（不影响 Allure 报告）" >&2
+$PYTHON scripts/gitee_issues.py --report-dir "$REPORT" || \
+  echo "[warn] Gitee 缺陷同步失败（已保留本地缺陷单/payload）" >&2
+$PYTHON scripts/build_thirdparty_report.py --report-dir "$REPORT" || \
+  echo "[warn] 三方组件查询页生成失败（不影响 Allure 报告）" >&2
 $PYTHON scripts/build_benchmark_page.py --report-dir "$REPORT" || \
   echo "[warn] 并行对比页生成失败（不影响 Allure 报告）" >&2
 $PYTHON scripts/archive_run.py || echo "[warn] 运行归档失败" >&2
+$PYTHON scripts/audit_taxonomy.py || echo "[warn] 业务分类审计失败" >&2
+$PYTHON scripts/run_index.py || echo "[warn] 运行索引失败" >&2
+$PYTHON scripts/compare_runs.py --report-dir "$REPORT" || echo "[warn] 版本对比生成失败" >&2
 $PYTHON scripts/case_history.py || echo "[warn] 历史 diff 失败" >&2
 $PYTHON scripts/build_knowledge_index.py || echo "[warn] 知识库索引失败" >&2
 

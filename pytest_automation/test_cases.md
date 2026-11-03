@@ -3,20 +3,20 @@
 > 本文件由 `scripts/export_cases.py` 从 pytest 实际收集结果生成，请勿手工修改。
 > 用例标题与验证点维护在 `data/case_meta.yaml`；新增/删除用例后重跑导出脚本。
 
-- 生成时间：2026-10-30 11:39:12
-- 用例总数：**778**
+- 生成时间：2026-11-03 19:02:18
+- 用例总数：**845**
 - 数据源：`pytest --collect-only`（与实际执行条目一致）
 
 ## 概览
 
 | 类型 | 条数 |
 |---|---:|
-| API | 730 |
+| API | 797 |
 | UI | 46 |
 | E2E | 2 |
-| **合计** | **778** |
+| **合计** | **845** |
 
-## API 用例（730 条）
+## API 用例（797 条）
 
 ### 认证（14 条）
 
@@ -171,6 +171,50 @@
 | API-SMOKE-002 | P0 | 会员登录态可用 | /api/me 返回 NORMAL 状态 | - | `tests/api/test_smoke.py::test_customer_can_login` |
 | API-SMOKE-003 | P0 | 管理员登录态可用 | /admin/auth/me 返回用户名 | - | `tests/api/test_smoke.py::test_admin_can_login` |
 
+### 管理端 CRUD 接口场景（25 条）
+
+| 用例ID | 优先级 | 用例标题 | 验证点 | 参数 | 自动化脚本 |
+|---|---|---|---|---|---|
+| API-ADMINEP-001 | P1 | 品牌创建逆向校验测试点分组 | 缺名称/缺类目均返回 40000，且不产生品牌行 | name=缺品牌名称, payload={'categoryId': '<category>'}, keyword=品牌名称 | `tests/api/endpoints/test_admin_crud.py::TestAdminBrandCrud::test_brand_create_validation[\u7f3a\u54c1\u724c\u540d\u79f0-payload0-\u54c1\u724c\u540d\u79f0]` |
+| API-ADMINEP-002 | P1 | 品牌创建逆向校验测试点分组 | 缺名称/缺类目均返回 40000，且不产生品牌行 | name=缺类目, payload={'name': '接口校验品牌'}, keyword=类目 | `tests/api/endpoints/test_admin_crud.py::TestAdminBrandCrud::test_brand_create_validation[\u7f3a\u7c7b\u76ee-payload1-\u7c7b\u76ee]` |
+| API-ADMINEP-003 | P0 | 品牌创建 API/DB 分层 | 响应 ID 可定位 commerce.brand，类目与名称一致，默认 ENABLED | - | `tests/api/endpoints/test_admin_crud.py::TestAdminBrandCrud::test_brand_create_api_db` |
+| API-ADMINEP-004 | P1 | 品牌更新 API/DB 分层 | 更新名称与 DISABLED 状态后 DB 同步 | - | `tests/api/endpoints/test_admin_crud.py::TestAdminBrandCrud::test_brand_update_api_db` |
+| API-ADMINEP-005 | P1 | 品牌删除落库校验 | 删除后 commerce.brand 软删 deleted=true | - | `tests/api/endpoints/test_admin_crud.py::TestAdminBrandCrud::test_brand_delete_api_db` |
+| API-ADMINEP-006 | P1 | 类目创建逆向校验测试点分组 | 空对象与空白名称均返回 40000 | payload={} | `tests/api/endpoints/test_admin_crud.py::TestAdminCategoryCrud::test_category_create_validation[payload0]` |
+| API-ADMINEP-007 | P1 | 类目创建逆向校验测试点分组 | 空对象与空白名称均返回 40000 | payload={'name': '   '} | `tests/api/endpoints/test_admin_crud.py::TestAdminCategoryCrud::test_category_create_validation[payload1]` |
+| API-ADMINEP-008 | P0 | 类目创建 API/DB 分层 | 一级类目 parent_id=0、level=1、默认 ENABLED | - | `tests/api/endpoints/test_admin_crud.py::TestAdminCategoryCrud::test_category_create_api_db` |
+| API-ADMINEP-009 | P1 | 类目更新 API/DB 分层 | 名称与 DISABLED 状态更新后 DB 同步 | - | `tests/api/endpoints/test_admin_crud.py::TestAdminCategoryCrud::test_category_update_api_db` |
+| API-ADMINEP-010 | P1 | 类目删除落库校验 | 删除后 commerce.category 软删 deleted=true | - | `tests/api/endpoints/test_admin_crud.py::TestAdminCategoryCrud::test_category_delete_api_db` |
+| API-ADMINEP-011 | P1 | 字典创建逆向校验测试点分组 | 缺编码/缺名称均返回 40000 | payload={'name': '缺编码字典'}, keyword=字典编码 | `tests/api/endpoints/test_admin_crud.py::TestAdminDictCrud::test_dict_create_validation[payload0-\u5b57\u5178\u7f16\u7801]` |
+| API-ADMINEP-012 | P1 | 字典创建逆向校验测试点分组 | 缺编码/缺名称均返回 40000 | payload={'code': 'auto_ce386972'}, keyword=字典名称 | `tests/api/endpoints/test_admin_crud.py::TestAdminDictCrud::test_dict_create_validation[payload1-\u5b57\u5178\u540d\u79f0]` |
+| API-ADMINEP-013 | P1 | 字典编码唯一性冲突 | 重复编码返回 40900 且提示已存在 | - | `tests/api/endpoints/test_admin_crud.py::TestAdminDictCrud::test_dict_duplicate_code_conflict` |
+| API-ADMINEP-014 | P0 | 字典创建 API/DB 分层 | 响应 ID 可定位 identity.dict，编码与名称一致 | - | `tests/api/endpoints/test_admin_crud.py::TestAdminDictCrud::test_dict_create_api_db` |
+| API-ADMINEP-015 | P1 | 字典更新 API/DB 分层 | 字典名称与备注更新后 DB 同步 | - | `tests/api/endpoints/test_admin_crud.py::TestAdminDictCrud::test_dict_update_api_db` |
+| API-ADMINEP-016 | P1 | 字典删除落库校验 | 删除后 identity.dict 软删 deleted=true | - | `tests/api/endpoints/test_admin_crud.py::TestAdminDictCrud::test_dict_delete_api_db` |
+| API-ADMINEP-017 | P1 | 部门创建逆向校验测试点分组 | 空对象与空白名称均返回 40000 | payload={} | `tests/api/endpoints/test_admin_crud.py::TestAdminDeptCrud::test_dept_create_validation[payload0]` |
+| API-ADMINEP-018 | P1 | 部门创建逆向校验测试点分组 | 空对象与空白名称均返回 40000 | payload={'name': '  '} | `tests/api/endpoints/test_admin_crud.py::TestAdminDeptCrud::test_dept_create_validation[payload1]` |
+| API-ADMINEP-019 | P0 | 部门创建 API/DB 分层 | 部门 parent_id=0 且默认 ENABLED | - | `tests/api/endpoints/test_admin_crud.py::TestAdminDeptCrud::test_dept_create_api_db` |
+| API-ADMINEP-020 | P1 | 部门更新 API/DB 分层 | 名称/排序/DISABLED 状态更新后 DB 同步 | - | `tests/api/endpoints/test_admin_crud.py::TestAdminDeptCrud::test_dept_update_api_db` |
+| API-ADMINEP-021 | P1 | 部门删除落库校验 | 删除后 identity.dept 软删 deleted=true | - | `tests/api/endpoints/test_admin_crud.py::TestAdminDeptCrud::test_dept_delete_api_db` |
+| API-ADMINEP-022 | P1 | 仓库创建逆向校验测试点分组 | 空对象与空白名称均返回 40000 | payload={} | `tests/api/endpoints/test_admin_crud.py::TestAdminWarehouseCrud::test_warehouse_create_validation[payload0]` |
+| API-ADMINEP-023 | P1 | 仓库创建逆向校验测试点分组 | 空对象与空白名称均返回 40000 | payload={'name': '   '} | `tests/api/endpoints/test_admin_crud.py::TestAdminWarehouseCrud::test_warehouse_create_validation[payload1]` |
+| API-ADMINEP-024 | P0 | 仓库创建 API/DB 分层 | 响应 ID 可定位 commerce.warehouse，默认 ENABLED | - | `tests/api/endpoints/test_admin_crud.py::TestAdminWarehouseCrud::test_warehouse_create_api_db` |
+| API-ADMINEP-025 | P1 | 仓库更新 API/DB 分层 | 名称与 DISABLED 状态更新后 DB 同步 | - | `tests/api/endpoints/test_admin_crud.py::TestAdminWarehouseCrud::test_warehouse_update_api_db` |
+
+### 认证支付售后评价接口场景（9 条）
+
+| 用例ID | 优先级 | 用例标题 | 验证点 | 参数 | 自动化脚本 |
+|---|---|---|---|---|---|
+| API-AUTHEP-001 | P0 | 短信验证码登录 API/Redis/DB 分层 | 发送验证码写入 Redis 且 TTL 有效；登录成功创建会员、消费验证码，DB 状态 NORMAL | - | `tests/api/endpoints/test_auth_payment_after_sales.py::TestCustomerAuth::test_sms_login_api_redis_db` |
+| API-AUTHEP-002 | P1 | 登录逆向校验测试点分组 | 手机号格式错误与 clientType 非法均返回 40000，不签发令牌 | name=手机号格式错误, payload={'phone': 'abc', 'code': '123456', 'clientType': 'web'}, code=40000 | `tests/api/endpoints/test_auth_payment_after_sales.py::TestCustomerAuth::test_auth_validation_points[\u624b\u673a\u53f7\u683c\u5f0f\u9519\u8bef-payload0-40000]` |
+| API-AUTHEP-003 | P1 | 登录逆向校验测试点分组 | 手机号格式错误与 clientType 非法均返回 40000，不签发令牌 | name=clientType 非法, payload={'phone': '13900000000', 'code': '123456', 'clientType': 'x'}, code=40000 | `tests/api/endpoints/test_auth_payment_after_sales.py::TestCustomerAuth::test_auth_validation_points[clientType \u975e\u6cd5-payload1-40000]` |
+| API-AUTHEP-004 | P0 | 沙箱支付 API/DB/MQ 分层 | 支付响应 PENDING_SHIP，DB payment/order 状态一致，MQ 收到 ORDER_PAID 事件 | - | `tests/api/endpoints/test_auth_payment_after_sales.py::TestPaymentSandbox::test_payment_api_db_mq` |
+| API-AUTHEP-005 | P1 | 重复支付幂等 | 同一订单二次支付返回 40902，commerce.payment 仅一行 | - | `tests/api/endpoints/test_auth_payment_after_sales.py::TestPaymentSandbox::test_payment_twice_single_row` |
+| API-AUTHEP-006 | P0 | 售后申请与审核 API/DB 分层 | 售后创建后 DB 状态 PENDING_AUDIT，审核通过后变更为 COMPLETED | - | `tests/api/endpoints/test_auth_payment_after_sales.py::TestAfterSale::test_apply_and_audit_api_db` |
+| API-AUTHEP-007 | P1 | 售后逆向校验测试点分组 | 缺少订单与非法售后类型均返回 40000，不创建售后单 | payload={'orderId': None}, keyword=必填 | `tests/api/endpoints/test_auth_payment_after_sales.py::TestAfterSale::test_after_sale_validation_points[payload0-\u5fc5\u586b]` |
+| API-AUTHEP-008 | P1 | 售后逆向校验测试点分组 | 缺少订单与非法售后类型均返回 40000，不创建售后单 | payload={'orderId': '0', 'type': 'NOT_A_TYPE', 'reason': 'x'}, keyword=type | `tests/api/endpoints/test_auth_payment_after_sales.py::TestAfterSale::test_after_sale_validation_points[payload1-type]` |
+| API-AUTHEP-009 | P0 | 评价创建与隐藏 API/DB 分层 | 评价创建后 DB rating=5，管理端隐藏后 DB status=HIDDEN | - | `tests/api/endpoints/test_auth_payment_after_sales.py::TestReview::test_create_and_hide_api_db` |
+
 ### 大数据量（6 条）
 
 | 用例ID | 优先级 | 用例标题 | 验证点 | 参数 | 自动化脚本 |
@@ -196,6 +240,19 @@
 | API-CACHE-008 | P2 | 管理端退出令牌入黑名单 | 退出后旧 access token 立即 401，黑名单键存在 | - | `tests/api/test_redis_state.py::TestRefreshAndAdminBlacklist::test_admin_logout_blacklists_token` |
 | API-CACHE-009 | P2 | 管理端刷新吊销旧 refresh | 刷新后旧 refresh 进入黑名单 | - | `tests/api/test_redis_state.py::TestRefreshAndAdminBlacklist::test_admin_refresh_blacklists_old_refresh` |
 | API-CACHE-010 | P2 | 手机号别名登录消费验证码 | /api/auth/phone 登录成功后 sms:phone 键删除 | - | `tests/api/test_redis_state.py::TestRefreshAndAdminBlacklist::test_phone_alias_consumes_sms_code` |
+
+### 购物车与地址接口场景（8 条）
+
+| 用例ID | 优先级 | 用例标题 | 验证点 | 参数 | 自动化脚本 |
+|---|---|---|---|---|---|
+| API-CARTEP-001 | P1 | 加购逆向与边界测试点分组 | 同一购物车接口上下文参数化校验数量 0/负数，返回业务码 40000，且不产生购物车项 | name=数量 0, payload={'skuId': '<sku>', 'quantity': 0}, http=200, code=40000 | `tests/api/endpoints/test_cart_address.py::TestCreateCartItem::test_cart_validation_points[\u6570\u91cf 0-payload0-200-40000]` |
+| API-CARTEP-002 | P1 | 加购逆向与边界测试点分组 | 同一购物车接口上下文参数化校验数量 0/负数，返回业务码 40000，且不产生购物车项 | name=数量负数, payload={'skuId': '<sku>', 'quantity': -1}, http=200, code=40000 | `tests/api/endpoints/test_cart_address.py::TestCreateCartItem::test_cart_validation_points[\u6570\u91cf\u8d1f\u6570-payload1-200-40000]` |
+| API-CARTEP-003 | P0 | 加购正向 API/DB 分层 | 加入购物车响应数量正确，commerce.cart_item 中 SKU/数量与请求一致 | - | `tests/api/endpoints/test_cart_address.py::TestCreateCartItem::test_cart_positive_api_db` |
+| API-CARTEP-004 | P1 | 同 SKU 重复加购合并 | 两次加购返回同一 cartItemId，DB 数量合并为 3 | - | `tests/api/endpoints/test_cart_address.py::TestCreateCartItem::test_cart_same_sku_merges` |
+| API-CARTEP-005 | P1 | 地址逆向与边界测试点分组 | 必填项缺失/手机号非法等地址测试点统一归口，返回 40000 且不落库 | name=缺姓名, payload={'phone': '13900000000', 'detail': '地址'} | `tests/api/endpoints/test_cart_address.py::TestCreateAddress::test_address_validation_points[\u7f3a\u59d3\u540d-payload0]` |
+| API-CARTEP-006 | P1 | 地址逆向与边界测试点分组 | 必填项缺失/手机号非法等地址测试点统一归口，返回 40000 且不落库 | name=手机号非法, payload={'name': '张三', 'phone': 'abc', 'detail': '地址'} | `tests/api/endpoints/test_cart_address.py::TestCreateAddress::test_address_validation_points[\u624b\u673a\u53f7\u975e\u6cd5-payload1]` |
+| API-CARTEP-007 | P1 | 地址逆向与边界测试点分组 | 必填项缺失/手机号非法等地址测试点统一归口，返回 40000 且不落库 | name=缺详细地址, payload={'name': '张三', 'phone': '13900000000'} | `tests/api/endpoints/test_cart_address.py::TestCreateAddress::test_address_validation_points[\u7f3a\u8be6\u7ec6\u5730\u5740-payload2]` |
+| API-CARTEP-008 | P0 | 地址创建/默认 API/DB 分层 | 创建地址响应 ID，DB 回显姓名/详细地址/is_default；设置默认后 DB 同步 | - | `tests/api/endpoints/test_cart_address.py::TestCreateAddress::test_address_positive_api_db_and_default` |
 
 ### 管理端CRUD往返（5 条）
 
@@ -347,6 +404,22 @@
 | API-OMX-015 | P0 | 【异常】skuId 非数字 | 应 400（缺陷 D-17：当前 500） | - | `tests/api/test_endpoint_matrix_orders.py::test_exception_non_numeric_sku_id` |
 | API-OMX-016 | P1 | 【异常】500 个伪造购物车项 | 400，不得 5xx | - | `tests/api/test_endpoint_matrix_orders.py::test_exception_huge_cart_item_ids` |
 | API-OMX-017 | P1 | 【异常】未认证下单 | 401 未认证 | - | `tests/api/test_endpoint_matrix_orders.py::test_exception_unauthenticated` |
+
+### 订单接口场景（11 条）
+
+| 用例ID | 优先级 | 用例标题 | 验证点 | 参数 | 自动化脚本 |
+|---|---|---|---|---|---|
+| API-ORDEREP-001 | P0 | 下单逆向与边界测试点分组 | 同一接口上下文参数化校验缺失幂等键/空白键/数量 0/负数/无明细，均返回 400，且不产生订单 | name=缺失幂等键, overrides={'idempotentKey': None}, keyword=idempotentKey | `tests/api/endpoints/test_orders.py::TestCreateOrderEndpoint::test_validation_points[\u7f3a\u5931\u5e42\u7b49\u952e-overrides0-idempotentKey]` |
+| API-ORDEREP-002 | P0 | 下单逆向与边界测试点分组 | 同一接口上下文参数化校验缺失幂等键/空白键/数量 0/负数/无明细，均返回 400，且不产生订单 | name=幂等键为空白, overrides={'idempotentKey': '   '}, keyword=idempotentKey | `tests/api/endpoints/test_orders.py::TestCreateOrderEndpoint::test_validation_points[\u5e42\u7b49\u952e\u4e3a\u7a7a\u767d-overrides1-idempotentKey]` |
+| API-ORDEREP-003 | P0 | 下单逆向与边界测试点分组 | 同一接口上下文参数化校验缺失幂等键/空白键/数量 0/负数/无明细，均返回 400，且不产生订单 | name=数量为 0, overrides={'quantity': 0}, keyword=数量 | `tests/api/endpoints/test_orders.py::TestCreateOrderEndpoint::test_validation_points[\u6570\u91cf\u4e3a 0-overrides2-\u6570\u91cf]` |
+| API-ORDEREP-004 | P0 | 下单逆向与边界测试点分组 | 同一接口上下文参数化校验缺失幂等键/空白键/数量 0/负数/无明细，均返回 400，且不产生订单 | name=数量为负数, overrides={'quantity': -1}, keyword=数量 | `tests/api/endpoints/test_orders.py::TestCreateOrderEndpoint::test_validation_points[\u6570\u91cf\u4e3a\u8d1f\u6570-overrides3-\u6570\u91cf]` |
+| API-ORDEREP-005 | P0 | 下单逆向与边界测试点分组 | 同一接口上下文参数化校验缺失幂等键/空白键/数量 0/负数/无明细，均返回 400，且不产生订单 | name=无购物车明细且无 SKU, overrides={'skuId': None, 'quantity': None}, keyword=购物车项 | `tests/api/endpoints/test_orders.py::TestCreateOrderEndpoint::test_validation_points[\u65e0\u8d2d\u7269\u8f66\u660e\u7ec6\u4e14\u65e0 SKU-overrides4-\u8d2d\u7269\u8f66\u9879]` |
+| API-ORDEREP-006 | P1 | 下单数量下界 1 | quantity=1 创建待支付订单，DB 行状态 PENDING_PAY | - | `tests/api/endpoints/test_orders.py::TestCreateOrderEndpoint::test_boundary_quantity_one` |
+| API-ORDEREP-007 | P0 | 下单支付正向多层链路 | 一次下单+支付，API 响应、DB 订单/明细、MQ ORDER_PAID 事件三层一致，traceId 贯通 | - | `tests/api/endpoints/test_orders.py::TestCreateOrderEndpoint::test_positive_api_db_mq` |
+| API-ORDEREP-008 | P0 | 下单幂等重放 | 同幂等键重放返回同一订单，库存只锁定一次 | - | `tests/api/endpoints/test_orders.py::TestCreateOrderEndpoint::test_idempotency_replay` |
+| API-ORDEREP-009 | P1 | 使用他人地址下单被拒 | 越权使用他人收货地址返回 400，不创建订单 | - | `tests/api/endpoints/test_orders.py::TestCreateOrderEndpoint::test_foreign_address_rejected` |
+| API-ORDEREP-010 | P1 | 20 个购物车项合并下单 | 订单明细 20 行，订单金额等于逐项金额之和 | - | `tests/api/endpoints/test_orders.py::TestCreateOrderEndpoint::test_bulk_twenty_items` |
+| API-ORDEREP-011 | P1 | 未认证下单 | 匿名请求返回 401，不产生订单 | - | `tests/api/endpoints/test_orders.py::TestCreateOrderEndpoint::test_unauthenticated_rejected` |
 
 ### 全接口巡检（487 条）
 
@@ -867,6 +940,25 @@
 | API-VAL-021 | P0 | 评价评分 6（超出 1–5）应被拒 | 边界值-非法：预期 400（缺陷 D-11：当前落库成功） | - | `tests/api/test_validation.py::test_review_rating_out_of_range_rejected` |
 | API-VAL-022 | P1 | 评价评分非数字应被拒 | 等价类-非法类型：预期 400（缺陷 D-12：当前 500） | - | `tests/api/test_validation.py::test_review_rating_non_numeric_rejected` |
 | API-VAL-023 | P2 | 不支持的 HTTP 方法应返回 405 | DELETE /admin/warehouses/{id}（未定义）应 405，不得 500 | - | `tests/api/test_validation.py::test_unsupported_method_returns_405` |
+
+### 写接口落库扩展（14 条）
+
+| 用例ID | 优先级 | 用例标题 | 验证点 | 参数 | 自动化脚本 |
+|---|---|---|---|---|---|
+| API-WDBX-001 | P0 | 商品创建与更新落库 | spu 的类目/名称/副标题/主图/详情与请求一致，更新后再次比对 | - | `tests/api/test_write_persistence_extended.py::test_product_create_and_update_persisted` |
+| API-WDBX-002 | P1 | 商品上下架与批量下架落库 | on/off/batch-off 后 commerce.spu.status 分别为 ON/OFF，批量下架命中当前商品 | - | `tests/api/test_write_persistence_extended.py::test_product_on_off_and_batch_off_persisted` |
+| API-WDBX-003 | P1 | 商品删除落库 | 草稿商品删除后 spu.deleted=true | - | `tests/api/test_write_persistence_extended.py::test_product_delete_persisted` |
+| API-WDBX-004 | P0 | 角色 CRUD 落库 | identity.role 的 code/name/data_scope/status/remark 与请求一致，删除后 deleted=true | - | `tests/api/test_write_persistence_extended.py::test_role_crud_persisted` |
+| API-WDBX-005 | P0 | 管理端用户 CRUD/状态/密码落库 | admin_user 字段与请求一致；状态切换生效；重置密码后 password 哈希变化；删除后 deleted=true | - | `tests/api/test_write_persistence_extended.py::test_admin_user_crud_password_status_persisted` |
+| API-WDBX-006 | P1 | 属性 CRUD 落库 | attribute 的类目/名称/类型/options/sort 与请求一致，删除后 deleted=true | - | `tests/api/test_write_persistence_extended.py::test_attribute_crud_persisted` |
+| API-WDBX-007 | P1 | 字典项 CRUD 落库 | dict_item 的 dict_id/label/value/sort/status 与请求一致，删除后 deleted=true | - | `tests/api/test_write_persistence_extended.py::test_dict_item_crud_persisted` |
+| API-WDBX-008 | P1 | 系统配置更新落库 | system_config.config_value 与 remark 更新后与请求一致 | - | `tests/api/test_write_persistence_extended.py::test_system_config_update_persisted` |
+| API-WDBX-009 | P1 | 文件确认上传登记落库 | admin/C 端 confirm 后 file_object 的 objectKey/contentType/size/bizType/visibility 一致 | - | `tests/api/test_write_persistence_extended.py::test_file_confirm_persisted` |
+| API-WDBX-010 | P1 | 文件直传登记落库 | admin/C 端上传后 file_object 的 objectKey/contentType/size/bizType 非空且与上传一致 | - | `tests/api/test_write_persistence_extended.py::test_file_upload_persisted` |
+| API-WDBX-011 | P1 | 运营位与站点品牌更新落库 | home_slot 的 title/status/sort 与 site_brand 的 name/slogan 与请求一致 | - | `tests/api/test_write_persistence_extended.py::test_home_slot_and_site_brand_persisted` |
+| API-WDBX-012 | P1 | 库存调整与出入库落库 | stock.physical_stock 按 changeQty 变化；in_out_order 与 in_out_item 数量落库 | - | `tests/api/test_write_persistence_extended.py::test_stock_adjust_and_in_out_persisted` |
+| API-WDBX-013 | P1 | 清理失效购物车保留有效项 | clear-invalid 后有效 cart_item 仍存在 | - | `tests/api/test_write_persistence_extended.py::test_cart_clear_invalid_keeps_valid_row_persisted` |
+| API-WDBX-014 | P1 | 收藏/足迹/会员资料落库 | favorite 与 browse_history 按 customer+spu 定位；删除后消失；customer.nickname 更新 | - | `tests/api/test_write_persistence_extended.py::test_favorites_history_profile_persisted` |
 
 ## UI 用例（46 条）
 

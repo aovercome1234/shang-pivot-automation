@@ -256,3 +256,292 @@ endpoints:
     locate: {type: path_param, key: id}
     fields: {}
     generated: [id]
+
+  # ---------- P0 补齐：商品 / 订单 / 购物车 ----------
+  "POST /api/orders":
+    table: commerce.order
+    locate: {type: response_id}
+    fields:
+      idempotentKey: {column: idempotent_key}
+    generated: [id, order_no, customer_id, status, total_amount, pay_amount, freight, address_snapshot]
+
+  "POST /api/cart/clear-invalid":
+    table: commerce.cart_item
+    locate: {type: natural, column: id}
+    fields: {}
+    generated: [id, cart_id, sku_id, quantity]
+
+  "POST /admin/products":
+    table: commerce.spu
+    locate: {type: response_id}
+    fields:
+      categoryId: {column: category_id, type: string}
+      brandId: {column: brand_id, type: string, optional: true}
+      name: {column: name}
+      subtitle: {column: subtitle, optional: true}
+      detailHtml: {column: detail_html, optional: true}
+      status: {column: status, optional: true}
+    special:
+      - {json_from: pics, column: pics}
+      - {json_from: videos, column: videos}
+    generated: [id, created_at, updated_at]
+
+  "PUT /admin/products/{id}":
+    table: commerce.spu
+    locate: {type: path_param, key: id}
+    fields:
+      categoryId: {column: category_id, type: string, optional: true}
+      brandId: {column: brand_id, type: string, optional: true}
+      name: {column: name, optional: true}
+      subtitle: {column: subtitle, optional: true}
+      detailHtml: {column: detail_html, optional: true}
+      status: {column: status, optional: true}
+    special:
+      - {json_from: pics, column: pics}
+      - {json_from: videos, column: videos}
+    generated: [id]
+
+  "PUT /admin/products/{id}/on":
+    table: commerce.spu
+    locate: {type: path_param, key: id}
+    fields: {}
+    generated: [id]
+
+  "PUT /admin/products/{id}/off":
+    table: commerce.spu
+    locate: {type: path_param, key: id}
+    fields: {}
+    generated: [id]
+
+  "PUT /admin/products/batch-off":
+    table: commerce.spu
+    locate: {type: natural, column: id}
+    fields: {}
+    generated: [id]
+
+  "DELETE /admin/products/{id}":
+    table: commerce.spu
+    locate: {type: path_param, key: id}
+    expect_deleted: true
+
+  # ---------- P0 补齐：角色 / 用户 / 字典项 / 配置 ----------
+  "POST /admin/roles":
+    table: identity.role
+    locate: {type: response_id}
+    fields:
+      code: {column: code}
+      name: {column: name}
+      dataScope: {column: data_scope, optional: true}
+      status: {column: status, optional: true}
+      remark: {column: remark, optional: true}
+    generated: [id]
+
+  "PUT /admin/roles/{id}":
+    table: identity.role
+    locate: {type: path_param, key: id}
+    fields:
+      name: {column: name}
+      dataScope: {column: data_scope, optional: true}
+      status: {column: status, optional: true}
+      remark: {column: remark, optional: true}
+    generated: [id]
+
+  "DELETE /admin/roles/{id}":
+    table: identity.role
+    locate: {type: path_param, key: id}
+    expect_deleted: true
+
+  "POST /admin/users":
+    table: identity.admin_user
+    locate: {type: response_id}
+    fields:
+      username: {column: username}
+      realName: {column: real_name, optional: true}
+      phone: {column: phone, optional: true}
+      email: {column: email, optional: true}
+      deptId: {column: dept_id, type: string, optional: true}
+      status: {column: status, optional: true}
+    generated: [id, password]
+
+  "PUT /admin/users/{id}":
+    table: identity.admin_user
+    locate: {type: path_param, key: id}
+    fields:
+      realName: {column: real_name, optional: true}
+      phone: {column: phone, optional: true}
+      email: {column: email, optional: true}
+      deptId: {column: dept_id, type: string, optional: true}
+      status: {column: status, optional: true}
+    generated: [id]
+
+  "PUT /admin/users/{id}/status":
+    table: identity.admin_user
+    locate: {type: path_param, key: id}
+    fields:
+      status: {column: status}
+    generated: [id]
+
+  "PUT /admin/users/{id}/password":
+    table: identity.admin_user
+    locate: {type: path_param, key: id}
+    fields: {}
+    generated: [id, password]
+
+  "DELETE /admin/users/{id}":
+    table: identity.admin_user
+    locate: {type: path_param, key: id}
+    expect_deleted: true
+
+  "POST /admin/attributes":
+    table: commerce.attribute
+    locate: {type: response_id}
+    fields:
+      categoryId: {column: category_id, type: string}
+      name: {column: name}
+      type: {column: type, optional: true}
+      sort: {column: sort, type: int, optional: true}
+    special:
+      - {json_from: options, column: options}
+    generated: [id]
+
+  "PUT /admin/attributes/{id}":
+    table: commerce.attribute
+    locate: {type: path_param, key: id}
+    fields:
+      categoryId: {column: category_id, type: string, optional: true}
+      name: {column: name, optional: true}
+      type: {column: type, optional: true}
+      sort: {column: sort, type: int, optional: true}
+    special:
+      - {json_from: options, column: options}
+    generated: [id]
+
+  "DELETE /admin/attributes/{id}":
+    table: commerce.attribute
+    locate: {type: path_param, key: id}
+    expect_deleted: true
+
+  "POST /admin/dict-items":
+    table: identity.dict_item
+    locate: {type: response_id}
+    fields:
+      dictId: {column: dict_id, type: string}
+      label: {column: label}
+      value: {column: value}
+      sort: {column: sort, type: int, optional: true}
+      status: {column: status, optional: true}
+    generated: [id]
+
+  "PUT /admin/dict-items/{id}":
+    table: identity.dict_item
+    locate: {type: path_param, key: id}
+    fields:
+      label: {column: label, optional: true}
+      value: {column: value, optional: true}
+      sort: {column: sort, type: int, optional: true}
+      status: {column: status, optional: true}
+    generated: [id]
+
+  "DELETE /admin/dict-items/{id}":
+    table: identity.dict_item
+    locate: {type: path_param, key: id}
+    expect_deleted: true
+
+  "PUT /admin/system-configs/{id}":
+    table: identity.system_config
+    locate: {type: path_param, key: id}
+    fields:
+      configValue: {column: config_value}
+      remark: {column: remark, optional: true}
+    generated: [id, config_key]
+
+  # ---------- P0 补齐：文件 / 运营位 / 站点 / 库存 / 出入库 ----------
+  "POST /admin/files/confirm":
+    table: identity.file_object
+    locate: {type: response_field, key: id}
+    fields:
+      objectKey: {column: object_key}
+      contentType: {column: content_type}
+      sizeBytes: {column: size_bytes, type: int}
+      bizType: {column: biz_type}
+      visibility: {column: visibility, optional: true}
+    generated: [id, bucket, uploader_id]
+
+  "POST /admin/files/upload":
+    table: identity.file_object
+    locate: {type: response_field, key: id}
+    fields: {}
+    generated: [id, bucket, object_key, content_type, size_bytes, biz_type, uploader_id]
+
+  "POST /api/files/confirm":
+    table: identity.file_object
+    locate: {type: response_field, key: id}
+    fields:
+      objectKey: {column: object_key}
+      contentType: {column: content_type}
+      sizeBytes: {column: size_bytes, type: int}
+      bizType: {column: biz_type}
+    generated: [id, bucket, uploader_id, visibility]
+
+  "POST /api/files/upload":
+    table: identity.file_object
+    locate: {type: response_field, key: id}
+    fields: {}
+    generated: [id, bucket, object_key, content_type, size_bytes, biz_type, uploader_id, visibility]
+
+  "PUT /admin/home/slots/{code}":
+    table: commerce.home_slot
+    locate: {type: natural, column: code}
+    fields:
+      title: {column: title, optional: true}
+      status: {column: status, optional: true}
+      sort: {column: sort, type: int, optional: true}
+    generated: [id]
+
+  "PUT /admin/site/brand":
+    table: commerce.site_brand
+    locate: {type: natural, column: id}
+    fields:
+      name: {column: name, optional: true}
+      slogan: {column: slogan, optional: true}
+      logoKey: {column: logo_key, optional: true}
+      faviconKey: {column: favicon_key, optional: true}
+    generated: [id]
+
+  "PUT /admin/stocks/adjust":
+    table: commerce.stock
+    locate: {type: natural, columns: [sku_id, warehouse_id]}
+    fields: {}
+    generated: [id, sku_id, warehouse_id]
+
+  "POST /admin/in-out":
+    table: commerce.in_out_order
+    locate: {type: response_id}
+    fields:
+      type: {column: type}
+      warehouseId: {column: warehouse_id, type: string, optional: true}
+      remark: {column: remark, optional: true}
+    generated: [id, bill_no, operator_id]
+
+  # ---------- P0 补齐：收藏 / 足迹 / 会员资料 ----------
+  "POST /api/favorites/{spuId}":
+    table: commerce.favorite
+    locate: {type: natural, columns: [customer_id, spu_id]}
+    fields: {}
+    generated: [id, customer_id, spu_id]
+
+  "DELETE /api/favorites/{spuId}":
+    table: commerce.favorite
+    locate: {type: natural, columns: [customer_id, spu_id]}
+
+  "DELETE /api/history":
+    table: commerce.browse_history
+    locate: {type: natural, column: customer_id}
+
+  "PUT /api/me":
+    table: identity.customer
+    locate: {type: natural, column: id}
+    fields:
+      nickname: {column: nickname, optional: true}
+      avatar: {column: avatar, optional: true}
+    generated: [id, phone]

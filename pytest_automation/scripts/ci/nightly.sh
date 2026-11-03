@@ -9,7 +9,7 @@
 #   SINCE=origin/main       affected 模式的比较基准
 #   SKIP_UI=1               跳过 UI
 #   SKIP_GATES=1            跳过质量门禁（不建议）
-#   STRICT_REVIEW=1         评审门禁 P0 债务也阻断
+#   STRICT_REVIEW=0         关闭 P0 评审债阻断（默认 1，P0 已清零）
 #   ADMIN_PASSWORD          管理端密码（无默认值，必须提供）
 #   PYTEST_BIN              默认 .venv/bin/python -m pytest
 set -uo pipefail
@@ -33,8 +33,8 @@ if [ "${SKIP_GATES:-0}" != "1" ]; then
   step "用例导出与质量门禁"
   $PYTHON scripts/export_cases.py || STATUS=1
   $PYTHON scripts/case_quality_gate.py || STATUS=1
-  REVIEW_ARGS=(--check)
-  [ "${STRICT_REVIEW:-0}" = "1" ] && REVIEW_ARGS=(--check --strict-p0)
+  REVIEW_ARGS=(--check --strict-p0)
+  [ "${STRICT_REVIEW:-1}" = "0" ] && REVIEW_ARGS=(--check)
   $PYTHON scripts/review_cases.py "${REVIEW_ARGS[@]}" || STATUS=1
 fi
 
@@ -87,6 +87,8 @@ bash scripts/allure_report.sh || STATUS=1
 $PYTHON scripts/check_report_contract.py \
   --baseline artifacts/api-matrix.baseline.json \
   --current artifacts/allure-report/ext/data/api-matrix.json || STATUS=1
+$PYTHON scripts/check_known_failures.py || STATUS=1
+$PYTHON scripts/check_coverage_gate.py --require-runtime || STATUS=1
 
 # 6) CI 摘要
 $PYTHON - "$STATUS" "$STARTED_AT" <<'PY'

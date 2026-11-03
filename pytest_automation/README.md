@@ -118,7 +118,7 @@ pytest_automation/
 
 ```bash
 TEST_ENV=demo python3 -m pytest   # 默认：部署演示站（60084/60085）
-TEST_ENV=dev  python3 -m pytest   # 本地后端 8086 + 演示站前端
+TEST_ENV=dev  python3 -m pytest   # 本地后端 8086 + 本地 Vite 前端
 ```
 
 | 变量 | 默认 | 作用 |
@@ -130,6 +130,8 @@ TEST_ENV=dev  python3 -m pytest   # 本地后端 8086 + 演示站前端
 | `TEST_SMS_CODE` | `123456` | 演示环境固定验证码 |
 | `ADMIN_USERNAME` | `qa`（demo）/ `admin`（dev） | 管理端用户名 |
 | `ADMIN_PASSWORD` | 空 | 环境变量或本地 `.env.local`；两者都没有时管理端用例 skip |
+| `GITEE_TOKEN` | 空 | Gitee Issues 自动提交令牌；为空时只生成 payload |
+| `GITEE_OWNER` / `GITEE_REPO` | `aovercome1234` / `shang-pivot-automation` | Gitee 缺陷目标仓库 |
 | `UI_TIMEOUT_MS` | `15000` | 元素等待上限 |
 | `RUN_UI` | `1` | 设 `0` 跳过 UI 用例 |
 | `ARTIFACTS_DIR` | `artifacts` | 产物目录 |

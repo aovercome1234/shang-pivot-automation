@@ -16,6 +16,7 @@ import hashlib
 import html
 import json
 import re
+import shutil
 import subprocess
 from datetime import datetime
 from urllib.parse import urlparse
@@ -310,12 +311,18 @@ def class_name(location: str) -> str:
 def render_defect_html(*, identifier: str, run_id: str, commit: str, title: str,
                        endpoint: str, dimension: str, priority: str, verify: str,
                        summary: str, request, response, backend_log: str,
-                       code: dict | None) -> str:
+                       code: dict | None, screenshot: str = "") -> str:
     def esc(value) -> str:
         return html.escape(str(value if value is not None else ""))
 
     payload = json.dumps({"request": request, "response": response},
                          ensure_ascii=False, indent=2)[:6000]
+    screenshot_block = (
+        '<h2>UI 截图</h2><p><a href="' + esc(screenshot) +
+        '" target="_blank" rel="noopener"><img src="' + esc(screenshot) +
+        '" alt="UI 失败截图" style="max-width:100%;border:1px solid #e3e8f2;border-radius:10px"></a></p>'
+        if screenshot else ""
+    )
     code_text = (code or {}).get("snippet", "")
     location = (code or {}).get("location", "未定位（非 500 或日志缺失）")
     chain = (code or {}).get("chain") or []
@@ -389,6 +396,7 @@ def render_defect_html(*, identifier: str, run_id: str, commit: str, title: str,
   </div>
   <h2>请求 / 响应</h2>
   <pre>{esc(payload)}</pre>
+  {screenshot_block}
   <h2>后端日志（traceId）</h2>
   <pre>{esc(backend_log or '（无 500 堆栈可定位）')}</pre>
   <h2>代码来源</h2>
@@ -414,6 +422,92 @@ def render_defect_html(*, identifier: str, run_id: str, commit: str, title: str,
 def defect_id(case_id: str, message: str) -> str:
     digest = hashlib.sha1(f"{case_id}|{message[:120]}".encode()).hexdigest()[:8]
     return f"{case_id}-{digest}"
+
+
+def _ui_screenshot(uuid: str, out_report: Path) -> str:
+    """从 Allure 结果附件中复制失败截图，返回报告内相对路径。"""
+    if not uuid:
+        return ""
+    for file in (ROOT / "artifacts" / "allure").glob("*-result.json"):
+        try:
+            data = json.loads(file.read_text(encoding="utf-8"))
+        except Exception:  # noqa: BLE001
+            continue
+        if str(data.get("uuid") or "") != str(uuid):
+            continue
+        for attachment in data.get("attachments") or []:
+            name = str(attachment.get("name") or "")
+            source = str(attachment.get("source") or "")
+            if not source or not (attachment.get("type") or "").endswith("png"):
+                if "截图" not in name and not source.endswith(".png"):
+                    continue
+            src = ROOT / "artifacts" / "allure" / source
+            if not src.exists():
+                continue
+            assets = out_report / "assets"
+            assets.mkdir(parents=True, exist_ok=True)
+            target = assets / f"{uuid[:16]}.png"
+            shutil.copyfile(src, target)
+            return f"assets/{target.name}"
+    return ""
+
+
+def collect_ui_defects(report_dir: Path, out_repo: Path, out_report: Path,
+                       run_id: str, commit: str, branch: str) -> list[dict]:
+    """把 UI 失败也纳入缺陷库；每条带浏览器、失败截图和 trace 入口。"""
+    ui = load(report_dir / "ext" / "data" / "ui.json", {})
+    result = []
+    for row in ui.get("rows") or []:
+        for browser, item in (row.get("browsers") or {}).items():
+            if item.get("status") not in ("failed", "broken"):
+                continue
+            title = clean_title(row.get("name") or row.get("nodeid") or "UI 失败")
+            message = item.get("message") or ""
+            summary = clean_summary(message, title) or f"{browser} UI 失败"
+            case_id = row.get("caseId") or row.get("nodeid") or "UI"
+            identifier = defect_id(f"{case_id}-{browser}", message)
+            safe_id = re.sub(r"[^0-9A-Za-z_.-]+", "_", identifier)[:90]
+            filename = f"{safe_id}.md"
+            html_name = f"{safe_id}.html"
+            screenshot = _ui_screenshot(str(item.get("uuid") or ""), out_report)
+            if screenshot:
+                repo_asset = out_repo / screenshot
+                repo_asset.parent.mkdir(parents=True, exist_ok=True)
+                shutil.copyfile(out_report / screenshot, repo_asset)
+            request = {"browser": browser, "nodeid": row.get("nodeid"), "viewport": "1280x720"}
+            response = {"status": item.get("status"), "message": message, "durationMs": item.get("durationMs")}
+            body = "\n".join([
+                f"# 缺陷 {identifier}", "",
+                f"- 运行：{run_id}（git {commit}）",
+                f"- 用例：{title}",
+                f"- 页面：{row.get('nodeid') or '—'}",
+                f"- 浏览器：{browser}",
+                f"- 失败摘要：{summary}", "",
+                "## 请求 / 环境", "", "```json",
+                json.dumps(request, ensure_ascii=False, indent=2), "```", "",
+                "## 失败信息", "", "```json",
+                json.dumps(response, ensure_ascii=False, indent=2), "```", "",
+                "## UI 截图", "", f"![UI 截图]({screenshot})" if screenshot else "（未找到截图）", "",
+            ])
+            (out_repo / filename).write_text(body, encoding="utf-8")
+            (out_report / filename).write_text(body, encoding="utf-8")
+            (out_report / html_name).write_text(render_defect_html(
+                identifier=identifier, run_id=run_id, commit=commit, title=title,
+                endpoint=f"UI / {browser}", dimension="UI 自动化", priority="P2",
+                verify="UI 页面/交互断言", summary=summary,
+                request=request, response=response, backend_log="", code=None,
+                screenshot=screenshot,
+            ), encoding="utf-8")
+            result.append({
+                "id": identifier, "caseId": case_id, "name": title,
+                "endpoint": f"UI / {browser}", "method": "UI", "dimension": "UI 自动化",
+                "priority": "P2", "verify": "UI 页面/交互断言", "summary": summary,
+                "request": request, "response": response, "backendLog": "",
+                "status": item.get("status"), "ui": True, "browser": browser,
+                "screenshot": screenshot, "screenshotUrl": "",
+                "code": None, "reportLink": f"../defects/{html_name}",
+            })
+    return result
 
 
 def main() -> None:
@@ -463,6 +557,7 @@ def main() -> None:
             html_name = f"{safe_id}.html"
             link = f"../defects/{html_name}"
             title = clean_title(point.get("name", ""))
+            priority = point.get("priority") or interface.get("risk") or "P2"
             summary = clean_summary(message, title)
             body = "\n".join(
                 [
@@ -471,7 +566,7 @@ def main() -> None:
                     f"- 运行：{run_id}（git {commit}）",
                     f"- 用例：{title}",
                     f"- 接口：{failure_path}",
-                    f"- 分类：{point.get('dimension')}｜优先级：{point.get('priority')}",
+                    f"- 分类：{point.get('dimension')}｜优先级：{priority}",
                     f"- 断言意图：{point.get('verify') or '—'}",
                     f"- 失败摘要：{summary}",
                     "",
@@ -511,7 +606,7 @@ def main() -> None:
                     title=title,
                     endpoint=failure_path,
                     dimension=point.get("dimension") or "",
-                    priority=point.get("priority") or "",
+                    priority=priority,
                     verify=point.get("verify") or "",
                     summary=summary,
                     request=failure_request,
@@ -532,12 +627,23 @@ def main() -> None:
                     "endpoint": failure_path,
                     "method": failure_method,
                     "dimension": point.get("dimension"),
-                    "priority": point.get("priority"),
+                    "priority": priority,
+                    "verify": point.get("verify") or "",
                     "summary": summary,
+                    "request": failure_request,
+                    "response": failure_response or point.get("response"),
+                    "backendLog": point.get("backendLog") or "",
+                    "status": point.get("status"),
+                    "ui": False,
+                    "screenshot": point.get("screenshot") or "",
+                    "screenshotUrl": point.get("screenshotUrl") or "",
                     "code": code,
                     "reportLink": link,
                 }
             )
+
+    for item in collect_ui_defects(report_dir, out_repo, out_report, run_id, commit, branch):
+        defects.append(item)
 
     payload = {
         "generatedAt": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),

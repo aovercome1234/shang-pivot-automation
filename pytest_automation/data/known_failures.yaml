@@ -1,0 +1,1093 @@
+version: 1
+description: 已知失败台账；active 条目必须由缺陷单/owner/到期日约束，修复后清理
+entries:
+  API-LINK-025:
+    nodeid: tests/api/test_validation_interactions.py::test_cart_missing_sku_while_quantity_valid
+    title: 加购缺 SKU 但数量合规
+    module: 交易中心/购物车
+    bug_id: DEF-UNMAPPED-0dc47b82
+    owner: qa-team
+    reason: 当前失败，待缺陷归因
+    expires_at: '2026-12-31'
+    status: active
+    source: unmapped
+  API-LINK-026:
+    nodeid: tests/api/test_validation_interactions.py::test_cart_missing_quantity_while_sku_valid
+    title: 加购缺数量但 SKU 合规
+    module: 交易中心/购物车
+    bug_id: DEF-UNMAPPED-2876ad75
+    owner: qa-team
+    reason: 当前失败，待缺陷归因
+    expires_at: '2026-12-31'
+    status: active
+    source: unmapped
+  API-LINK-040:
+    nodeid: tests/api/test_validation_interactions.py::test_review_valid_item_but_missing_rating
+    title: 评价订单项合规但缺评分
+    module: 售后与评价/评价管理
+    bug_id: DEF-UNMAPPED-900d3f03
+    owner: qa-team
+    reason: 当前失败，待缺陷归因
+    expires_at: '2026-12-31'
+    status: active
+    source: unmapped
+  API-OMX-014:
+    nodeid: tests/api/test_endpoint_matrix_orders.py::test_exception_malformed_json
+    title: 【异常】畸形 JSON 请求体
+    module: 交易中心/订单与支付
+    bug_id: DEF-UNMAPPED-e179f81f
+    owner: qa-team
+    reason: 当前失败，待缺陷归因
+    expires_at: '2026-12-31'
+    status: active
+    source: unmapped
+  API-OMX-015:
+    nodeid: tests/api/test_endpoint_matrix_orders.py::test_exception_non_numeric_sku_id
+    title: 【异常】skuId 非数字
+    module: 交易中心/订单与支付
+    bug_id: DEF-UNMAPPED-54dd434b
+    owner: qa-team
+    reason: 当前失败，待缺陷归因
+    expires_at: '2026-12-31'
+    status: active
+    source: unmapped
+  API-SWEEP-008:
+    nodeid: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cGET
+      /admin/after-sales/{id}]
+    title: 逆向-路径参数类型错误
+    module: 售后与评价/售后服务
+    bug_id: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cGET
+      /admin/after-sales/{id}]-e13f955f
+    owner: 段文瑞
+    reason: 路径参数类型错误 · HTTP 500 系统异常
+    expires_at: '2026-12-31'
+    status: active
+    source: defect-library
+  API-SWEEP-013:
+    nodeid: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cPOST
+      /admin/after-sales/{id}/audit]
+    title: 逆向-路径参数类型错误
+    module: 售后与评价/售后服务
+    bug_id: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cPOST
+      /admin/after-sales/{id}/audit]-43abea64
+    owner: 段文瑞
+    reason: 路径参数类型错误 · HTTP 500 系统异常
+    expires_at: '2026-12-31'
+    status: active
+    source: defect-library
+  API-SWEEP-014:
+    nodeid: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[malformed_json\uff5cPOST
+      /admin/after-sales/{id}/audit]
+    title: 异常-畸形 JSON 请求体
+    module: 售后与评价/售后服务
+    bug_id: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[malformed_json\uff5cPOST
+      /admin/after-sales/{id}/audit]-786f1b03
+    owner: 段文瑞
+    reason: 畸形 JSON 请求体 · HTTP 500 系统异常
+    expires_at: '2026-12-31'
+    status: active
+    source: defect-library
+  API-SWEEP-023:
+    nodeid: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[malformed_json\uff5cPOST
+      /admin/attributes]
+    title: 异常-畸形 JSON 请求体
+    module: 商品中心/商品管理
+    bug_id: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[malformed_json\uff5cPOST
+      /admin/attributes]-119efbda
+    owner: 段文瑞
+    reason: 畸形 JSON 请求体 · HTTP 500 系统异常
+    expires_at: '2026-12-31'
+    status: active
+    source: defect-library
+  API-SWEEP-027:
+    nodeid: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cDELETE
+      /admin/attributes/{id}]
+    title: 逆向-路径参数类型错误
+    module: 商品中心/商品管理
+    bug_id: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cDELETE
+      /admin/attributes/{id}]-de0f4db7
+    owner: 段文瑞
+    reason: 路径参数类型错误 · HTTP 500 系统异常
+    expires_at: '2026-12-31'
+    status: active
+    source: defect-library
+  API-SWEEP-030:
+    nodeid: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cPUT
+      /admin/attributes/{id}]
+    title: 逆向-路径参数类型错误
+    module: 商品中心/商品管理
+    bug_id: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cPUT
+      /admin/attributes/{id}]-c2dad947
+    owner: 段文瑞
+    reason: 路径参数类型错误 · HTTP 500 系统异常
+    expires_at: '2026-12-31'
+    status: active
+    source: defect-library
+  API-SWEEP-031:
+    nodeid: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[malformed_json\uff5cPOST
+      /admin/auth/login]
+    title: 异常-畸形 JSON 请求体
+    module: 平台治理/身份与权限
+    bug_id: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[malformed_json\uff5cPOST
+      /admin/auth/login]-06c9ee43
+    owner: 段文瑞
+    reason: 畸形 JSON 请求体 · HTTP 500 系统异常
+    expires_at: '2026-12-31'
+    status: active
+    source: defect-library
+  API-SWEEP-040:
+    nodeid: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[malformed_json\uff5cPOST
+      /admin/auth/refresh]
+    title: 异常-畸形 JSON 请求体
+    module: 平台治理/身份与权限
+    bug_id: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[malformed_json\uff5cPOST
+      /admin/auth/refresh]-18c11ef3
+    owner: 段文瑞
+    reason: 畸形 JSON 请求体 · HTTP 500 系统异常
+    expires_at: '2026-12-31'
+    status: active
+    source: defect-library
+  API-SWEEP-049:
+    nodeid: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[malformed_json\uff5cPOST
+      /admin/brands]
+    title: 异常-畸形 JSON 请求体
+    module: 商品中心/商品管理
+    bug_id: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[malformed_json\uff5cPOST
+      /admin/brands]-b80055d8
+    owner: 段文瑞
+    reason: 畸形 JSON 请求体 · HTTP 500 系统异常
+    expires_at: '2026-12-31'
+    status: active
+    source: defect-library
+  API-SWEEP-053:
+    nodeid: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cDELETE
+      /admin/brands/{id}]
+    title: 逆向-路径参数类型错误
+    module: 商品中心/商品管理
+    bug_id: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cDELETE
+      /admin/brands/{id}]-5d490089
+    owner: 段文瑞
+    reason: 路径参数类型错误 · HTTP 500 系统异常
+    expires_at: '2026-12-31'
+    status: active
+    source: defect-library
+  API-SWEEP-056:
+    nodeid: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cPUT
+      /admin/brands/{id}]
+    title: 逆向-路径参数类型错误
+    module: 商品中心/商品管理
+    bug_id: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cPUT
+      /admin/brands/{id}]-97ed2581
+    owner: 段文瑞
+    reason: 路径参数类型错误 · HTTP 500 系统异常
+    expires_at: '2026-12-31'
+    status: active
+    source: defect-library
+  API-SWEEP-064:
+    nodeid: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[malformed_json\uff5cPOST
+      /admin/categories]
+    title: 异常-畸形 JSON 请求体
+    module: 商品中心/商品管理
+    bug_id: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[malformed_json\uff5cPOST
+      /admin/categories]-7bdcd665
+    owner: 段文瑞
+    reason: 畸形 JSON 请求体 · HTTP 500 系统异常
+    expires_at: '2026-12-31'
+    status: active
+    source: defect-library
+  API-SWEEP-073:
+    nodeid: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cDELETE
+      /admin/categories/{id}]
+    title: 逆向-路径参数类型错误
+    module: 商品中心/商品管理
+    bug_id: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cDELETE
+      /admin/categories/{id}]-19a299a3
+    owner: 段文瑞
+    reason: 路径参数类型错误 · HTTP 500 系统异常
+    expires_at: '2026-12-31'
+    status: active
+    source: defect-library
+  API-SWEEP-076:
+    nodeid: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cPUT
+      /admin/categories/{id}]
+    title: 逆向-路径参数类型错误
+    module: 商品中心/商品管理
+    bug_id: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cPUT
+      /admin/categories/{id}]-4c3df5c9
+    owner: 段文瑞
+    reason: 路径参数类型错误 · HTTP 500 系统异常
+    expires_at: '2026-12-31'
+    status: active
+    source: defect-library
+  API-SWEEP-084:
+    nodeid: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cGET
+      /admin/customers/{id}]
+    title: 逆向-路径参数类型错误
+    module: 会员中心/会员资料
+    bug_id: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cGET
+      /admin/customers/{id}]-19f0d60b
+    owner: 段文瑞
+    reason: 路径参数类型错误 · HTTP 500 系统异常
+    expires_at: '2026-12-31'
+    status: active
+    source: defect-library
+  API-SWEEP-089:
+    nodeid: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cPUT
+      /admin/customers/{id}/status]
+    title: 逆向-路径参数类型错误
+    module: 会员中心/会员资料
+    bug_id: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cPUT
+      /admin/customers/{id}/status]-5792260b
+    owner: 段文瑞
+    reason: 路径参数类型错误 · HTTP 500 系统异常
+    expires_at: '2026-12-31'
+    status: active
+    source: defect-library
+  API-SWEEP-102:
+    nodeid: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[malformed_json\uff5cPOST
+      /admin/depts]
+    title: 异常-畸形 JSON 请求体
+    module: 平台治理/身份与权限
+    bug_id: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[malformed_json\uff5cPOST
+      /admin/depts]-4ab540a3
+    owner: 段文瑞
+    reason: 畸形 JSON 请求体 · HTTP 500 系统异常
+    expires_at: '2026-12-31'
+    status: active
+    source: defect-library
+  API-SWEEP-111:
+    nodeid: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cDELETE
+      /admin/depts/{id}]
+    title: 逆向-路径参数类型错误
+    module: 平台治理/身份与权限
+    bug_id: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cDELETE
+      /admin/depts/{id}]-4d8885bc
+    owner: 段文瑞
+    reason: 路径参数类型错误 · HTTP 500 系统异常
+    expires_at: '2026-12-31'
+    status: active
+    source: defect-library
+  API-SWEEP-114:
+    nodeid: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cPUT
+      /admin/depts/{id}]
+    title: 逆向-路径参数类型错误
+    module: 平台治理/身份与权限
+    bug_id: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cPUT
+      /admin/depts/{id}]-48e0d890
+    owner: 段文瑞
+    reason: 路径参数类型错误 · HTTP 500 系统异常
+    expires_at: '2026-12-31'
+    status: active
+    source: defect-library
+  API-SWEEP-117:
+    nodeid: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[list_boundary\uff5cGET
+      /admin/dict-items]
+    title: 边界-分页零值/负值/超大值
+    module: 平台治理/配置与审计
+    bug_id: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[list_boundary\uff5cGET
+      /admin/dict-items]-f648cd7c
+    owner: 段文瑞
+    reason: 分页零值/负值/超大值 · HTTP 500 系统异常
+    expires_at: '2026-12-31'
+    status: active
+    source: defect-library
+  API-SWEEP-120:
+    nodeid: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[malformed_json\uff5cPOST
+      /admin/dict-items]
+    title: 异常-畸形 JSON 请求体
+    module: 平台治理/配置与审计
+    bug_id: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[malformed_json\uff5cPOST
+      /admin/dict-items]-ee20349c
+    owner: 段文瑞
+    reason: 畸形 JSON 请求体 · HTTP 500 系统异常
+    expires_at: '2026-12-31'
+    status: active
+    source: defect-library
+  API-SWEEP-124:
+    nodeid: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[list_boundary\uff5cGET
+      /admin/dict-items/by-code]
+    title: 边界-分页零值/负值/超大值
+    module: 平台治理/配置与审计
+    bug_id: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[list_boundary\uff5cGET
+      /admin/dict-items/by-code]-d474c469
+    owner: 段文瑞
+    reason: 分页零值/负值/超大值 · HTTP 500 系统异常
+    expires_at: '2026-12-31'
+    status: active
+    source: defect-library
+  API-SWEEP-127:
+    nodeid: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cDELETE
+      /admin/dict-items/{id}]
+    title: 逆向-路径参数类型错误
+    module: 平台治理/配置与审计
+    bug_id: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cDELETE
+      /admin/dict-items/{id}]-496b01b0
+    owner: 段文瑞
+    reason: 路径参数类型错误 · HTTP 500 系统异常
+    expires_at: '2026-12-31'
+    status: active
+    source: defect-library
+  API-SWEEP-130:
+    nodeid: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cPUT
+      /admin/dict-items/{id}]
+    title: 逆向-路径参数类型错误
+    module: 平台治理/配置与审计
+    bug_id: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cPUT
+      /admin/dict-items/{id}]-e7824f41
+    owner: 段文瑞
+    reason: 路径参数类型错误 · HTTP 500 系统异常
+    expires_at: '2026-12-31'
+    status: active
+    source: defect-library
+  API-SWEEP-138:
+    nodeid: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[malformed_json\uff5cPOST
+      /admin/dicts]
+    title: 异常-畸形 JSON 请求体
+    module: 平台治理/配置与审计
+    bug_id: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[malformed_json\uff5cPOST
+      /admin/dicts]-88c611fa
+    owner: 段文瑞
+    reason: 畸形 JSON 请求体 · HTTP 500 系统异常
+    expires_at: '2026-12-31'
+    status: active
+    source: defect-library
+  API-SWEEP-142:
+    nodeid: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cDELETE
+      /admin/dicts/{id}]
+    title: 逆向-路径参数类型错误
+    module: 平台治理/配置与审计
+    bug_id: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cDELETE
+      /admin/dicts/{id}]-fa131bab
+    owner: 段文瑞
+    reason: 路径参数类型错误 · HTTP 500 系统异常
+    expires_at: '2026-12-31'
+    status: active
+    source: defect-library
+  API-SWEEP-145:
+    nodeid: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cPUT
+      /admin/dicts/{id}]
+    title: 逆向-路径参数类型错误
+    module: 平台治理/配置与审计
+    bug_id: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cPUT
+      /admin/dicts/{id}]-213db536
+    owner: 段文瑞
+    reason: 路径参数类型错误 · HTTP 500 系统异常
+    expires_at: '2026-12-31'
+    status: active
+    source: defect-library
+  API-SWEEP-148:
+    nodeid: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[malformed_json\uff5cPOST
+      /admin/files/confirm]
+    title: 异常-畸形 JSON 请求体
+    module: 平台治理/文件服务
+    bug_id: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[malformed_json\uff5cPOST
+      /admin/files/confirm]-8b6de583
+    owner: 段文瑞
+    reason: 畸形 JSON 请求体 · HTTP 500 系统异常
+    expires_at: '2026-12-31'
+    status: active
+    source: defect-library
+  API-SWEEP-154:
+    nodeid: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[list_boundary\uff5cGET
+      /admin/files/view]
+    title: 边界-分页零值/负值/超大值
+    module: 平台治理/文件服务
+    bug_id: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[list_boundary\uff5cGET
+      /admin/files/view]-29d13ae7
+    owner: 段文瑞
+    reason: 分页零值/负值/超大值 · HTTP 500 系统异常
+    expires_at: '2026-12-31'
+    status: active
+    source: defect-library
+  API-SWEEP-168:
+    nodeid: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[malformed_json\uff5cPUT
+      /admin/home/slots/{code}]
+    title: 异常-畸形 JSON 请求体
+    module: 商品中心/商品管理
+    bug_id: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[malformed_json\uff5cPUT
+      /admin/home/slots/{code}]-bba0b3fb
+    owner: 段文瑞
+    reason: 畸形 JSON 请求体 · HTTP 500 系统异常
+    expires_at: '2026-12-31'
+    status: active
+    source: defect-library
+  API-SWEEP-187:
+    nodeid: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cGET
+      /admin/operation-logs/{id}]
+    title: 逆向-路径参数类型错误
+    module: 平台治理/配置与审计
+    bug_id: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cGET
+      /admin/operation-logs/{id}]-e951d09a
+    owner: 段文瑞
+    reason: 路径参数类型错误 · HTTP 500 系统异常
+    expires_at: '2026-12-31'
+    status: active
+    source: defect-library
+  API-SWEEP-200:
+    nodeid: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cGET
+      /admin/orders/{id}]
+    title: 逆向-路径参数类型错误
+    module: 交易中心/订单与支付
+    bug_id: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cGET
+      /admin/orders/{id}]-1c8d67db
+    owner: 段文瑞
+    reason: 路径参数类型错误 · HTTP 500 系统异常
+    expires_at: '2026-12-31'
+    status: active
+    source: defect-library
+  API-SWEEP-205:
+    nodeid: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cPOST
+      /admin/orders/{id}/ship]
+    title: 逆向-路径参数类型错误
+    module: 交易中心/库存与履约
+    bug_id: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cPOST
+      /admin/orders/{id}/ship]-cda85a75
+    owner: 段文瑞
+    reason: 路径参数类型错误 · HTTP 500 系统异常
+    expires_at: '2026-12-31'
+    status: active
+    source: defect-library
+  API-SWEEP-206:
+    nodeid: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[malformed_json\uff5cPOST
+      /admin/orders/{id}/ship]
+    title: 异常-畸形 JSON 请求体
+    module: 交易中心/库存与履约
+    bug_id: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[malformed_json\uff5cPOST
+      /admin/orders/{id}/ship]-b8ce03f0
+    owner: 段文瑞
+    reason: 畸形 JSON 请求体 · HTTP 500 系统异常
+    expires_at: '2026-12-31'
+    status: active
+    source: defect-library
+  API-SWEEP-215:
+    nodeid: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[malformed_json\uff5cPOST
+      /admin/permissions]
+    title: 异常-畸形 JSON 请求体
+    module: 平台治理/身份与权限
+    bug_id: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[malformed_json\uff5cPOST
+      /admin/permissions]-ee6f4c53
+    owner: 段文瑞
+    reason: 畸形 JSON 请求体 · HTTP 500 系统异常
+    expires_at: '2026-12-31'
+    status: active
+    source: defect-library
+  API-SWEEP-224:
+    nodeid: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cDELETE
+      /admin/permissions/{id}]
+    title: 逆向-路径参数类型错误
+    module: 平台治理/身份与权限
+    bug_id: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cDELETE
+      /admin/permissions/{id}]-9c069d42
+    owner: 段文瑞
+    reason: 路径参数类型错误 · HTTP 500 系统异常
+    expires_at: '2026-12-31'
+    status: active
+    source: defect-library
+  API-SWEEP-227:
+    nodeid: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cPUT
+      /admin/permissions/{id}]
+    title: 逆向-路径参数类型错误
+    module: 平台治理/身份与权限
+    bug_id: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cPUT
+      /admin/permissions/{id}]-fbb33df6
+    owner: 段文瑞
+    reason: 路径参数类型错误 · HTTP 500 系统异常
+    expires_at: '2026-12-31'
+    status: active
+    source: defect-library
+  API-SWEEP-235:
+    nodeid: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[malformed_json\uff5cPOST
+      /admin/products]
+    title: 异常-畸形 JSON 请求体
+    module: 商品中心/商品管理
+    bug_id: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[malformed_json\uff5cPOST
+      /admin/products]-a6b1cf2f
+    owner: 段文瑞
+    reason: 畸形 JSON 请求体 · HTTP 500 系统异常
+    expires_at: '2026-12-31'
+    status: active
+    source: defect-library
+  API-SWEEP-236:
+    nodeid: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[empty_body\uff5cPOST
+      /admin/products]
+    title: 异常-空请求体
+    module: 商品中心/商品管理
+    bug_id: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[empty_body\uff5cPOST
+      /admin/products]-1d279f0b
+    owner: 段文瑞
+    reason: 空请求体 · HTTP 500 系统异常
+    expires_at: '2026-12-31'
+    status: active
+    source: defect-library
+  API-SWEEP-241:
+    nodeid: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cDELETE
+      /admin/products/{id}]
+    title: 逆向-路径参数类型错误
+    module: 商品中心/商品管理
+    bug_id: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cDELETE
+      /admin/products/{id}]-db36018c
+    owner: 段文瑞
+    reason: 路径参数类型错误 · HTTP 500 系统异常
+    expires_at: '2026-12-31'
+    status: active
+    source: defect-library
+  API-SWEEP-244:
+    nodeid: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cGET
+      /admin/products/{id}]
+    title: 逆向-路径参数类型错误
+    module: 商品中心/商品管理
+    bug_id: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cGET
+      /admin/products/{id}]-4b563699
+    owner: 段文瑞
+    reason: 路径参数类型错误 · HTTP 500 系统异常
+    expires_at: '2026-12-31'
+    status: active
+    source: defect-library
+  API-SWEEP-249:
+    nodeid: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cPUT
+      /admin/products/{id}]
+    title: 逆向-路径参数类型错误
+    module: 商品中心/商品管理
+    bug_id: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cPUT
+      /admin/products/{id}]-03ae095f
+    owner: 段文瑞
+    reason: 路径参数类型错误 · HTTP 500 系统异常
+    expires_at: '2026-12-31'
+    status: active
+    source: defect-library
+  API-SWEEP-250:
+    nodeid: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[malformed_json\uff5cPUT
+      /admin/products/{id}]
+    title: 异常-畸形 JSON 请求体
+    module: 商品中心/商品管理
+    bug_id: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[malformed_json\uff5cPUT
+      /admin/products/{id}]-98fb9e4c
+    owner: 段文瑞
+    reason: 畸形 JSON 请求体 · HTTP 500 系统异常
+    expires_at: '2026-12-31'
+    status: active
+    source: defect-library
+  API-SWEEP-254:
+    nodeid: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cPUT
+      /admin/products/{id}/off]
+    title: 逆向-路径参数类型错误
+    module: 商品中心/商品管理
+    bug_id: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cPUT
+      /admin/products/{id}/off]-9c344fae
+    owner: 段文瑞
+    reason: 路径参数类型错误 · HTTP 500 系统异常
+    expires_at: '2026-12-31'
+    status: active
+    source: defect-library
+  API-SWEEP-257:
+    nodeid: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cPUT
+      /admin/products/{id}/on]
+    title: 逆向-路径参数类型错误
+    module: 商品中心/商品管理
+    bug_id: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cPUT
+      /admin/products/{id}/on]-adba1492
+    owner: 段文瑞
+    reason: 路径参数类型错误 · HTTP 500 系统异常
+    expires_at: '2026-12-31'
+    status: active
+    source: defect-library
+  API-SWEEP-265:
+    nodeid: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cPUT
+      /admin/reviews/{id}/status]
+    title: 逆向-路径参数类型错误
+    module: 售后与评价/评价管理
+    bug_id: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cPUT
+      /admin/reviews/{id}/status]-8bfdd430
+    owner: 段文瑞
+    reason: 路径参数类型错误 · HTTP 500 系统异常
+    expires_at: '2026-12-31'
+    status: active
+    source: defect-library
+  API-SWEEP-280:
+    nodeid: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cDELETE
+      /admin/roles/{id}]
+    title: 逆向-路径参数类型错误
+    module: 平台治理/身份与权限
+    bug_id: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cDELETE
+      /admin/roles/{id}]-8180bb2a
+    owner: 段文瑞
+    reason: 路径参数类型错误 · HTTP 500 系统异常
+    expires_at: '2026-12-31'
+    status: active
+    source: defect-library
+  API-SWEEP-283:
+    nodeid: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cPUT
+      /admin/roles/{id}]
+    title: 逆向-路径参数类型错误
+    module: 平台治理/身份与权限
+    bug_id: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cPUT
+      /admin/roles/{id}]-3b0ce754
+    owner: 段文瑞
+    reason: 路径参数类型错误 · HTTP 500 系统异常
+    expires_at: '2026-12-31'
+    status: active
+    source: defect-library
+  API-SWEEP-305:
+    nodeid: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cPUT
+      /admin/system-configs/{id}]
+    title: 逆向-路径参数类型错误
+    module: 平台治理/配置与审计
+    bug_id: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cPUT
+      /admin/system-configs/{id}]-29703b1e
+    owner: 段文瑞
+    reason: 路径参数类型错误 · HTTP 500 系统异常
+    expires_at: '2026-12-31'
+    status: active
+    source: defect-library
+  API-SWEEP-315:
+    nodeid: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cDELETE
+      /admin/users/{id}]
+    title: 逆向-路径参数类型错误
+    module: 平台治理/身份与权限
+    bug_id: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cDELETE
+      /admin/users/{id}]-0229f462
+    owner: 段文瑞
+    reason: 路径参数类型错误 · HTTP 500 系统异常
+    expires_at: '2026-12-31'
+    status: active
+    source: defect-library
+  API-SWEEP-318:
+    nodeid: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cGET
+      /admin/users/{id}]
+    title: 逆向-路径参数类型错误
+    module: 平台治理/身份与权限
+    bug_id: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cGET
+      /admin/users/{id}]-3b7b487c
+    owner: 段文瑞
+    reason: 路径参数类型错误 · HTTP 500 系统异常
+    expires_at: '2026-12-31'
+    status: active
+    source: defect-library
+  API-SWEEP-323:
+    nodeid: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cPUT
+      /admin/users/{id}]
+    title: 逆向-路径参数类型错误
+    module: 平台治理/身份与权限
+    bug_id: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cPUT
+      /admin/users/{id}]-90af9675
+    owner: 段文瑞
+    reason: 路径参数类型错误 · HTTP 500 系统异常
+    expires_at: '2026-12-31'
+    status: active
+    source: defect-library
+  API-SWEEP-326:
+    nodeid: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cPUT
+      /admin/users/{id}/password]
+    title: 逆向-路径参数类型错误
+    module: 平台治理/身份与权限
+    bug_id: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cPUT
+      /admin/users/{id}/password]-28e7ddb1
+    owner: 段文瑞
+    reason: 路径参数类型错误 · HTTP 500 系统异常
+    expires_at: '2026-12-31'
+    status: active
+    source: defect-library
+  API-SWEEP-329:
+    nodeid: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cPUT
+      /admin/users/{id}/status]
+    title: 逆向-路径参数类型错误
+    module: 平台治理/身份与权限
+    bug_id: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cPUT
+      /admin/users/{id}/status]-49a5c469
+    owner: 段文瑞
+    reason: 路径参数类型错误 · HTTP 500 系统异常
+    expires_at: '2026-12-31'
+    status: active
+    source: defect-library
+  API-SWEEP-337:
+    nodeid: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[malformed_json\uff5cPOST
+      /admin/warehouses]
+    title: 异常-畸形 JSON 请求体
+    module: 交易中心/库存与履约
+    bug_id: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[malformed_json\uff5cPOST
+      /admin/warehouses]-1a34ae04
+    owner: 段文瑞
+    reason: 畸形 JSON 请求体 · HTTP 500 系统异常
+    expires_at: '2026-12-31'
+    status: active
+    source: defect-library
+  API-SWEEP-341:
+    nodeid: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cPUT
+      /admin/warehouses/{id}]
+    title: 逆向-路径参数类型错误
+    module: 交易中心/库存与履约
+    bug_id: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cPUT
+      /admin/warehouses/{id}]-db7e6a19
+    owner: 段文瑞
+    reason: 路径参数类型错误 · HTTP 500 系统异常
+    expires_at: '2026-12-31'
+    status: active
+    source: defect-library
+  API-SWEEP-351:
+    nodeid: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cDELETE
+      /api/addresses/{id}]
+    title: 逆向-路径参数类型错误
+    module: 会员中心/收货地址
+    bug_id: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cDELETE
+      /api/addresses/{id}]-7a0d8159
+    owner: 段文瑞
+    reason: 路径参数类型错误 · HTTP 500 系统异常
+    expires_at: '2026-12-31'
+    status: active
+    source: defect-library
+  API-SWEEP-354:
+    nodeid: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cPUT
+      /api/addresses/{id}]
+    title: 逆向-路径参数类型错误
+    module: 会员中心/收货地址
+    bug_id: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cPUT
+      /api/addresses/{id}]-e044b7bf
+    owner: 段文瑞
+    reason: 路径参数类型错误 · HTTP 500 系统异常
+    expires_at: '2026-12-31'
+    status: active
+    source: defect-library
+  API-SWEEP-355:
+    nodeid: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[malformed_json\uff5cPUT
+      /api/addresses/{id}]
+    title: 异常-畸形 JSON 请求体
+    module: 会员中心/收货地址
+    bug_id: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[malformed_json\uff5cPUT
+      /api/addresses/{id}]-95ec22ee
+    owner: 段文瑞
+    reason: 畸形 JSON 请求体 · HTTP 500 系统异常
+    expires_at: '2026-12-31'
+    status: active
+    source: defect-library
+  API-SWEEP-359:
+    nodeid: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cPUT
+      /api/addresses/{id}/default]
+    title: 逆向-路径参数类型错误
+    module: 会员中心/收货地址
+    bug_id: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cPUT
+      /api/addresses/{id}/default]-4cb9b23d
+    owner: 段文瑞
+    reason: 路径参数类型错误 · HTTP 500 系统异常
+    expires_at: '2026-12-31'
+    status: active
+    source: defect-library
+  API-SWEEP-367:
+    nodeid: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[malformed_json\uff5cPOST
+      /api/after-sales]
+    title: 异常-畸形 JSON 请求体
+    module: 售后与评价/售后服务
+    bug_id: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[malformed_json\uff5cPOST
+      /api/after-sales]-df20794f
+    owner: 段文瑞
+    reason: 畸形 JSON 请求体 · HTTP 500 系统异常
+    expires_at: '2026-12-31'
+    status: active
+    source: defect-library
+  API-SWEEP-371:
+    nodeid: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cGET
+      /api/after-sales/{id}]
+    title: 逆向-路径参数类型错误
+    module: 售后与评价/售后服务
+    bug_id: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cGET
+      /api/after-sales/{id}]-f62fda0a
+    owner: 段文瑞
+    reason: 路径参数类型错误 · HTTP 500 系统异常
+    expires_at: '2026-12-31'
+    status: active
+    source: defect-library
+  API-SWEEP-374:
+    nodeid: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[malformed_json\uff5cPOST
+      /api/auth/login]
+    title: 异常-畸形 JSON 请求体
+    module: 会员中心/登录与令牌
+    bug_id: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[malformed_json\uff5cPOST
+      /api/auth/login]-05020639
+    owner: 段文瑞
+    reason: 畸形 JSON 请求体 · HTTP 500 系统异常
+    expires_at: '2026-12-31'
+    status: active
+    source: defect-library
+  API-SWEEP-377:
+    nodeid: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[malformed_json\uff5cPOST
+      /api/auth/phone]
+    title: 异常-畸形 JSON 请求体
+    module: 会员中心/登录与令牌
+    bug_id: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[malformed_json\uff5cPOST
+      /api/auth/phone]-a83d9531
+    owner: 段文瑞
+    reason: 畸形 JSON 请求体 · HTTP 500 系统异常
+    expires_at: '2026-12-31'
+    status: active
+    source: defect-library
+  API-SWEEP-379:
+    nodeid: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[malformed_json\uff5cPOST
+      /api/auth/refresh]
+    title: 异常-畸形 JSON 请求体
+    module: 会员中心/登录与令牌
+    bug_id: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[malformed_json\uff5cPOST
+      /api/auth/refresh]-a1adb0b1
+    owner: 段文瑞
+    reason: 畸形 JSON 请求体 · HTTP 500 系统异常
+    expires_at: '2026-12-31'
+    status: active
+    source: defect-library
+  API-SWEEP-381:
+    nodeid: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[malformed_json\uff5cPOST
+      /api/auth/sms/send]
+    title: 异常-畸形 JSON 请求体
+    module: 会员中心/登录与令牌
+    bug_id: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[malformed_json\uff5cPOST
+      /api/auth/sms/send]-240d6a76
+    owner: 段文瑞
+    reason: 畸形 JSON 请求体 · HTTP 500 系统异常
+    expires_at: '2026-12-31'
+    status: active
+    source: defect-library
+  API-SWEEP-394:
+    nodeid: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cDELETE
+      /api/cart/items/{id}]
+    title: 逆向-路径参数类型错误
+    module: 交易中心/购物车
+    bug_id: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cDELETE
+      /api/cart/items/{id}]-9b5b8a4c
+    owner: 段文瑞
+    reason: 路径参数类型错误 · HTTP 500 系统异常
+    expires_at: '2026-12-31'
+    status: active
+    source: defect-library
+  API-SWEEP-397:
+    nodeid: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cPUT
+      /api/cart/items/{id}]
+    title: 逆向-路径参数类型错误
+    module: 交易中心/购物车
+    bug_id: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cPUT
+      /api/cart/items/{id}]-9d42d795
+    owner: 段文瑞
+    reason: 路径参数类型错误 · HTTP 500 系统异常
+    expires_at: '2026-12-31'
+    status: active
+    source: defect-library
+  API-SWEEP-408:
+    nodeid: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cDELETE
+      /api/favorites/{spuId}]
+    title: 逆向-路径参数类型错误
+    module: 会员中心/收藏与足迹
+    bug_id: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cDELETE
+      /api/favorites/{spuId}]-616ad984
+    owner: 段文瑞
+    reason: 路径参数类型错误 · HTTP 500 系统异常
+    expires_at: '2026-12-31'
+    status: active
+    source: defect-library
+  API-SWEEP-411:
+    nodeid: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cPOST
+      /api/favorites/{spuId}]
+    title: 逆向-路径参数类型错误
+    module: 会员中心/收藏与足迹
+    bug_id: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cPOST
+      /api/favorites/{spuId}]-4431a889
+    owner: 段文瑞
+    reason: 路径参数类型错误 · HTTP 500 系统异常
+    expires_at: '2026-12-31'
+    status: active
+    source: defect-library
+  API-SWEEP-414:
+    nodeid: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[malformed_json\uff5cPOST
+      /api/files/confirm]
+    title: 异常-畸形 JSON 请求体
+    module: 平台治理/文件服务
+    bug_id: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[malformed_json\uff5cPOST
+      /api/files/confirm]-093c48a7
+    owner: 段文瑞
+    reason: 畸形 JSON 请求体 · HTTP 500 系统异常
+    expires_at: '2026-12-31'
+    status: active
+    source: defect-library
+  API-SWEEP-420:
+    nodeid: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[list_boundary\uff5cGET
+      /api/files/view]
+    title: 边界-分页零值/负值/超大值
+    module: 平台治理/文件服务
+    bug_id: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[list_boundary\uff5cGET
+      /api/files/view]-6f9cc6a9
+    owner: 段文瑞
+    reason: 分页零值/负值/超大值 · HTTP 500 系统异常
+    expires_at: '2026-12-31'
+    status: active
+    source: defect-library
+  API-SWEEP-445:
+    nodeid: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[malformed_json\uff5cPOST
+      /api/orders]
+    title: 异常-畸形 JSON 请求体
+    module: 交易中心/订单与支付
+    bug_id: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[malformed_json\uff5cPOST
+      /api/orders]-bc75cf35
+    owner: 段文瑞
+    reason: 畸形 JSON 请求体 · HTTP 500 系统异常
+    expires_at: '2026-12-31'
+    status: active
+    source: defect-library
+  API-SWEEP-449:
+    nodeid: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cGET
+      /api/orders/{id}]
+    title: 逆向-路径参数类型错误
+    module: 交易中心/订单与支付
+    bug_id: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cGET
+      /api/orders/{id}]-e8c51e55
+    owner: 段文瑞
+    reason: 路径参数类型错误 · HTTP 500 系统异常
+    expires_at: '2026-12-31'
+    status: active
+    source: defect-library
+  API-SWEEP-454:
+    nodeid: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cPOST
+      /api/orders/{id}/cancel]
+    title: 逆向-路径参数类型错误
+    module: 交易中心/订单与支付
+    bug_id: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cPOST
+      /api/orders/{id}/cancel]-4e010ca5
+    owner: 段文瑞
+    reason: 路径参数类型错误 · HTTP 500 系统异常
+    expires_at: '2026-12-31'
+    status: active
+    source: defect-library
+  API-SWEEP-457:
+    nodeid: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cPOST
+      /api/orders/{id}/confirm]
+    title: 逆向-路径参数类型错误
+    module: 交易中心/订单与支付
+    bug_id: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cPOST
+      /api/orders/{id}/confirm]-ad920230
+    owner: 段文瑞
+    reason: 路径参数类型错误 · HTTP 500 系统异常
+    expires_at: '2026-12-31'
+    status: active
+    source: defect-library
+  API-SWEEP-460:
+    nodeid: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cGET
+      /api/orders/{id}/logistics]
+    title: 逆向-路径参数类型错误
+    module: 交易中心/订单与支付
+    bug_id: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cGET
+      /api/orders/{id}/logistics]-90a2b4ca
+    owner: 段文瑞
+    reason: 路径参数类型错误 · HTTP 500 系统异常
+    expires_at: '2026-12-31'
+    status: active
+    source: defect-library
+  API-SWEEP-467:
+    nodeid: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cGET
+      /api/payment/{orderId}/status]
+    title: 逆向-路径参数类型错误
+    module: 交易中心/订单与支付
+    bug_id: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cGET
+      /api/payment/{orderId}/status]-f34ad70f
+    owner: 段文瑞
+    reason: 路径参数类型错误 · HTTP 500 系统异常
+    expires_at: '2026-12-31'
+    status: active
+    source: defect-library
+  API-SWEEP-472:
+    nodeid: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cGET
+      /api/products/{spuId}]
+    title: 逆向-路径参数类型错误
+    module: 商品中心/商品与搜索
+    bug_id: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cGET
+      /api/products/{spuId}]-e27e94ba
+    owner: 段文瑞
+    reason: 路径参数类型错误 · HTTP 500 系统异常
+    expires_at: '2026-12-31'
+    status: active
+    source: defect-library
+  API-SWEEP-475:
+    nodeid: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cGET
+      /api/products/{spuId}/reviews]
+    title: 逆向-路径参数类型错误
+    module: 售后与评价/评价管理
+    bug_id: tests/api/test_endpoint_sweep.py::test_endpoint_sweep[path_param_type\uff5cGET
+      /api/products/{spuId}/reviews]-49ef0a38
+    owner: 段文瑞
+    reason: 路径参数类型错误 · HTTP 500 系统异常
+    expires_at: '2026-12-31'
+    status: active
+    source: defect-library
+  API-VAL-006:
+    nodeid: tests/api/test_validation.py::test_address_name_65_chars_rejected
+    title: 收货人姓名 65 字符（超列宽）应被拒
+    module: 会员中心/收货地址
+    bug_id: DEF-UNMAPPED-898c1a1f
+    owner: qa-team
+    reason: 当前失败，待缺陷归因
+    expires_at: '2026-12-31'
+    status: active
+    source: unmapped
+  API-VAL-008:
+    nodeid: tests/api/test_validation.py::test_address_detail_256_chars_rejected
+    title: 详细地址 256 字符（超列宽）应被拒
+    module: 会员中心/收货地址
+    bug_id: DEF-UNMAPPED-5ab3b6d2
+    owner: qa-team
+    reason: 当前失败，待缺陷归因
+    expires_at: '2026-12-31'
+    status: active
+    source: unmapped
+  API-VAL-009:
+    nodeid: tests/api/test_validation.py::test_address_phone_invalid_format_rejected
+    title: 收货人手机号非数字应被拒
+    module: 会员中心/收货地址
+    bug_id: DEF-UNMAPPED-821f4579
+    owner: qa-team
+    reason: 当前失败，待缺陷归因
+    expires_at: '2026-12-31'
+    status: active
+    source: unmapped
+  API-VAL-019:
+    nodeid: tests/api/test_validation.py::test_after_sale_reason_513_rejected
+    title: 售后原因 513 字符（超列宽）应被拒
+    module: 售后与评价/售后服务
+    bug_id: DEF-UNMAPPED-961d32ed
+    owner: qa-team
+    reason: 当前失败，待缺陷归因
+    expires_at: '2026-12-31'
+    status: active
+    source: unmapped
+  API-VAL-020:
+    nodeid: tests/api/test_validation.py::test_review_missing_fields_rejected
+    title: 评价必填项缺失应被拒
+    module: 售后与评价/评价管理
+    bug_id: DEF-UNMAPPED-96c1dc95
+    owner: qa-team
+    reason: 当前失败，待缺陷归因
+    expires_at: '2026-12-31'
+    status: active
+    source: unmapped
+  API-VAL-021:
+    nodeid: tests/api/test_validation.py::test_review_rating_out_of_range_rejected
+    title: 评价评分 6（超出 1–5）应被拒
+    module: 售后与评价/评价管理
+    bug_id: DEF-UNMAPPED-cc4c5835
+    owner: qa-team
+    reason: 当前失败，待缺陷归因
+    expires_at: '2026-12-31'
+    status: active
+    source: unmapped
+  API-VAL-022:
+    nodeid: tests/api/test_validation.py::test_review_rating_non_numeric_rejected
+    title: 评价评分非数字应被拒
+    module: 售后与评价/评价管理
+    bug_id: DEF-UNMAPPED-71ef41f8
+    owner: qa-team
+    reason: 当前失败，待缺陷归因
+    expires_at: '2026-12-31'
+    status: active
+    source: unmapped
+  API-VAL-023:
+    nodeid: tests/api/test_validation.py::test_unsupported_method_returns_405
+    title: 不支持的 HTTP 方法应返回 405
+    module: 交易中心/库存与履约
+    bug_id: DEF-UNMAPPED-0a87e0b4
+    owner: qa-team
+    reason: 当前失败，待缺陷归因
+    expires_at: '2026-12-31'
+    status: active
+    source: unmapped

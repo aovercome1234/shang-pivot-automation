@@ -43,31 +43,14 @@ def admin():
 
 @pytest.fixture
 def customer():
-    """每次用例一个全新会员；结束后清理待支付订单、地址与购物车。"""
+    """每次用例一个全新会员；teardown 不清理测试数据，保留给三方组件核验。
+
+    报告中的 DB/Redis/MQ 证据需要能看到真实写入行，因此这里只关闭连接，
+    不取消订单、不删除地址/购物车。数据隔离由随机会员保证。
+    """
     cust = new_customer()
     yield cust
-
-    client = cust.client
-    try:
-        page = client.get("/api/orders", params={"status": "PENDING_PAY", "size": 50}).json()
-        for order in (page.get("data") or {}).get("records", []):
-            client.post(f"/api/orders/{order['id']}/cancel")
-    except Exception as exc:  # noqa: BLE001 - 清理失败只记录，不掩盖用例结果
-        log.warning("清理待支付订单失败：%s", exc)
-    try:
-        addresses = client.get("/api/addresses").json().get("data") or []
-        for address in addresses:
-            client.delete(f"/api/addresses/{address['id']}")
-    except Exception as exc:  # noqa: BLE001
-        log.warning("清理地址失败：%s", exc)
-    try:
-        cart = client.get("/api/cart").json().get("data") or {}
-        for item in cart.get("items", []):
-            client.delete(f"/api/cart/items/{item['cartItemId']}")
-    except Exception as exc:  # noqa: BLE001
-        log.warning("清理购物车失败：%s", exc)
-    finally:
-        client.close()
+    cust.client.close()
 
 
 @pytest.fixture
@@ -86,10 +69,9 @@ def sku(anonymous):
 
 @pytest.fixture
 def address(customer):
-    """为当前会员创建一条默认地址，结束后删除。"""
+    """为当前会员创建一条默认地址；teardown 保留，供落库/SQL 证据核验。"""
     address_id = create_address(customer.client, address_payload(customer.phone))
     yield address_id
-    customer.client.delete(f"/api/addresses/{address_id}")
 
 
 @pytest.fixture

@@ -100,10 +100,9 @@ def _annotate(case) -> None:
     if allure is None:
         return
     endpoint = _ids(case)
-    allure.dynamic.parent_suite("接口巡检")
-    allure.dynamic.suite(endpoint)
-    allure.dynamic.feature(endpoint)
-    allure.dynamic.story(case["title"])
+    # 套件层级由 conftest 统一提供（接口自动化 / 全接口巡检），这里只补充标题与端点参数，
+    # 避免重复 suite 标签导致 Allure Suites 同一用例出现多条路径、总数虚高。
+    allure.dynamic.parameter("endpoint", endpoint)
     allure.dynamic.title(f"{case['title']}｜{endpoint}")
 
 

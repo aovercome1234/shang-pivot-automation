@@ -17,6 +17,14 @@
     history: renderHistoryView,
     ui: renderUiView,
     enhancements: renderEnhancementsView,
+    thirdparty: renderThirdpartyView,
+    thirdpartyDatabase: renderThirdpartyDatabase,
+    thirdpartySql: renderThirdpartySql,
+    thirdpartyRepro: renderThirdpartyRepro,
+    thirdpartyRedis: renderThirdpartyRedis,
+    thirdpartyMq: renderThirdpartyMq,
+    compare: renderCompareView,
+    compareTrend: renderCompareTrend,
     placeholder: renderPlaceholder,
   };
 
@@ -1516,24 +1524,37 @@
             ? ' <span class="entry-tag" title="参数解析/入口阶段，无更底层业务代码">入口</span>' : "") +
           "</span>"
         : '<span class="muted">未定位</span>';
+      const gitee = item.gitee || {};
+      const giteeHref = gitee.htmlUrl || gitee.issueUrl || "";
+      const giteeButton = giteeHref
+        ? '<a class="detail-btn" href="' + escapeHtml(giteeHref) +
+          '" target="_blank" rel="noopener" title="打开 Gitee Issue' +
+          (gitee.number ? " #" + escapeHtml(String(gitee.number)) : "") +
+          '">Gitee 缺陷</a>'
+        : '<span class="detail-btn disabled" title="' +
+          escapeHtml(gitee.error || "尚未提交到 Gitee；配置 GITEE_TOKEN 后生成") +
+          '">Gitee 缺陷</span>';
       return "<tr><td>" + escapeHtml(item.name || "") + "</td>" +
         "<td><code>" + escapeHtml(item.endpoint || "") + "</code></td>" +
         "<td>" + escapeHtml(item.dimension || "") + "</td>" +
         '<td class="fail-cell">' + escapeHtml(item.summary || "") + "</td>" + "<td>" + code + "</td>" +
-        '<td><a href="' + escapeHtml(item.reportLink || "#") + '" target="_blank" rel="noopener">缺陷单</a></td>' +
+        '<td class="defect-actions"><a class="detail-btn" href="' +
+        escapeHtml(item.reportLink || "#") + '" target="_blank" rel="noopener">本地缺陷</a>' +
+        giteeButton + "</td>" +
       "</tr>";
     }).join("");
     el.statsView.innerHTML =
       '<div class="stats-kpi">' +
         kpiCard(defects.length, "缺陷单") +
         kpiCard(defects.filter(function (d) { return d.code; }).length, "已定位代码") +
+        kpiCard(defects.filter(function (d) { return d.gitee && d.gitee.htmlUrl; }).length, "Gitee 已提交") +
         kpiCard(data.runId || "—", "运行 ID") +
       "</div>" +
       '<p class="muted stats-note">由失败用例自动生成：包含请求/响应、traceId 后端日志与代码位置（取堆栈最底层应用帧；详情先展示调用链）；' +
-        "缺陷单默认写入 defects/&lt;run_id&gt;/，可通过适配层推送禅道（需凭据）。</p>" +
+        "缺陷单默认写入 defects/&lt;run_id&gt;/；「本地缺陷」打开归档 HTML，「Gitee 缺陷」跳转对应 issue（GITEE_TOKEN 未配置时只生成 payload，不伪造链接）。</p>" +
       '<div class="chart-panel"><div class="chart-head"><strong>缺陷列表</strong></div>' +
         '<div class="drill-table-wrap"><table class="drawer-table drill-table bench-table"><thead><tr>' +
-          "<th>用例</th><th>接口</th><th>分类</th><th>失败摘要</th><th>代码位置</th><th>缺陷单</th>" +
+          "<th>用例</th><th>接口</th><th>分类</th><th>失败摘要</th><th>代码位置</th><th>操作</th>" +
         "</tr></thead><tbody>" + (rows || '<tr><td colspan="6" class="muted">本轮没有失败用例</td></tr>') +
         "</tbody></table></div></div>";
     el.statsView.querySelectorAll(".code-loc").forEach(function (node) {
@@ -1662,6 +1683,1119 @@
       node.addEventListener("mouseleave", hideTooltipSoon);
       node.addEventListener("blur", hideTooltipSoon);
     });
+  }
+
+  function tpShell(data) {
+    el.toolbar.hidden = true;
+    el.reconcileBox.hidden = true;
+    el.tableBox.hidden = true;
+    el.stats.hidden = true;
+    el.statsView.hidden = false;
+    state.tpCopyTexts = [];
+    state.tpLongTexts = [];
+  }
+
+  function tpBanner(data) {
+    return '<div class="tp-banner">数据源：<b>' + escapeHtml(data.source || "") + "</b>" +
+      " · 采集时间：" + escapeHtml(data.generatedAt || "") +
+      " · 运行：" + escapeHtml(data.runId || "-") +
+      ' · <a href="../thirdparty/data.json" target="_blank" rel="noopener">下载原始 JSON</a>' +
+      ' · <a href="#/thirdparty/database">数据库模型</a>' +
+      ' · <a href="#/thirdparty/sql">SQL 证据</a>' +
+      ' · <a href="#/thirdparty/reproduce">复现步骤</a></div>';
+  }
+
+  function tpRedisCount(redis) {
+    return Object.keys(redis.counts || {}).reduce(function (sum, key) {
+      return sum + (redis.counts[key] || 0);
+    }, 0);
+  }
+
+  function tpKpis(db, redis, mq, redisCount) {
+    return '<div class="stats-kpi">' +
+      kpiCard((db.databases || []).length + " 库", "数据库 / " + (db.schemas || []).length + " schema") +
+      kpiCard((db.tableCount || 0) + " 表", "数据库模型") +
+      kpiCard((db.fieldCount || 0), "字段总数") +
+      kpiCard(redisCount + " keys", "Redis 实时键", !redis.available) +
+      kpiCard((mq.queues || []).length + " / " + (mq.eventCount || 0), "MQ 队列 / 事件", !mq.available) +
+      "</div>";
+  }
+
+  function tpTable(headers, rows, emptyText, className) {
+    return '<div class="drill-table-wrap"><table class="drawer-table drill-table bench-table' +
+      (className ? " " + className : "") + '"><thead><tr>' +
+      headers.map(function (head) { return "<th>" + head + "</th>"; }).join("") +
+      "</tr></thead><tbody>" + (rows || '<tr><td colspan="' + headers.length +
+        '" class="muted">' + escapeHtml(emptyText || "暂无数据") + "</td></tr>") +
+      "</tbody></table></div>";
+  }
+
+  function tpCopyButton(text) {
+    const index = state.tpCopyTexts.push(text) - 1;
+    return '<button class="mini-copy" data-tp-copy="' + index + '">复制</button>';
+  }
+
+  function tpLongCell(text, label) {
+    const value = String(text == null ? "" : text);
+    const index = state.tpLongTexts.push(value) - 1;
+    const summary = value.replace(/\s+/g, " ").slice(0, 64) || "—";
+    return '<span class="tp-long-cell" tabindex="0" data-tp-long="' + index +
+      '" data-label="' + escapeHtml(label) + '">' + escapeHtml(summary) +
+      (value.length > 64 ? "…" : "") + "</span>";
+  }
+
+  function bindTpLongCells() {
+    el.statsView.querySelectorAll("[data-tp-long]").forEach(function (node) {
+      const show = function () {
+        showTooltip(node, (node.dataset.label || "详情") + "（悬浮查看 / 可复制）",
+          state.tpLongTexts[Number(node.dataset.tpLong)] || "", true);
+      };
+      node.addEventListener("mouseenter", show);
+      node.addEventListener("focus", show);
+      node.addEventListener("mouseleave", hideTooltipSoon);
+      node.addEventListener("blur", hideTooltipSoon);
+    });
+  }
+
+  function bindTpActions() {
+    el.statsView.querySelectorAll("[data-tp-copy]").forEach(function (button) {
+      button.addEventListener("click", function () {
+        copyText(state.tpCopyTexts[Number(button.dataset.tpCopy)] || "", button);
+      });
+    });
+    el.statsView.querySelectorAll("[data-tp-search]").forEach(function (input) {
+      const rows = el.statsView.querySelectorAll("[data-tp-row]");
+      const update = function () {
+        const query = input.value.trim().toLowerCase();
+        let shown = 0;
+        rows.forEach(function (row) {
+          const text = (row.dataset.tpText || row.innerText).toLowerCase();
+          const match = !query || text.indexOf(query) !== -1;
+          row.hidden = !match;
+          if (match) shown += 1;
+        });
+        el.statsView.querySelectorAll(".tp-table-block").forEach(function (block) {
+          block.hidden = block.querySelectorAll("[data-tp-row]:not([hidden])").length === 0;
+        });
+        el.statsView.querySelectorAll(".tp-module-block").forEach(function (block) {
+          block.hidden = block.querySelectorAll(".tp-table-block:not([hidden])").length === 0;
+        });
+        const summary = el.statsView.querySelector("[data-tp-filter-summary]");
+        if (summary) summary.textContent = "显示 " + shown + " / " + rows.length + " 条";
+      };
+      input.addEventListener("input", update);
+      update();
+    });
+  }
+
+  function renderThirdpartyView(data) {
+    tpShell(data);
+    const db = data.db || {};
+    const redis = data.redis || {};
+    const mq = data.mq || {};
+    const knowledge = data.knowledge || {};
+    const redisCount = tpRedisCount(redis);
+    const dbPreview = (db.tables || []).slice(0, 10).map(function (table) {
+      return "<tr><td>" + escapeHtml(table.schema) + "</td><td>" +
+        escapeHtml(table.name) + "</td><td>" + (table.rows == null ? "—" : table.rows) +
+        "</td><td>" + (table.fields || []).length + "</td></tr>";
+    }).join("");
+    const redisCounts = Object.keys(redis.counts || {}).map(function (pattern) {
+      return '<span class="check-chip"><b>' + escapeHtml(pattern) + "</b>" +
+        (redis.counts[pattern] || 0) + " keys</span>";
+    }).join("");
+    const redisRows = (redis.samples || []).slice(0, 8).map(function (item) {
+      return "<tr><td><code>" + escapeHtml(item.key) + "</code></td><td>" +
+        escapeHtml(item.type || "") + "</td><td>" + (item.ttl == null ? "—" : item.ttl) +
+        "</td><td><code>" + escapeHtml(String(item.value == null ? "—" : item.value).slice(0, 60)) + "</code></td></tr>";
+    }).join("");
+    const queueRows = (mq.queues || []).map(function (item) {
+      return "<tr><td><code>" + escapeHtml(item.name || "") + "</code></td><td>" +
+        (item.messages == null ? "—" : item.messages) + "</td><td>" +
+        (item.ready == null ? "—" : item.ready) + "</td><td>" +
+        (item.unacked == null ? "—" : item.unacked) + "</td><td>" +
+        (item.consumers == null ? "—" : item.consumers) + "</td></tr>";
+    }).join("");
+    const eventRows = (mq.events || []).slice(0, 8).map(function (item) {
+      return "<tr><td>" + escapeHtml(item.order_id) + "</td><td>" +
+        escapeHtml(item.event_type) + "</td><td><code>" + escapeHtml(item.trace_id || "") +
+        '</code></td><td class="muted">' + escapeHtml(String(item.created_at || "")) + "</td></tr>";
+    }).join("");
+    const checks = knowledge.dbChecks || [];
+    const latestChecks = checks.slice(-5).reverse().map(function (item) {
+      return "<tr><td><code>" + escapeHtml(item.endpoint || "") + "</code></td><td>" +
+        "<code>" + escapeHtml(item.table || "") + "</code></td><td>" +
+        escapeHtml(item.case || "") + '</td><td class="muted">' +
+        escapeHtml(item.at || "") + "</td></tr>";
+    }).join("");
+    el.statsView.innerHTML =
+      tpKpis(db, redis, mq, redisCount) + tpBanner(data) +
+      '<div class="tp-cards">' +
+        '<div class="tp-card"><h3>数据库关系模型</h3><p class="muted">' +
+          escapeHtml(db.database || "") + " · " + (db.schemas || []).join(" / ") + "</p>" +
+          tpTable(["Schema", "表", "行数", "字段"], dbPreview, "数据库不可用") +
+          '<a class="tp-more" href="#/thirdparty/database">查看 ' + (db.tableCount || 0) +
+          ' 表与 ' + (db.fieldCount || 0) + ' 字段 →</a></div>' +
+        '<div class="tp-card"><h3>Redis 实时状态</h3><p class="muted">' +
+          escapeHtml(redis.host || "") + '</p><div class="check-strip">' + redisCounts + "</div>" +
+          tpTable(["Key", "类型", "TTL", "值（脱敏）"], redisRows, "Redis 不可用") +
+          '<a class="tp-more" href="#/thirdparty/sql">查看 SQL 与复现步骤 →</a></div>' +
+      "</div>" +
+      '<div class="tp-cards">' +
+        '<div class="tp-card"><h3>RabbitMQ</h3>' +
+          tpTable(["队列", "消息数", "Ready", "Unacked", "消费者"], queueRows, "RabbitMQ 不可用") + "</div>" +
+        '<div class="tp-card"><h3>order_event_log 最新事件</h3>' +
+          tpTable(["订单", "事件", "traceId", "时间"], eventRows, "暂无事件") + "</div>" +
+      "</div>" +
+      '<div class="chart-panel"><div class="chart-head"><strong>最近落库 SQL 证据</strong>' +
+        '<span class="muted">共 ' + checks.length + ' 条</span></div>' +
+        tpTable(["接口", "表", "用例", "时间"], latestChecks, "暂无证据") +
+        '<a class="tp-more" href="#/thirdparty/sql">查看全部 SQL 证据 →</a></div>';
+    bindTpActions();
+  }
+
+  function tpErSvg(er) {
+    if (!er || !(er.nodes || []).length) {
+      return '<p class="muted">暂无可推断的表关系</p>';
+    }
+    const width = 1080, height = er.height || 420;
+    const byId = {};
+    (er.nodes || []).forEach(function (node) { byId[node.id] = node; });
+    const colors = { "认证与权限": "#3563e9", "商品与库存": "#1f9d61",
+      "交易与履约": "#b26a00", "运营与内容": "#7a5af8", "系统": "#667085", "其他": "#667085" };
+    const edges = (er.edges || []).map(function (edge) {
+      const a = byId[edge.from], b = byId[edge.to];
+      if (!a || !b) return "";
+      const x1 = a.x + a.w, y1 = a.y + a.h / 2;
+      const x2 = b.x, y2 = b.y + b.h / 2;
+      const mid = (x1 + x2) / 2;
+      return '<path d="M' + x1 + " " + y1 + " C" + mid + " " + y1 + " " + mid + " " +
+        y2 + " " + x2 + " " + y2 + '" class="er-edge"/>' +
+        '<text class="er-edge-label" x="' + mid + '" y="' + ((y1 + y2) / 2 - 3) +
+        '" text-anchor="middle">' + escapeHtml(edge.fromField || "") + "</text>" +
+        '<title>' + escapeHtml(edge.from + "." + edge.fromField + " → " + edge.to) + "</title>";
+    }).join("");
+    const nodes = (er.nodes || []).map(function (node) {
+      const color = colors[node.module] || "#667085";
+      return '<g class="er-node" data-er-table="' + escapeHtml(node.id) + '" tabindex="0">' +
+        '<rect x="' + node.x + '" y="' + node.y + '" width="' +
+        node.w + '" height="' + node.h + '" rx="8" stroke="' + color + '"/>' +
+        '<text x="' + (node.x + 10) + '" y="' + (node.y + 17) + '">' +
+        escapeHtml(node.label) + '</text><text class="er-module" x="' + (node.x + 10) +
+        '" y="' + (node.y + 33) + '">' + escapeHtml(node.module) + "</text>" +
+        '<title>' + escapeHtml(node.id) + "</title></g>";
+    }).join("");
+    return '<div class="er-wrap"><svg viewBox="0 0 ' + width + " " + height +
+      '" class="er-svg" role="img" aria-label="数据库表关系图">' + edges + nodes + "</svg></div>";
+  }
+
+  function renderThirdpartyDatabase(data) {
+    tpShell(data);
+    const db = data.db || {};
+    const knowledge = data.knowledge || {};
+    const modules = {};
+    (db.tables || []).forEach(function (table) {
+      const name = table.module || "其他";
+      (modules[name] = modules[name] || []).push(table);
+    });
+    const moduleHtml = Object.keys(modules).map(function (module) {
+      const tables = modules[module].map(function (table) {
+        const fields = (table.fields || []).filter(function (field) { return field.core; });
+        const fieldRows = fields.map(function (field) {
+          return '<tr data-tp-row data-tp-text="' + escapeHtml(
+            table.schema + "." + table.name + " " + field.name + " " + (field.meaning || "")) +
+            '"><td><code>' + escapeHtml(field.name) + "</code></td><td>" +
+            escapeHtml(field.meaning || "") + "</td><td>" + escapeHtml(field.type) +
+            "</td><td>" + (field.nullable ? "是" : "否") + "</td></tr>";
+        }).join("");
+        return '<details class="tp-table-block" open id="tp-table-' +
+          escapeHtml((table.schema + "." + table.name).replace(/[^A-Za-z0-9]+/g, "-")) +
+          '"><summary><b>' + escapeHtml(table.schema + "." + table.name) + "</b><span>" +
+          (table.rows == null ? "—" : table.rows) + " 行 · " + fields.length +
+          " 核心字段</span></summary>" +
+          '<div class="drill-table-wrap"><table class="tp-field-table"><thead><tr>' +
+          "<th>字段</th><th>含义</th><th>类型</th><th>可空</th>" +
+          "</tr></thead><tbody>" + (fieldRows || '<tr><td colspan="4" class="muted">无核心字段</td></tr>') +
+          "</tbody></table></div></details>";
+      }).join("");
+      return '<details class="tp-module-block" open><summary><b>' + escapeHtml(module) +
+        "</b><span>" + modules[module].length + " 张表</span></summary>" + tables + "</details>";
+    }).join("");
+    const relationRows = (db.relations || []).map(function (rel) {
+      return '<tr data-tp-row><td><code>' + escapeHtml(rel.from) + "</code></td><td><code>" +
+        escapeHtml(rel.fromField) + "</code></td><td>→</td><td><code>" +
+        escapeHtml(rel.to) + "</code></td><td>" + escapeHtml(rel.type || "") + "</td></tr>";
+    }).join("");
+    const mappingRows = (knowledge.apiMappings || []).map(function (item) {
+      const status = item.status || (item.table ? "contract" : "not_applicable");
+      const label = { covered: "已覆盖", contract: "契约无测试", missing_contract: "已映射·契约待补",
+        mapped_table: "已映射（表级）", not_applicable: "不适用" }[status] || status;
+      const badge = status === "covered" ? "passed" :
+        status === "not_applicable" ? "skipped" : "warn";
+      return '<tr data-tp-row data-tp-text="' + escapeHtml(item.endpoint + " " +
+        (item.table || "") + " " + (item.locate || "")) + '"><td><code>' +
+        escapeHtml(item.endpoint) + "</code></td><td>" +
+        (item.table ? "<code>" + escapeHtml(item.table) + "</code>" :
+          '<span class="muted">—</span>') + "</td><td>" +
+        escapeHtml(item.locate || "—") + '</td><td><span class="badge ' + badge + '">' +
+        label + "</span></td><td>" + (item.tests || []).length +
+        '</td><td><code>' + escapeHtml(item.sqlExample || "—") + "</code></td></tr>";
+    }).join("");
+    el.statsView.innerHTML =
+      tpKpis(db, data.redis || {}, data.mq || {}, tpRedisCount(data.redis || {})) + tpBanner(data) +
+      '<div class="chart-panel"><div class="chart-head"><strong>表关系图（ER）</strong>' +
+        '<span class="muted">按外键字段推断 · 核心表</span></div>' + tpErSvg(db.er) +
+        '<div class="tp-er-legend"><span><i class="dot-identity"></i>认证与权限</span>' +
+        '<span><i class="dot-product"></i>商品与库存</span><span><i class="dot-trade"></i>交易与履约</span></div>' +
+        '<div class="drill-table-wrap tp-relation-table"><table class="drawer-table drill-table bench-table"><thead><tr>' +
+          "<th>源表</th><th>字段</th><th></th><th>目标表</th><th>关系</th>" +
+        "</tr></thead><tbody>" + (relationRows || '<tr><td colspan="5" class="muted">暂无外键关系</td></tr>') +
+        "</tbody></table></div></div>" +
+      '<div class="tp-toolbar"><input data-tp-search class="search" type="search" ' +
+        'placeholder="搜索模块 / 表 / 字段 / 含义"><span class="muted" data-tp-filter-summary></span></div>' +
+      '<div class="tp-modules">' + moduleHtml + "</div>" +
+      '<div class="chart-panel"><div class="chart-head"><strong>接口 → 表 → SQL</strong>' +
+        '<span class="muted">78 个写接口；契约待补表示已从调用链识别表，但尚未建立字段契约</span></div>' +
+        tpTable(["接口", "表", "定位方式", "契约状态", "关联测试", "SQL 示例"], mappingRows, "暂无映射") + "</div>";
+    bindTpActions();
+    el.statsView.querySelectorAll(".er-node").forEach(function (node) {
+      const jump = function () {
+        const target = document.getElementById("tp-table-" +
+          node.dataset.erTable.replace(/[^A-Za-z0-9]+/g, "-"));
+        if (target) {
+          target.open = true;
+          target.scrollIntoView({ behavior: "smooth", block: "center" });
+          target.classList.add("tp-highlight");
+          setTimeout(function () { target.classList.remove("tp-highlight"); }, 1800);
+        }
+      };
+      node.addEventListener("click", jump);
+      node.addEventListener("keydown", function (event) {
+        if (event.key === "Enter" || event.key === " ") { event.preventDefault(); jump(); }
+      });
+    });
+  }
+  function tpCommands(data, component) {
+    const item = (data.reproduce || []).find(function (step) { return step.component === component; });
+    if (!item) return "";
+    return (item.commands || []).map(function (command) {
+      return '<div class="tp-command"><code>' + escapeHtml(command) + "</code>" +
+        tpCopyButton(command) + "</div>";
+    }).join("");
+  }
+
+  function tpTestRows(tests) {
+    return (tests || []).map(function (test) {
+      return '<tr data-tp-row><td>' + escapeHtml(test.caseId || "—") + "</td><td>" +
+        escapeHtml(test.name || "") + "</td><td>" + escapeHtml(test.endpoint || "") +
+        "</td><td>" + statusBadge(test.status) + "</td></tr>";
+    }).join("");
+  }
+
+  const TP_OPS_BASE = "http://127.0.0.1:8098";
+
+  function tpShowResult(targetId, data) {
+    const target = document.getElementById(targetId);
+    if (!target) return;
+    target.textContent = typeof data === "string" ? data : JSON.stringify(data, null, 2);
+  }
+
+  function tpOpsRequest(path, options, targetId) {
+    tpShowResult(targetId, "请求中…");
+    fetch(TP_OPS_BASE + path, options)
+      .then(function (response) { return response.json(); })
+      .then(function (data) { tpShowResult(targetId, data); })
+      .catch(function (error) {
+        tpShowResult(targetId, "操作服务不可用：" + error.message +
+          "\n请先运行：.venv/bin/python scripts/thirdparty_server.py");
+      });
+  }
+
+  function tpOpsStatus() {
+    const node = document.getElementById("tp-ops-status");
+    if (!node) return;
+    fetch(TP_OPS_BASE + "/api/health")
+      .then(function (response) { return response.json(); })
+      .then(function (data) {
+        node.textContent = "操作服务在线 · Redis " + (data.redis ? "OK" : "DOWN") +
+          " · RabbitMQ " + (data.rabbitmq ? "OK" : "DOWN");
+        node.className = "tp-ops-status " + (data.redis && data.rabbitmq ? "ok" : "warn");
+      })
+      .catch(function () {
+        node.textContent = "操作服务未启动（只读模式）";
+        node.className = "tp-ops-status warn";
+      });
+  }
+
+  function tpBindRedisOps() {
+    const get = function (id) { const node = document.getElementById(id); return node ? node.value : ""; };
+    const scan = document.getElementById("tp-redis-scan");
+    if (scan) scan.onclick = function () {
+      tpOpsRequest("/api/redis/scan?pattern=" + encodeURIComponent(get("tp-redis-pattern") || "*"),
+        {}, "tp-redis-result");
+    };
+    const query = document.getElementById("tp-redis-get");
+    if (query) query.onclick = function () {
+      tpOpsRequest("/api/redis/get?key=" + encodeURIComponent(get("tp-redis-key")), {}, "tp-redis-result");
+    };
+    const set = document.getElementById("tp-redis-set");
+    if (set) set.onclick = function () {
+      tpOpsRequest("/api/redis/set", {
+        method: "POST", headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ key: get("tp-redis-key"), value: get("tp-redis-value"),
+          ttl: Number(get("tp-redis-ttl") || 0) }),
+      }, "tp-redis-result");
+    };
+    const del = document.getElementById("tp-redis-del");
+    if (del) del.onclick = function () {
+      if (!window.confirm("确认删除 key：" + get("tp-redis-key") + "？")) return;
+      tpOpsRequest("/api/redis/delete", {
+        method: "POST", headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ key: get("tp-redis-key") }),
+      }, "tp-redis-result");
+    };
+    tpOpsStatus();
+  }
+
+  function tpBindMqOps() {
+    const get = function (id) { const node = document.getElementById(id); return node ? node.value : ""; };
+    const queues = document.getElementById("tp-mq-queues");
+    if (queues) queues.onclick = function () {
+      tpOpsRequest("/api/mq/queues", {}, "tp-mq-result");
+    };
+    const messages = document.getElementById("tp-mq-messages");
+    if (messages) messages.onclick = function () {
+      tpOpsRequest("/api/mq/messages?vhost=" + encodeURIComponent(get("tp-mq-vhost") || "/") +
+        "&queue=" + encodeURIComponent(get("tp-mq-queue")) + "&count=10", {}, "tp-mq-result");
+    };
+    const publish = document.getElementById("tp-mq-publish");
+    if (publish) publish.onclick = function () {
+      let payload = get("tp-mq-payload");
+      try { payload = JSON.parse(payload); } catch (error) { /* 保持字符串 */ }
+      tpOpsRequest("/api/mq/publish", {
+        method: "POST", headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ vhost: get("tp-mq-vhost") || "/", exchange: get("tp-mq-exchange"),
+          routingKey: get("tp-mq-routing"), payload: payload }),
+      }, "tp-mq-result");
+    };
+    const consume = document.getElementById("tp-mq-consume");
+    if (consume) consume.onclick = function () {
+      if (!window.confirm("确认从队列消费并删除 1 条消息？")) return;
+      tpOpsRequest("/api/mq/consume", {
+        method: "POST", headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ vhost: get("tp-mq-vhost") || "/", queue: get("tp-mq-queue") }),
+      }, "tp-mq-result");
+    };
+    const purge = document.getElementById("tp-mq-purge");
+    if (purge) purge.onclick = function () {
+      if (!window.confirm("确认清空队列：" + get("tp-mq-queue") + "？")) return;
+      tpOpsRequest("/api/mq/purge", {
+        method: "POST", headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ vhost: get("tp-mq-vhost") || "/",
+          queue: get("tp-mq-queue"), confirm: "PURGE" }),
+      }, "tp-mq-result");
+    };
+    tpOpsStatus();
+  }
+
+  function tpTrendSvg(trend) {
+    const items = (trend || []).slice(-40);
+    if (!items.length) return '<p class="muted">最近 24 小时暂无事件</p>';
+    const W = 980, H = 220, left = 40, bottom = 30, top = 12;
+    const max = Math.max.apply(null, items.map(function (item) { return item.count || 0; }).concat([1]));
+    const band = (W - left - 10) / items.length;
+    const bars = items.map(function (item, index) {
+      const height = (item.count || 0) / max * (H - top - bottom);
+      const x = left + index * band + 2;
+      return '<rect x="' + x + '" y="' + (H - bottom - height) + '" width="' +
+        Math.max(2, band - 4) + '" height="' + height + '" class="mq-bar"><title>' +
+        escapeHtml(item.label + " · " + item.count + " 条") + "</title></rect>";
+    }).join("");
+    return '<svg viewBox="0 0 ' + W + " " + H + '" class="mq-trend">' +
+      '<line x1="' + left + '" y1="' + (H - bottom) + '" x2="' + (W - 10) +
+      '" y2="' + (H - bottom) + '" class="grid"/>' +
+      '<text x="4" y="' + (top + 10) + '">' + max + "</text>" +
+      '<text x="' + left + '" y="' + (H - 10) + '">' + escapeHtml(items[0].label) + "</text>" +
+      '<text x="' + (W - 10) + '" y="' + (H - 10) + '" text-anchor="end">' +
+      escapeHtml(items[items.length - 1].label) + "</text>" + bars + "</svg>";
+  }
+
+  function renderThirdpartyRedis(data) {
+    tpShell(data);
+    const redis = data.redis || {};
+    const counts = Object.keys(redis.counts || {}).map(function (pattern) {
+      return '<span class="check-chip"><b>' + escapeHtml(pattern) + "</b>" +
+        (redis.counts[pattern] || 0) + " keys</span>";
+    }).join("");
+    const rows = (redis.samples || []).map(function (item) {
+      return '<tr data-tp-row><td><code>' + escapeHtml(item.key) + "</code></td><td>" +
+        escapeHtml(item.type || "") + "</td><td>" + (item.ttl == null ? "—" : item.ttl) +
+        "</td><td><code>" + escapeHtml(String(item.value == null ? "—" : item.value)) +
+        "</code></td><td>" + escapeHtml(item.command || "") + "</td></tr>";
+    }).join("");
+    const mappings = (data.redisMappings || []).map(function (item) {
+      const titles = (item.tests || []).map(function (test) { return test.title || test.name || ""; });
+      const shown = titles.slice(0, 3).join("；") + (titles.length > 3 ? "（+" + (titles.length - 3) + "）" : "");
+      return "<tr data-tp-row><td>" + escapeHtml(item.module) + "</td><td>" +
+        escapeHtml(item.function) + "</td><td><code>" + escapeHtml(item.pattern) +
+        '</code></td><td><div class="tp-cell-lines">' +
+        (item.related || []).map(function (path) {
+          return "<div><code>" + escapeHtml(path) + "</code></div>";
+        }).join("") + '</div></td><td title="' + escapeHtml(titles.join("；")) +
+        '"><div class="tp-cell-lines">' + (titles.length ? titles.map(function (title) {
+          return "<div>" + escapeHtml(title) + "</div>";
+        }).join("") : '<span class="muted">—</span>') + "</div></td></tr>";
+    }).join("");
+    const testCards = (data.redisTestDetails || []).map(function (test) {
+      const steps = (test.steps || []).map(function (step) {
+        const actualRequest = step.actualRequest || "—";
+        const actualResponse = step.actualStatus
+          ? "HTTP " + step.actualStatus + "\n" + (step.actualResponse || "")
+          : "—";
+        const redisRequest = step.redisCommand || "—";
+        let redisResult = "—";
+        if (step.redisTtl !== undefined && step.redisTtl !== null) {
+          redisResult = "TTL=" + step.redisTtl;
+        } else if (step.redisValue !== undefined && step.redisValue !== null) {
+          redisResult = typeof step.redisValue === "string" ? step.redisValue :
+            JSON.stringify(step.redisValue);
+        }
+        return "<tr><td>" + escapeHtml(step.step) + "</td><td>" +
+          escapeHtml(step.action || "") + "</td><td><code>" + escapeHtml(step.key || "") +
+          "</code></td><td><code>" + escapeHtml(step.command || "") +
+          '</code></td><td class="tp-param-source">' + escapeHtml(step.paramSource || "") +
+          '<div class="muted">' + escapeHtml(step.sourceRef || "") + "</div></td><td>" +
+          escapeHtml(step.expected || "") + '</td><td><code class="tp-actual" title="' +
+          escapeHtml(redisRequest) + '">' + escapeHtml(redisRequest) +
+          '</code></td><td><code class="tp-actual">' + escapeHtml(redisResult.slice(0, 180)) +
+          '</code></td><td><code class="tp-actual" title="' + escapeHtml(actualRequest) +
+          '">' + escapeHtml(actualRequest.slice(0, 180)) +
+          '</code></td><td><code class="tp-actual" title="' + escapeHtml(actualResponse) +
+          '">' + escapeHtml(actualResponse.slice(0, 220)) + "</code></td></tr>";
+      }).join("");
+      return '<details class="tp-test-case" open><summary><b>' + escapeHtml(test.title) +
+        "</b><span>" + statusBadge(test.status) + '</span><code>' +
+        escapeHtml(test.endpoint || "") + '</code><span class="muted">' +
+        ((test.steps || []).length) + " 个步骤</span></summary>" +
+        '<div class="drill-table-wrap"><table class="tp-step-table"><thead><tr>' +
+          "<th>步骤</th><th>操作</th><th>Redis Key</th><th>查询命令</th>" +
+          "<th>参数来源</th><th>预期结果</th>" +
+          "<th>Redis 实际请求</th><th>Redis 返回</th>" +
+          "<th>API 真实请求参数</th><th>API 真实响应</th>" +
+        "</tr></thead><tbody>" + steps + "</tbody></table></div>" +
+        '<details class="tp-redis-actuals"><summary>Redis 实际执行记录（' +
+          ((test.redisActuals || []).length) + ' 条）</summary>' +
+        '<div class="drill-table-wrap"><table class="tp-step-table"><thead><tr>' +
+          "<th>命令</th><th>Key</th><th>返回</th><th>TTL</th>" +
+        "</tr></thead><tbody>" + (test.redisActuals || []).map(function (item) {
+          const value = item.value === null || item.value === undefined ? "—" :
+            (typeof item.value === "string" ? item.value : JSON.stringify(item.value));
+          return "<tr><td><code>" + escapeHtml(item.command || "") + "</code></td><td><code>" +
+            escapeHtml(item.key || "") + "</code></td><td><code>" +
+            escapeHtml(String(value).slice(0, 200)) + "</code></td><td>" +
+            (item.ttl == null ? "—" : item.ttl) + "</td></tr>";
+        }).join("") + "</tbody></table></div></details>" +
+        '<details class="tp-api-actuals"><summary>API 实际执行序列（' +
+          ((test.actuals || []).length) + ' 条）</summary>' +
+        '<div class="drill-table-wrap"><table class="tp-step-table"><thead><tr>' +
+          "<th>#</th><th>方法 / 路径</th><th>请求参数</th><th>HTTP</th><th>响应</th><th>traceId</th>" +
+        "</tr></thead><tbody>" + (test.actuals || []).map(function (item, index) {
+          return "<tr><td>" + (index + 1) + "</td><td><code>" + escapeHtml(item.method || "") +
+            " " + escapeHtml(item.path || "") + '</code></td><td><code class="tp-actual" title="' +
+            escapeHtml(item.requestBody || "") + '">' +
+            escapeHtml(String(item.requestBody || "").slice(0, 200)) + "</code></td><td>" +
+            (item.status == null ? "—" : item.status) + '</td><td><code class="tp-actual" title="' +
+            escapeHtml(item.responseBody || "") + '">' +
+            escapeHtml(String(item.responseBody || "").slice(0, 240)) + "</code></td><td><code>" +
+            escapeHtml(item.traceId || "") + "</code></td></tr>";
+        }).join("") + "</tbody></table></div></details></details>";
+    }).join("");
+    const fallbackTests = '<div class="chart-panel"><div class="chart-head"><strong>相关测试用例</strong></div>' +
+      tpTable(["用例", "名称", "接口", "状态"], tpTestRows((data.tests || {}).redis), "暂无 Redis 用例") + "</div>";
+    el.statsView.innerHTML =
+      tpKpis(data.db || {}, redis, data.mq || {}, tpRedisCount(redis)) + tpBanner(data) +
+      '<div class="chart-panel"><div class="chart-head"><strong>Redis 功能映射</strong>' +
+        '<span class="muted">业务模块 · 功能 · key 模式 · 相关接口（不含请求方式）</span></div>' +
+        tpTable(["模块", "功能", "Key 模式", "相关接口", "相关用例标题"], mappings,
+          "暂无映射", "tp-mapping-table") + "</div>" +
+      '<div class="chart-panel"><div class="chart-head"><strong>Key 查询 / 写入 / 删除</strong>' +
+        '<span id="tp-ops-status" class="tp-ops-status">检测操作服务…</span></div>' +
+        '<div class="tp-op-grid">' +
+          '<label>Pattern<input id="tp-redis-pattern" value="' +
+            escapeHtml(redis.defaultPattern || "sms:phone:*") + '"></label>' +
+          '<button class="detail-btn" id="tp-redis-scan">扫描</button>' +
+          '<label>Key（默认取当前真实存在的 key）<input id="tp-redis-key" value="' +
+            escapeHtml(redis.defaultKey || "") + '" placeholder="' +
+            (redis.defaultKey ? "" : "当前无 key，请先写入") + '"></label>' +
+          '<button class="detail-btn" id="tp-redis-get">读取</button>' +
+          '<label>Value<input id="tp-redis-value" placeholder="写入值"></label>' +
+          '<label>TTL（秒）<input id="tp-redis-ttl" type="number" value="300"></label>' +
+          '<button class="detail-btn" id="tp-redis-set">写入</button>' +
+          '<button class="detail-btn danger" id="tp-redis-del">删除</button>' +
+        "</div>" +
+        '<pre id="tp-redis-result" class="tp-op-result">操作结果将在这里显示</pre></div>' +
+      '<div class="chart-panel"><div class="chart-head"><strong>Redis 键分布</strong>' +
+        '<span class="muted">' + escapeHtml(redis.host || "") + "</span></div>" +
+        '<div class="check-strip">' + (counts || '<span class="muted">暂无 key</span>') + "</div>" +
+        tpTable(["Key", "类型", "TTL", "值（脱敏）", "查询命令"], rows, "Redis 不可用") + "</div>" +
+      '<div class="chart-panel"><div class="chart-head"><strong>相关测试用例与 Redis 校验步骤</strong>' +
+        '<span class="muted">每个用例一行，展开查看 key 与预期结果</span></div>' +
+        (testCards || '<p class="muted">暂无 Redis 步骤数据</p>') + "</div>" +
+      (testCards ? "" : fallbackTests) +
+      '<div class="chart-panel"><div class="chart-head"><strong>手工核验命令</strong></div>' +
+        '<div class="tp-commands">' + (tpCommands(data, "Redis") || '<span class="muted">无命令</span>') + "</div></div>" +
+      '<div class="chart-panel"><div class="chart-head"><strong>判定标准</strong></div>' +
+        '<ul class="suggest-list"><li>验证码 TTL 240–300s；冷却 ≤60s；</li>' +
+        "<li>连续 5 次失败后 `login:fail:*` 存在且 TTL ≤900s；</li>" +
+        "<li>`jwt:blacklist:*` 的 TTL 应大于 0；</li>" +
+        "<li>页面只读数字与 SCAN/GET 结果不一致时，以命令结果为准。</li></ul></div>";
+    bindTpActions();
+    tpBindRedisOps();
+  }
+  function renderThirdpartyMq(data) {
+    tpShell(data);
+    const mq = data.mq || {};
+    const queueRows = (mq.queues || []).map(function (item) {
+      return '<tr data-tp-row><td><code>' + escapeHtml(item.name || "") + "</code></td><td>" +
+        (item.messages == null ? "—" : item.messages) + "</td><td>" +
+        (item.ready == null ? "—" : item.ready) + "</td><td>" +
+        (item.unacked == null ? "—" : item.unacked) + "</td><td>" +
+        (item.consumers == null ? "—" : item.consumers) + "</td></tr>";
+    }).join("");
+    const eventRows = (mq.events || []).map(function (item) {
+      return "<tr data-tp-row><td>" + escapeHtml(item.order_id) + "</td><td>" +
+        escapeHtml(item.event_type) + "</td><td><code>" + escapeHtml(item.trace_id || "") +
+        '</code></td><td class="muted">' + escapeHtml(String(item.created_at || "")) +
+        "</td><td><code>" + escapeHtml(String(item.payload || "").slice(0, 180)) + "</code></td></tr>";
+    }).join("");
+    const mappings = (data.mqMappings || []).map(function (item) {
+      const titles = (item.tests || []).map(function (test) { return test.title || test.name || ""; });
+      return "<tr data-tp-row><td>" + escapeHtml(item.module) + "</td><td>" +
+        escapeHtml(item.function) + '</td><td><div class="tp-cell-lines"><div><code>' +
+        escapeHtml(item.exchange) + "</code></div></div></td>" +
+        '<td><div class="tp-cell-lines"><div><code>' + escapeHtml(item.routingKey) +
+        "</code></div></div></td><td><div class=\"tp-cell-lines\"><div><code>" +
+        escapeHtml(item.queue) + '</code></div></div></td><td><div class="tp-cell-lines">' +
+        (item.related || []).map(function (path) {
+          return "<div><code>" + escapeHtml(path) + "</code></div>";
+        }).join("") + '</div></td><td><div class="tp-cell-lines">' +
+        (titles.length ? titles.map(function (title) {
+          return "<div>" + escapeHtml(title) + "</div>";
+        }).join("") : '<span class="muted">—</span>') + "</div></td><td>" +
+        tpLongCell(typeof item.payloadSample === "string"
+          ? item.payloadSample : JSON.stringify(item.payloadSample || {}),
+          "Payload 示例" + (item.payloadSource ? " · " + item.payloadSource : "")) +
+        "</td></tr>";
+    }).join("");
+    const testCards = (data.mqTestDetails || []).map(function (test) {
+      const steps = (test.steps || []).map(function (step) {
+        const actualRequest = step.apiRequest || "—";
+        const actualResponse = step.apiResponse || "—";
+        const trace = [
+          step.apiTraceId ? "API " + step.apiTraceId : "",
+          step.mqTraceId ? "MQ " + step.mqTraceId : "",
+        ].filter(Boolean).join(" / ") || step.traceNote || "—";
+        return "<tr><td>" + escapeHtml(step.step) + "</td><td>" +
+          escapeHtml(step.action || "") + '</td><td class="tp-param-source">' +
+          escapeHtml(step.paramSource || "") + '<div class="muted">' +
+          escapeHtml(step.sourceRef || "") + "</div></td><td>" + escapeHtml(step.expected || "") +
+          "</td><td>" + tpLongCell(step.mqRequest, "MQ 实际请求 / Body") +
+          "</td><td>" + tpLongCell(step.mqResult, "MQ 返回") +
+          "</td><td>" + tpLongCell(actualRequest, "API 真实请求参数") +
+          "</td><td>" + tpLongCell(actualResponse, "API 真实响应") +
+          '</td><td><code class="tp-trace">' + escapeHtml(trace) + "</code></td></tr>";
+      }).join("");
+      const apiActuals = (test.actuals || []).map(function (item, index) {
+        return "<tr><td>" + (index + 1) + "</td><td><code>" + escapeHtml(item.method || "") +
+          " " + escapeHtml(item.path || "") + "</code></td><td><code>" +
+          escapeHtml(String(item.requestBody || "").slice(0, 200)) + "</code></td><td>" +
+          (item.status == null ? "—" : item.status) + "</td><td><code>" +
+          escapeHtml(String(item.responseBody || "").slice(0, 240)) + "</code></td><td><code>" +
+          escapeHtml(item.traceId || "") + "</code></td></tr>";
+      }).join("");
+      const events = (test.events || []).map(function (item) {
+        return "<tr><td>" + escapeHtml(item.order_id) + "</td><td>" +
+          escapeHtml(item.event_type) + "</td><td><code>" + escapeHtml(item.trace_id || "") +
+          '</code></td><td class="muted">' + escapeHtml(String(item.created_at || "")) +
+          "</td></tr>";
+      }).join("");
+      return '<details class="tp-test-case" open><summary><b>' + escapeHtml(test.title) +
+        "</b><span>" + statusBadge(test.status) + '</span><code>' +
+        escapeHtml(test.endpoint || "") + '</code><span class="muted">' +
+        ((test.steps || []).length) + " 个步骤</span></summary>" +
+        '<div class="drill-table-wrap"><table class="tp-step-table"><thead><tr>' +
+          "<th>步骤</th><th>操作</th><th>参数来源</th><th>预期结果</th>" +
+          "<th>MQ 实际请求 / Body</th><th>MQ 返回</th><th>API 真实请求参数</th>" +
+          "<th>API 真实响应</th><th>traceId</th>" +
+        "</tr></thead><tbody>" + steps + "</tbody></table></div>" +
+        ((test.actuals || []).length ? '<details class="tp-api-actuals"><summary>API 实际执行序列（' +
+          test.actuals.length + ' 条）</summary><div class="drill-table-wrap">' +
+          '<table class="tp-step-table"><thead><tr><th>#</th><th>方法 / 路径</th><th>请求参数</th>' +
+          '<th>HTTP</th><th>响应</th><th>traceId</th></tr></thead><tbody>' + apiActuals +
+          "</tbody></table></div></details>" : "") +
+        ((test.events || []).length ? '<details class="tp-redis-actuals"><summary>order_event_log 实际事件（' +
+          test.events.length + ' 条）</summary><div class="drill-table-wrap">' +
+          '<table class="tp-step-table"><thead><tr><th>订单</th><th>事件</th><th>traceId</th>' +
+          '<th>时间</th></tr></thead><tbody>' + events + "</tbody></table></div></details>" : "") +
+        '<details class="tp-mq-actuals"><summary>当前队列观测（' +
+          ((data.mq.queues || []).length) + ' 个队列）</summary><div class="drill-table-wrap">' +
+          '<table class="tp-step-table"><thead><tr><th>队列</th><th>消息数</th><th>Ready</th>' +
+          '<th>Unacked</th><th>消费者</th></tr></thead><tbody>' +
+          (data.mq.queues || []).map(function (queue) {
+            return "<tr><td><code>" + escapeHtml(queue.name || "") + "</code></td><td>" +
+              (queue.messages == null ? "—" : queue.messages) + "</td><td>" +
+              (queue.ready == null ? "—" : queue.ready) + "</td><td>" +
+              (queue.unacked == null ? "—" : queue.unacked) + "</td><td>" +
+              (queue.consumers == null ? "—" : queue.consumers) + "</td></tr>";
+          }).join("") + "</tbody></table></div></details>" +
+        "</details>";
+    }).join("");
+    const sample = JSON.stringify({
+      eventId: "demo-ORDER_PAID", eventType: "ORDER_PAID", orderId: "0",
+      amount: "0.00", paidAt: new Date().toISOString(), traceId: "manual-check",
+    }, null, 2);
+    el.statsView.innerHTML =
+      tpKpis(data.db || {}, data.redis || {}, mq, tpRedisCount(data.redis || {})) + tpBanner(data) +
+      '<div class="chart-panel"><div class="chart-head"><strong>MQ 功能映射</strong>' +
+        '<span class="muted">模块 · 功能 · Topic/Routing · Queue · 接口（不含请求方式）· 用例标题</span></div>' +
+        tpTable(["模块", "功能", "Exchange", "Routing Key", "Queue", "相关接口", "相关用例标题", "Payload 示例"],
+          mappings, "暂无映射", "tp-mapping-table") + "</div>" +
+      '<div class="chart-panel"><div class="chart-head"><strong>请求趋势（order_event_log，最近 24 小时）</strong></div>' +
+        tpTrendSvg(mq.trend) + "</div>" +
+      '<div class="chart-panel"><div class="chart-head"><strong>相关测试用例与 MQ 校验步骤</strong>' +
+        '<span class="muted">每个用例一行，展开查看实际事件与参数来源</span></div>' +
+        (testCards || '<p class="muted">暂无 MQ 步骤数据</p>') + "</div>" +
+      '<div class="chart-panel"><div class="chart-head"><strong>MQ 查询 / 发布 / 拉取 / 清空</strong>' +
+        '<span id="tp-ops-status" class="tp-ops-status">检测操作服务…</span></div>' +
+        '<div class="tp-op-grid">' +
+          '<label>Namespace / VHost<input id="tp-mq-vhost" value="/"></label>' +
+          '<label>Exchange / Topic<input id="tp-mq-exchange" value="commerce.order.event"></label>' +
+          '<label>Routing Key<input id="tp-mq-routing" value="order.paid"></label>' +
+          '<label>Queue<input id="tp-mq-queue" value="commerce.order.event.queue"></label>' +
+          '<label class="wide">Payload<textarea id="tp-mq-payload" rows="6">' + escapeHtml(sample) + "</textarea></label>" +
+          '<button class="detail-btn" id="tp-mq-queues">查询队列</button>' +
+          '<button class="detail-btn" id="tp-mq-messages">拉取消息（不删除）</button>' +
+          '<button class="detail-btn" id="tp-mq-consume">消费并删除 1 条</button>' +
+          '<button class="detail-btn" id="tp-mq-publish">发布</button>' +
+          '<button class="detail-btn danger" id="tp-mq-purge">清空队列</button>' +
+        "</div>" +
+        '<pre id="tp-mq-result" class="tp-op-result">操作结果将在这里显示</pre></div>' +
+      '<div class="chart-panel"><div class="chart-head"><strong>队列状态</strong>' +
+        '<span class="muted">' + escapeHtml(mq.base || "") + " · v" + escapeHtml(mq.version || "-") + "</span></div>" +
+        tpTable(["队列", "消息数", "Ready", "Unacked", "消费者"], queueRows, "RabbitMQ 不可用") + "</div>" +
+      '<div class="chart-panel"><div class="chart-head"><strong>order_event_log</strong>' +
+        '<span class="muted">共 ' + (mq.eventCount || 0) + " 条，展示最新 20 条</span></div>" +
+        tpTable(["订单", "事件", "traceId", "时间", "payload"], eventRows, "暂无事件") + "</div>" +
+      '<div class="chart-panel"><div class="chart-head"><strong>手工核验命令</strong></div>' +
+        '<div class="tp-commands">' + (tpCommands(data, "RabbitMQ") || '<span class="muted">无命令</span>') + "</div></div>" +
+      '<div class="chart-panel"><div class="chart-head"><strong>判定标准</strong></div>' +
+        '<ul class="suggest-list"><li>队列 messages/unacked 与消费者状态合理；</li>' +
+        "<li>每笔支付成功应有一条 ORDER_PAID 事件；</li>" +
+        "<li>重复投递后事件表仍只有 1 行；</li>" +
+        "<li>非法事件进入 DLQ；</li>" +
+        "<li>清空队列前必须输入确认，页面不会自动执行。</li></ul></div>";
+    bindTpActions();
+    tpBindMqOps();
+    bindTpLongCells();
+  }
+  function renderThirdpartySql(data) {
+    tpShell(data);
+    const checks = (data.knowledge || {}).dbChecks || [];
+    const rows = checks.slice().reverse().map(function (item) {
+      const rowText = JSON.stringify(item.row || {});
+      return '<tr data-tp-row><td><code>' + escapeHtml(item.endpoint || "") + "</code></td><td>" +
+        "<code>" + escapeHtml(item.table || "") + "</code></td><td>" +
+        escapeHtml(item.case || "") + '</td><td class="muted">' +
+        escapeHtml(item.at || "") + "</td><td><code>" + escapeHtml(item.sql || "") +
+        "</code><br><span class=\"muted\">" + escapeHtml(JSON.stringify(item.params || [])) +
+        "</span></td><td><code>" + escapeHtml(rowText.slice(0, 360)) +
+        (rowText.length > 360 ? "…" : "") + "</code>" +
+        '<div class="tp-copy-row">' + tpCopyButton(item.sql + "\n-- params: " + JSON.stringify(item.params || [])) + "</div></td></tr>";
+    }).join("");
+    el.statsView.innerHTML =
+      tpKpis(data.db || {}, data.redis || {}, data.mq || {}, tpRedisCount(data.redis || {})) + tpBanner(data) +
+      '<div class="tp-toolbar"><input data-tp-search class="search" type="search" ' +
+        'placeholder="搜索接口 / 表 / 用例 / SQL"><span class="muted" data-tp-filter-summary></span></div>' +
+      '<div class="chart-panel"><div class="chart-head"><strong>落库 SQL 证据</strong>' +
+        '<span class="muted">共 ' + checks.length + " 条 · db_contract 实际执行</span></div>" +
+        tpTable(["接口", "表", "用例", "时间", "SQL / 参数", "结果行"], rows, "暂无 SQL 证据") + "</div>";
+    bindTpActions();
+  }
+
+  function renderThirdpartyRepro(data) {
+    tpShell(data);
+    const steps = data.reproduce || [];
+    const cards = steps.map(function (item) {
+      const commands = (item.commands || []).map(function (command) {
+        return '<div class="tp-command"><code>' + escapeHtml(command) + "</code>" +
+          tpCopyButton(command) + "</div>";
+      }).join("");
+      return '<div class="tp-repro-item"><strong>' + escapeHtml(item.component) + "</strong>" +
+        '<p class="muted">' + escapeHtml(item.goal || "") + "</p>" +
+        '<div class="tp-commands">' + commands + "</div></div>";
+    }).join("");
+    el.statsView.innerHTML =
+      tpKpis(data.db || {}, data.redis || {}, data.mq || {}, tpRedisCount(data.redis || {})) + tpBanner(data) +
+      '<div class="chart-panel"><div class="chart-head"><strong>手工复现与核验</strong>' +
+        '<span class="muted">先执行命令，再对照总览/SQL 证据中的数据</span></div>' +
+        '<div class="tp-reproduce">' + cards + "</div></div>" +
+      '<div class="chart-panel"><div class="chart-head"><strong>判定标准</strong></div>' +
+        '<ul class="suggest-list"><li>DB：页面 SQL 与结果必须能在 psql 复现；</li>' +
+        "<li>Redis：SCAN 到的 key、TTL 与页面一致；</li>" +
+        "<li>MQ：队列 depth 与 order_event_log 行一致；</li>" +
+        "<li>所有数据带采集时间与 runId，不接受无来源数字。</li></ul></div>";
+    bindTpActions();
+  }
+
+  function compareRows(items, empty) {
+    if (!items || !items.length) return '<tr><td colspan="3" class="muted">' + escapeHtml(empty) + "</td></tr>";
+    return items.map(function (item) {
+      return "<tr><td>" + escapeHtml(item.case_id || "—") + "</td><td>" +
+        escapeHtml(item.title || item.nodeid || "") + "</td><td>" +
+        statusBadge(item.status || "unknown") + "</td></tr>";
+    }).join("");
+  }
+
+  function cmpDonut(title, run) {
+    const passed = Number(run.passed || 0);
+    const failed = Number(run.failed || 0);
+    const skipped = Number(run.skipped || 0);
+    const total = Number(run.total || passed + failed + skipped);
+    if (!total) {
+      return '<div class="cmp2-donut-card"><div class="cmp2-donut-head">' +
+        escapeHtml(title) + "</div><p class=\"muted\">无数据</p></div>";
+    }
+    const pct = function (value) { return value / total * 100; };
+    const p = pct(passed);
+    const f = pct(failed);
+    const s = pct(skipped);
+    const gradient = "conic-gradient(var(--pass) 0 " + p.toFixed(2) + "%, var(--fail) " +
+      p.toFixed(2) + "% " + (p + f).toFixed(2) + "%, var(--skip) " +
+      (p + f).toFixed(2) + "% 100%)";
+    const legend = [
+      ["通过", passed, p, "pass"],
+      ["失败", failed, f, "fail"],
+      ["跳过", skipped, s, "skip"],
+    ].map(function (item) {
+      return '<span class="cmp2-legend-item"><i class="' + item[3] + '"></i>' +
+        item[0] + " <b>" + item[1] + "</b>（" + item[2].toFixed(1) + "%）</span>";
+    }).join("");
+    return '<div class="cmp2-donut-card">' +
+      '<div class="cmp2-donut-head">' + escapeHtml(title) + "</div>" +
+      '<div class="cmp2-donut" style="background:' + gradient + '">' +
+        '<div class="cmp2-donut-hole"><b>' + p.toFixed(1) + "%</b><span>通过率</span></div></div>" +
+      '<div class="cmp2-donut-total">共 ' + total + " 条</div>" +
+      '<div class="cmp2-legend">' + legend + "</div></div>";
+  }
+
+  function cmpMetric(label, pair, options) {
+    const opts = options || {};
+    const digits = opts.digits == null ? 0 : opts.digits;
+    const suffix = opts.suffix || "";
+    const values = (pair || []).map(function (value) {
+      return value == null ? null : Number(value);
+    });
+    const known = values.filter(function (value) { return value != null; });
+    const max = opts.max || Math.max.apply(null, known.concat([1]));
+    const before = values[0];
+    const after = values[1];
+    let delta = "—";
+    if (before != null && after != null) {
+      const diff = after - before;
+      delta = (diff > 0 ? "+" : "") + diff.toFixed(digits) + suffix;
+    }
+    let deltaClass = "muted";
+    if (before != null && after != null) {
+      const diff = after - before;
+      if (Math.abs(diff) > 0.0001) {
+        const good = opts.lowerBetter ? diff < 0 : diff > 0;
+        deltaClass = good ? "pass" : "fail";
+      }
+    }
+    const rows = [
+      ["基线", before, "base"],
+      ["本轮", after, "current"],
+    ].map(function (item) {
+      const value = item[1];
+      const width = value == null ? 0 : Math.min(100, Math.max(0, value / max * 100));
+      return '<div class="cmp2-bar-row"><span class="cmp2-bar-name">' + item[0] + "</span>" +
+        '<div class="cmp2-track"><span class="cmp2-fill ' + item[2] + '" style="width:' +
+          width.toFixed(1) + '%"></span></div><b>' +
+          (value == null ? "—" : value.toFixed(digits) + suffix) + "</b></div>";
+    }).join("");
+    return '<div class="cmp2-metric"><div class="cmp2-metric-head"><strong>' +
+      escapeHtml(label) + '</strong><span class="cmp2-delta ' + deltaClass + '">' +
+      delta + "</span></div>" + rows + "</div>";
+  }
+
+  function cmpFailureChart(modules) {
+    const items = (modules || []).filter(function (item) {
+      return Number(item.failed || 0) > 0;
+    }).slice(0, 8);
+    if (!items.length) {
+      return '<div class="chart-panel"><div class="chart-head"><strong>失败业务模块分布</strong></div>' +
+        '<p class="muted">本轮没有失败用例。</p></div>';
+    }
+    const max = Math.max.apply(null, items.map(function (item) { return Number(item.failed || 0); }).concat([1]));
+    const rows = items.map(function (item) {
+      const failed = Number(item.failed || 0);
+      return '<div class="cmp2-module-row" title="' + escapeHtml(item.module + "：失败 " +
+        failed + " / " + item.total + "，失败率 " + item.failRate + "%") + '">' +
+        '<span class="cmp2-module-name">' + escapeHtml(item.module) + "</span>" +
+        '<div class="cmp2-track"><span class="cmp2-fill fail" style="width:' +
+          (failed / max * 100).toFixed(1) + '%"></span></div>' +
+        '<b>' + failed + "</b><span class=\"muted\">/" + item.total + " · " +
+          item.failRate + "%</span></div>";
+    }).join("");
+    return '<div class="chart-panel"><div class="chart-head"><strong>失败业务模块分布</strong>' +
+      '<span class="muted">按本轮失败数排序；明细可在“接口列表 / 缺陷”中继续下钻</span></div>' +
+      '<div class="cmp2-module-chart">' + rows + "</div></div>";
+  }
+
+  function renderCompareInsights(insights) {
+    if (!insights) return "";
+    const level = insights.riskLevel || "low";
+    const levelText = {high: "高", medium: "中", low: "低"}[level] || level;
+    const risks = (insights.risks || []).map(function (item) {
+      const itemLevel = item.level || "low";
+      return '<div class="cmp2-risk-item ' + escapeHtml(itemLevel) + '">' +
+        '<div class="cmp2-risk-title"><span class="cmp2-risk-dot"></span>' +
+          escapeHtml(item.title || "") + "</div>" +
+        '<p>' + escapeHtml(item.detail || "") + "</p>" +
+        (item.evidence ? '<div class="cmp2-evidence">证据：' + escapeHtml(item.evidence) + "</div>" : "") +
+        (item.action ? '<div class="cmp2-action">建议：' + escapeHtml(item.action) + "</div>" : "") +
+        "</div>";
+    }).join("");
+    const focus = (insights.focus || []).map(function (item) {
+      return '<li><b>' + escapeHtml(item.title || "") + "</b>" +
+        (item.count != null ? ' <span class="badge skipped">' + item.count + "</span>" : "") +
+        "<br><span>" + escapeHtml(item.detail || "") + "</span></li>";
+    }).join("");
+    const suggestions = (insights.suggestions || []).map(function (item) {
+      return "<li>" + escapeHtml(item) + "</li>";
+    }).join("");
+    return '<div class="cmp2-verdict ' + escapeHtml(level) + '">' +
+        '<div><span class="cmp2-verdict-label">版本结论</span>&nbsp;' +
+          escapeHtml(insights.verdict || "") + "</div>" +
+        '<span class="cmp2-level">风险等级：' + levelText + "</span></div>" +
+      '<div class="cmp2-insight-grid">' +
+        '<div class="cmp2-insight-card"><h3>风险点</h3>' +
+          (risks || '<p class="muted">未发现阻断性风险。</p>') + "</div>" +
+        '<div class="cmp2-insight-card"><h3>测试关注点</h3>' +
+          (focus ? "<ul>" + focus + "</ul>" : '<p class="muted">暂无额外关注点。</p>') + "</div>" +
+        '<div class="cmp2-insight-card"><h3>下一步建议</h3>' +
+          (suggestions ? "<ol>" + suggestions + "</ol>" : '<p class="muted">保持当前基线。</p>') + "</div>" +
+      "</div>";
+  }
+
+  function comparePair(label, pair, suffix, digits) {
+    const before = pair && pair[0] != null ? Number(pair[0]) : null;
+    const after = pair && pair[1] != null ? Number(pair[1]) : null;
+    let delta = "—";
+    if (before != null && after != null) {
+      const value = after - before;
+      delta = (value > 0 ? "+" : "") + value.toFixed(digits == null ? 0 : digits) +
+        (suffix || "");
+    }
+    const cls = delta === "—" ? "muted" : (delta.indexOf("-") === 0 ? "pass" : "fail");
+    return "<tr><td>" + label + "</td><td>" + (before == null ? "—" : before.toFixed(digits || 0)) +
+      "</td><td>" + (after == null ? "—" : after.toFixed(digits || 0)) + "</td><td class=\"" +
+      cls + "\">" + delta + "</td></tr>";
+  }
+
+  function renderCompareView(data) {
+    el.toolbar.hidden = true;
+    el.reconcileBox.hidden = true;
+    el.tableBox.hidden = true;
+    el.stats.hidden = true;
+    el.statsView.hidden = false;
+    const base = data.baseline || {};
+    const current = data.current || {};
+    const totals = data.totals || {};
+    const diff = data.diff || {};
+    const counts = diff.counts || {};
+    const comparator = data.comparability || {};
+    const comparable = comparator.sameCommit && comparator.sameEnv && comparator.complete;
+    const rate = function (run) {
+      const total = Number(run.total || 0);
+      return total ? (Number(run.passed || 0) / total * 100).toFixed(1) + "%" : "—";
+    };
+    const warning = comparable ? "" :
+      '<div class="compare-warning">⚠ 两轮 commit/env/完整性不一致，覆盖率与性能差异仅供参考。</div>';
+    const wallTotals = totals.wallSeconds || [];
+    const wallPair = [wallTotals[0] ? wallTotals[0] : null, wallTotals[1] ? wallTotals[1] : null];
+    const known = data.knownFailures || {};
+    const knownStrip = known.knownCount == null ? "" :
+      '<div class="cmp2-known">' +
+        '<span class="cmp2-known-title">已知失败台账</span>' +
+        '<span>已知 <b>' + (known.knownCount || 0) + "</b></span>" +
+        '<span class="cmp2-known-ok">未登记 <b>' + (known.unexpectedCount || 0) + "</b></span>" +
+        '<span class="cmp2-known-warn">过期 <b>' + (known.expiredCount || 0) + "</b></span>" +
+        '<span>待清理 <b>' + (known.fixedCount || 0) + "</b></span>" +
+        '<span class="muted">待缺陷归因 ' + (known.unmappedCount || 0) + "</span>" +
+      "</div>";
+    const passRate = function (run) {
+      const total = Number(run.total || 0);
+      return total ? Number(run.passed || 0) / total * 100 : null;
+    };
+    const lineRatePair = (totals.lineRate || [null, null]).map(function (value) {
+      return value == null ? null : Number(value) * 100;
+    });
+    const charts =
+      '<div class="chart-panel"><div class="chart-head"><strong>通过 / 失败 / 跳过构成</strong>' +
+        '<span class="muted">同一用例口径；绿色为通过、红色为失败、黄色为跳过</span></div>' +
+        '<div class="cmp2-donut-grid">' +
+          cmpDonut("基线 " + (base.run_id || "-"), base) +
+          cmpDonut("本轮 " + (current.run_id || "-"), current) +
+        "</div></div>" +
+      '<div class="chart-panel"><div class="chart-head"><strong>关键指标对比</strong>' +
+        '<span class="muted">条形长度按两轮最大值归一化；百分比指标按 100% 显示</span></div>' +
+        '<div class="cmp2-metrics">' +
+          cmpMetric("通过率", [passRate(base), passRate(current)], {suffix: "%", digits: 1, max: 100}) +
+          cmpMetric("失败数", totals.failed, {digits: 0, lowerBetter: true}) +
+          cmpMetric("接口覆盖率", totals.interfaceRate, {suffix: "%", digits: 1, max: 100}) +
+          cmpMetric("DB 落库断言率", totals.dbRate, {suffix: "%", digits: 1, max: 100}) +
+          cmpMetric("方法覆盖率", totals.methodRate, {suffix: "%", digits: 1, max: 100}) +
+          cmpMetric("行覆盖率", lineRatePair, {suffix: "%", digits: 1, max: 100}) +
+          cmpMetric("总耗时", wallPair, {suffix: "s", digits: 1, lowerBetter: true}) +
+        "</div></div>" +
+      cmpFailureChart(data.moduleStats || []) +
+      renderCompareInsights(data.insights || {});
+    const transitions = Object.keys(diff.transitions || {}).map(function (key) {
+      const parts = key.split("->");
+      return "<tr><td>" + escapeHtml(parts[0]) + "</td><td>" + escapeHtml(parts[1]) +
+        "</td><td>" + diff.transitions[key] + "</td></tr>";
+    }).join("");
+    el.statsView.innerHTML =
+      '<div class="stats-kpi">' +
+        kpiCard(rate(current), "本轮通过率") +
+        kpiCard((counts.newFailures || 0) + " / " + (counts.fixed || 0), "新增失败 / 修复", (counts.newFailures || 0) > 0) +
+        kpiCard(rate(base) + " → " + rate(current), "基线 → 本轮") +
+        kpiCard(current.line_rate == null ? "—" : (current.line_rate * 100).toFixed(1) + "%", "本轮行覆盖") +
+      "</div>" +
+      '<p class="muted stats-note">基线 <b>' + escapeHtml(base.run_id || "-") +
+        "</b>（" + escapeHtml(base.commit || "-") + " / " + escapeHtml(base.env || "-") +
+        "） → 本轮 <b>" + escapeHtml(current.run_id || "-") + "</b>（" +
+        escapeHtml(current.commit || "-") + " / " + escapeHtml(current.env || "-") + "）</p>" +
+      warning +
+      knownStrip +
+      charts +
+      '<div class="chart-panel"><div class="chart-head"><strong>结果差异</strong></div>' +
+        '<div class="drill-table-wrap"><table class="drawer-table drill-table bench-table"><thead><tr>' +
+          "<th>指标</th><th>基线</th><th>本轮</th><th>变化</th>" +
+        "</tr></thead><tbody>" +
+          comparePair("通过", totals.passed) +
+          comparePair("失败", totals.failed) +
+          comparePair("跳过", totals.skipped) +
+          comparePair("总数", totals.total) +
+          comparePair("接口覆盖率 %", totals.interfaceRate, "pp", 1) +
+          comparePair("DB 断言率 %", totals.dbRate, "pp", 1) +
+          comparePair("方法覆盖率 %", totals.methodRate, "pp", 1) +
+          comparePair("行覆盖率 %", [totals.lineRate && totals.lineRate[0] * 100,
+            totals.lineRate && totals.lineRate[1] * 100], "pp", 1) +
+          comparePair("总耗时 s", wallPair, "s", 1) +
+        "</tbody></table></div></div>" +
+      '<div class="tp-cards">' +
+        '<div class="tp-card"><h3>新增失败（' + (counts.newFailures || 0) + '）</h3>' +
+          '<div class="drill-table-wrap"><table class="drawer-table drill-table bench-table"><thead><tr>' +
+          "<th>用例</th><th>标题</th><th>状态</th></tr></thead><tbody>" +
+          compareRows(diff.newFailures, "无新增失败") + "</tbody></table></div></div>" +
+        '<div class="tp-card"><h3>修复（' + (counts.fixed || 0) + '）</h3>' +
+          '<div class="drill-table-wrap"><table class="drawer-table drill-table bench-table"><thead><tr>' +
+          "<th>用例</th><th>标题</th><th>状态</th></tr></thead><tbody>" +
+          compareRows(diff.fixed, "无修复") + "</tbody></table></div></div>" +
+      "</div>" +
+      '<div class="tp-cards">' +
+        '<div class="tp-card"><h3>新增用例（' + (counts.added || 0) + '）</h3>' +
+          '<div class="drill-table-wrap"><table class="drawer-table drill-table bench-table"><thead><tr>' +
+          "<th>用例</th><th>标题</th><th>状态</th></tr></thead><tbody>" +
+          compareRows(diff.added, "无新增") + "</tbody></table></div></div>" +
+        '<div class="tp-card"><h3>删除/退役（' + (counts.removed || 0) + '）</h3>' +
+          '<div class="drill-table-wrap"><table class="drawer-table drill-table bench-table"><thead><tr>' +
+          "<th>用例</th><th>标题</th><th>状态</th></tr></thead><tbody>" +
+          compareRows(diff.removed, "无删除") + "</tbody></table></div></div>" +
+      "</div>" +
+      '<div class="chart-panel"><div class="chart-head"><strong>结果迁移</strong></div>' +
+        '<div class="drill-table-wrap"><table class="drawer-table drill-table bench-table"><thead><tr>' +
+          "<th>基线状态</th><th>本轮状态</th><th>数量</th>" +
+        "</tr></thead><tbody>" + (transitions || '<tr><td colspan="3" class="muted">无迁移</td></tr>') +
+        "</tbody></table></div></div>";
+  }
+
+  function trendSvg(runs, field, label, scale) {
+    const items = runs.map(function (run) {
+      return {run: run, value: run[field] == null ? null : Number(run[field])};
+    }).filter(function (item) { return item.value != null; });
+    if (!items.length) return '<p class="muted">暂无趋势数据</p>';
+    const W = 900, H = 220, left = 50, right = 16, top = 16, bottom = 36;
+    const values = items.map(function (item) { return item.value; });
+    let max = Math.max.apply(null, values);
+    let min = Math.min.apply(null, values);
+    const pad = max === min ? Math.abs(max * 0.1) || 1 : (max - min) * 0.15;
+    max += pad;
+    min = Math.max(0, min - pad);
+    const span = max - min || 1;
+    const stepX = (W - left - right) / Math.max(1, items.length - 1);
+    const points = items.map(function (item, index) {
+      const x = left + index * stepX;
+      const y = top + (max - item.value) / span * (H - top - bottom);
+      return {x: x, y: y, item: item};
+    });
+    const line = points.map(function (point, index) {
+      return (index ? "L" : "M") + point.x.toFixed(1) + " " + point.y.toFixed(1);
+    }).join(" ");
+    const dots = points.map(function (point) {
+      return '<circle cx="' + point.x + '" cy="' + point.y + '" r="3" class="trend-dot"><title>' +
+        escapeHtml(point.item.run.run_id + " · " + point.item.run.started_at + " · " +
+          point.item.value + (scale || "")) + "</title></circle>";
+    }).join("");
+    return '<div class="trend-chart"><div class="trend-title">' + escapeHtml(label) + "</div>" +
+      '<svg viewBox="0 0 ' + W + " " + H + '" class="trend-svg">' +
+      '<line x1="' + left + '" y1="' + (H - bottom) + '" x2="' + (W - right) +
+      '" y2="' + (H - bottom) + '" class="grid"/>' +
+      '<text x="4" y="' + (top + 8) + '">' + max.toFixed(1) + "</text>" +
+      '<text x="4" y="' + (H - bottom) + '">' + min.toFixed(1) + "</text>" +
+      '<path d="' + line + '" class="trend-line"/>' + dots + "</svg></div>";
+  }
+
+  function renderCompareTrend(data) {
+    el.toolbar.hidden = true;
+    el.reconcileBox.hidden = true;
+    el.tableBox.hidden = true;
+    el.stats.hidden = true;
+    el.statsView.hidden = false;
+    const runs = (data.runs || []).filter(function (run) { return run.complete; })
+      .sort(function (a, b) { return (a.started_at || "").localeCompare(b.started_at || ""); })
+      .slice(-20);
+    const rows = runs.slice().reverse().map(function (run) {
+      return "<tr><td>" + escapeHtml(run.run_id) + "</td><td>" + escapeHtml(run.started_at) +
+        "</td><td>" + escapeHtml(run.commit || "-") + "</td><td>" + (run.total || 0) +
+        "</td><td>" + (run.failed || 0) + "</td><td>" +
+        (run.line_rate == null ? "—" : (run.line_rate * 100).toFixed(1) + "%") +
+        "</td><td>" + (run.wall_seconds ? run.wall_seconds + "s" : "—") + "</td></tr>";
+    }).join("");
+    el.statsView.innerHTML =
+      '<div class="stats-kpi">' +
+        kpiCard(runs.length, "完整运行轮次") +
+        kpiCard(runs.length ? runs[runs.length - 1].failed : "—", "最新失败数", true) +
+        kpiCard(runs.length && runs[runs.length - 1].line_rate != null
+          ? (runs[runs.length - 1].line_rate * 100).toFixed(1) + "%" : "—", "最新行覆盖") +
+      "</div>" +
+      '<p class="muted stats-note">仅统计 complete=true 的运行；趋势按 started_at 升序，最近 20 轮。</p>' +
+      '<div class="chart-panel"><div class="chart-head"><strong>失败数趋势</strong></div>' +
+        trendSvg(runs, "failed", "failed", "") + "</div>" +
+      '<div class="chart-panel"><div class="chart-head"><strong>行覆盖率趋势</strong></div>' +
+        trendSvg(runs.map(function (run) {
+          return Object.assign({}, run, {line_rate_pct: run.line_rate == null ? null : run.line_rate * 100});
+        }), "line_rate_pct", "line rate %", "%") + "</div>" +
+      '<div class="chart-panel"><div class="chart-head"><strong>总耗时趋势</strong>' +
+        '<span class="muted">仅展示有起止时间记录的轮次</span></div>' +
+        trendSvg(runs.filter(function (run) { return Number(run.wall_seconds) > 0; }),
+          "wall_seconds", "wall seconds", "s") + "</div>" +
+      '<div class="chart-panel"><div class="chart-head"><strong>运行列表</strong></div>' +
+        '<div class="drill-table-wrap"><table class="drawer-table drill-table bench-table"><thead><tr>' +
+          "<th>run_id</th><th>开始</th><th>commit</th><th>总数</th><th>失败</th><th>行覆盖</th><th>耗时</th>" +
+        "</tr></thead><tbody>" + rows + "</tbody></table></div></div>";
   }
 
   function renderUiView(data) {

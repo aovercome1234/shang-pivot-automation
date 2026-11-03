@@ -19,11 +19,19 @@ STATUS_MAP = {"passed": "passed", "failed": "failed", "broken": "failed", "skipp
 
 def main() -> None:
     latest: dict[str, dict] = {}
+    earliest_start = 0
+    latest_stop = 0
     for file in ALLURE.glob("*-result.json"):
         try:
             data = json.loads(file.read_text(encoding="utf-8"))
         except Exception:  # noqa: BLE001
             continue
+        start_ms = int(data.get("start") or 0)
+        stop_ms = int(data.get("stop") or start_ms)
+        if start_ms:
+            earliest_start = start_ms if not earliest_start else min(earliest_start, start_ms)
+        if stop_ms:
+            latest_stop = max(latest_stop, stop_ms)
         labels = {item.get("name"): item.get("value") for item in (data.get("labels") or [])}
         nodeid = labels.get("pytest_nodeid")
         if not nodeid:
@@ -37,13 +45,13 @@ def main() -> None:
                  if param.get("name") == "browser_name"),
                 "",
             )
-        start = data.get("start") or 0
+        start = start_ms
         if nodeid in latest and (latest[nodeid].get("start") or 0) > start:
             continue
         latest[nodeid] = {
             "nodeid": nodeid,
             "outcome": STATUS_MAP.get(data.get("status"), "failed"),
-            "duration_seconds": round(max(0, (data.get("stop") or start) - start) / 1000, 3),
+            "duration_seconds": round(max(0, stop_ms - start) / 1000, 3),
             "start": start,
             "raw_status": data.get("status"),
             "ui": is_ui,
@@ -72,7 +80,25 @@ def main() -> None:
     except Exception:  # noqa: BLE001
         pass
 
-    run_id = os.getenv("RUN_ID") or datetime.now().strftime("%Y%m%d-%H%M%S")
+    run_id = os.getenv("RUN_ID") or ""
+    if not run_id:
+        try:
+            run_id = json.loads(
+                (ROOT / "artifacts" / "run-manifest.json").read_text(encoding="utf-8")
+            ).get("run_id") or ""
+        except Exception:  # noqa: BLE001
+            run_id = ""
+    if not run_id:
+        run_id = datetime.now().strftime("%Y%m%d-%H%M%S")
+    started_at = (
+        datetime.fromtimestamp(earliest_start / 1000).isoformat(timespec="seconds")
+        if earliest_start else ""
+    )
+    finished_at = (
+        datetime.fromtimestamp(latest_stop / 1000).isoformat(timespec="seconds")
+        if latest_stop else datetime.now().isoformat(timespec="seconds")
+    )
+    wall_seconds = round(max(0, latest_stop - earliest_start) / 1000, 1)
     payload = {
         "exit_status": 0 if counts["failed"] == 0 else 1,
         "run_id": run_id,
@@ -89,8 +115,9 @@ def main() -> None:
     manifest = {
         "run_id": run_id,
         "worker": "final",
-        "started_at": "",
-        "finished_at": datetime.now().isoformat(timespec="seconds"),
+        "started_at": started_at,
+        "finished_at": finished_at,
+        "wall_seconds": wall_seconds,
         "git": git,
         "env": payload["env"],
         "case_library_hash": "-",

@@ -436,6 +436,10 @@ def build_data(report_dir: Path) -> dict:
         setup_origin.add(nodeid)
     for nodeid, extra in overrides.items():
         attribution[nodeid] = sorted(set(attribution.get(nodeid, [])) | set(extra))
+    for nodeid in list(attribution):
+        base = nodeid.split("[", 1)[0]
+        if base in overrides and base != nodeid:
+            attribution[nodeid] = sorted(set(attribution.get(nodeid, [])) | set(overrides[base]))
     spec = json.loads(OPENAPI.read_text(encoding="utf-8")) if OPENAPI.exists() else {}
     sampler = SchemaSampler(spec)
 
@@ -959,6 +963,26 @@ def main() -> None:
             "title": "UI 自动化",
             "views": [
                 {"id": "overview", "title": "浏览器矩阵", "type": "ui", "data": "data/ui.json"},
+            ],
+        },
+        {
+            "id": "compare",
+            "title": "版本对比",
+            "views": [
+                {"id": "diff", "title": "两轮对比", "type": "compare", "data": "data/compare.json"},
+                {"id": "trend", "title": "趋势", "type": "compareTrend", "data": "data/trend.json"},
+            ],
+        },
+        {
+            "id": "thirdparty",
+            "title": "三方组件",
+            "views": [
+                {"id": "overview", "title": "查询总览", "type": "thirdparty", "data": "data/thirdparty.json"},
+                {"id": "database", "title": "数据库模型", "type": "thirdpartyDatabase", "data": "data/thirdparty.json"},
+                {"id": "redis", "title": "Redis 核验", "type": "thirdpartyRedis", "data": "data/thirdparty.json"},
+                {"id": "mq", "title": "MQ 核验", "type": "thirdpartyMq", "data": "data/thirdparty.json"},
+                {"id": "sql", "title": "SQL 证据", "type": "thirdpartySql", "data": "data/thirdparty.json"},
+                {"id": "reproduce", "title": "复现步骤", "type": "thirdpartyRepro", "data": "data/thirdparty.json"},
             ],
         },
     ]

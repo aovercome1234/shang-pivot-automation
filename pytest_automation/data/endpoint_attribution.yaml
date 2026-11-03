@@ -18,3 +18,93 @@
 
 "tests/api/test_invariants.py::test_stock_conservation_on_order_and_cancel":
   - "POST /api/orders"
+
+# 接口级试点：显式声明测试主体接口，避免夹具里的登录/地址等 setup 端点抢占归属。
+"tests/api/endpoints/test_orders.py::TestCreateOrderEndpoint::test_validation_points":
+  - "POST /api/orders"
+"tests/api/endpoints/test_orders.py::TestCreateOrderEndpoint::test_boundary_quantity_one":
+  - "POST /api/orders"
+"tests/api/endpoints/test_orders.py::TestCreateOrderEndpoint::test_positive_api_db_mq":
+  - "POST /api/orders"
+"tests/api/endpoints/test_orders.py::TestCreateOrderEndpoint::test_idempotency_replay":
+  - "POST /api/orders"
+"tests/api/endpoints/test_orders.py::TestCreateOrderEndpoint::test_foreign_address_rejected":
+  - "POST /api/orders"
+"tests/api/endpoints/test_orders.py::TestCreateOrderEndpoint::test_bulk_twenty_items":
+  - "POST /api/orders"
+"tests/api/endpoints/test_orders.py::TestCreateOrderEndpoint::test_unauthenticated_rejected":
+  - "POST /api/orders"
+
+# 购物车/地址接口级场景
+"tests/api/endpoints/test_cart_address.py::TestCreateCartItem::test_cart_validation_points":
+  - "POST /api/cart/items"
+"tests/api/endpoints/test_cart_address.py::TestCreateCartItem::test_cart_positive_api_db":
+  - "POST /api/cart/items"
+"tests/api/endpoints/test_cart_address.py::TestCreateCartItem::test_cart_same_sku_merges":
+  - "POST /api/cart/items"
+"tests/api/endpoints/test_cart_address.py::TestCreateAddress::test_address_validation_points":
+  - "POST /api/addresses"
+"tests/api/endpoints/test_cart_address.py::TestCreateAddress::test_address_positive_api_db_and_default":
+  - "POST /api/addresses"
+
+# 认证 / 支付 / 售后 / 评价接口级场景
+"tests/api/endpoints/test_auth_payment_after_sales.py::TestCustomerAuth::test_sms_login_api_redis_db":
+  - "POST /api/auth/login"
+"tests/api/endpoints/test_auth_payment_after_sales.py::TestCustomerAuth::test_auth_validation_points":
+  - "POST /api/auth/login"
+"tests/api/endpoints/test_auth_payment_after_sales.py::TestPaymentSandbox::test_payment_api_db_mq":
+  - "POST /api/payment/sandbox"
+"tests/api/endpoints/test_auth_payment_after_sales.py::TestPaymentSandbox::test_payment_twice_single_row":
+  - "POST /api/payment/sandbox"
+"tests/api/endpoints/test_auth_payment_after_sales.py::TestAfterSale::test_apply_and_audit_api_db":
+  - "POST /api/after-sales"
+"tests/api/endpoints/test_auth_payment_after_sales.py::TestAfterSale::test_after_sale_validation_points":
+  - "POST /api/after-sales"
+"tests/api/endpoints/test_auth_payment_after_sales.py::TestReview::test_create_and_hide_api_db":
+  - "POST /api/reviews"
+
+# 管理端 CRUD 接口级场景：按实际动作归属，避免列表/登录 setup 抢占
+"tests/api/endpoints/test_admin_crud.py::TestAdminBrandCrud::test_brand_create_validation":
+  - "POST /admin/brands"
+"tests/api/endpoints/test_admin_crud.py::TestAdminBrandCrud::test_brand_create_api_db":
+  - "POST /admin/brands"
+"tests/api/endpoints/test_admin_crud.py::TestAdminBrandCrud::test_brand_update_api_db":
+  - "PUT /admin/brands/{id}"
+"tests/api/endpoints/test_admin_crud.py::TestAdminBrandCrud::test_brand_delete_api_db":
+  - "DELETE /admin/brands/{id}"
+
+"tests/api/endpoints/test_admin_crud.py::TestAdminCategoryCrud::test_category_create_validation":
+  - "POST /admin/categories"
+"tests/api/endpoints/test_admin_crud.py::TestAdminCategoryCrud::test_category_create_api_db":
+  - "POST /admin/categories"
+"tests/api/endpoints/test_admin_crud.py::TestAdminCategoryCrud::test_category_update_api_db":
+  - "PUT /admin/categories/{id}"
+"tests/api/endpoints/test_admin_crud.py::TestAdminCategoryCrud::test_category_delete_api_db":
+  - "DELETE /admin/categories/{id}"
+
+"tests/api/endpoints/test_admin_crud.py::TestAdminDictCrud::test_dict_create_validation":
+  - "POST /admin/dicts"
+"tests/api/endpoints/test_admin_crud.py::TestAdminDictCrud::test_dict_duplicate_code_conflict":
+  - "POST /admin/dicts"
+"tests/api/endpoints/test_admin_crud.py::TestAdminDictCrud::test_dict_create_api_db":
+  - "POST /admin/dicts"
+"tests/api/endpoints/test_admin_crud.py::TestAdminDictCrud::test_dict_update_api_db":
+  - "PUT /admin/dicts/{id}"
+"tests/api/endpoints/test_admin_crud.py::TestAdminDictCrud::test_dict_delete_api_db":
+  - "DELETE /admin/dicts/{id}"
+
+"tests/api/endpoints/test_admin_crud.py::TestAdminDeptCrud::test_dept_create_validation":
+  - "POST /admin/depts"
+"tests/api/endpoints/test_admin_crud.py::TestAdminDeptCrud::test_dept_create_api_db":
+  - "POST /admin/depts"
+"tests/api/endpoints/test_admin_crud.py::TestAdminDeptCrud::test_dept_update_api_db":
+  - "PUT /admin/depts/{id}"
+"tests/api/endpoints/test_admin_crud.py::TestAdminDeptCrud::test_dept_delete_api_db":
+  - "DELETE /admin/depts/{id}"
+
+"tests/api/endpoints/test_admin_crud.py::TestAdminWarehouseCrud::test_warehouse_create_validation":
+  - "POST /admin/warehouses"
+"tests/api/endpoints/test_admin_crud.py::TestAdminWarehouseCrud::test_warehouse_create_api_db":
+  - "POST /admin/warehouses"
+"tests/api/endpoints/test_admin_crud.py::TestAdminWarehouseCrud::test_warehouse_update_api_db":
+  - "PUT /admin/warehouses/{id}"
