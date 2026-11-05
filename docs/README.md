@@ -14,6 +14,8 @@
 | 架构决策 | [`04-architecture/adr/`](./04-architecture/adr/) |
 | V3 客服（设计就绪，未实现） | [`03-ai/customer-service-智能客服.md`](./03-ai/customer-service-智能客服.md) |
 | 启动 / 编码 / 出口 | [`开发与运维.md`](./开发与运维.md) |
+| 性能测试 / 链路追踪验收 | [`性能测试方案与链路监控评审.md`](./性能测试方案与链路监控评审.md) · [`性能测试实施方案.md`](./性能测试实施方案.md) |
+| 自动化测试架构面试题库 | [`面试题库-自动化测试架构.md`](./面试题库-自动化测试架构.md) |
 | 当前代码是哪一版 · 数据字典 · 业务规则 · 跨版本验证 | [`06-baseline/README.md`](./06-baseline/README.md) |
 | 原型本地预览（VSCode Live Server） | [`VSCode查看本地项目原型.md`](./VSCode查看本地项目原型.md) |
 | 演示商品图原件（MinIO 种子数据） | [`05-assets/`](./05-assets/) |

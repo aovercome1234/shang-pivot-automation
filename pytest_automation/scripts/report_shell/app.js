@@ -25,6 +25,7 @@
     thirdpartyMq: renderThirdpartyMq,
     compare: renderCompareView,
     compareTrend: renderCompareTrend,
+    perf: renderPerfView,
     placeholder: renderPlaceholder,
   };
 
@@ -2894,6 +2895,99 @@
         '<div class="drill-table-wrap"><table class="drawer-table drill-table bench-table"><thead><tr>' +
           "<th>项</th><th>说明</th>" +
         "</tr></thead><tbody>" + limitationRows + "</tbody></table></div></div>";
+  }
+
+  function renderPerfView(data) {
+    el.toolbar.hidden = true;
+    el.reconcileBox.hidden = true;
+    el.tableBox.hidden = true;
+    el.stats.hidden = true;
+    el.statsView.hidden = false;
+
+    const summary = (data && data.summary && data.summary.overall) || {};
+    const checks = (data && data.summary && data.summary.checks) || {};
+    const endpoints = (data && data.summary && data.summary.endpoints) || {};
+    const deploy = data.deploymentSync || {};
+    const limitations = data.limitations || [];
+    const links = data.links || {};
+    const allPass = Object.keys(checks).length > 0 && Object.keys(checks).every(function (key) { return checks[key]; });
+
+    function pct(value) {
+      const number = Number(value || 0) * 100;
+      return (Math.round(number * 1000) / 1000).toFixed(3) + "%";
+    }
+    function ms(value) {
+      return value == null ? "—" : Number(value).toFixed(2) + "ms";
+    }
+    function checkBadge(ok) {
+      return ok
+        ? '<span class="badge passed">PASS</span>'
+        : '<span class="badge failed">FAIL</span>';
+    }
+
+    const checkRows = Object.keys(checks).map(function (key) {
+      const label = {
+        error_rate_lt_1pct: "错误率 <1%",
+        p95_lt_800ms: "p95 <800ms",
+        p99_lt_1500ms: "p99 <1500ms",
+      }[key] || key;
+      return '<div class="check-chip"><b>' + escapeHtml(label) + "</b>" + checkBadge(checks[key]) + "</div>";
+    }).join("");
+
+    const endpointRows = Object.keys(endpoints).sort(function (a, b) {
+      return (endpoints[b].total || 0) - (endpoints[a].total || 0);
+    }).map(function (endpoint) {
+      const item = endpoints[endpoint];
+      return "<tr>" +
+        '<td><code>' + escapeHtml(endpoint) + "</code></td>" +
+        "<td>" + (item.total || 0) + "</td>" +
+        "<td>" + (item.failed || 0) + "</td>" +
+        "<td>" + pct(item.errorRate) + "</td>" +
+        "<td>" + ms(item.avgMs) + "</td>" +
+        "<td>" + ms(item.p95Ms) + "</td>" +
+        "<td>" + ms(item.p99Ms) + "</td>" +
+        "<td>" + ms(item.maxMs) + "</td>" +
+      "</tr>";
+    }).join("");
+
+    const deployPanel = deploy.status
+      ? '<div class="chart-panel"><div class="chart-head"><strong>部署同步状态</strong>' +
+        '<span class="muted">' + escapeHtml(deploy.checkedAt || "") + "</span></div>" +
+        '<div class="stats-note muted">' +
+          "状态：" + '<span class="badge ' + (deploy.status === "SYNCED" ? "passed" : "failed") + '">' +
+          escapeHtml(deploy.status) + "</span>" +
+          (deploy.reason ? "；原因：" + escapeHtml(deploy.reason) : "") +
+          (deploy.details ? "；" + escapeHtml(deploy.details) : "") +
+        "</div></div>"
+      : "";
+
+    const limitationRows = limitations.map(function (item) {
+      return '<li>' + escapeHtml(item) + "</li>";
+    }).join("");
+
+    el.statsView.innerHTML =
+      '<div class="stats-kpi">' +
+        kpiCard(allPass ? "PASS" : "FAIL", "基线结论", !allPass) +
+        kpiCard(escapeHtml(data.runId || "-"), "run_id") +
+        kpiCard(summary.actualRps + " / " + summary.targetRps, "实际 / 目标 RPS") +
+        kpiCard(summary.total || 0, "请求数") +
+        kpiCard(pct(summary.errorRate), "错误率", Number(summary.errorRate) >= 0.01) +
+        kpiCard(ms(summary.p95Ms), "p95") +
+        kpiCard(ms(summary.p99Ms), "p99") +
+      "</div>" +
+      '<div class="check-strip">' + checkRows + "</div>" +
+      '<div class="chart-panel"><div class="chart-head"><strong>分接口结果</strong>' +
+        '<span class="muted">商品详情已按 /products/{spuId} 聚合</span></div>' +
+        '<div class="drill-table-wrap"><table class="drawer-table drill-table bench-table"><thead><tr>' +
+          "<th>接口</th><th>请求数</th><th>失败</th><th>错误率</th><th>avg</th><th>p95</th><th>p99</th><th>max</th>" +
+        "</tr></thead><tbody>" + endpointRows + "</tbody></table></div></div>" +
+      deployPanel +
+      '<div class="chart-panel"><div class="chart-head"><strong>口径与限制</strong></div>' +
+        '<ul class="muted" style="line-height:1.9;margin:0;padding-left:18px">' + limitationRows + "</ul>" +
+        '<div class="stats-note muted">结果文件：<a href="' + escapeHtml(links.result || "#") + '">baseline-result.json</a> · ' +
+        '<a href="' + escapeHtml(links.report || "#") + '">baseline-report.md</a> · ' +
+        '<a href="' + escapeHtml(links.screenshot || "#") + '">extension-page.png</a></div>' +
+      "</div>";
   }
 
   function renderPlaceholder(view) {

@@ -28,7 +28,14 @@ public class TraceIdFilter extends OncePerRequestFilter {
         String incoming = request.getHeader(TraceIdUtil.HEADER);
         String traceId = TraceIdUtil.getOrCreate(incoming);
         TraceIdUtil.set(traceId);
+        TraceIdUtil.setPerfContext(
+                request.getHeader(TraceIdUtil.HEADER_PERF_RUN_ID),
+                request.getHeader(TraceIdUtil.HEADER_PERF_SCENARIO));
         response.setHeader(TraceIdUtil.HEADER, traceId);
+        String perfRunId = request.getHeader(TraceIdUtil.HEADER_PERF_RUN_ID);
+        if (perfRunId != null && !perfRunId.isBlank()) {
+            response.setHeader(TraceIdUtil.HEADER_PERF_RUN_ID, perfRunId);
+        }
         try {
             filterChain.doFilter(request, response);
         } finally {

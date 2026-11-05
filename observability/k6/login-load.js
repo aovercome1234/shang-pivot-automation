@@ -21,6 +21,7 @@ import { check, sleep } from 'k6';
 import {
   getAdminBaseUrl,
   getBaseUrl,
+  handlePerfSummary,
   isBusinessSuccess,
   jsonHeaders,
   parseJson,
@@ -28,6 +29,8 @@ import {
   thinkTime,
   verifyTokenUsable,
 } from './lib/shang.js';
+
+export const handleSummary = handlePerfSummary;
 
 const TARGET = (__ENV.LOGIN_TARGET || 'customer').toLowerCase();
 const RATE = Number(__ENV.RATE || 0);

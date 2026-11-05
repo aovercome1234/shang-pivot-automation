@@ -67,6 +67,9 @@ temp/
 !.env.example
 
 # ---------- 本地 issue tracker ----------
+# 本地验证产物（trace 证据、压测输出等）
+artifacts/
+
 # AGENT.md 约定：.scratch/<feature>/ 仅存本地 markdown，不进 git
 .scratch/
 

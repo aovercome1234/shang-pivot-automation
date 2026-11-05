@@ -62,6 +62,25 @@ bash ./scripts/deploy-platform-to-server.sh --revert  # 撤掉尚品汇接入项
 bash ./scripts/deploy-app.sh                          # 应用侧（actuator 指标 + OTel Agent）发布
 ```
 
+## SkyWalking 链路追踪（49.233.135.247）
+
+本仓库同时保留一套面向 `49.233.135.247` 的 SkyWalking 验收探针，用于验证“接口 → 代码 → SQL/Redis/MQ”链路完整性：
+
+```bash
+SW_USER='<skywalking-user>' SW_PASSWORD='<skywalking-password>' \
+python3 scripts/verify_skywalking_trace.py \
+  --base-url http://49.233.135.247:60084 \
+  --path '/api/search?q=iPhone' \
+  --out ../artifacts/observability/skywalking-trace-check.json
+```
+
+- 方案与评审：`../docs/性能测试方案与链路监控评审.md`；升级版实施方案：`../docs/性能测试实施方案.md`；
+- 方法级 trace 建议配置：`skywalking/agent-trace-methods.conf`；
+- 当前读链路已验证到 Controller/Service/SQL；登录链路已验证 Redis/PostgreSQL，代码方法 span 需按上述配置补齐后复验；
+- k6 口令不要写进命令行：`platform.sh k6` 会自动读取目标服务器 `/root/k6/shang/.env`；
+- 首轮公网只读基线：`artifacts/performance/perf-20261104-193755/`，扩展页 `ext/index.html#/perf/baseline`；
+- k6 客户端指标默认写入目标服务器 `127.0.0.1:9090/api/v1/write`，目标机没有 Prometheus 时用 `K6_PROMETHEUS_RW_SERVER_URL` 指向可达的 remote write。
+
 ## 本机入口（经隧道）
 
 | 服务 | 本机地址 | 凭据 |

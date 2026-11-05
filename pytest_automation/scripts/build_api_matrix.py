@@ -986,6 +986,15 @@ def main() -> None:
             ],
         },
     ]
+    perf_file = ext / "data" / "perf-baseline.json"
+    if perf_file.exists():
+        groups.append({
+            "id": "perf",
+            "title": "性能测试",
+            "views": [
+                {"id": "baseline", "title": "首轮基线", "type": "perf", "data": "data/perf-baseline.json"},
+            ],
+        })
     (ext / "manifest.json").write_text(
         json.dumps(
             {"version": datetime.now().strftime("%Y%m%d%H%M%S"), "groups": groups},

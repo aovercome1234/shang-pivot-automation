@@ -18,6 +18,7 @@
  *   THRESHOLD_P95_MS / THRESHOLD_P99_MS / THRESHOLD_FAIL_RATE / THRESHOLD_CHECK_RATE
  */
 import http from 'k6/http';
+import exec from 'k6/execution';
 import { check, fail } from 'k6';
 
 const TREND_STATS = ['avg', 'min', 'med', 'p(90)', 'p(95)', 'p(99)', 'max'];
@@ -50,6 +51,26 @@ export function authEnabled() {
   return (__ENV.ENABLE_AUTH || 'true').toLowerCase() !== 'false';
 }
 
+/** 每次压测执行的唯一标识；用于 k6 指标、请求头、summary 文件名对齐。 */
+const PERF_RUN_ID = __ENV.PERF_RUN_ID
+  || `perf-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
+
+export function getRunId() {
+  return PERF_RUN_ID;
+}
+
+export function getScenarioName() {
+  return __ENV.PERF_SCENARIO || (exec.scenario && exec.scenario.name) || 'default';
+}
+
+export function perfTags(extra) {
+  return Object.assign({ run_id: getRunId(), scenario: getScenarioName() }, extra || {});
+}
+
+export function requestTimeoutMs() {
+  return Number(__ENV.REQUEST_TIMEOUT_MS || 5000);
+}
+
 export function buildOptions(defaultVus, defaultDuration) {
   const thresholds = {
     http_req_failed: [`rate<${Number(__ENV.THRESHOLD_FAIL_RATE || 0.01)}`],
@@ -77,13 +98,15 @@ export function jsonHeaders(token) {
   const headers = {
     'Content-Type': 'application/json',
     Accept: 'application/json',
+    'X-Perf-Run-Id': getRunId(),
+    'X-Perf-Scenario': getScenarioName(),
   };
 
   if (token) {
     headers.Authorization = `Bearer ${token}`;
   }
 
-  return { headers };
+  return { headers, tags: perfTags(), timeout: requestTimeoutMs() };
 }
 
 export const authHeaders = jsonHeaders;
@@ -262,7 +285,11 @@ export function loadSkuPool(baseUrl, token, spuIds, limit) {
     const skus = body && body.data && Array.isArray(body.data.skus) ? body.data.skus : [];
     for (const sku of skus) {
       if (Number(sku.availableStock) > 0) {
-        pool.push({ spuId: asId(spuId), skuId: asId(sku.skuId) });
+        pool.push({
+          spuId: asId(spuId),
+          skuId: asId(sku.skuId),
+          availableStock: Number(sku.availableStock),
+        });
       }
     }
   }
@@ -278,6 +305,55 @@ export function pickRandom(values) {
   return values[Math.floor(Math.random() * values.length)];
 }
 
+/** 按库存加权选择 SKU，避免低库存商品在写链路 smoke 中很快被耗尽。 */
+export function pickWeightedByStock(pool) {
+  if (!pool || pool.length === 0) {
+    return null;
+  }
+
+  const total = pool.reduce((sum, item) => sum + Math.max(Number(item.availableStock) || 0, 1), 0);
+  let cursor = Math.random() * total;
+  for (const item of pool) {
+    cursor -= Math.max(Number(item.availableStock) || 0, 1);
+    if (cursor <= 0) {
+      return item;
+    }
+  }
+  return pool[pool.length - 1];
+}
+
+/**
+ * token 生命周期管理：默认 14 分钟刷新一次，避免 15 分钟 token 有效期影响长跑场景。
+ * initialToken 可用于复用 setup 阶段已登录的 token；refresh 返回 { token }。
+ */
+export function tokenProvider(initialToken, refresh, ttlMs) {
+  let token = initialToken || '';
+  let expiresAt = token ? Date.now() + Number(ttlMs || 14 * 60 * 1000) : 0;
+
+  return function getToken() {
+    if (token && Date.now() < expiresAt) {
+      return token;
+    }
+    const next = refresh();
+    token = next && next.token ? next.token : '';
+    expiresAt = token ? Date.now() + Number(ttlMs || 14 * 60 * 1000) : 0;
+    return token;
+  };
+}
+
+export function handlePerfSummary(data) {
+  const dir = (__ENV.PERF_ARTIFACT_DIR || '.').replace(/\/+$/, '');
+  const payload = {
+    runId: getRunId(),
+    scenario: getScenarioName(),
+    generatedAt: new Date().toISOString(),
+    data,
+  };
+  return {
+    [`${dir}/summary-${getRunId()}.json`]: JSON.stringify(payload, null, 2),
+  };
+}
+
 export function randomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
@@ -288,10 +364,10 @@ export function thinkTime() {
 
 /** 下单幂等键：同一 key 重复提交会被后端拒绝，每次迭代必须换新的。 */
 export function idempotentKey(prefix) {
-  return `${prefix || 'k6'}-${__VU}-${__ITER}-${Date.now()}`;
+  return `${prefix || 'k6'}-${getRunId()}-${__VU}-${__ITER}-${Date.now()}`;
 }
 
-function parseStages(rawStages) {
+export function parseStages(rawStages) {
   if (!rawStages) {
     return [];
   }

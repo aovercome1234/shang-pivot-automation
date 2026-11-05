@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
   日志栈：SLF4J + Logback。
-  MDC: traceId / userId / username（TraceIdFilter + JwtAuthFilter）
+  MDC: traceId / userId / username / perfRunId / perfScenario（TraceIdFilter + JwtAuthFilter）
 -->
 <configuration>
     <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
@@ -14,11 +14,11 @@
 
     <!-- 控制台：彩色、短时间、trace + 用户名前置，便于扫读 -->
     <property name="CONSOLE_LOG_PATTERN"
-              value="%clr(%d{HH:mm:ss.SSS}){faint} %clr(%-5level) %clr([%X{traceId:-}]){magenta} %clr(%X{username:--}){cyan} %clr(%logger{28}){blue} %msg%n"/>
+              value="%clr(%d{HH:mm:ss.SSS}){faint} %clr(%-5level) %clr([%X{traceId:-}]){magenta} %clr(%X{username:--}){cyan} %clr([perf=%X{perfRunId:--}/%X{perfScenario:--}]){yellow} %clr(%logger{28}){blue} %msg%n"/>
 
     <!-- 文件：完整时间 + 线程，便于检索 -->
     <property name="FILE_LOG_PATTERN"
-              value="%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%thread] [trace=%X{traceId:-}] [user=%X{userId:--}/%X{username:--}] %logger{40} - %msg%n"/>
+              value="%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%thread] [trace=%X{traceId:-}] [user=%X{userId:--}/%X{username:--}] [perf=%X{perfRunId:--}/%X{perfScenario:--}] %logger{40} - %msg%n"/>
 
     <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>

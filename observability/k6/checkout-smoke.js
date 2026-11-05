@@ -13,7 +13,7 @@
  *   模拟支付接口，不产生真实交易。
  *
  * 用法（一账号一 VU）：
- *   k6 run -e BASE_URL=http://127.0.0.1:8086/api \
+ *   k6 run -e BASE_URL=http://127.0.0.1:8090/api \
  *          -e PHONES=13800000001,13800000002,13800000003 \
  *          -e VUS=3 -e DURATION=1m k6/checkout-smoke.js
  */
@@ -24,6 +24,7 @@ import {
   authHeaders,
   expectOk,
   getBaseUrl,
+  handlePerfSummary,
   idempotentKey,
   isBusinessSuccess,
   jsonHeaders,
@@ -32,9 +33,12 @@ import {
   loadSpuIds,
   customerLoginOrFail,
   parseJson,
-  pickRandom,
+  pickWeightedByStock,
   thinkTime,
+  tokenProvider,
 } from './lib/shang.js';
+
+export const handleSummary = handlePerfSummary;
 
 export const options = {
   vus: Number(__ENV.VUS || 1),
@@ -61,7 +65,7 @@ export function setup() {
 
   const code = __ENV.CODE || '123456';
 
-  // 1. 每个账号登录并取默认收货地址（下单必填，token 按账号隔离）
+  // 1. 每个账号登录并取默认收货地址（下单必填，token 按账号隔离并支持长跑刷新）
   const users = [];
   for (const phone of phones) {
     const token = customerLoginOrFail(baseUrl, phone, code);
@@ -69,7 +73,14 @@ export function setup() {
     if (addresses.length === 0) {
       throw new Error(`压测账号 ${phone} 没有收货地址，无法下单。请先在会员中心添加地址。`);
     }
-    users.push({ phone, token, addressId: asId(addresses[0].id) });
+    users.push({
+      phone,
+      token,
+      addressId: asId(addresses[0].id),
+    });
+  }
+  if (options.vus > users.length) {
+    throw new Error(`VUS=${options.vus} 大于压测账号数=${users.length}。写链路必须一账号一 VU，请增加 PHONES 或减少 VUS。`);
   }
 
   // 2. 构建 (spuId, skuId) 池
@@ -83,25 +94,38 @@ export function setup() {
 
   console.log(
     `[checkout-smoke] 账号 ${users.length} 个，可用 SKU ${skuPool.length} 个，VUS=${options.vus}；` +
-      'VUS 超过账号数时会复用账号并可能触发购物车/库存竞争',
+      '写链路按一账号一 VU 执行，SKU 按可用库存加权选择',
   );
 
   return { baseUrl, users, skuPool };
 }
 
+const userTokenProviders = {};
+
+function getUserToken(baseUrl, user) {
+  if (!userTokenProviders[user.phone]) {
+    userTokenProviders[user.phone] = tokenProvider(
+      user.token,
+      () => ({ token: customerLoginOrFail(baseUrl, user.phone, __ENV.CODE || '123456') }),
+    );
+  }
+  return userTokenProviders[user.phone]();
+}
+
 export default function (data) {
-  // 一账号一 VU：__VU 从 1 开始，超出账号数时取模复用（会在日志里提示）
+  // 一账号一 VU：setup 已强制 VUS <= 账号数，避免购物车/库存竞争。
   const user = data.users[(__VU - 1) % data.users.length];
-  const picked = pickRandom(data.skuPool);
+  const token = getUserToken(data.baseUrl, user);
+  const picked = pickWeightedByStock(data.skuPool);
 
   const addResponse = http.post(
     `${data.baseUrl}/cart/items`,
     JSON.stringify({ skuId: picked.skuId, quantity: 1 }),
-    authHeaders(user.token),
+    authHeaders(token),
   );
   expectOk(addResponse, 'add cart item');
 
-  const cartResponse = http.get(`${data.baseUrl}/cart`, authHeaders(user.token));
+  const cartResponse = http.get(`${data.baseUrl}/cart`, authHeaders(token));
   expectOk(cartResponse, 'get cart');
 
   const checkoutResponse = http.post(
@@ -112,7 +136,7 @@ export default function (data) {
       quantity: 1,
       idempotentKey: idempotentKey('k6-checkout'),
     }),
-    authHeaders(user.token),
+    authHeaders(token),
   );
   const checkoutResult = expectOk(checkoutResponse, 'submit order');
 
@@ -125,7 +149,7 @@ export default function (data) {
     const payResponse = http.post(
       `${data.baseUrl}/payment/sandbox`,
       JSON.stringify({ orderId: asId(orderId) }),
-      authHeaders(user.token),
+      authHeaders(token),
     );
     expectOk(payResponse, 'sandbox pay');
   } else {

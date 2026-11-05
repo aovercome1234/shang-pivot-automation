@@ -1,5 +1,5 @@
 {
-  "description": "尚品汇日志解析：把 Filebeat 搬来的原始行按来源做 grok 解析。两个来源：shang-pivot-app（logback 应用日志）、shang-pivot-access（AccessLogFilter 逐请求日志，含 traceId/状态码/耗时/用户/响应体）。字段设计沿用本地 Logstash 管道，两者语义一致。",
+  "description": "尚品汇日志解析：把 Filebeat 搬来的原始行按来源做 grok 解析。两个来源：shang-pivot-app（logback 应用日志）、shang-pivot-access（AccessLogFilter 逐请求日志，含 traceId/perf上下文/状态码/耗时/用户/响应体）。字段设计沿用本地 Logstash 管道，两者语义一致。logback 自 2026-11-04 起增加 [perf=run/scenario]，grok 中保持可选以兼容历史日志。",
   "processors": [
     {
       "grok": {
@@ -7,8 +7,8 @@
         "if": "ctx.log_source == 'shang-pivot-access'",
         "field": "message",
         "patterns": [
-          "^%{TIMESTAMP_ISO8601:app_timestamp}\\s+%{LOGLEVEL:log_level}\\s+\\[%{DATA:thread}\\]\\s+\\[trace=%{DATA:trace_id}\\]\\s+\\[user=%{DATA:user_id}/%{DATA:username}\\]\\s+%{DATA:logger}\\s+-\\s+→\\s+%{WORD:http_method}\\s+%{DATA:request_uri}\\s+\\|\\s+ip=%{DATA:client_ip}\\s+\\|\\s+ct=%{DATA:content_type}$",
-          "^%{TIMESTAMP_ISO8601:app_timestamp}\\s+%{LOGLEVEL:log_level}\\s+\\[%{DATA:thread}\\]\\s+\\[trace=%{DATA:trace_id}\\]\\s+\\[user=%{DATA:user_id}/%{DATA:username}\\]\\s+%{DATA:logger}\\s+-\\s+←\\s+%{WORD:http_method}\\s+%{DATA:request_uri}\\s+\\|\\s+status=%{INT:http_status:int}\\s+\\|\\s+%{INT:duration_ms:int}ms\\s+\\|\\s+ip=%{DATA:client_ip}\\s+\\|\\s+user=%{DATA:tail_user}\\s+\\|\\s+req=%{DATA:req_size}\\s+\\|\\s+resp=%{GREEDYDATA:resp_body}$"
+          "^%{TIMESTAMP_ISO8601:app_timestamp}\\s+%{LOGLEVEL:log_level}\\s+\\[%{DATA:thread}\\]\\s+\\[trace=%{DATA:trace_id}\\]\\s+\\[user=%{DATA:user_id}/%{DATA:username}\\](?:\\s+\\[perf=%{NOTSPACE:perf_run_id}/%{NOTSPACE:perf_scenario}\\])?\\s+%{DATA:logger}\\s+-\\s+→\\s+%{WORD:http_method}\\s+%{DATA:request_uri}\\s+\\|\\s+ip=%{DATA:client_ip}\\s+\\|\\s+ct=%{DATA:content_type}$",
+          "^%{TIMESTAMP_ISO8601:app_timestamp}\\s+%{LOGLEVEL:log_level}\\s+\\[%{DATA:thread}\\]\\s+\\[trace=%{DATA:trace_id}\\]\\s+\\[user=%{DATA:user_id}/%{DATA:username}\\](?:\\s+\\[perf=%{NOTSPACE:perf_run_id}/%{NOTSPACE:perf_scenario}\\])?\\s+%{DATA:logger}\\s+-\\s+←\\s+%{WORD:http_method}\\s+%{DATA:request_uri}\\s+\\|\\s+status=%{INT:http_status:int}\\s+\\|\\s+%{INT:duration_ms:int}ms\\s+\\|\\s+ip=%{DATA:client_ip}\\s+\\|\\s+user=%{DATA:tail_user}\\s+\\|\\s+req=%{DATA:req_size}\\s+\\|\\s+resp=%{GREEDYDATA:resp_body}$"
         ],
         "ignore_failure": true
       }
@@ -42,11 +42,11 @@
     },
     {
       "grok": {
-        "description": "logback FILE_LOG_PATTERN：时间 级别 [线程] [trace=] [user=/] logger - 消息",
+        "description": "logback FILE_LOG_PATTERN：时间 级别 [线程] [trace=] [user=/] [perf=run/scenario]（可选） logger - 消息",
         "if": "ctx.log_source == 'shang-pivot-app'",
         "field": "message",
         "patterns": [
-          "^%{TIMESTAMP_ISO8601:app_timestamp}\\s+%{LOGLEVEL:log_level}\\s+\\[%{DATA:thread}\\]\\s+\\[trace=%{DATA:trace_id}\\]\\s+\\[user=%{DATA:user_id}/%{DATA:username}\\]\\s+%{DATA:logger}\\s+-\\s+%{GREEDYDATA:log_message}$"
+          "^%{TIMESTAMP_ISO8601:app_timestamp}\\s+%{LOGLEVEL:log_level}\\s+\\[%{DATA:thread}\\]\\s+\\[trace=%{DATA:trace_id}\\]\\s+\\[user=%{DATA:user_id}/%{DATA:username}\\](?:\\s+\\[perf=%{NOTSPACE:perf_run_id}/%{NOTSPACE:perf_scenario}\\])?\\s+%{DATA:logger}\\s+-\\s+%{GREEDYDATA:log_message}$"
         ],
         "ignore_failure": true
       }

@@ -138,11 +138,21 @@ cmd_k6() {
   require_ssh
   [ "$#" -ge 1 ] || fail "用法：platform.sh k6 <脚本> [-e KEY=VALUE ...]"
   local script="$1"; shift
-  printf '在服务器上跑 k6：%s（指标写入服务器 Prometheus）\n' "$script"
+  local prom_url="${K6_PROMETHEUS_RW_SERVER_URL:-http://127.0.0.1:9090/api/v1/write}"
+  local run_id="${PERF_RUN_ID:-perf-$(date +%Y%m%d-%H%M%S)}"
+  local artifact_dir="${PERF_ARTIFACT_DIR:-artifacts/performance/$run_id}"
+  local console_log="$artifact_dir/k6-console-$script.log"
+  printf '在服务器上跑 k6：%s（run_id=%s，summary=%s，console=%s，指标写入 %s）\n' \
+    "$script" "$run_id" "$artifact_dir" "$console_log" "$prom_url"
   # --tag app=shang-pivot：客户端指标带上 app 标签，仪表板据此只显示本项目的压测数据
-  remote "cd $REMOTE_K6 && K6_PROMETHEUS_RW_SERVER_URL=http://127.0.0.1:9090/api/v1/write \
+  # 远端 /root/k6/shang/.env 可保存 PHONE/ACCOUNT/PASSWORD 等敏感项，避免写进命令行。
+  # 先落盘再 cat，保留 k6 退出码；兼容远端默认 shell 不是 bash 的场景。
+  remote "mkdir -p '$artifact_dir' && cd $REMOTE_K6 && if [ -f .env ]; then set -a; . ./.env; set +a; fi && \
+    PERF_RUN_ID='$run_id' PERF_ARTIFACT_DIR='$artifact_dir' \
+    K6_PROMETHEUS_RW_SERVER_URL=$prom_url \
     K6_PROMETHEUS_RW_TREND_STATS='p(95),p(99),avg,min,max' \
-    /usr/local/bin/k6 run -o experimental-prometheus-rw --tag app=shang-pivot $script $*"
+    /usr/local/bin/k6 run -o experimental-prometheus-rw --tag app=shang-pivot $script $* \
+      > '$console_log' 2>&1; rc=\$?; cat '$console_log'; exit \$rc"
 }
 
 case "${1:-}" in
